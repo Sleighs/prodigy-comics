@@ -1,0 +1,274 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+
+  --color-gold-dark: rgb(157, 97, 6, 1);
+  --color-gold-light: rgb(207, 148, 21);
+  --color-orangered: rgb(172, 31, 2);
+  --color-red-light: rgb(187, 13, 0, 1);
+  --color-red-dark: rgb(142, 3, 0);
+  --color-red-very-dark: rgb(15, 15, 15);
+  --color-darkgray: rgb(23, 24, 21);
+
+  /* Extended Comic Theme Colors */
+  --color-blood: rgb(187, 13, 0);
+  --color-blood-dark: rgb(142, 3, 0);
+  --color-steel: rgb(45, 46, 45);
+  --color-steel-dark: rgb(35, 36, 35);
+  --color-ash: rgb(89, 89, 89);
+  --color-gold-highlight: rgb(255, 187, 0);
+  --color-text-muted: rgb(170, 170, 170);
+
+  /* New Blue and Green Palette */
+  --color-cyber-blue: rgb(0, 195, 255);
+  --color-cyber-blue-dark: rgb(0, 150, 200);
+  --color-cyber-blue-darker: rgb(0, 100, 150);
+  --color-neon-green: rgb(57, 255, 20);
+  --color-neon-green-dark: rgb(40, 180, 15);
+  --color-neon-green-darker: rgb(30, 130, 10);
+  --color-tech-gray: rgb(30, 35, 40);
+  --color-tech-gray-dark: rgb(20, 25, 30);
+  --color-tech-gray-darker: rgb(10, 15, 20);
+
+  /* New Purple and Dark Blue Palette */
+  --color-royal-purple: rgb(102, 51, 153);
+  --color-royal-purple-dark: rgb(76, 38, 115);
+  --color-royal-purple-darker: rgb(51, 26, 77);
+  --color-deep-blue: rgb(0, 0, 139);
+  --color-deep-blue-dark: rgb(0, 0, 100);
+  --color-deep-blue-darker: rgb(0, 0, 70);
+  --color-midnight: rgb(25, 25, 112);
+  --color-midnight-dark: rgb(15, 15, 80);
+  --color-midnight-darker: rgb(10, 10, 50);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: rgb(23, 24, 21);
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Helvetica, sans-serif;
+}
+
+.nav-title {
+  color:white;
+}
+
+.roboto-condensed-bold {
+  font-family: var(--font-roboto-condensed), sans-serif;
+  font-weight: 700;
+}
+.roboto-condensed {
+  font-family: var(--font-roboto-condensed), sans-serif;
+  font-weight: 400;
+}
+.roboto-bold {
+  font-family: var(--font-roboto-bold), sans-serif;
+  font-weight: 700;
+}
+.roboto {
+  font-family: var(--font-roboto), sans-serif;
+  font-weight: 400;
+}
+.poppins {
+  font-family: var(--font-poppins), sans-serif;
+  font-weight: 400;
+}
+.poppins-light {
+  font-family: var(--font-poppins), sans-serif;
+  font-weight: 300;
+}
+.poppins-medium {
+  font-family: var(--font-poppins), sans-serif;
+  font-weight: 500;
+}
+.poppins-semibold {
+  font-family: var(--font-poppins), sans-serif;
+  font-weight: 600;
+}
+.poppins-bold {
+  font-family: var(--font-poppins), sans-serif;
+  font-weight: 700;
+}
+
+.section-title {
+  font-family: var(--font-roboto-condensed), sans-serif;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: white;
+  font-size: 2.5rem;
+  text-shadow: 0 0 2px rgba(255, 255, 255, 0.1);
+}
+
+.section-subtitle {
+  font-family: var(--font-roboto-bold), sans-serif;
+  margin-bottom: 1rem;
+  color: white;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+
+
+
+
+/* Theme Colors */
+.bg-gold-dark {
+  background-color: var(--color-gold-dark);
+}
+.bg-gold-light {
+  background-color: var(--color-gold-light);
+}
+.bg-orangered {
+  background-color: var(--color-orangered);
+}
+.bg-red-light {
+  background-color: var(--color-red-light);
+}
+.bg-red-dark {
+  background-color: var(--color-red-dark);
+}
+.bg-darkgray {
+  background-color: var(--color-darkgray);
+}
+
+.bg-steel {
+  background-color: var(--color-steel);
+}
+
+.bg-steel-dark {
+  background-color: var(--color-steel-dark);
+}
+
+.bg-blood {
+  background-color: var(--color-blood);
+}
+
+/* Text Colors */ 
+.text-gold-dark {
+  color: var(--color-gold-dark);
+}
+.text-gold-light {
+  color: var(--color-gold-light);
+}
+.text-orangered {
+  color: var(--color-orangered);
+}
+.text-red-light {
+  color: var(--color-red-light);
+}
+.text-red-dark {
+  color: var(--color-red-dark);
+}
+.text-darkgray {
+  color: var(--color-darkgray);
+}
+.text-white {
+  color: white;
+}
+
+.text-gold {
+  color: var(--color-gold-light);
+}
+
+.text-muted {
+  color: var(--color-text-muted);
+}
+
+.hover-blood:hover {
+  background-color: var(--color-blood-dark);
+}
+
+.bg-gradient-dark {
+  background: linear-gradient(to bottom, var(--color-steel-dark), var(--color-darkgray));
+}
+
+/* New Theme Classes */
+.bg-tech-gray {
+  background-color: var(--color-tech-gray);
+}
+
+.bg-tech-gray-dark {
+  background-color: var(--color-tech-gray-dark);
+}
+
+.bg-cyber-blue {
+  background-color: var(--color-cyber-blue);
+}
+
+.text-cyber-blue {
+  color: var(--color-cyber-blue);
+}
+
+.text-neon-green {
+  color: var(--color-neon-green);
+}
+
+.hover-cyber-blue:hover {
+  background-color: var(--color-cyber-blue-dark);
+}
+
+.bg-gradient-tech {
+  background: linear-gradient(to bottom, var(--color-tech-gray), var(--color-tech-gray-darker));
+}
+
+.bg-royal-purple {
+  background-color: var(--color-royal-purple);
+}
+
+.bg-royal-purple-dark {
+  background-color: var(--color-royal-purple-dark);
+}
+
+.bg-deep-blue {
+  background-color: var(--color-deep-blue);
+}
+
+.bg-deep-blue-dark {
+  background-color: var(--color-deep-blue-dark);
+}
+
+.bg-midnight {
+  background-color: var(--color-midnight);
+}
+
+.text-royal-purple {
+  color: var(--color-royal-purple);
+}
+
+.text-deep-blue {
+  color: var(--color-deep-blue);
+}
+
+.hover-royal-purple:hover {
+  background-color: var(--color-royal-purple-dark);
+}
+
+.hover-deep-blue:hover {
+  background-color: var(--color-deep-blue-dark);
+}
+
+.bg-gradient-royal {
+  background: linear-gradient(135deg, var(--color-royal-purple) 0%, var(--color-deep-blue) 100%);
+}
+
+.bg-gradient-midnight {
+  background: linear-gradient(135deg, var(--color-midnight) 0%, var(--color-midnight-darker) 100%);
+}

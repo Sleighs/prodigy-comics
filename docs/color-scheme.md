@@ -1,0 +1,8 @@
+  --color-gold-1: rgb(157, 97, 6, 1);
+  --color-gold-2: rgb(176, 112, 13, 1);
+  --color-gold-3: rgb(207 148 21);
+  --color-orangered-1: rgb(172 31 2);
+  --color-orangered-2: rgb(154 24 15);
+  --color-red-1: rgb(187, 13, 0, 1);
+  --color-red-2: rgb(142 3 0);
+  --color-darkgray-1: rgb(23 24 21);
