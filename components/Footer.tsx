@@ -17,12 +17,12 @@ export default function Footer() {
             <ul className="space-y-2">
               <li>
                 <a href="https://www.indiegogo.com/projects/prodigy-new-age-hell-on-earth-book-0" className="hover:text-white transition-colors" target="_blank" rel="noopener noreferrer">
-                  IndioGoGo Campaign
+                  Book #0 Campaign
                 </a>
               </li>
               <li>
                 <Link href="/story" className="hover:text-white transition-colors">
-                  The Story
+                  Story
                 </Link>
               </li>
               <li>
@@ -52,7 +52,7 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-white transition-colors" target="_blank" rel="noopener noreferrer">
+                <a href="https://www.youtube.com/@popculturerocks" className="hover:text-white transition-colors" target="_blank" rel="noopener noreferrer">
                   Youtube
                 </a>
               </li>

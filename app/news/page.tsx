@@ -53,17 +53,6 @@ export default function NewsPage() {
 
   return (
     <main className="min-h-screen bg-zinc-900 text-white pt-16"> {/* Add pt-16 here */}
-      {/* Hero Section */}
-      {/* <section className="news-hero relative h-[40vh]">
-        <div className="absolute inset-0 bg-gradient-to-r from-red-900/70 to-black/70 z-10" />
-        <div className="container mx-auto px-4 h-full flex items-center relative z-20">
-          <h1 className="text-6xl font-bold font-poppins-bold text-white">
-            Latest News
-          </h1>
-        </div>
-      </section> */}
-
-
        {/* Social Strip */}
        <div className="bg-zinc-800 py-3">
         <div className="container mx-auto px-4 flex flex-col sm:flex-row justify-between items-center">

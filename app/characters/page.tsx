@@ -69,13 +69,13 @@ export default function CharactersPage() {
       <section className="relative h-[50vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-black/80" />
-          <Image
+          {/* <Image
             src="/images/characters/hero.jpg"
             alt="Prodigy Characters"
             fill
             className="object-cover"
             priority
-          />
+          /> */}
         </div>
         
         <div className="relative z-10 text-center px-4">

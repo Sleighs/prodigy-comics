@@ -4,6 +4,22 @@ import Image from 'next/image';
 import { useState, useEffect, useRef } from 'react';
 import '../styles/carousel.css';
 
+type Slide = {
+  id: number;
+  title: string;
+  subtitle: string;
+  description: string;
+  image: string;
+  link: string;
+  price: string | null;
+  accentColor: string;
+  topImage?: boolean;
+  overlay?: boolean;
+  yOffset?: string;
+  xOffset?: string;
+  imageContain?: string;
+};
+
 const slides = [
   {
     id: 1,
@@ -12,38 +28,42 @@ const slides = [
     description: "The GODSTRAND has been discovered. Humanity will never be the same.",
     image: "/images/book0-preview1.png",
     link: "https://www.indiegogo.com/projects/prodigy-new-age-hell-on-earth-book-0#/",
-    price: null, //"$28.00",
-    accentColor: "from-red-600 to-orange-500"
+    price: "$28.00",
+    accentColor: "from-red-600 to-orange-500",
+    overlay: true
   },
   {
     id: 2,
-    title: "PRODIGY New Age STUFFED box",
-    subtitle: "The Ultimate Collection",
-    description: "Everything you need to enter the world of PRODIGY. Limited time offer.",
-    image: "/images/stuffed-box1.png",
-    link: "https://www.indiegogo.com/projects/prodigy-new-age-hell-on-earth-book-0#/",
-    price: null, //"$250.00",
-    accentColor: "from-blue-600 to-purple-600"
-  },
-  {
-    id: 3,
     title: "Ember & Impulse / Sisters of Fire",
     subtitle: "The Fire Sisters",
     description: "Two sisters. One destiny. Unlimited power.",
     image: "/images/ember-campaign.png",
     link: "https://www.indiegogo.com/projects/prodigy-new-age-hell-on-earth-book-0#/",
-    price: null, //"$25.00",
-    accentColor: "from-orange-500 to-red-600"
+    price: null,
+    accentColor: "from-orange-500 to-red-600",
+    topImage: true,
+    xOffset: "25%",
+    imageContain: true,
+  },
+  {
+    id: 3,
+    title: "PRODIGY New Age STUFFED box",
+    subtitle: "The Ultimate Collection",
+    description: "Everything you need to enter the world of PRODIGY. Limited time offer.",
+    image: "/images/stuffed-box-cutout.png",
+    link: "https://www.indiegogo.com/projects/prodigy-new-age-hell-on-earth-book-0#/",
+    price: "$250.00",
+    accentColor: "from-blue-600 to-purple-600"
   },
   {
     id: 4,
-    title: "CLAN BUSHIDO",
-    subtitle: "Ancient Warriors",
-    description: "Centuries of tradition. A new era of power.",
-    image: "/images/clan-bushido-logo.png",
+    title: "WOLFPAK",
+    subtitle: "We Are No Longer Men",
+    description: "The world's deadliest counter-measures team. Enhanced. Unleashed. Uncontrollable.",
+    image: "/images/unknown4.png",
     link: "https://www.indiegogo.com/projects/prodigy-new-age-hell-on-earth-book-0#/",
-    price: null, //"$45.00",
-    accentColor: "from-gray-800 to-gray-600"
+    price: null,
+    accentColor: "from-gray-900 to-red-900"
   },
   {
     id: 5,
@@ -51,11 +71,22 @@ const slides = [
     subtitle: "A New Age of Power",
     description: "The world is changing. Humans are evolving. The GODSTRAND has been discovered.",
     image: "/",
-    link: "/",
+    link: "/story",
     price: null,
     accentColor: "from-blue-600 to-purple-600"
   }
+  // {
+  //   id: 4,
+  //   title: "CLAN BUSHIDO",
+  //   subtitle: "Ancient Warriors",
+  //   description: "Centuries of tradition. A new era of power.",
+  //   image: "/images/clan-bushido-logo.png",
+  //   link: "/story",
+  //   price: null, //"$45.00",
+  //   accentColor: "from-gray-800 to-gray-600"
+  // },
 ];
+
 
 export default function HeroCarousel() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -64,7 +95,7 @@ export default function HeroCarousel() {
   const timerRef = useRef<NodeJS.Timeout | null>(null);
   const startTimeRef = useRef<number>(Date.now());
 
-  const SLIDE_DURATION = 5200; // 5 seconds per slide
+  const SLIDE_DURATION = 5200; // Duration for each slide in milliseconds
 
   const startTimer = () => {
     if (timerRef.current) {
@@ -97,12 +128,27 @@ export default function HeroCarousel() {
   useEffect(() => {
     const cleanup = startTimer();
     return cleanup;
-  }, [currentSlide]);
+  }, [currentSlide, isPaused]);
 
   const handleSlideChange = (index: number) => {
-    setCurrentSlide(index);
+    if (index === currentSlide) {
+      setIsPaused(!isPaused);
+    }
+    
+    // Clear existing timer immediately
+    if (timerRef.current) {
+      clearInterval(timerRef.current);
+      timerRef.current = null;
+    }
+
+    // Set slide position
+    setCurrentSlide(index); 
     setProgress(0);
-    startTimeRef.current = Date.now();
+
+    if (!(index === currentSlide)) { 
+      startTimeRef.current = Date.now();
+      startTimer();
+    }
   };
 
   return (
@@ -121,7 +167,13 @@ export default function HeroCarousel() {
               src={slide.image}
               alt={slide.title}
               fill
-              className="object-cover"
+              style={{ 
+                left: slide.xOffset || '',
+              }}
+              className={`
+                ${slide.topImage ? 'object-top' : 'object-center'}
+                ${slide.imageContain ? 'object-contain' : 'object-cover'}
+              `}
               priority={index === 0}
             />
               <div className="absolute inset-0 bg-gradient-to-r from-black/80 to-transparent" />
@@ -144,11 +196,11 @@ export default function HeroCarousel() {
                   <p className="text-lg md:text-xl text-gray-200 max-w-lg roboto">
                     {slide.description}
                   </p>
-                  {slide.price && (
+                    {/* {slide.price && (
                     <p className="text-3xl font-bold text-red-500">
                       {slide.price}
                     </p>
-                  )}
+                  )} */}
                   <a
                     href={slide.link}
                     target={slide.link.startsWith('http') ? '_blank' : '_self'}
@@ -160,14 +212,18 @@ export default function HeroCarousel() {
                 </div>
 
                 {/* Optional Image Overlay */}
-                {index === 0 && (
-                  <div className="hidden md:block relative h-[500px]">
+                {(slide.overlay) && (
+                  <div className={`hidden md:block relative h-[500px] ${
+                    slide.topImage ? 'md:-mt-20' : ''
+                  }`}>
                     <div className="absolute inset-0 bg-gradient-to-r from-transparent to-black/50" />
                     <Image
                       src={slide.image}
                       alt={slide.title}
                       fill
-                      className="object-contain"
+                      className={`object-contain ${
+                        slide.topImage ? 'object-top' : 'object-center'
+                      }`}
                     />
                   </div>
                 )}
@@ -182,13 +238,12 @@ export default function HeroCarousel() {
         {slides.map((_, index) => (
           <div key={index} className="relative">
             <button
-              onClick={() => {
-                handleSlideChange(index);
-                if (index == currentSlide) {
-                  setIsPaused(!isPaused);
-                }
-              }}
-              className={`h-1.5 w-[150px] transition-all duration-300 carousel-button bg-gray-600 hover:bg-gray-500`}
+              onClick={() => handleSlideChange(index)}
+              className={`h-1.5 w-[150px] transition-all duration-300 carousel-button ` 
+              + (index === currentSlide && isPaused
+                ? ` bg-red-light hover:bg-red-dark`
+                : `bg-gray-600 hover:bg-gray-500`)
+              }
               aria-label={`Go to slide ${index + 1}`}
               style={{
                 cursor: 'pointer',
@@ -196,8 +251,9 @@ export default function HeroCarousel() {
             />
             {(index === currentSlide && !isPaused) && (
               <div 
-                className="absolute bottom-[30%] left-0 h-1.5 bg-red-500 transition-all duration-100 ease-linear"
+                className="absolute bottom-[30%] left-0 h-1.5 bg-red-light transition-all duration-100 ease-linear"
                 style={{ width: `${progress}%`}} 
+                onClick={() => handleSlideChange(index)}
               />
             )}
           </div>

@@ -9,13 +9,13 @@ export default function StoryPage() {
       <section className="relative h-[60vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-black/70" />
-          <Image
+          {/* <Image
             src="/images/story-hero.jpg"
             alt="Prodigy Story"
             fill
             className="object-cover"
             priority
-          />
+          /> */}
         </div>
         
         <div className="relative z-10 text-center px-4">
