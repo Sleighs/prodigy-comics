@@ -62,8 +62,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${roboto.variable} ${robotoCondensed.variable} ${robotoBold.variable} ${poppins.variable} ${poppinsLight.variable} ${poppinsBold.variable} ${poppinsSemibold.variable} ${poppinsMedium.variable}`}>
-      <body>
+    <html lang="en" className={`${roboto.variable} ${robotoCondensed.variable} ${robotoBold.variable}`}>
+      <body className="roboto">
         <Navbar />
         {/* <NotificationBar 
           message="Pre-order PRODIGY: Hell on Earth Book #0 now and get exclusive rewards!" 

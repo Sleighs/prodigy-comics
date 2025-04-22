@@ -70,7 +70,7 @@ const slides = [
     title: "Welcome to PRODIGY Comics",
     subtitle: "A New Age of Power",
     description: "The world is changing. Humans are evolving. The GODSTRAND has been discovered.",
-    image: "/",
+    image: "none",
     link: "/story",
     price: null,
     accentColor: "from-blue-600 to-purple-600"

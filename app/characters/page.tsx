@@ -77,9 +77,8 @@ export default function CharactersPage() {
             priority
           /> */}
         </div>
-        
         <div className="relative z-10 text-center px-4">
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 text-gold">
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 section-title">
             Characters
           </h1>
           <p className="text-xl md:text-2xl max-w-2xl mx-auto text-muted">
@@ -93,7 +92,7 @@ export default function CharactersPage() {
       <section className="py-20 featured-section">
         <div className="featured-bg"></div>
         <div className="max-w-6xl mx-auto px-4 relative z-10">
-          <h2 className="text-4xl font-bold mb-12 text-center text-gold">Featured Characters</h2>
+          <h2 className="text-4xl font-bold mb-12 text-center section-title">Featured Characters</h2>
           <div className="grid md:grid-cols-3 gap-8">
             {characters.featured.map((character) => (
               <div key={character.id} className="characters--featured-characters-card backdrop-blur-sm overflow-hidden hover:transform hover:scale-103 transition-all duration-300 shadow-lg shadow-blood/10">
@@ -107,12 +106,12 @@ export default function CharactersPage() {
                   />
                 </div>
                 <div className="p-6">
-                  <h3 className="text-2xl font-bold mb-2 text-gold">{character.name}</h3>
+                  <h3 className="text-2xl font-bold mb-2 roboto-bold">{character.name}</h3>
                   <p className="text-blood mb-2">{character.alias}</p>
                   <p className="text-muted mb-4">{character.description}</p>
                   <div className="space-y-2">
                     {character.abilities.map((ability, index) => (
-                      <span key={index} className="inline-block bg-steel-dark rounded-full px-3 py-1 text-sm mr-2 mb-2 text-gold-highlight shadow-md shadow-blood/5">
+                      <span key={index} className="inline-block bg-steel-dark rounded-full px-3 py-1 text-sm mr-2 mb-2 shadow-md shadow-blood/5">
                         {ability}
                       </span>
                     ))}
@@ -122,7 +121,7 @@ export default function CharactersPage() {
                 <div className="characters--featured-characters-card-button p-4 text-center">
                   <Link 
                     href={`/characters/${character.alias}`} 
-                    className="inline-block w-full px-6 py-3 bg-steel-dark hover:bg-blood text-white rounded-md transition-colors duration-300 shadow-lg shadow-blood/30"
+                    className="inline-block w-full px-6 py-3 bg-steel-dark hover:bg-blood text-white bg-red-light transition-colors duration-300 shadow-lg shadow-blood/30 roboto-condensed-bold"
                   >
                     View Profile
                   </Link>
@@ -148,10 +147,10 @@ export default function CharactersPage() {
           </div>
           <div className="spotlight-info">
             <div className="spotlight-info-content">
-              <h3 className="text-4xl font-bold mb-2 text-gold">{currentSpotlight.name}</h3>
+              <h3 className="text-4xl font-bold mb-2 roboto-condensed-bold">{currentSpotlight.name}</h3>
               <p className="text-2xl text-gold-highlight mb-4">{currentSpotlight.alias}</p>
               <div className="mb-6">
-                <h4 className="text-xl font-bold mb-3 text-gold">Abilities</h4>
+                <h4 className="text-xl font-bold mb-3 roboto-condensed">Abilities</h4>
                 <div className="flex flex-wrap gap-2">
                   {currentSpotlight.abilities.map((ability, index) => (
                     <span key={index} className="bg-steel-dark rounded-full px-4 py-2 text-gold-highlight border border-ash/20">
@@ -182,16 +181,16 @@ export default function CharactersPage() {
       <section className="character-list py-20 relative overflow-hidden">
         <div className="character-list-bg"></div>
         <div className="max-w-6xl mx-auto px-4 relative z-10">
-          <h2 className="text-4xl font-bold mb-12 text-center text-gold">Character List</h2>
+          <h2 className="text-4xl font-bold mb-12 text-center section-title">Character List</h2>
           
           {/* Sort Controls */}
-          <div className="sort-controls">
+          <div className="sort-controls roboto">
             <div className="flex items-center gap-4">
-              <label className="text-lg font-semibold text-gold">Sort by:</label>
+              <label className="text-lg ">Sort by:</label>
               <select
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value as 'name' | 'faction' | 'tbe' | 'popularity')}
-                className="bg-steel-dark text-white px-4 py-2 rounded-md shadow-lg shadow-blood/10 focus:outline-none focus:ring-2 focus:ring-blood"
+                className="bg-steel-dark text-white px-4 py-2 shadow-lg shadow-blood/10 focus:outline-none focus:ring-2 focus:ring-blood"
               >
                 <option value="name">Name</option>
                 <option value="faction">Faction</option>
@@ -217,7 +216,7 @@ export default function CharactersPage() {
               <Link 
                 key={character.id}
                 href={`/characters/${character.alias}`}
-                className="character-card group rounded-lg overflow-hidden hover:transform hover:scale-105 transition-all duration-300 shadow-lg shadow-blood/10"
+                className="character-card group rounded-lg overflow-hidden hover:transform hover:scale-103 transition-all duration-200 shadow-lg shadow-blood/10"
               >
                 <div className="relative h-48 w-full group">
                   <div className="absolute inset-0 bg-blood opacity-0 group-hover:opacity-15 transition-opacity duration-300"></div>
@@ -231,14 +230,14 @@ export default function CharactersPage() {
                 <div className="p-4 transition-colors duration-300 group-hover:bg-[#EC1D24]">
                   <div className="flex justify-between items-start">
                     <div>
-                      <h3 className="text-xl font-bold text-gold">{character.alias}</h3>
-                      <p className="text-gold-highlight group-hover:text-white transition-colors duration-300">{character.role}</p>
-                      <p className="text-muted text-sm group-hover:text-white transition-colors duration-300">{character.category}</p>
+                      <h3 className="text-xl font-bold roboto-semibold">{character.alias}</h3>
+                      <p className="text-blood group-hover:text-white transition-colors duration-300">{character.role}</p>
+                      <p className="text-sm group-hover:text-white transition-colors duration-300">{character.category}</p>
                     </div>
                     {character.TBENum && (
                       <div className="tbe-number">
                         <span className="tbe-label group-hover:text-white">TBE</span>
-                        <span className="tbe-value group-hover:text-white">
+                        <span className="tbe-value group-hover:text-white ">
                           {character.TBENum}
                         </span>
                       </div>
