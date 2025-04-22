@@ -16,6 +16,11 @@ export default function Footer() {
             <h4 className="text-lg font-semibold text-white mb-4">Explore</h4>
             <ul className="space-y-2">
               <li>
+                <a href="https://www.indiegogo.com/projects/prodigy-new-age-hell-on-earth-book-0" className="hover:text-white transition-colors" target="_blank" rel="noopener noreferrer">
+                  IndioGoGo Campaign
+                </a>
+              </li>
+              <li>
                 <Link href="/story" className="hover:text-white transition-colors">
                   The Story
                 </Link>
@@ -42,18 +47,18 @@ export default function Footer() {
             <h4 className="text-lg font-semibold text-white mb-4">Connect</h4>
             <ul className="space-y-2">
               <li>
-                <a href="#" className="hover:text-white transition-colors">
-                  Twitter
+                <a href="https://x.com/william37199107" className="hover:text-white transition-colors" target="_blank" rel="noopener noreferrer">
+                  X
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-white transition-colors">
-                  Instagram
+                <a href="#" className="hover:text-white transition-colors" target="_blank" rel="noopener noreferrer">
+                  Youtube
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-white transition-colors">
-                  Discord
+                <a href="mailto:Hammerhandtmm@protonmail.com" className="hover:text-white transition-colors">
+                  Email
                 </a>
               </li>
             </ul>

@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import { Roboto } from 'next/font/google';
 import { Roboto_Condensed } from 'next/font/google';
 import { Poppins } from 'next/font/google';
@@ -11,7 +10,6 @@ import Navbar from "@/components/Navbar";
 import NotificationBar from "@/components/NotificationBar";
 
 
-const inter = Inter({ subsets: ["latin"] });
 const roboto = Roboto({
   subsets: ['latin'],
   weight: ['400', '500', '700'],

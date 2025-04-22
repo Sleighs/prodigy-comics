@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { lore } from '@/data/lore';
 
 export default function StoryPage() {
   return (
@@ -99,7 +100,7 @@ export default function StoryPage() {
             <div className="grid md:grid-cols-2 gap-8 items-center md:flex-row-reverse">
               <div className="relative h-64 md:h-96">
                 <Image
-                  src="/images/clan-bushido-promo.png"
+                  src="/images/wolfpak-logo.png"
                   alt="WOLFPAK"
                   fill
                   className="object-cover rounded-lg"
@@ -128,7 +129,7 @@ export default function StoryPage() {
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div className="relative h-64 md:h-96">
                 <Image
-                  src="/images/wolfpak-promo.png"
+                  src="/images/clan-bushido-promo.png"
                   alt="The Clan Bushido"
                   fill
                   className="object-cover rounded-lg"
@@ -174,13 +175,12 @@ export default function StoryPage() {
                 <p className="text-lg mb-4">
                   Formed from the remnants of failed hero programs, D.O.A. consists of augmented individuals who survived but were forever changed. They now operate as mercenaries, selling their services to the highest bidder on the world stage.
                 </p>
-                <p className="text-blue-400 italic">"Getting men to work for me is the easy part. They're like dogs, they do as they are told too." - Sammantha Halsey</p>
+                <p className="text-blue-400 italic">{`"Getting men to work for me is the easy part. They're like dogs, they do as they are told too." — Sammantha Halsey`}</p>
               </div>
             </div>
           </div>
         </div>
       </section>
-
 
       {/* Key Concepts Section */}
       <section className="py-20 bg-gray-900">
@@ -207,6 +207,132 @@ export default function StoryPage() {
               <p className="text-gray-300">
                 A coalition of nations working together to understand and manage the implications of human evolution and the GODSTRAND phenomenon.
               </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Lore Details Section */}
+      <section className="py-20 px-4">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-4xl font-bold mb-12 text-center">The World of PRODIGY</h2>
+          
+          {/* Locations */}
+          <div className="mb-16">
+            <h3 className="text-3xl font-bold mb-8">Key Locations</h3>
+            <div className="grid md:grid-cols-2 gap-8">
+              {lore.locations.map((location) => (
+                <div key={location.id} className="bg-gray-800/50 p-6 rounded-lg group hover:bg-gray-800 transition-colors">
+                  <h4 className="text-2xl font-bold mb-3">{location.name}</h4>
+                  <p className="text-gray-300 mb-4">{location.description}</p>
+                  <p className="text-blue-400 text-sm mb-4">{location.significance}</p>
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {location.factions.map((faction) => (
+                      <span key={faction} className="text-sm bg-gray-700 px-3 py-1 rounded-full">
+                        {faction}
+                      </span>
+                    ))}
+                  </div>
+                  <Link 
+                    href={`/story/wiki/${location.id}`}
+                    className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors"
+                  >
+                    Learn More
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                  </Link>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Events */}
+          <div className="mb-16">
+            <h3 className="text-3xl font-bold mb-8">Major Events</h3>
+            <div className="grid md:grid-cols-2 gap-8">
+              {lore.events.map((event) => (
+                <div key={event.id} className="bg-gray-800/50 p-6 rounded-lg group hover:bg-gray-800 transition-colors">
+                  <h4 className="text-2xl font-bold mb-3">{event.name}</h4>
+                  <p className="text-gray-300 mb-4">{event.description}</p>
+                  {event.outcomes && (
+                    <div className="mb-4">
+                      <h5 className="text-lg font-semibold mb-2">Outcomes:</h5>
+                      <ul className="list-disc list-inside text-gray-300">
+                        {event.outcomes.map((outcome, index) => (
+                          <li key={index}>{outcome}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                  <Link 
+                    href={`/story/wiki/${event.id}`}
+                    className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors"
+                  >
+                    Learn More
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                  </Link>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Artifacts */}
+          <div className="mb-16">
+            <h3 className="text-3xl font-bold mb-8">Artifacts</h3>
+            <div className="grid md:grid-cols-2 gap-8">
+              {lore.artifacts.map((artifact) => (
+                <div key={artifact.id} className="bg-gray-800/50 p-6 rounded-lg group hover:bg-gray-800 transition-colors">
+                  <h4 className="text-2xl font-bold mb-3">{artifact.name}</h4>
+                  <p className="text-gray-300 mb-4">{artifact.description}</p>
+                  <p className="text-blue-400 text-sm mb-4">Controlled by: {artifact.controlledBy}</p>
+                  <Link 
+                    href={`/story/wiki/${artifact.id}`}
+                    className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors"
+                  >
+                    Learn More
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                  </Link>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Organizations */}
+          <div>
+            <h3 className="text-3xl font-bold mb-8">Organizations</h3>
+            <div className="grid md:grid-cols-2 gap-8">
+              {lore.organizations.map((org) => (
+                <div key={org.id} className="bg-gray-800/50 p-6 rounded-lg group hover:bg-gray-800 transition-colors">
+                  <h4 className="text-2xl font-bold mb-3">{org.name}</h4>
+                  <p className="text-gray-300 mb-4">{org.description}</p>
+                  {org.members && (
+                    <div className="mb-4">
+                      <h5 className="text-lg font-semibold mb-2">Members:</h5>
+                      <div className="flex flex-wrap gap-2">
+                        {org.members.map((member) => (
+                          <span key={member} className="text-sm bg-gray-700 px-3 py-1 rounded-full">
+                            {member}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                  <Link 
+                    href={`/story/wiki/${org.id}`}
+                    className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors"
+                  >
+                    Learn More
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                  </Link>
+                </div>
+              ))}
             </div>
           </div>
         </div>

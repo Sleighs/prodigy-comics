@@ -1,9 +1,14 @@
-import React from 'react';
+'use client'
+
+import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import '@/styles/news.css';
+import { FaTwitter, FaInstagram, FaYoutube, FaDiscord } from 'react-icons/fa';
 
 export default function NewsPage() {
+  const [activeVideo, setActiveVideo] = useState<number | null>(null);
+
   // Mock data - in a real app this would come from an API or CMS
   const latestNews = [
     {
@@ -41,27 +46,61 @@ export default function NewsPage() {
       id: 1,
       title: "PRODIGY: Hell on Earth Official Trailer",
       thumbnail: "/videos/trailer-thumb.jpg",
-      url: "https://www.youtube.com/watch?v=E7jsNUBGatQ"
+      url: "https://www.youtube.com/watch?v=E7jsNUBGatQ&list=PLel1QxCurC7nMeMISatZQoNRzjZFlpkUI&index=19&ab_channel=PopCultureRocks",
+      embed: '<iframe width="560" height="315" src="https://www.youtube.com/embed/E7jsNUBGatQ?si=Yy-PniMJTfHs_D2k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
     }
   ];
 
   return (
-    <main className="min-h-screen bg-zinc-900 text-white">
+    <main className="min-h-screen bg-zinc-900 text-white pt-16"> {/* Add pt-16 here */}
       {/* Hero Section */}
-      <section className="news-hero relative h-[40vh]">
+      {/* <section className="news-hero relative h-[40vh]">
         <div className="absolute inset-0 bg-gradient-to-r from-red-900/70 to-black/70 z-10" />
         <div className="container mx-auto px-4 h-full flex items-center relative z-20">
           <h1 className="text-6xl font-bold font-poppins-bold text-white">
             Latest News
           </h1>
         </div>
-      </section>
+      </section> */}
+
+
+       {/* Social Strip */}
+       <div className="bg-zinc-800 py-3">
+        <div className="container mx-auto px-4 flex flex-col sm:flex-row justify-between items-center">
+          <button 
+            className="bg-red-light hover:bg-red-700 text-white px-6 py-2 text-sm font-medium transition-colors roboto-condensed-bold"
+            // onClick={() => window.open('https://prodigycomics.com/newsletter', '_blank')}
+          >
+            NEWSLETTER SIGN-UP
+          </button>
+
+          <div className="flex items-center space-x-6 mb-3 sm:mb-0">
+            <span className="text-sm font-medium">Follow us:</span>
+            <div className="flex space-x-4">
+              <a href="https://twitter.com/ProdigyComics" className="text-gray-400 hover:text-red-500 transition-colors">
+                <FaTwitter className="w-5 h-5" />
+              </a>
+              <a href="https://instagram.com/ProdigyComics" className="text-gray-400 hover:text-red-500 transition-colors">
+                <FaInstagram className="w-5 h-5" />
+              </a>
+              <a href="https://youtube.com/@ProdigyComics" className="text-gray-400 hover:text-red-500 transition-colors">
+                <FaYoutube className="w-5 h-5" />
+              </a>
+              <a href="https://discord.gg/prodigycomics" className="text-gray-400 hover:text-red-500 transition-colors">
+                <FaDiscord className="w-5 h-5" />
+              </a>
+            </div>
+          </div>
+         
+        </div>
+      </div>
+
 
       <div className="container mx-auto px-4 py-12">
         {/* Latest News Grid */}
         <section className="mb-20">
-          <h2 className="section-header text-3xl font-roboto-condensed font-bold mb-8 border-l-4 border-red-600 pl-4">
-            Breaking News
+          <h2 className="section-header text-3xl roboto-condensed-bold mb-8 border-l-4 border-red-600 pl-4">
+            LATEST NEWS
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {latestNews.map((news) => (
@@ -87,8 +126,8 @@ export default function NewsPage() {
 
         {/* Character Spotlight */}
         <section className="mb-20">
-          <h2 className="section-header text-3xl font-roboto-condensed font-bold mb-8 border-l-4 border-red-600 pl-4">
-            Character Spotlight
+          <h2 className="section-header text-3xl roboto-condensed-bold mb-8 border-l-4 border-red-600 pl-4">
+            SPOTLIGHT
           </h2>
           <div className="character-spotlight bg-gradient-to-r from-zinc-800 to-zinc-900 rounded-lg p-8">
             <div className="grid md:grid-cols-2 gap-8 items-center">
@@ -100,7 +139,7 @@ export default function NewsPage() {
                 <p className="text-gray-300 mb-6">{featuredCharacter.description}</p>
                 <Link 
                   href="/characters/genesis" 
-                  className="inline-block bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-lg transition-colors"
+                  className="inline-block bg-red-light hover:bg-red-dark text-white px-6 py-3 transition-colors"
                 >
                   Learn More
                 </Link>
@@ -111,21 +150,36 @@ export default function NewsPage() {
 
         {/* Videos Section */}
         <section className="mb-20">
-          <h2 className="section-header text-3xl font-roboto-condensed font-bold mb-8 border-l-4 border-red-600 pl-4">
-            Latest Videos
+          <h2 className="section-header text-3xl roboto-condensed-bold font-bold mb-8 border-l-4 border-red-600 pl-4">
+            LATEST VIDEOS
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {videos.map((video) => (
               <div key={video.id} className="video-card bg-zinc-800 rounded-lg overflow-hidden">
-                <div className="relative h-48 bg-black">
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="video-play-button w-16 h-16 bg-red-600 rounded-full flex items-center justify-center">
-                      <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M8 5v14l11-7z" />
-                      </svg>
+                {activeVideo === video.id ? (
+                  <div className="relative aspect-video"
+                       dangerouslySetInnerHTML={{ __html: video.embed }} 
+                  />
+                ) : (
+                  <div 
+                    className="relative h-48 bg-black cursor-pointer"
+                    onClick={() => setActiveVideo(video.id)}
+                  >
+                    <Image 
+                      src={video.thumbnail}
+                      alt={video.title}
+                      fill
+                      className="object-cover"
+                    />
+                    <div className="absolute inset-0 bg-black/50 flex items-center justify-center hover:bg-black/30 transition-colors">
+                      <div className="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center">
+                        <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M8 5v14l11-7z" />
+                        </svg>
+                      </div>
                     </div>
                   </div>
-                </div>
+                )}
                 <div className="p-4">
                   <h3 className="font-bold">{video.title}</h3>
                 </div>
@@ -136,8 +190,8 @@ export default function NewsPage() {
 
         {/* Product Spotlight */}
         <section>
-          <h2 className="section-header text-3xl font-roboto-condensed font-bold mb-8 border-l-4 border-red-600 pl-4">
-            Featured Product
+          <h2 className="section-header text-3xl roboto-condensed-bold mb-8 border-l-4 border-red-600 pl-4">
+            FEATURED PROMO
           </h2>
           <div className="product-spotlight bg-gradient-to-br from-zinc-800 via-zinc-900 to-black rounded-lg p-8">
             <div className="grid md:grid-cols-2 gap-8 items-center">
@@ -152,7 +206,7 @@ export default function NewsPage() {
                   href={featuredProduct.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-block bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-lg transition-colors"
+                  className="inline-block bg-red-600 hover:bg-red-700 text-white px-6 py-3 transition-colors"
                 >
                   Pre-order Now
                 </a>
@@ -163,4 +217,4 @@ export default function NewsPage() {
       </div>
     </main>
   );
-} 
+}

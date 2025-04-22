@@ -31,6 +31,9 @@ export default function Navbar() {
               <Link href="/news" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
                 NEWS
               </Link>
+              <Link href="/about" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+                ABOUT
+              </Link>
             </div>
           </div>
 

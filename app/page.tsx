@@ -179,7 +179,6 @@ export default function Home() {
 
       {/* Characters CTA Section */}
       <section className="py-20 home--characters-section">
-        {/* <div className="home--characters-bg"></div> */}
         <div className="max-w-6xl mx-auto px-4 relative z-10">
           <h2 className="text-4xl font-bold mb-12 text-center section-title">Featured Characters</h2>
           <div className="grid md:grid-cols-3 gap-8">
@@ -194,7 +193,7 @@ export default function Home() {
                   />
                 </div>
                 <div className="content">
-                  <h3 className="text-3xl font-bold mb-2 section-subtitle bg-red-dark text-center">{character.name}</h3>
+                  <h3 className="text-3xl font-bold mb-2 section-subtitle bg-red-dark text-center roboto-condensed-bold uppercase">{character.name}</h3>
                   <p className="text-lg text-white mb-4">{character.description}</p>
                   <div className="home--character-card-button">
                     <Link 
@@ -211,7 +210,7 @@ export default function Home() {
           <div className="text-center mt-12">
             <Link
               href="/characters"
-              className="inline-block px-8 py-3 bg-blood hover:bg-blood-dark text-white rounded-md text-lg font-semibold transition-colors duration-300 shadow-lg shadow-blood/30"
+              className="inline-block px-8 py-3 bg-blood hover:bg-blood-dark text-white text-lg font-semibold transition-colors duration-300 shadow-lg shadow-blood/30"
             >
               View All Characters
             </Link>
@@ -222,19 +221,10 @@ export default function Home() {
 
 
       {/* About Section */}
-      <section className="py-20 bg-gray-900">
+      <section className="py-20">
         <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-4xl font-bold mb-8 text-center">The GODSTRAND Phenomenon</h2>
+          <h2 className="text-4xl font-bold mb-8 text-center roboto-condensed-bold">T.B.E. SIGHTINGS</h2>
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            
-            <div className="relative h-96">
-              <Image
-                src="/images/genetics-lab.png"
-                alt="Ember"
-                fill
-                className="object-cover rounded-lg"
-              />
-            </div>
 
             <div>
               <p className="text-lg mb-4">
@@ -243,6 +233,22 @@ export default function Home() {
               <p className="text-lg">
                 Today, these mutations have given rise to T.B.E.'s - Terrestrial Biological Entities - humans who have evolved beyond normal capabilities.
               </p>
+              <div className="text-center mt-12">
+                <Link
+                  href="/story"
+                  className="inline-block px-8 py-3 bg-blood hover:bg-blood-dark text-white text-lg font-semibold transition-colors duration-300 shadow-lg shadow-blood/30"
+                >
+                  Explore the Lore
+                </Link>
+              </div>
+            </div>
+            <div className="relative h-96">
+              <Image
+                src="/images/genetics-lab.png"
+                alt="Ember"
+                fill
+                className="object-cover rounded-lg"
+              />
             </div>
           </div>
         </div>
@@ -254,7 +260,7 @@ export default function Home() {
       <section className="py-20 relative">
         <div className="absolute inset-0 bg-black/50" />
         <div className="relative z-10 max-w-6xl mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold mb-6">Join the PRODIGY Universe</h2>
+          <h2 className="text-4xl font-bold mb-6 roboto-condensed-bold">Join the PRODIGY Universe</h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto">
             Be part of the story as humanity evolves beyond its limits. Discover the GODSTRAND and witness the rise of T.B.E.'s.
           </p>
