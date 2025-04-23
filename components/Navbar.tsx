@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 
-export default function Navbar() {
+function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -17,7 +17,7 @@ export default function Navbar() {
           </div>
           
           {/* Desktop Navigation */}
-          <div className="hidden sm:block">
+          <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-8 ">
               <Link href="/story" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
                 STORY
@@ -38,7 +38,7 @@ export default function Navbar() {
           </div>
 
           {/* Mobile menu button */}
-          <div className="sm:hidden">
+          <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none"
@@ -80,3 +80,36 @@ export default function Navbar() {
     </nav>
   );
 }
+
+function NavbarCenter() {
+  return (
+    <div className="fixed w-full z-50 bg-black/75 backdrop-blur-sm roboto-condensed-bold">
+      <Link href="/" className="nav-title flex items-center justify-center text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-500">
+              PRODIGY: NEW AGE{/* <img 
+          src="/images/logo.png" 
+          alt="Prodigy: New Age Logo"
+          className="h-16 w-auto"
+        /> */}
+      </Link>
+      <div className="flex items-center justify-center space-x-4">
+        <Link href="/story" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+          STORY
+        </Link>
+        <Link href="/characters" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+          CHARACTERS
+        </Link>
+        <Link href="/store" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+          STORE
+        </Link>
+        <Link href="/news" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+          NEWS
+        </Link>
+        <Link href="/about" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+          ABOUT
+        </Link>
+      </div>
+    </div>
+  );
+}
+
+export { Navbar, NavbarCenter };

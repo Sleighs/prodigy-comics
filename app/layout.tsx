@@ -6,7 +6,7 @@ import { Poppins } from 'next/font/google';
 import "./globals.css";
 import "@/styles/carousel.css";
 import "@/styles/home.css";
-import Navbar from "@/components/Navbar";
+import { Navbar, NavbarCenter } from "@/components/Navbar";
 import NotificationBar from "@/components/NotificationBar";
 
 

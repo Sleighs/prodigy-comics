@@ -6,13 +6,13 @@ export default function AboutPage() {
       {/* Hero Section */}
       <div className="relative h-[40vh] w-full">
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-black/80 z-10" />
-        <Image
+        {/* <Image
           src="/images/about-hero.jpg"
           alt="About Prodigy"
           fill
           className="object-cover"
           priority
-        />
+        /> */}
         <div className="absolute inset-0 z-20 flex items-center justify-center">
           <h1 className="text-5xl md:text-7xl font-bold font-roboto-condensed">About Prodigy</h1>
         </div>
@@ -33,12 +33,12 @@ export default function AboutPage() {
             </p>
           </div>
           <div className="relative h-[300px] w-full">
-            <Image
+            {/* <Image
               src="/images/prodigy-team.jpg"
               alt="Prodigy Team"
               fill
               className="object-cover rounded-lg"
-            />
+            /> */}
           </div>
         </div>
       </section>
@@ -52,12 +52,12 @@ export default function AboutPage() {
             <div className="bg-gray-800 p-6 rounded-lg">
               <div className="flex items-center gap-6 mb-6">
                 <div className="relative h-24 w-24 rounded-full overflow-hidden">
-                  <Image
+                  {/* <Image
                     src="/images/writer.jpg"
                     alt="Writer"
                     fill
                     className="object-cover"
-                  />
+                  /> */}
                 </div>
                 <div>
                   <h3 className="text-2xl font-bold font-roboto-condensed">Writer Name</h3>
@@ -73,12 +73,12 @@ export default function AboutPage() {
             <div className="bg-gray-800 p-6 rounded-lg">
               <div className="flex items-center gap-6 mb-6">
                 <div className="relative h-24 w-24 rounded-full overflow-hidden">
-                  <Image
+                  {/* <Image
                     src="/images/artist.jpg"
                     alt="Artist"
                     fill
                     className="object-cover"
-                  />
+                  /> */}
                 </div>
                 <div>
                   <h3 className="text-2xl font-bold font-roboto-condensed">Artist Name</h3>

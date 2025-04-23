@@ -120,7 +120,6 @@
 .home--available-now-section {
   position: relative;
   overflow: hidden;
-  min-height: 800px;
 }
 
 .home--available-now-bg {
@@ -129,25 +128,7 @@
   z-index: 1;
 }
 
-.home--available-now-image {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 55%;
-  height: 100%;
-  clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
-}
 
-.home--available-now-content {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-right: 50%;
-  padding: 3rem;
-  z-index: 2;
-}
 
 
 
@@ -419,163 +400,6 @@
 
   .home--text p {
     font-size: 1rem;
-  }
-}
-
-
-
-
-
-
-/* Members Tier Section */
-.home--members-tier-section {
-  position: relative;
-  overflow: hidden; /* Changed from visible to hidden */
-  padding: 0 4rem; /* Added padding for scroll buttons */
-}
-
-.home--members-tier-bg {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to bottom, var(--color-steel-dark), var(--color-darkgray));
-  z-index: 1;
-}
-
-.home--members-tier-hero {
-  position: relative;
-  z-index: 2;
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 0;
-}
-
-.home--members-tier-content {
-  flex: 1;
-  padding: 2rem;
-}
-
-.home--members-tier-image {
-  position: relative;
-  height: 100%;
-  width: 100%;
-  overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-  right: 0;
-  transition: transform 0.3s ease;
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 15% 100%);
-
-}
-
-.home--members-tier-image::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to right, transparent, rgba(0, 0, 0, 0.5));
-}
-
-.home--members-tier-featured {
-  position: relative;
-  z-index: 3;
-  margin-top: -3rem;
-  padding: 0 1rem;
-}
-
-.home--members-tier-cards {
-  display: flex; /* Changed from grid to flex */
-  gap: 1rem;
-  padding: 1rem;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE and Edge */
-  background-color: #fff;
-}
-
-.home--members-tier-cards::-webkit-scrollbar {
-  display: none; /* Chrome, Safari and Opera */
-}
-
-.home--members-tier-item-card {
-  flex: 0 0 200px; /* Fixed width for cards */
-  position: relative;
-  height: 350px;
-  background: var(--color-steel-dark);
-  overflow: hidden;
-  transition: transform 0.3s ease;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.home--members-tier-card-image-container {
-  position: relative;
-  height: 250px;
-  width: 100%;
-  overflow: hidden;
-}
-
-.home--members-tier-card-image {
-  object-fit: cover;
-  transition: transform 0.3s ease;
-  height: 100%;
-}
-
-.home--members-tier-item-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-}
-
-.home--members-tier-item-card:hover .home--members-tier-card-image {
-  transform: scale(1.05);
-}
-
-/* Scroll Buttons */
-/* .scroll-button {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 3rem;
-  height: 3rem;
-  background: rgba(0, 0, 0, 0.75);
-  border: 2px solid var(--color-gold-highlight);
-  border-radius: 50%;
-  color: var(--color-gold-highlight);
-  z-index: 10;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.scroll-button:hover {
-  background: var(--color-gold-highlight);
-  color: black;
-}
-
-.scroll-button.left {
-  left: 1rem;
-}
-
-.scroll-button.right {
-  right: 1rem;
-} */
-
-@media (min-width: 1024px) {
-  .home--members-tier-hero {
-    display: flex;
-    gap: 4rem;
-    align-items: center;
-  }
-
-  .home--members-tier-content {
-    flex: 1;
-    padding-right: 2rem;
-  }
-
-  .home--members-tier-image {
-    flex: 1;
-    height: 500px;
-  }
-
-  .home--members-tier-featured {
-    /* margin-top: -1rem; */
   }
 }
 

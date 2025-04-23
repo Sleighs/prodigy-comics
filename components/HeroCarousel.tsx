@@ -70,7 +70,7 @@ const slides = [
     title: "Welcome to PRODIGY Comics",
     subtitle: "A New Age of Power",
     description: "The world is changing. Humans are evolving. The GODSTRAND has been discovered.",
-    image: "none",
+    image: '/images/stuffed-box-cutout.png',
     link: "/story",
     price: null,
     accentColor: "from-blue-600 to-purple-600"
@@ -93,7 +93,7 @@ export default function HeroCarousel() {
   const [progress, setProgress] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
-  const startTimeRef = useRef<number>(Date.now());
+  const startTimeRef = useRef<number>(0);
 
   const SLIDE_DURATION = 5200; // Duration for each slide in milliseconds
 

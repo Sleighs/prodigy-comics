@@ -4,10 +4,15 @@
   --background: #ffffff;
   --foreground: #171717;
 
+  /* Theme Colors */
+  --color-theme-red: rgb(187, 13, 0, 1); /* accent color 1 */
+  --color-theme-steel: rgb(35, 36, 35);
+
+  /* Company Colors */
   --color-gold-dark: rgb(157, 97, 6, 1);
   --color-gold-light: rgb(207, 148, 21);
   --color-orangered: rgb(172, 31, 2);
-  --color-red-light: rgb(187, 13, 0, 1);
+  --color-red-light: rgb(187, 13, 0, 1); /* accent color 1 */
   --color-red-dark: rgb(142, 3, 0);
   --color-red-very-dark: rgb(15, 15, 15);
   --color-darkgray: rgb(23, 24, 21);
