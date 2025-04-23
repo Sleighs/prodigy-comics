@@ -186,6 +186,9 @@ body {
 .text-darkgray {
   color: var(--color-darkgray);
 }
+.text-steel {
+  color: var(--color-steel);
+}
 .text-white {
   color: white;
 }

@@ -101,8 +101,9 @@ export default function Home() {
         <HeroCarousel />
       </div>
 
+
       {/* Available Now Section - Book 0 */}
-      <section className="py-20 home--available-now-section">
+      <section className="py-20 home--available-now-section relative">
         <div className="home--available-now-bg"></div>
         
         {/* Full-height image with diagonal edge */}
@@ -114,6 +115,8 @@ export default function Home() {
             fill
             className="object-cover"
             priority
+            sizes="(max-width: 768px) 100vw, 55vw"
+            quality={100}
           />
           <div className="absolute inset-0 bg-gradient-to-r from-transparent to-black/50" />
         </div>
@@ -214,34 +217,26 @@ export default function Home() {
                   />
                 </div>
                 <div className="content">
-                  <h3 className="text-2xl font-bold mb-2 section-subtitle">{product.name}</h3>
-                  <p className="price text-xl mb-4">{product.price}</p>
-                  <a
-                    href={product.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="button inline-block w-full px-4 py-2 text-center roboto-condensed-bold text-white"
-                  >
-                    LEARN MORE
-                  </a>
+                  <h3 className="text-[14pt] font-bold mb-2 roboto-bold text-darkgray">{product.name}</h3>
+                  <p className="price text-[13pt] roboto-bold mb-4 text-muted">{2025}</p>
                 </div>
               </div>
             ))}
           </div>
-          <div className="text-center mt-12">
+          {/* <div className="text-center mt-12">
             <Link
               href="/store"
               className="button inline-block px-8 py-3 text-lg font-semibold"
             >
               VIEW ALL
             </Link>
-          </div>
+          </div> */}
         </div>
       </section>
 
 
       {/* Stuffed Box Section */}
-      <section className="py-20 home--available-now-section">
+      <section className="py-20 home--available-now-section relative">
         <div className="home--available-now-bg"></div>
         
         <div className="home--available-now-image">
@@ -252,6 +247,8 @@ export default function Home() {
             fill
             className="object-cover"
             priority
+            sizes="(max-width: 768px) 100vw, 55vw"
+            quality={95}
           />
           <div className="absolute inset-0 bg-gradient-to-r from-transparent to-black/50" />
         </div>
