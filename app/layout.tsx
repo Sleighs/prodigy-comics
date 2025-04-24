@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Roboto } from 'next/font/google';
 import { Roboto_Condensed } from 'next/font/google';
 import { Poppins } from 'next/font/google';
+import { ThemeProvider } from '@/contexts/ThemeContext';
 
 import "./globals.css";
 import "@/styles/carousel.css";
@@ -64,14 +65,16 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${roboto.variable} ${robotoCondensed.variable} ${robotoBold.variable}`}>
       <body className="roboto">
-        <Navbar />
-        {/* <NotificationBar 
-          message="Pre-order PRODIGY: Hell on Earth Book #0 now and get exclusive rewards!" 
-          link="https://www.indiegogo.com/projects/prodigy-new-age-hell-on-earth-book-0#/"
-          linkText="Pre-order Now"
-          type="info"
-        /> */}
-        {children}
+        <ThemeProvider>
+          <Navbar />
+          {/* <NotificationBar 
+            message="Pre-order PRODIGY: Hell on Earth Book #0 now and get exclusive rewards!" 
+            link="https://www.indiegogo.com/projects/prodigy-new-age-hell-on-earth-book-0#/"
+            linkText="Pre-order Now"
+            type="info"
+          /> */}
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

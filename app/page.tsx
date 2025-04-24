@@ -1,7 +1,13 @@
+'use client';
 import Image from "next/image";
 import Link from "next/link";
 import Footer from '@/components/Footer'
 import HeroCarousel from '@/components/HeroCarousel'
+import NewReleaseSection from '@/components/NewReleaseSection'
+import AvailableNowSection from '@/components/AvailableNowSection'
+import MembersTierSection from '@/components/MembersTierSection'
+import { useEffect } from "react";
+import FeaturedCharactersSection from "@/components/FeaturedCharactersSection";
 
 const featuredProducts = [
   {
@@ -23,51 +29,6 @@ const featuredProducts = [
     name: "Ember & Impulse / Sisters of Fire Poster",
     price: "$25.00",
     image: "/images/ember-promo.png",
-    link: "https://www.indiegogo.com/projects/prodigy-new-age-hell-on-earth-book-0#/"
-  }
-];
-
-const membersTierItems = [
-  {
-    id: 1,
-    name: "PRODIGY: Hell on Earth Book #0",
-    price: "$28.00",
-    image: "/images/book0-preview1.png",
-    link: "https://www.indiegogo.com/projects/prodigy-new-age-hell-on-earth-book-0#/"
-  },
-  {
-    id: 2,
-    name: "PRODIGY New Age STUFFED box",
-    price: "$250.00",
-    image: "/images/stuffed-box1.png",
-    link: "https://www.indiegogo.com/projects/prodigy-new-age-hell-on-earth-book-0#/"
-  },
-  {
-    id: 3,
-    name: "Ember & Impulse / Sisters of Fire Poster",
-    price: "$25.00",
-    image: "/images/ember-promo.png",
-    link: "https://www.indiegogo.com/projects/prodigy-new-age-hell-on-earth-book-0#/"
-  },
-  {
-    id: 4,
-    name: "Genesis Poster",
-    price: "$25.00",
-    image: "/images/genesis-poster-promo.png",
-    link: "https://www.indiegogo.com/projects/prodigy-new-age-hell-on-earth-book-0#/"
-  },
-  {
-    id: 5,
-    name: "VERDICT Poster",
-    price: "$25.00",
-    image: "/images/verdict-poster.png",
-    link: "https://www.indiegogo.com/projects/prodigy-new-age-hell-on-earth-book-0#/"
-  },
-  {
-    id: 6,
-    name: "G.U.N. Sight Poster",
-    price: "$25.00",
-    image: "/images/gunsight-poster.png",
     link: "https://www.indiegogo.com/projects/prodigy-new-age-hell-on-earth-book-0#/"
   }
 ];
@@ -101,139 +62,17 @@ export default function Home() {
         <HeroCarousel />
       </div>
 
+      {/* New Release Section */}
+      <NewReleaseSection />
 
-      {/* Available Now Section - Book 0 */}
-      <section className="py-20 home--available-now-section relative">
-        <div className="home--available-now-bg"></div>
-        
-        {/* Full-height image with diagonal edge */}
-        <div className="home--available-now-image">
-          <div className="absolute inset-0 bg-blood opacity-0 group-hover:opacity-15 transition-opacity duration-300"></div>
-          <Image
-            src="/images/book0-preview1.png"
-            alt="PRODIGY: Hell on Earth Book 0"
-            fill
-            className="object-cover"
-            priority
-            sizes="(max-width: 768px) 100vw, 55vw"
-            quality={100}
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent to-black/50" />
-        </div>
+      {/* Featured Characters Section */}
+      <FeaturedCharactersSection />
 
-        {/* Content */}
-        <div className="home--available-now-content">
-          <div className="max-w-xl">
-            <span className="inline-block px-4 py-1 bg-blood text-white text-sm font-bold rounded-full mb-4">
-              NEW RELEASE
-            </span>
-            <h2 className="text-4xl md:text-5xl font-bold roboto-condensed-bold mb-4">
-              PRODIGY: Hell on Earth Book #0
-            </h2>
-            <p className="text-xl text-white mb-6">
-              The beginning of an epic saga where human evolution meets cosmic mystery. 
-              Witness the rise of T.B.E.'s and the discovery of the GODSTRAND phenomenon.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <a
-                href="https://www.indiegogo.com/projects/prodigy-new-age-hell-on-earth-book-0#/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-8 py-3 bg-blood hover:bg-blood-dark text-white text-lg font-semibold transition-colors duration-300 text-center"
-              >
-                Get Your Copy
-              </a>
-              <Link
-                href="/about"
-                className="px-8 py-3 bg-steel-dark hover:bg-steel text-white text-lg font-semibold transition-colors duration-300 text-center"
-              >
-                Learn More
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
+      {/* Available Now Section */}
+      <AvailableNowSection />
 
       {/* Members Tier Section */}
-      <section className="home--members-tier-section">
-        {/* Background */}
-        {/* <div className="home--members-tier-bg"></div> */}
-        
-        {/* Hero Row */}
-        <div className="home--members-tier-hero">
-          {/* Content */}
-          <div className="home--members-tier-content">
-            <span className="inline-block px-4 py-1 text-sm font-bold mb-4">
-              EXCLUSIVE ACCESS
-            </span>
-            <h2 className="text-4xl md:text-5xl font-bold roboto-condensed-bold mb-4">
-              Members Tier Access
-            </h2>
-            <p className="text-xl text-white mb-6">
-              Get exclusive access to behind-the-scenes content, early releases, and special member-only merchandise.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <a
-                href="#"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-8 py-3 bg-gold-highlight hover:bg-gold-light text-black text-lg font-semibold transition-colors duration-300 text-center"
-              >
-                Join Now
-              </a>
-              <Link
-                href="/membership"
-                className="px-8 py-3 bg-steel-dark hover:bg-steel text-white text-lg font-semibold transition-colors duration-300 text-center"
-              >
-                Learn More
-              </Link>
-            </div>
-          </div>
-
-          {/* Image */}
-          <div className="home--members-tier-image">
-            <Image
-              src="/images/chaos-promo.png"
-              alt="PRODIGY: Members Tier"
-              fill
-              className="object-cover"
-              priority
-            />
-          </div>
-        </div>
-
-        {/* Featured Items Row - Overlapping */}
-        <div className="home--members-tier-featured">
-          <div className="home--members-tier-cards">
-            {membersTierItems.map((product) => (
-              <div key={product.id} className="home--members-tier-item-card">
-                <div className="home--members-tier-card-image-container">
-                  <Image
-                    src={product.image}
-                    alt={product.name}
-                    fill
-                    className="home--members-tier-card-image"
-                  />
-                </div>
-                <div className="content">
-                  <h3 className="text-[14pt] font-bold mb-2 roboto-bold text-darkgray">{product.name}</h3>
-                  <p className="price text-[13pt] roboto-bold mb-4 text-muted">{2025}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-          {/* <div className="text-center mt-12">
-            <Link
-              href="/store"
-              className="button inline-block px-8 py-3 text-lg font-semibold"
-            >
-              VIEW ALL
-            </Link>
-          </div> */}
-        </div>
-      </section>
-
+      <MembersTierSection />
 
       {/* Stuffed Box Section */}
       <section className="py-20 home--available-now-section relative">
@@ -284,7 +123,6 @@ export default function Home() {
         </div>
       </section>
 
-
       {/* Featured Products Section */}
       <section className="py-20 home--products-section">
         <div className="home--products-bg"></div>
@@ -327,8 +165,9 @@ export default function Home() {
         </div>
       </section>
 
+      
 
-      {/* Characters CTA Section */}
+      {/* Characters CTA Section
       <section className="py-20 home--characters-section">
         <div className="max-w-6xl mx-auto px-4 relative z-10">
           <h2 className="text-4xl font-bold mb-12 text-center section-title">Featured Characters</h2>
@@ -367,8 +206,7 @@ export default function Home() {
             </Link>
           </div>
         </div>
-      </section>
-
+      </section> */}
 
       {/* About Section */}
       <section className="py-20">

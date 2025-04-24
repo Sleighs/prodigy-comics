@@ -1,13 +1,11 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-
   /* Theme Colors */
-  --color-theme-red: rgb(187, 13, 0, 1); /* accent color 1 */
-  --color-theme-steel: rgb(35, 36, 35);
-
+  --theme-accent-color: rgb(187, 13, 0, 1); /* accent color 1 */
+  --theme-accent-color2: rgb(207, 148, 21); /* accent color 2 */
+  --theme-accent-color-dark: rgb(142, 3, 0);
+  
   /* Company Colors */
   --color-gold-dark: rgb(157, 97, 6, 1);
   --color-gold-light: rgb(207, 148, 21);
@@ -49,18 +47,25 @@
   --color-midnight-darker: rgb(10, 10, 50);
 }
 
-@theme inline {
+/* Light theme variables */
+:root[class~="light"] {
+  --background: #ffffff;
+  --foreground: #171717;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: rgb(23, 24, 21);
-    --foreground: #ededed;
-  }
+/* Dark theme variables */
+:root[class~="dark"] {
+  --background: rgb(23, 24, 21);
+  --foreground: #ededed;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+}
+
+@theme inline {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
 }
 
 body {
@@ -130,10 +135,6 @@ body {
 .capitalize {
   text-transform: capitalize;
 }
-
-
-
-
 
 /* Theme Colors */
 .bg-gold-dark {
