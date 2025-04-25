@@ -149,7 +149,7 @@
   border: 1px solid rgba(187, 13, 0, 0.2);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
   z-index: 2;
-  min-height: 500px;
+  min-height: 400px;
   display: flex;
   flex-direction: column;
   margin-left: -5%;
@@ -264,11 +264,14 @@
   background-color: rgba(45, 46, 45, 0.9);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);  z-index: 5;
 }
 
 .character-card:hover {
-  transform: scale(1.01);
+  transform: scale(1.02);
+  box-shadow: 0 10px 30px rgba(34, 3, 3, 0.6);
 }
 
 

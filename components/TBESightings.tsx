@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { lore } from '@/data/lore'; 
 import { characters } from '@/data/characters';
+import TBEMap from './TBEMap';
 
 /* 
 
@@ -14,21 +15,21 @@ Copy
 **T.B.E. 16 Incident**  
 *Location*: Stalingrad  
 *Status*: Contained (WOLFPAK Deployed)  
-A devastating encounter with T.B.E. 16 left Stalingrad in ruins. CYBERTECH and WOLFPAK operatives were dispatched, but the cost was catastrophic. *“We are no longer men.”* —WOLFPAK Operative
+A devastating encounter with T.B.E. 16 left Stalingrad in ruins. CYBERTECH and WOLFPAK operatives were dispatched, but the cost was catastrophic. *"We are no longer men."* —WOLFPAK Operative
 
 ## The T.B.E. 16 Catastrophe
 *Stalingrad, Date Classified*  
-It began with a tremor, then a scream that shattered steel. T.B.E. 16 emerged, a force of raw destruction, leveling Stalingrad’s core. The Soviet Union’s defenses crumbled, and the world watched in horror. CYBERTECH deployed G.U.N. Sight, but it was WOLFPAK’s brutal intervention that contained the threat—at a cost. This was the spark that birthed the *Counter Measures Team*.  
-*“A blind faith move made in desperation rewards no man.”* —WOLFPAK Leader, Rune
+It began with a tremor, then a scream that shattered steel. T.B.E. 16 emerged, a force of raw destruction, leveling Stalingrad's core. The Soviet Union's defenses crumbled, and the world watched in horror. CYBERTECH deployed G.U.N. Sight, but it was WOLFPAK's brutal intervention that contained the threat—at a cost. This was the spark that birthed the *Counter Measures Team*.  
+*"A blind faith move made in desperation rewards no man."* —WOLFPAK Leader, Rune
 
 **G.U.N. Sight**  
 *Commander, CYBERTECH*  
-Leading CYBERTECH’s North American Division, G.U.N. Sight was on the front lines of the T.B.E. 16 Incident. His tactical brilliance saved countless lives, but the scars of Stalingrad linger.  
+Leading CYBERTECH's North American Division, G.U.N. Sight was on the front lines of the T.B.E. 16 Incident. His tactical brilliance saved countless lives, but the scars of Stalingrad linger.  
 *T.B.E. Num: 77*
 
 ## Join the Fight Against T.B.E.s
-The world is changing, and the T.B.E. threat grows. Sign up for classified updates, sneak peeks of [Writer’s Name]’s three upcoming books, and exclusive *PRODIGY: New Age* content.  
-*“Knowledge is the only true currency in this new world.”* —Proteus
+The world is changing, and the T.B.E. threat grows. Sign up for classified updates, sneak peeks of [Writer's Name]'s three upcoming books, and exclusive *PRODIGY: New Age* content.  
+*"Knowledge is the only true currency in this new world."* —Proteus
 */
 
 
@@ -97,7 +98,7 @@ const TBESightingsTimeline: React.FC = () => {
             <p><strong>Location:</strong> {sighting.location}</p>
             <p><strong>Status:</strong> {sighting.factions.includes('WOLFPAK') ? 'Contained' : 'Active'}</p>
             <p className="mt-2">{sighting.description}</p>
-            <p className="italic mt-2">“{sighting.significance}”</p>
+            <p className="italic mt-2">"{sighting.significance}"</p>
           </div>
         ))}
       </div>
@@ -114,9 +115,9 @@ const FeaturedSighting: React.FC = () => {
           <h3 className="text-3xl font-bold comic-font mb-4">The T.B.E. 16 Catastrophe</h3>
           <p className="mb-2"><strong>Stalingrad, Date Classified</strong></p>
           <p className="mb-4">
-            It began with a tremor, then a scream that shattered steel. T.B.E. 16 emerged, a force of raw destruction, leveling Stalingrad’s core. The Soviet Union’s defenses crumbled, and the world watched in horror. CYBERTECH deployed G.U.N. Sight, but it was WOLFPAK’s brutal intervention that contained the threat—at a cost. This was the spark that birthed the <em>Counter Measures Team</em>.
+            It began with a tremor, then a scream that shattered steel. T.B.E. 16 emerged, a force of raw destruction, leveling Stalingrad's core. The Soviet Union's defenses crumbled, and the world watched in horror. CYBERTECH deployed G.U.N. Sight, but it was WOLFPAK's brutal intervention that contained the threat—at a cost. This was the spark that birthed the <em>Counter Measures Team</em>.
           </p>
-          <p className="italic mb-4">“A blind faith move made in desperation rewards no man.” —WOLFPAK Leader, Rune</p>
+          <p className="italic mb-4">"A blind faith move made in desperation rewards no man." —WOLFPAK Leader, Rune</p>
           <Link href="https://www.youtube.com/watch?v=lR5oC7eqi2M">
             Watch the WOLFPAK Trailer
           </Link>
@@ -168,9 +169,9 @@ const TBECallToAction: React.FC = () => {
     <section className="py-12 bg-red-600 text-white text-center">
       <h3 className="text-3xl font-bold comic-font mb-4">Join the Fight Against T.B.E.s</h3>
       <p className="max-w-3xl mx-auto mb-6">
-        The world is changing, and the T.B.E. threat grows. Sign up for classified updates, sneak peeks of [Writer’s Name]’s three upcoming books, and exclusive <em>PRODIGY: New Age</em> content.
+        The world is changing, and the T.B.E. threat grows. Sign up for classified updates, sneak peeks of [Writer's Name]'s three upcoming books, and exclusive <em>PRODIGY: New Age</em> content.
       </p>
-      <p className="italic mb-6">“Knowledge is the only true currency in this new world.” —Proteus</p>
+      <p className="italic mb-6">"Knowledge is the only true currency in this new world." —Proteus</p>
       <form className="flex justify-center mb-6">
         <input
           type="email"
@@ -187,6 +188,29 @@ const TBECallToAction: React.FC = () => {
   );
 };
 
+// New component for the T.B.E. Sightings Map
+const TBESightingsMap: React.FC = () => {
+  return (
+    <section className="py-12 bg-gray-900 text-white">
+      <div className="max-w-6xl mx-auto">
+        <h3 className="text-3xl font-bold text-center comic-font mb-4">Global T.B.E. Activity</h3>
+        <p className="text-center mb-8 max-w-3xl mx-auto">
+          Explore the known locations of T.B.E. activity around the world. Each marker represents a confirmed sighting or incident.
+        </p>
+        <div className="rounded-lg overflow-hidden border-4 border-black shadow-lg bg-gray-800 p-4">
+          <div className="mb-4 text-center">
+            <p className="text-sm italic">Filter locations by faction to focus on specific areas of interest.</p>
+          </div>
+          <TBEMap className="rounded-lg" />
+          <div className="mt-4 text-center text-sm text-gray-400">
+            <p>Data source: Classified CYBERTECH Intelligence Network</p>
+            <p className="mt-1">Last updated: {new Date().toLocaleDateString()}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
 
 
 
@@ -194,10 +218,12 @@ export default function TBESightings() {
   return (
     <div className="bg-steel-dark text-white py-12">
       <TBESightingsHeader />
+      <TBESightingsMap />
       <TBESightingsTimeline />
       <FeaturedSighting />
       <TBECharacterConnections />
       <TBECallToAction />
+      <TBESightingsMap />
     </div>
   );
 }

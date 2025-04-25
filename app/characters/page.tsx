@@ -216,7 +216,7 @@ export default function CharactersPage() {
               <Link 
                 key={character.id}
                 href={`/characters/${character.alias}`}
-                className="character-card group rounded-lg overflow-hidden hover:transform hover:scale-103 transition-all duration-200 shadow-lg shadow-blood/10"
+                className="character-card overflow-hidden"
               >
                 <div className="relative h-48 w-full group">
                   <div className="absolute inset-0 bg-blood opacity-0 group-hover:opacity-15 transition-opacity duration-300"></div>

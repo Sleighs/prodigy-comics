@@ -13,7 +13,7 @@ type Slide = {
   link: string;
   price: string | null;
   accentColor: string;
-  topImage?: boolean;
+  objectTop?: boolean;
   overlay?: boolean;
   yOffset?: string;
   xOffset?: string;
@@ -41,9 +41,9 @@ const slides = [
     link: "https://www.indiegogo.com/projects/prodigy-new-age-hell-on-earth-book-0#/",
     price: null,
     accentColor: "from-orange-500 to-red-600",
-    topImage: true,
-    xOffset: "25%",
-    imageContain: true,
+    objectTop: false,
+    xOffset: "15%",
+    imageContain: false,
   },
   {
     id: 3,
@@ -70,10 +70,10 @@ const slides = [
     title: "Welcome to PRODIGY Comics",
     subtitle: "A New Age of Power",
     description: "The world is changing. Humans are evolving. The GODSTRAND has been discovered.",
-    image: '/images/stuffed-box-cutout.png',
+    image: '/images/chaos-promo-cut2.png',
     link: "/story",
     price: null,
-    accentColor: "from-blue-600 to-purple-600"
+    accentColor: "from-blue-600 to-black-600"
   }
   // {
   //   id: 4,
@@ -171,7 +171,7 @@ export default function HeroCarousel() {
                 left: slide.xOffset || '',
               }}
               className={`
-                ${slide.topImage ? 'object-top' : 'object-center'}
+                ${slide.objectTop ? 'object-top' : 'object-center'}
                 ${slide.imageContain ? 'object-contain' : 'object-cover'}
               `}
               priority={index === 0}
@@ -214,7 +214,7 @@ export default function HeroCarousel() {
                 {/* Optional Image Overlay */}
                 {(slide.overlay) && (
                   <div className={`hidden md:block relative h-[500px] ${
-                    slide.topImage ? 'md:-mt-20' : ''
+                    slide.objectTop ? 'md:-mt-20' : ''
                   }`}>
                     <div className="absolute inset-0 bg-gradient-to-r from-transparent to-black/50" />
                     <Image
@@ -222,7 +222,7 @@ export default function HeroCarousel() {
                       alt={slide.title}
                       fill
                       className={`object-contain ${
-                        slide.topImage ? 'object-top' : 'object-center'
+                        slide.objectTop ? 'object-top' : 'object-center'
                       }`}
                     />
                   </div>
