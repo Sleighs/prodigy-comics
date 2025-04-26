@@ -27,7 +27,7 @@ export default function CharacterPage() {
       <main className="min-h-screen bg-gradient-to-b from-gray-900 to-black text-white pt-16">
         <div className="max-w-6xl mx-auto px-4 py-20">
           <h1 className="text-4xl font-bold mb-8">Character Not Found</h1>
-          <p className="text-lg mb-4">We couldn't find a character matching: {params.alias}</p>
+          <p className="text-lg mb-4">We couldn&apos;t find a character matching: {decodeURIComponent(params.alias as string)}</p>
           <Link href="/characters" className="text-blue-400 hover:text-blue-300">
             ← Back to Characters
           </Link>

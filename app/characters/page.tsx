@@ -2,7 +2,9 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
+import { 
+  useState
+} from 'react';
 import { characters } from '@/data/characters';
 import PageHeader from '@/app/components/PageHeader';
 import './characters.css';
@@ -13,15 +15,7 @@ export default function CharactersPage() {
   const [currentSpotlightIndex, setCurrentSpotlightIndex] = useState(Math.floor(Math.random() * characters.spotlightList.length));
 
   // Rotate spotlight character every 10 seconds
-  // useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     setCurrentSpotlightIndex((prevIndex) => 
-  //       (prevIndex + 1) % characters.spotlightList.length
-  //     );
-  //   }, 10000);
 
-  //   return () => clearInterval(interval);
-  // }, []);
 
   // Get current spotlight character
   const currentSpotlight = characters.spotlightList[currentSpotlightIndex];

@@ -20,11 +20,13 @@ DOCUMENT ID: CGS-SEC-47201
 DATE: 2025-04-25
 DISTRIBUTION: Authorized Personnel (Level 7 Clearance and Above)
 
-In 1908, something extraordinary was discovered in the Tunguska blast site. The GODSTRAND, a previously unknown piece of human DNA, was found to be the source of incredible mutations.
+EXECUTIVE SUMMARY:
+Following the 1908 Tunguska Event, operatives recovered anomalous genetic material at Ground Zero. Subsequent analysis identified a unique DNA structure, codename GODSTRAND. Exposure and inheritance of GODSTRAND markers have been linked to the emergence of biologically divergent individuals, classified as Terrestrial Biological Entities (T.B.E.s).
 
-Today, these mutations have given rise to T.B.E.'s - Terrestrial Biological Entities - humans who have evolved beyond normal capabilities.
+T.B.E.s demonstrate a range of nonstandard biological capabilities, posing significant risks to global security, public safety, and environmental stability. Ongoing surveillance and containment protocols remain active.
 
-WARNING: This information is classified. Unauthorized access is prohibited.
+WARNING: 
+Unauthorized dissemination of this document constitutes a breach of national and international security protocols and is punishable by imprisonment under Articles 17, 22, and 41 of the International Covert Security Accord (ICSA), 2031 revision.
 
 T.B.E. SIGHTING #1: Location: Siberia, Russia
 Date: 1947-03-15
@@ -50,7 +52,7 @@ DISTRIBUTION: Authorized Personnel (Level 6 Clearance and Above)
 
 The GODSTRAND, a genetic sequence containing approximately 2 million chromosome pairs, has been partially mapped and utilized for human augmentation under Project WOLFPAK and related initiatives. While the augmentations grant extraordinary abilities, the side effects are profound, debilitating, and often fatal.
 
-WARNING: This information is classified. Unauthorized access is prohibited.
+WARNING: THIS INFORMATION IS CLASSIFIED. UNAUTHORIZED ACCESS IS PROHIBITED.
 
 DETAILED SIDE EFFECTS:
 
@@ -82,9 +84,9 @@ DETAILED SIDE EFFECTS:
   // Generate a cyphered version of the text with random characters
   const generateCypheredText = (text: string) => {
     // Characters to use for cyphering
+    const cypherChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_abcdefghijklmnopqrstuvwxyz__';
     const cypherChars2 = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+-=[]{}|;:,.<>?';
-    const cypherChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*_+-=<>?';
-    
+
     // Keep the first part of the text (non-redacted)
     const firstPart = text.split('\n\n').slice(0, 3).join('\n\n');
     

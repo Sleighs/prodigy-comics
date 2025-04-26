@@ -27,12 +27,12 @@ export default function AboutPage() {
             </p>
           </div>
           <div className="relative h-[300px] w-full">
-            {/* <Image
-              src="/images/prodigy-team.jpg"
+            <Image
+              src="/images/unknown4.png"
               alt="Prodigy Team"
               fill
               className="object-cover rounded-lg"
-            /> */}
+            />
           </div>
         </div>
       </section>
