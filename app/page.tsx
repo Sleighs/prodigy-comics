@@ -9,6 +9,7 @@ import MembersTierSection from '@/components/MembersTierSection'
 import { useEffect } from "react";
 import FeaturedCharactersSection from "@/components/FeaturedCharactersSection";
 import TBEMap from "@/components/TBEMap";
+import TBESightingsIntro from "@/components/TBESightingsIntro";
 
 const featuredProducts = [
   {
@@ -57,7 +58,7 @@ const characters = [
 
 export default function Home() {
   return (
-    <main className="home-page min-h-screen bg-gradient-to-b from-gray-900 to-black text-white pt-16 roboto">
+    <main className="home-page min-h-screen pt-16 roboto">
       {/* Hero Carousel */}
       <div className="mt-0">
         <HeroCarousel />
@@ -69,57 +70,24 @@ export default function Home() {
       {/* Featured Characters Section */}
       <FeaturedCharactersSection />
 
-      {/* Available Now Section
-      <AvailableNowSection /> */}
-
       {/* Stuffed Box Section */}
-      <section className="py-20 home--available-now-section relative">
-        <div className="home--available-now-bg"></div>
-        
-        <div className="home--available-now-image">
-          <div className="absolute inset-0 bg-blood opacity-0 group-hover:opacity-15 transition-opacity duration-300"></div>
-          <Image
-            src="/images/stuffed-box1.png"
-            alt="PRODIGY: Stuffed Box"
-            fill
-            className="object-cover"
-            priority
-            sizes="(max-width: 768px) 100vw, 55vw"
-            quality={95}
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent to-black/50" />
-        </div>
+      <AvailableNowSection 
+        imageSrc="/images/stuffed-box1.png"
+        title="PRODIGY New Age STUFFED Box"
+        description="The ultimate collector's edition featuring exclusive merchandise, collectibles, and limited edition variants. Get EVERYTHING that this campaign generates for one SUPER low price!"
+        primaryButton={{
+          text: "Pre-order Now",
+          link: "https://www.indiegogo.com/projects/prodigy-new-age-hell-on-earth-book-0#/",
+          isExternal: true
+        }}
+        secondaryButton={{
+          text: "View Details",
+          link: "/store"
+        }}
+        badge="SPECIAL EDITION"
+        slantDirection="left"
+      />
 
-        <div className="home--available-now-content">
-          <div className="max-w-xl">
-            <span className="inline-block px-4 py-1 bg-red-dark text-white text-sm font-bold rounded-full mb-4">
-              SPECIAL EDITION
-            </span>
-            <h2 className="text-4xl md:text-5xl font-bold roboto-condensed-bold mb-4">
-              PRODIGY New Age STUFFED Box
-            </h2>
-            <p className="text-xl text-white mb-6">
-              The ultimate collector's edition featuring exclusive merchandise, collectibles, and limited edition variants.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <a
-                href="https://www.indiegogo.com/projects/prodigy-new-age-hell-on-earth-book-0#/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-8 py-3 bg-red-dark hover:bg-blood-dark text-white text-lg font-semibold transition-colors duration-300 text-center"
-              >
-                Pre-order Now
-              </a>
-              <Link
-                href="/store"
-                className="px-8 py-3 bg-steel-dark hover:bg-steel text-white text-lg font-semibold transition-colors duration-300 text-center"
-              >
-                View Details
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Featured Products Section */}
       {/* <section className="py-20 home--products-section">
@@ -164,42 +132,11 @@ export default function Home() {
       </section> */}
 
   
+      {/* TBE Sightings Intro Section */}
+      <TBESightingsIntro />
 
-      {/* About Section */}
-      <section className="py-20">
-        <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-4xl font-bold mb-8 text-center roboto-condensed-bold">T.B.E. SIGHTINGS</h2>
-          <div className="grid md:grid-cols-2 gap-12 items-center">
 
-            <div>
-              <p className="text-lg mb-4">
-                In 1908, something extraordinary was discovered in the Tunguska blast site. The GODSTRAND, a previously unknown piece of human DNA, was found to be the source of incredible mutations.
-              </p>
-              <p className="text-lg">
-                Today, these mutations have given rise to T.B.E.'s - Terrestrial Biological Entities - humans who have evolved beyond normal capabilities.
-              </p>
-              <div className="text-center mt-12">
-                <Link
-                  href="/story"
-                  className="inline-block px-8 py-3 bg-blood hover:bg-blood-dark text-white text-lg font-semibold transition-colors duration-300 shadow-lg shadow-blood/30"
-                >
-                  Explore the Lore
-                </Link>
-              </div>
-            </div>
-            <div className="relative h-96">
-              <Image
-                src="/images/genetics-lab.png"
-                alt="Ember"
-                fill
-                className="object-cover rounded-lg"
-              />
-            </div>
-          </div>
-        </div>  
-      </section>
-      
-      
+      {/* TBE Map Section */}
       <TBEMap />
 
 
@@ -214,13 +151,13 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Link
               href="/store"
-              className="px-8 py-3 bg-blue-600 hover:bg-blue-700 rounded-full text-lg font-semibold transition-colors"
+              className="px-8 py-3 bg-blue-600 text-lg font-semibold transition-colors bg-blood"
             >
               Shop Now
             </Link>
             <Link
               href="/characters"
-              className="px-8 py-3 bg-gray-800 hover:bg-gray-700 rounded-full text-lg font-semibold transition-colors"
+              className="px-8 py-5 pt-5 bg-gray-800 text-lg font-semibold transition-colors bg-steel"
             >
               Meet the Characters
             </Link>

@@ -1,22 +1,16 @@
 import Image from 'next/image';
+import PageHeader from '../components/PageHeader';
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen pt-16">
       {/* Hero Section */}
-      <div className="relative h-[40vh] w-full">
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-black/80 z-10" />
-        {/* <Image
-          src="/images/about-hero.jpg"
-          alt="About Prodigy"
-          fill
-          className="object-cover"
-          priority
-        /> */}
-        <div className="absolute inset-0 z-20 flex items-center justify-center">
-          <h1 className="text-5xl md:text-7xl font-bold font-roboto-condensed">About Prodigy</h1>
-        </div>
-      </div>
+      <PageHeader 
+        title="About"
+        backgroundImage="/images/prodigy-banner.png"
+        subtitle="Meet the creators of Prodigy"
+      />
+
 
       {/* Who Are We Section */}
       <section className="py-16 px-4 md:px-8 max-w-6xl mx-auto">

@@ -46,7 +46,7 @@ export default function CharacterPage() {
             src={character.image}
             alt={character.alias}
             fill
-            className="object-cover"
+            className="object-cover object-top"
             priority
           />
         </div>

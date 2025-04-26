@@ -59,7 +59,7 @@ export default function FeaturedCharactersSection() {
     <section className="featured-characters-section py-20">
       <div className="max-w-6xl mx-auto px-4 relative z-10">
         <h2 className="text-4xl font-bold mb-12 text-center section-title">Featured Characters</h2>
-        <div className="grid md:grid-cols-4 gap-0">
+        <div className="featured-characters-cards-grid">
           {characters.map((character) => (
             <CharacterCard key={character.name} character={character} />
           ))}

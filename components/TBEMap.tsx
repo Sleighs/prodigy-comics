@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
-import '@/styles/leaflet.css';
+import '@/styles/tbemap.css';
 import L, { LatLngTuple } from 'leaflet';
 import { lore } from '@/data/lore';
 
@@ -114,18 +114,9 @@ const TBEMap: React.FC<TBEMapProps> = ({ className = '' }) => {
     : locationData.filter(location => location.factions.includes(selectedFaction));
 
   return (
-    <div className={`h-[500px] w-full ${className}`}>
-      <div className="mb-4 flex justify-center">
-        <select
-          className="bg-gray-900 text-white p-2 rounded"
-          onChange={(e) => setSelectedFaction(e.target.value)}
-          value={selectedFaction}
-        >
-          <option value="All">All Factions</option>
-          {lore.factions.map(faction => (
-            <option key={faction.id} value={faction.name}>{faction.name}</option>
-          ))}
-        </select>
+    <div className={`tbe-map-container h-[500px] w-full ${className}`}>
+      <div className="tbe-map-title">
+        <h1>{`T.B.E. SIGHTINGS REPORT  ${new Date().toLocaleDateString()} - ${selectedFaction}`}</h1>
       </div>
       <MapContainer
         center={[40, 0]}
@@ -162,6 +153,18 @@ const TBEMap: React.FC<TBEMapProps> = ({ className = '' }) => {
           </Marker>
         ))}
       </MapContainer>
+      <div className="tbe-map-select-container mb-4 flex justify-center">
+        <select
+          className="tbe-map-select bg-gray-900 text-white p-2 rounded"
+          onChange={(e) => setSelectedFaction(e.target.value)}
+          value={selectedFaction}
+        >
+          <option value="All">All Factions</option>
+          {lore.factions.map(faction => (
+            <option key={faction.id} value={faction.name}>{faction.name}</option>
+          ))}
+        </select>
+      </div>
     </div>
   );
 };

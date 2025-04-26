@@ -1,32 +1,19 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { lore } from '@/data/lore';
+import PageHeader from '../components/PageHeader';
 
 export default function StoryPage() {
   return (
-    <main className="min-h-screen bg-gradient-to-b from-gray-900 to-black text-white pt-16">
+    <main className="min-h-screen pt-16">
       {/* Hero Section */}
-      <section className="relative h-[60vh] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-black/70" />
-          {/* <Image
-            src="/images/story-hero.jpg"
-            alt="Prodigy Story"
-            fill
-            className="object-cover"
-            priority
-          /> */}
-        </div>
-        
-        <div className="relative z-10 text-center px-4">
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-500">
-            PRODIGY: New Age
-          </h1>
-          <p className="text-xl md:text-2xl max-w-2xl mx-auto">
-            The story of power, evolution, and the rise of T.B.E.'s
-          </p>
-        </div>
-      </section>
+      <PageHeader 
+        title="Story"
+        backgroundImage="/images/prodigy-banner.png"
+        subtitle="The story of power, evolution, and the rise of T.B.E.'s"
+        tailwindStyles=""
+      />
+
 
       {/* Overview Section */}
       <section className="py-20 px-4 bg-gray-900/50">

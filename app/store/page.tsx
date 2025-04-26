@@ -5,35 +5,22 @@ import Link from 'next/link';
 import { useState } from 'react';
 import ImageViewer from '@/components/ImageViewer';
 import products from '@/data/products';
+import PageHeader from '../components/PageHeader';
 
 
 export default function StorePage() {
   const [selectedImage, setSelectedImage] = useState<{ src: string; alt: string } | null>(null);
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-gray-900 to-black text-white pt-16">
+    <main className="min-h-screen pt-16">
       {/* Hero Section */}
-      <section className="relative h-[40vh] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-black/70" />
-          {/* <Image
-            src="/images/store-hero.jpg"
-            alt="Prodigy Store"
-            fill
-            className="object-cover"
-            priority
-          /> */}
-        </div>
-        
-        <div className="relative z-10 text-center px-4">
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-500">
-            Store
-          </h1>
-          <p className="text-xl md:text-2xl max-w-2xl mx-auto">
-            Official Prodigy Comics and Merchandise
-          </p>
-        </div>
-      </section>
+      <PageHeader 
+        title="Store"
+        backgroundImage="/images/prodigy-banner.png"
+        subtitle="Official Prodigy Comics and Merchandise"
+        tailwindStyles="bg-gradient-to-b from-gray-900 to-black"
+      />
+
 
       {/* Featured Items Carousel */}
       <section className="py-12 bg-gray-900">

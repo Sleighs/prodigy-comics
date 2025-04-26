@@ -64,7 +64,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${roboto.variable} ${robotoCondensed.variable} ${robotoBold.variable}`}>
-      <body className="roboto">
+      <body className="roboto bg-gradient-to-b from-gray-900 to-black text-white ">
         <ThemeProvider>
           <Navbar />
           {/* <NotificationBar 

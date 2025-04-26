@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { characters } from '@/data/characters';
+import PageHeader from '@/app/components/PageHeader';
 import './characters.css';
 
 export default function CharactersPage() {
@@ -65,28 +66,11 @@ export default function CharactersPage() {
 
   return (
     <main className="min-h-screen bg-gradient-dark text-white pt-16">
-      {/* Hero Section */}
-      <section className="relative h-[50vh] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-black/80" />
-          {/* <Image
-            src="/images/characters/hero.jpg"
-            alt="Prodigy Characters"
-            fill
-            className="object-cover"
-            priority
-          /> */}
-        </div>
-        <div className="relative z-10 text-center px-4">
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 section-title">
-            Characters
-          </h1>
-          <p className="text-xl md:text-2xl max-w-2xl mx-auto text-muted">
-            Meet the extraordinary individuals of the Prodigy universe
-          </p>
-        </div>
-      </section>
-
+      <PageHeader 
+        title="Characters"
+        backgroundImage="/images/prodigy-banner.png"
+        subtitle="Meet the extraordinary individuals of the Prodigy universe"
+      />
 
       {/* Featured Characters */}
       <section className="py-20 featured-section">

@@ -1,0 +1,227 @@
+/* Terminal Login Container */
+.terminal-login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #000;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background grid pattern */
+.terminal-login-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(rgba(0, 255, 0, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 0, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+  opacity: 0.1;
+  z-index: 0;
+}
+
+/* Scanline effect */
+.terminal-login-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 255, 0, 0.05) 50%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  animation: scanline 8s linear infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+/* Terminal Login Box */
+.terminal-login {
+  width: 100%;
+  max-width: 500px;
+  background-color: rgba(0, 0, 0, 0.9);
+  border: 1px solid rgba(0, 255, 0, 0.5);
+  border-radius: 5px;
+  box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
+  padding: 20px;
+  position: relative;
+  z-index: 2;
+  font-family: 'Courier New', monospace;
+  color: #0f0;
+  text-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+}
+
+/* Terminal Login Header */
+.terminal-login-header {
+  text-align: center;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(0, 255, 0, 0.3);
+}
+
+.terminal-login-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  letter-spacing: 1px;
+}
+
+.terminal-login-subtitle {
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+/* Terminal Login Content */
+.terminal-login-content {
+  margin-bottom: 20px;
+}
+
+/* Terminal Login Status */
+.terminal-login-status {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.terminal-login-attempts,
+.terminal-login-timer {
+  padding: 10px;
+  border: 1px solid rgba(0, 255, 0, 0.3);
+  border-radius: 3px;
+  background-color: rgba(0, 20, 0, 0.3);
+}
+
+.terminal-login-attempts-label,
+.terminal-login-timer-label {
+  font-size: 12px;
+  opacity: 0.8;
+  margin-bottom: 5px;
+}
+
+.terminal-login-attempts-value {
+  font-size: 24px;
+  font-weight: bold;
+  color: #0f0;
+}
+
+.terminal-login-timer-value {
+  font-size: 36px;
+  font-weight: bold;
+  color: #f00;
+  text-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
+  margin: 10px 0;
+}
+
+.terminal-login-timer-message {
+  font-size: 12px;
+  color: #f00;
+}
+
+/* Terminal Login Form */
+.terminal-login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.terminal-login-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.terminal-login-label {
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+.terminal-login-input {
+  background-color: rgba(0, 20, 0, 0.3);
+  border: 1px solid rgba(0, 255, 0, 0.3);
+  border-radius: 3px;
+  padding: 10px;
+  color: #0f0;
+  font-family: 'Courier New', monospace;
+  font-size: 14px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.terminal-login-input:focus {
+  border-color: rgba(0, 255, 0, 0.7);
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+}
+
+.terminal-login-input:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.terminal-login-error {
+  color: #f00;
+  font-size: 12px;
+  text-align: center;
+  margin-top: 5px;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.terminal-login-button {
+  background-color: rgba(0, 50, 0, 0.5);
+  border: 1px solid rgba(0, 255, 0, 0.5);
+  border-radius: 3px;
+  padding: 10px;
+  color: #0f0;
+  font-family: 'Courier New', monospace;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+}
+
+.terminal-login-button:hover:not(:disabled) {
+  background-color: rgba(0, 70, 0, 0.7);
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+}
+
+.terminal-login-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Terminal Login Footer */
+.terminal-login-footer {
+  text-align: center;
+  font-size: 12px;
+  opacity: 0.7;
+  border-top: 1px solid rgba(0, 255, 0, 0.3);
+  padding-top: 10px;
+}
+
+.terminal-login-warning {
+  color: #f00;
+  margin-bottom: 5px;
+}
+
+.terminal-login-version {
+  font-size: 10px;
+  opacity: 0.5;
+} 

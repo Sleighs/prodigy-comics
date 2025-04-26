@@ -2,6 +2,12 @@
 
 Main Trailer - https://www.youtube.com/watch?v=E7jsNUBGatQ&list=PLel1QxCurC7nMeMISatZQoNRzjZFlpkUI&index=18&ab_channel=PopCultureRocks
 
+## Origin
+
+When GOLDSTONE Laboratories discovered a portion of the mythic GODSTRAND they did not understand what they had until it was properly analyzed. A normal DNA strand has 23 chromosome pairs The GODSTRAND has 2 million.
+
+It isn't difficult to see why the world would go to war to acquire it.
+
 ## CYBERTECH - Global Security Solutions
 
 Trailer - https://www.youtube.com/watch?v=RJMAyMY1sGM&ab_channel=PopCultureRocks

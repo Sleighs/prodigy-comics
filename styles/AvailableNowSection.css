@@ -17,6 +17,11 @@
   right: 0;
   width: 55%;
   height: 100%;
+}
+.home--available-now-image .slant-left {
+  clip-path: polygon(25% 0, 100% 0, 100% 100%, 0% 100%);
+}
+.home--available-now-image .slant-right {
   clip-path: polygon(0 0, 100% 0, 100% 100%, 25% 100%);
 }
 

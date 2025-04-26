@@ -33,3 +33,27 @@
 .leaflet-control-attribution {
   display: none;
 }
+
+.tbe-map-title {
+  position: absolute;
+  margin-top: 0px;
+  z-index: 1001;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.tbe-map-select-container {
+  /* move down on top of map */
+  margin-top: -55px;
+  position: absolute;
+  right: 4%;
+
+  /* transform: translateX(-50%); */
+}
+
+.tbe-map-select {
+  z-index: 1001;
+  height: 40px;
+  width: 160px;
+  font-size: 15px;
+  opacity: 0.8;
+}

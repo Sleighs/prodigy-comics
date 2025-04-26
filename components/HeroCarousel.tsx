@@ -41,9 +41,9 @@ const slides = [
     link: "https://www.indiegogo.com/projects/prodigy-new-age-hell-on-earth-book-0#/",
     price: null,
     accentColor: "from-orange-500 to-red-600",
-    objectTop: false,
+    objectTop: true,
     xOffset: "15%",
-    imageContain: false,
+    imageContain: true,
   },
   {
     id: 3,
