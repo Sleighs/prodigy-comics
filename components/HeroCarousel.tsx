@@ -39,7 +39,6 @@ const slides = [
     description: "Two sisters. One destiny. Unlimited power.",
     image: "/images/ember-campaign.png",
     link: "https://www.indiegogo.com/projects/prodigy-new-age-hell-on-earth-book-0#/",
-    price: null,
     accentColor: "from-orange-500 to-red-600",
     objectTop: true,
     xOffset: "15%",
@@ -52,7 +51,6 @@ const slides = [
     description: "Everything you need to enter the world of PRODIGY. Limited time offer.",
     image: "/images/stuffed-box-cutout.png",
     link: "https://www.indiegogo.com/projects/prodigy-new-age-hell-on-earth-book-0#/",
-    price: "$250.00",
     accentColor: "from-blue-600 to-purple-600"
   },
   {
@@ -62,7 +60,6 @@ const slides = [
     description: "The world's deadliest counter-measures team. Enhanced. Unleashed. Uncontrollable.",
     image: "/images/unknown4.png",
     link: "https://www.indiegogo.com/projects/prodigy-new-age-hell-on-earth-book-0#/",
-    price: null,
     accentColor: "from-gray-900 to-red-900"
   },
   {
@@ -72,7 +69,6 @@ const slides = [
     description: "The world is changing. Humans are evolving. The GODSTRAND has been discovered.",
     image: '/images/chaos-promo-cut2.png',
     link: "/story",
-    price: null,
     accentColor: "from-blue-600 to-black-600"
   }
   // {
@@ -196,11 +192,6 @@ export default function HeroCarousel() {
                   <p className="text-lg md:text-xl text-gray-200 max-w-lg roboto">
                     {slide.description}
                   </p>
-                    {/* {slide.price && (
-                    <p className="text-3xl font-bold text-red-500">
-                      {slide.price}
-                    </p>
-                  )} */}
                   <a
                     href={slide.link}
                     target={slide.link.startsWith('http') ? '_blank' : '_self'}
