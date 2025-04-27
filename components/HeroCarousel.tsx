@@ -4,21 +4,21 @@ import Image from 'next/image';
 import { useState, useEffect, useRef } from 'react';
 import '../styles/carousel.css';
 
-type Slide = {
-  id: number;
-  title: string;
-  subtitle: string;
-  description: string;
-  image: string;
-  link: string;
-  price: string | null;
-  accentColor: string;
-  objectTop?: boolean;
-  overlay?: boolean;
-  yOffset?: string;
-  xOffset?: string;
-  imageContain?: string;
-};
+// type Slide = {
+//   id: number;
+//   title: string;
+//   subtitle: string;
+//   description: string;
+//   image: string;
+//   link: string;
+//   price: string | null;
+//   accentColor: string;
+//   objectTop?: boolean;
+//   overlay?: boolean;
+//   yOffset?: string;
+//   xOffset?: string;
+//   imageContain?: string;
+// };
 
 const slides = [
   {

@@ -57,12 +57,12 @@ const TerminalLogin = ({ onLoginSuccess }: TerminalLoginProps) => {
   });
   const [errorMessage, setErrorMessage] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const [accessLogins, setAccessLogins] = useState<LoginCredential[]>([
+  const accessLogins = [
     {
       username: 'hammerhand',
       password: 'nostrags'
     }
-  ]);
+  ];
 
   useEffect(() => {
     console.log('SESSION ACCESS', accessLogins[Math.floor(Math.random() * accessLogins.length)])

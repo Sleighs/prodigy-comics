@@ -80,7 +80,7 @@ export default function AboutPage() {
                 </div>
               </div>
               <p className="text-gray-300">
-                [Artist bio goes here. Include their artistic style, previous work, and their approach to Prodigy's visual design.]
+                [Artist bio goes here. Include their artistic style, previous work, and their approach to Prodigy&apos;s visual design.]
               </p>
             </div>
           </div>
@@ -104,18 +104,24 @@ export default function AboutPage() {
               <h3 className="text-xl font-semibold mb-2">Partnerships</h3>
               <p className="text-gray-400">partnerships@prodigycomics.com</p>
             </div>
+            <div>
+              <h3 className="text-xl font-semibold mb-2">Book #0 Campaign</h3>
+              <a href="https://www.indiegogo.com/projects/prodigy-new-age-hell-on-earth-book-0" className="hover:text-white transition-colors" target="_blank" rel="noopener noreferrer">
+                Book #0 Campaign
+              </a>
+            </div>
           </div>
           <div className="bg-gray-800 p-6 rounded-lg">
             <h3 className="text-xl font-semibold mb-4">Follow Us</h3>
             <div className="flex gap-4">
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                Twitter
+              <a href="https://x.com/william37199107" className="text-gray-400 hover:text-white transition-colors">
+                X/Twitter
               </a>
               <a href="#" className="text-gray-400 hover:text-white transition-colors">
                 Instagram
               </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                Facebook
+              <a href="https://www.youtube.com/@popculturerocks" className="text-gray-400 hover:text-white transition-colors">
+                Youtube
               </a>
             </div>
           </div>

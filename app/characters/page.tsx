@@ -16,12 +16,11 @@ export default function CharactersPage() {
 
   // Rotate spotlight character every 10 seconds
 
-
   // Get current spotlight character
   const currentSpotlight = characters.spotlightList[currentSpotlightIndex];
 
   // Get unique factions
-  const factions = Array.from(new Set(characters.list.map(char => char.category)));
+  // const factions = Array.from(new Set(characters.list.map(char => char.category)));
 
   // Sort characters based on current sort settings
   const sortedCharacters = [...characters.list].sort((a, b) => {

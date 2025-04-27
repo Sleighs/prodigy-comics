@@ -115,7 +115,7 @@ const FeaturedSighting: React.FC = () => {
           <h3 className="text-3xl font-bold comic-font mb-4">The T.B.E. 16 Catastrophe</h3>
           <p className="mb-2"><strong>Stalingrad, Date Classified</strong></p>
           <p className="mb-4">
-            It began with a tremor, then a scream that shattered steel. T.B.E. 16 emerged, a force of raw destruction, leveling Stalingrad's core. The Soviet Union's defenses crumbled, and the world watched in horror. CYBERTECH deployed G.U.N. Sight, but it was WOLFPAK's brutal intervention that contained the threat—at a cost. This was the spark that birthed the <em>Counter Measures Team</em>.
+            It began with a tremor, then a scream that shattered steel. T.B.E. 16 emerged, a force of raw destruction, leveling Stalingrad&apos;s core. The Soviet Union&apos;s defenses crumbled, and the world watched in horror. CYBERTECH deployed G.U.N. Sight, but it was WOLFPAK&apos;s brutal intervention that contained the threat—at a cost. This was the spark that birthed the <em>Counter Measures Team</em>.
           </p>
           <p className="italic mb-4">"A blind faith move made in desperation rewards no man." —WOLFPAK Leader, Rune</p>
           <Link href="https://www.youtube.com/watch?v=lR5oC7eqi2M">
@@ -169,9 +169,9 @@ const TBECallToAction: React.FC = () => {
     <section className="py-12 bg-red-600 text-white text-center">
       <h3 className="text-3xl font-bold comic-font mb-4">Join the Fight Against T.B.E.s</h3>
       <p className="max-w-3xl mx-auto mb-6">
-        The world is changing, and the T.B.E. threat grows. Sign up for classified updates, sneak peeks of [Writer's Name]'s three upcoming books, and exclusive <em>PRODIGY: New Age</em> content.
+        The world is changing, and the T.B.E. threat grows. Sign up for classified updates, sneak peeks of [Writer's Name]&apos;s three upcoming books, and exclusive <em>PRODIGY: New Age</em> content.
       </p>
-      <p className="italic mb-6">"Knowledge is the only true currency in this new world." —Proteus</p>
+      <p className="italic mb-6">&quot;Knowledge is the only true currency in this new world.&quot; —Proteus</p>
       <form className="flex justify-center mb-6">
         <input
           type="email"

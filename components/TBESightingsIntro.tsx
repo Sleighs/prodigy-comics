@@ -15,15 +15,16 @@ const TBESightingsIntro = () => {
   const [showLogin, setShowLogin] = useState(false);
   
   const fullText = `
-T.B.E. SIGHTINGS REPORT - CYBERTECH GLOBAL SECURITY SOLUTIONS
+CYBERTECH GLOBAL SECURITY SOLUTIONS
+T.B.E. SIGHTINGS REPORT
 DOCUMENT ID: CGS-SEC-47201   
 DATE: 2025-04-25
 DISTRIBUTION: Authorized Personnel (Level 7 Clearance and Above)
 
 EXECUTIVE SUMMARY:
-Following the 1908 Tunguska Event, operatives recovered anomalous genetic material at Ground Zero. Subsequent analysis identified a unique DNA structure, codename GODSTRAND. Exposure and inheritance of GODSTRAND markers have been linked to the emergence of biologically divergent individuals, classified as Terrestrial Biological Entities (T.B.E.s).
+Following the 1908 Tunguska Event, operatives recovered anomalous genetic material at Ground Zero. Subsequent analysis identified a unique DNA structure, codename GODSTRAND. Inheritance of GODSTRAND markers have been linked to the emergence of biologically divergent individuals, classified as Terrestrial Biological Entities (T.B.E.s).
 
-T.B.E.s demonstrate a range of nonstandard biological capabilities, posing significant risks to global security, public safety, and environmental stability. Ongoing surveillance and containment protocols remain active.
+T.B.E.s demonstrate a range of nonstandard biological capabilities, posing elevated threats to public safety and environmental stability and global security. Surveillance, suppresion and containment protocols remain active.
 
 WARNING: 
 Unauthorized dissemination of this document constitutes a breach of national and international security protocols and is punishable by imprisonment under Articles 17, 22, and 41 of the International Covert Security Accord (ICSA), 2031 revision.
@@ -45,14 +46,19 @@ Status: Unknown
 `;
 
   const sideEffectsText = `
-GODSTRAND AUGMENTATION SIDE EFFECTS - GOLDSTONE LABORATORIES
+GOLDSTONE LABORATORIES
+GODSTRAND AUGMENTATION: SIDE EFFECTS ANALYSIS
 DOCUMENT ID: GL-OOS-0187
 DATE: 1999-03-11
 DISTRIBUTION: Authorized Personnel (Level 6 Clearance and Above)
 
-The GODSTRAND, a genetic sequence containing approximately 2 million chromosome pairs, has been partially mapped and utilized for human augmentation under Project WOLFPAK and related initiatives. While the augmentations grant extraordinary abilities, the side effects are profound, debilitating, and often fatal.
+EXECUTIVE SUMMARY:
+The GODSTRAND is a complex genetic structure encompassing approximately 2 million base pairs. Partial sequencing and experimental integrations under Project WOLFPAK and auxiliary programs have yielded augmentations beyond known human capabilities. However, side effects associated with GODSTRAND integration are catastrophic in nature, with morbidity rates exceeding 83% within five years post-augmentation.
 
-WARNING: THIS INFORMATION IS CLASSIFIED. UNAUTHORIZED ACCESS IS PROHIBITED.
+Continued research into stabilization protocols is considered Priority One under Operation [REDACTED].
+
+WARNING:
+This document is classified under the Global Human Enhancement Oversight Act (GHEOA) 1987. Unauthorized access, reproduction, or dissemination is punishable by immediate detainment and indefinite incarceration.
 
 DETAILED SIDE EFFECTS:
 
@@ -85,7 +91,7 @@ DETAILED SIDE EFFECTS:
   const generateCypheredText = (text: string) => {
     // Characters to use for cyphering
     const cypherChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_abcdefghijklmnopqrstuvwxyz__';
-    const cypherChars2 = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+-=[]{}|;:,.<>?';
+    // const cypherChars2 = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+-=[]{}|;:,.<>?';
 
     // Keep the first part of the text (non-redacted)
     const firstPart = text.split('\n\n').slice(0, 3).join('\n\n');
