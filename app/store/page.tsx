@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import ImageViewer from '@/components/ImageViewer';
 import products from '@/data/products';
-import PageHeader from '../components/PageHeader';
+import PageHeader from '../../components/PageHeader';
 
 
 export default function StorePage() {

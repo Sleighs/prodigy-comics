@@ -6,7 +6,7 @@ import {
   useState
 } from 'react';
 import { characters } from '@/data/characters';
-import PageHeader from '@/app/components/PageHeader';
+import PageHeader from '@/components/PageHeader';
 import './characters.css';
 
 export default function CharactersPage() {

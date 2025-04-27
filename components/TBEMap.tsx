@@ -1,21 +1,50 @@
 'use client'
 import { useEffect, useState } from 'react';
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-import 'leaflet/dist/leaflet.css';
-import '@/styles/tbemap.css';
-import L, { LatLngTuple } from 'leaflet';
+import dynamic from 'next/dynamic';
+import type { LatLngTuple } from 'leaflet';
 import { lore } from '@/data/lore';
 
-// Fix for default marker icons in Next.js
-const defaultIcon = L.icon({
-  iconUrl: '/images/marker-icon.png',
-  iconRetinaUrl: '/images/marker-icon-2x.png',
-  shadowUrl: '/images/marker-shadow.png',
-  iconSize: [25, 41],
-  iconAnchor: [12, 41],
-  popupAnchor: [1, -34],
-  shadowSize: [41, 41]
-});
+// Dynamically import Leaflet components with no SSR
+const MapContainer = dynamic(
+  () => import('react-leaflet').then((mod) => mod.MapContainer),
+  { ssr: false }
+);
+const TileLayer = dynamic(
+  () => import('react-leaflet').then((mod) => mod.TileLayer),
+  { ssr: false }
+);
+const Marker = dynamic(
+  () => import('react-leaflet').then((mod) => mod.Marker),
+  { ssr: false }
+);
+const Popup = dynamic(
+  () => import('react-leaflet').then((mod) => mod.Popup),
+  { ssr: false }
+);
+
+// Import Leaflet CSS only on client side
+const LeafletCSS = dynamic(() => import('@/components/LeafletCSS'), { ssr: false });
+
+// Import custom CSS
+import '@/styles/tbemap.css';
+
+// Move icon creation to client-side only
+let defaultIcon: any = null;
+const createDefaultIcon = () => {
+  if (typeof window !== 'undefined') {
+    const L = require('leaflet');
+    defaultIcon = L.icon({
+      iconUrl: '/images/marker-icon.png',
+      iconRetinaUrl: '/images/marker-icon-2x.png',
+      shadowUrl: '/images/marker-shadow.png',
+      iconSize: [25, 41],
+      iconAnchor: [12, 41],
+      popupAnchor: [1, -34],
+      shadowSize: [41, 41]
+    });
+  }
+  return defaultIcon;
+};
 
 // Custom icons for different factions
 const getFactionIcon = (factions: string[]) => {
@@ -102,6 +131,7 @@ const TBEMap: React.FC<TBEMapProps> = ({ className = '' }) => {
   // Fix for SSR with Leaflet
   useEffect(() => {
     setIsMounted(true);
+    createDefaultIcon();
   }, []);
 
   if (!isMounted) {
@@ -115,6 +145,7 @@ const TBEMap: React.FC<TBEMapProps> = ({ className = '' }) => {
 
   return (
     <div className={`tbe-map-container h-[500px] w-full ${className}`}>
+      <LeafletCSS />
       <div className="tbe-map-title">
         <h1>{`T.B.E. SIGHTINGS REPORT  ${new Date().toLocaleDateString()} - ${selectedFaction}`}</h1>
       </div>

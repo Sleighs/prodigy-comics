@@ -1,6 +1,5 @@
 import React from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { notFound } from 'next/navigation';
 
 type ContentBlock = 
@@ -26,10 +25,10 @@ type NewsArticle = {
 const newsArticles: Record<number, NewsArticle> = {
   1: {
     id: 1,
-    title: "PRODIGY: Hell on Earth Book #0 Pre-orders Now Live!",
+    title: "PRODIGY: Hell On Earth Book #0 Pre-orders Now LIVE!",
     date: "2024-03-20",
     author: "PRODIGY Team",
-    heroImage: "/news/hell-on-earth-hero.jpg",
+    heroImage: "/images/book0-preview1.png",
     content: [
       {
         type: "text",
@@ -69,7 +68,7 @@ const newsArticles: Record<number, NewsArticle> = {
     title: "Meet the Creative Team Behind PRODIGY",
     date: "2024-03-15",
     author: "PRODIGY Team",
-    heroImage: "/news/creative-team-hero.jpg",
+    heroImage: "/images/cybertech-logo.png",
     content: [
       {
         type: "text",

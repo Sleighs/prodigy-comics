@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { lore } from '@/data/lore';
-import PageHeader from '../components/PageHeader';
+import PageHeader from '../../components/PageHeader';
 
 export default function StoryPage() {
   return (
@@ -21,7 +21,7 @@ export default function StoryPage() {
           <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">The World of PRODIGY</h2>
           <div className="prose prose-invert max-w-none space-y-6">
             <p className="text-lg">
-              In the wake of a groundbreaking discovery - the existence of T.B.E.'s (Terrestrial Biological Entities) - the world's power structure has been forever altered. The revelation began with T.B.E. 16 on Russian soil, triggering an international crisis that would reshape global alliances and military strategies.
+              In the wake of a groundbreaking discovery - the existence of T.B.E.&apos;s (Terrestrial Biological Entities) - the world&apos;s power structure has been forever altered. The revelation began with T.B.E. 16 on Russian soil, triggering an international crisis that would reshape global alliances and military strategies.
             </p>
             
             <p className="text-lg">
@@ -67,9 +67,9 @@ export default function StoryPage() {
               <div>
                 <h3 className="text-2xl font-bold mb-4">CYBERTECH - Global Security Solutions</h3>
                 <p className="text-lg mb-4">
-                  A shadow corporation whose existence is barely known, even to world leaders. With nearly limitless funding and a partial genetic map of "The GODSTRAND," they operate with the blessing of coalition governments to create enhanced operatives from the world's deadliest fighting forces.
+                  A shadow corporation whose existence is barely known, even to world leaders. With nearly limitless funding and a partial genetic map of &quot;The GODSTRAND,&quot; they operate with the blessing of coalition governments to create enhanced operatives from the world&apos;s deadliest fighting forces.
                 </p>
-                <p className="text-blue-400 italic">"Money... Power... Fear..."</p>
+                <p className="text-blue-400 italic">&quot;Money... Power... Fear...&quot;</p>
                 <Link 
                   href="https://www.youtube.com/watch?v=RJMAyMY1sGM"
                   target="_blank"
@@ -125,7 +125,7 @@ export default function StoryPage() {
               <div>
                 <h3 className="text-2xl font-bold mb-4">The Clan Bushido</h3>
                 <p className="text-lg mb-4">
-                  An ancient clan existing since the dawn of the samurai, operating independently to protect Japan's culture. With the emergence of T.B.E.s, they face their greatest challenge yet in defending their homeland.
+                  An ancient clan existing since the dawn of the samurai, operating independently to protect Japan&apos;s culture. With the emergence of T.B.E.s, they face their greatest challenge yet in defending their homeland.
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {["Integrity", "Respect", "Heroic & Courage", "Honor", "Compassion", "Honesty & Sincerity", "Duty & Loyalty"].map((virtue) => (
