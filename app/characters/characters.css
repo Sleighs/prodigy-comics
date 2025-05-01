@@ -55,13 +55,10 @@
 }
 
 .characters--featured-characters-card:hover {
-  transform: scale(1.03);
+  /* transform: scale(1.03); */
   border-color: var(--color-blood);
   box-shadow: 0 0 30px rgba(187, 13, 0, 0.6);
-}
-
-.characters--featured-characters-card:hover::after {
-  transform: translateX(100%);
+  transform: scale(1.02);
 }
 
 .characters--featured-characters-card .relative {
@@ -78,8 +75,6 @@
   background: linear-gradient(to bottom, transparent 0%, rgba(35, 36, 35, 0.8) 100%);
   z-index: 1;
 }
-
-
 
 
 
@@ -267,12 +262,13 @@
   transition: all 0.2s ease;
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);  z-index: 5;
+  overflow: hidden;
 }
 
 .character-card:hover {
-  transform: scale(1.02);
   box-shadow: 0 10px 30px rgba(34, 3, 3, 0.6);
 }
+
 
 
 /* TBE Number Display */
@@ -325,4 +321,20 @@
 
 .sort-button:hover {
   background-color: var(--color-steel);
+}
+
+/* Character Card */
+.character-card--image-container {
+  z-index: 9;
+  overflow: hidden;
+}
+
+
+.character-card--image {
+  z-index: 10;
+}
+
+.character-card--image:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
 }

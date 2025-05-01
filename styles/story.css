@@ -1,0 +1,17 @@
+.story-military-code-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    /* tailwind styles bg-black/90 border-b border-red-900/30 py-2 px-4 text-xs font-mono text-red-500/70 overflow-x-auto */
+    background-color: #000000;
+    border-bottom: 1px solid #ff0000;
+    text-shadow: 0 0 5px rgba(255, 0, 0, 0.7);
+
+    padding: 8px 16px;
+    font-size: 12px;
+    font-family: monospace;
+    color: #fb2c36;
+    overflow-x: auto;
+}

@@ -39,6 +39,176 @@ export const characters = {
       TBENum: '73',
       popularity: 4
     },
+    {
+      id: 4,
+      name: 'Surge',
+      alias: 'Surge',
+      image: '/images/characters/surge.png',
+      description: 'A mysterious figure with the ability to manipulate electrical energy and technology.',
+      abilities: [
+        'Electrical Manipulation',
+        'Technological Control',
+        'Enhanced Reflexes',
+        'Energy Absorption',
+        'Combat Expertise'
+      ],
+      story: 'Surge represents the fusion of human potential and technological advancement. His abilities make him a formidable opponent in both physical and digital realms.',
+      TBENum: '68',
+      popularity: 4
+    },
+    {
+      id: 5,
+      name: 'Allegra Black',
+      alias: 'Allegra Black',
+      image: '/images/characters/allegra-black.png',
+      description: 'A skilled operative with a mysterious past and exceptional combat abilities.',
+      abilities: [
+        'Combat Mastery',
+        'Stealth Operations',
+        'Weapons Expertise',
+        'Tactical Analysis',
+        'Enhanced Agility'
+      ],
+      story: 'Allegra Black operates in the shadows, her true allegiance known only to herself. Her skills and determination make her one of the most dangerous individuals in the world.',
+      TBENum: '72',
+      popularity: 4
+    },
+    {
+      id: 6,
+      name: 'Shimmer',
+      alias: 'Shimmer',
+      image: '/images/characters/shimmer.png',
+      description: 'A mysterious figure with the ability to manipulate light and create illusions.',
+      abilities: [
+        'Light Manipulation',
+        'Illusion Creation',
+        'Stealth Mastery',
+        'Energy Projection',
+        'Combat Agility'
+      ],
+      story: 'Shimmer exists between light and shadow, using her abilities to confuse and disorient opponents. Her true identity remains a mystery to all but a select few.',
+      TBENum: '65',
+      popularity: 3
+    },
+    {
+      id: 7,
+      name: 'Shiloh',
+      alias: 'Shiloh',
+      image: '/images/characters/shiloh.png',
+      description: 'A powerful warrior with a connection to ancient forces and enhanced physical abilities.',
+      abilities: [
+        'Enhanced Strength',
+        'Combat Mastery',
+        'Energy Manipulation',
+        'Tactical Leadership',
+        'Regeneration'
+      ],
+      story: 'Shiloh carries the weight of ancient knowledge and power. His presence on the battlefield can turn the tide of any conflict.',
+      TBENum: '69',
+      popularity: 4
+    },
+    {
+      id: 8,
+      name: 'Treagor',
+      alias: 'Treagor',
+      image: '/images/characters/treagor.png',
+      description: 'A formidable warrior with enhanced physical abilities and combat expertise.',
+      abilities: [
+        'Enhanced Strength',
+        'Combat Mastery',
+        'Tactical Leadership',
+        'Weapons Expertise',
+        'Enhanced Endurance'
+      ],
+      story: 'Treagor is a force of nature on the battlefield, his presence alone enough to intimidate most opponents. His loyalty is as strong as his combat abilities.',
+      TBENum: '71',
+      popularity: 3
+    },
+    {
+      id: 9,
+      name: 'The Great Wall',
+      alias: 'The Great Wall',
+      image: '/images/characters/the-great-wall.png',
+      description: 'A massive warrior with impenetrable defense and overwhelming strength.',
+      abilities: [
+        'Enhanced Strength',
+        'Impenetrable Defense',
+        'Combat Mastery',
+        'Tactical Leadership',
+        'Enhanced Endurance'
+      ],
+      story: 'The Great Wall lives up to his name, serving as an immovable force on the battlefield. His presence provides both protection and intimidation to allies and enemies alike.',
+      TBENum: '74',
+      popularity: 4
+    },
+    {
+      id: 10,
+      name: 'Sight',
+      alias: 'Sight',
+      image: '/images/characters/sight.png',
+      description: 'A mysterious figure with enhanced perception and tactical abilities.',
+      abilities: [
+        'Enhanced Vision',
+        'Tactical Analysis',
+        'Combat Expertise',
+        'Stealth Operations',
+        'Energy Manipulation'
+      ],
+      story: 'Sight sees what others cannot, his enhanced perception giving him a unique advantage in any situation. His insights have turned the tide of many battles.',
+      TBENum: '76',
+      popularity: 3
+    },
+    {
+      id: 11,
+      name: 'Lightning Rod',
+      alias: 'Lightning Rod',
+      image: '/images/characters/lightning-rod.png',
+      description: 'A powerful figure with the ability to manipulate electrical energy and weather.',
+      abilities: [
+        'Electrical Manipulation',
+        'Weather Control',
+        'Energy Projection',
+        'Enhanced Reflexes',
+        'Combat Expertise'
+      ],
+      story: 'Lightning Rod channels the raw power of nature, his abilities making him a force to be reckoned with on any battlefield. His presence alone can change the weather.',
+      TBENum: '78',
+      popularity: 4
+    },
+    {
+      id: 12,
+      name: 'Nuke',
+      alias: 'Nuke',
+      image: '/images/characters/nuke.png',
+      description: 'A dangerous operative with the ability to manipulate radiation and energy.',
+      abilities: [
+        'Radiation Manipulation',
+        'Energy Projection',
+        'Enhanced Strength',
+        'Combat Expertise',
+        'Tactical Analysis'
+      ],
+      story: 'Nuke is a walking disaster, his abilities making him both a powerful ally and a dangerous threat. His presence on any battlefield is enough to cause concern for all parties involved.',
+      TBENum: '79',
+      popularity: 4
+    },
+    {
+      id: 13,
+      name: 'Checkmate',
+      alias: 'Checkmate',
+      image: '/images/characters/checkmate.png',
+      description: 'A strategic mastermind with enhanced intelligence and tactical abilities.',
+      abilities: [
+        'Enhanced Intelligence',
+        'Tactical Mastery',
+        'Combat Expertise',
+        'Strategic Planning',
+        'Energy Manipulation'
+      ],
+      story: 'Checkmate is always several steps ahead of his opponents, his strategic mind and enhanced abilities making him a formidable force on any battlefield.',
+      TBENum: '81',
+      popularity: 4
+    }
   ],
   spotlightList: [
     {

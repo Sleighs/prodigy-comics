@@ -8,6 +8,7 @@ import {
 import { characters } from '@/data/characters';
 import PageHeader from '@/components/PageHeader';
 import './characters.css';
+import MilitaryHeader from '@/components/MilitaryHeader';
 
 export default function CharactersPage() {
   const [sortBy, setSortBy] = useState<'name' | 'faction' | 'tbe' | 'popularity'>('name');
@@ -59,10 +60,17 @@ export default function CharactersPage() {
 
   return (
     <main className="min-h-screen bg-gradient-dark text-white pt-16">
-      <PageHeader 
+      {/* <PageHeader 
         title="Characters"
         backgroundImage="/images/prodigy-banner.png"
         subtitle="Meet the extraordinary individuals of the Prodigy universe"
+      /> */}
+      <MilitaryHeader 
+        title="Characters" 
+        backgroundImage="/images/prodigy-banner.png"
+        subtitle="Meet the extraordinary individuals of the Prodigy universe"
+        classification="CONFIDENTIAL"
+        documentId="SUBJECT PROFILES"
       />
 
       {/* Featured Characters */}
@@ -71,40 +79,46 @@ export default function CharactersPage() {
         <div className="max-w-6xl mx-auto px-4 relative z-10">
           <h2 className="text-4xl font-bold mb-12 text-center section-title">Featured Characters</h2>
           <div className="grid md:grid-cols-3 gap-8">
-            {characters.featured.map((character) => (
-              <div key={character.id} className="characters--featured-characters-card backdrop-blur-sm overflow-hidden hover:transform hover:scale-103 transition-all duration-300 shadow-lg shadow-blood/10">
-                <div className="relative h-64 group">
-                  <div className="absolute inset-0 bg-blood opacity-0 group-hover:opacity-15 transition-opacity duration-300"></div>
-                  <Image
-                    src={character.image}
-                    alt={character.name}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-2xl font-bold mb-2 roboto-bold">{character.name}</h3>
-                  <p className="text-blood mb-2">{character.alias}</p>
-                  <p className="text-muted mb-4">{character.description}</p>
-                  <div className="space-y-2">
-                    {character.abilities.map((ability, index) => (
-                      <span key={index} className="inline-block bg-steel-dark rounded-full px-3 py-1 text-sm mr-2 mb-2 shadow-md shadow-blood/5">
-                        {ability}
-                      </span>
-                    ))}
+            {characters.featured.map((character, index) => {
+              if (index < 3) {
+                return (
+                <div key={character.id} className="characters--featured-characters-card backdrop-blur-sm overflow-hidden hover:transform transition-all duration-300 shadow-lg shadow-blood/10">
+                  <div className= "characters--featured-characters-card-image-container relative h-64 group">
+                    <div className="absolute inset-0 bg-blood opacity-0 group-hover:opacity-15 transition-opacity duration-300"></div>
+                    <Image
+                      src={character.image}
+                      alt={character.name}
+                      fill
+                      className="characters--featured-characters-card-image object-cover"
+                    />
+                  </div>
+                  <div className="p-6">
+                    <h3 className="text-2xl font-bold mb-2 roboto-bold">{character.name}</h3>
+                    <p className="text-blood mb-2">{character.alias}</p>
+                    <p className="text-muted mb-4">{character.description}</p>
+                    <div className="space-y-2">
+                      {character.abilities.map((ability, index) => (
+                        <span key={index} className="inline-block bg-steel-dark rounded-full px-3 py-1 text-sm mr-2 mb-2 shadow-md shadow-blood/5">
+                          {ability}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="characters--featured-characters-card-button p-4 text-center">
+                    <Link 
+                      href={`/characters/${character.alias}`} 
+                      className="inline-block w-full px-6 py-3 bg-steel-dark hover:bg-blood text-white bg-red-light transition-colors duration-300 shadow-lg shadow-blood/30 roboto-condensed-bold"
+                    >
+                      View Profile
+                    </Link>
                   </div>
                 </div>
-
-                <div className="characters--featured-characters-card-button p-4 text-center">
-                  <Link 
-                    href={`/characters/${character.alias}`} 
-                    className="inline-block w-full px-6 py-3 bg-steel-dark hover:bg-blood text-white bg-red-light transition-colors duration-300 shadow-lg shadow-blood/30 roboto-condensed-bold"
-                  >
-                    View Profile
-                  </Link>
-                </div>
-              </div>
-            ))}
+                )
+              } else {
+                return null;
+              }})
+            }
           </div>
         </div>
       </section>
@@ -119,7 +133,7 @@ export default function CharactersPage() {
               src={currentSpotlight.image}
               alt={currentSpotlight.name}
               fill
-              className="object-cover"
+              className="spotlight-image object-cover"
             />
           </div>
           <div className="spotlight-info">
@@ -195,13 +209,13 @@ export default function CharactersPage() {
                 href={`/characters/${character.alias}`}
                 className="character-card overflow-hidden"
               >
-                <div className="relative h-48 w-full group">
+                <div className="character-card--image-container relative h-48 w-full group">
                   <div className="absolute inset-0 bg-blood opacity-0 group-hover:opacity-15 transition-opacity duration-300"></div>
                   <Image
                     src={character.image}
                     alt={character.alias}
                     fill
-                    className="object-cover"
+                    className="character-card--image object-cover"
                   />
                 </div>
                 <div className="p-4 transition-colors duration-300 group-hover:bg-[#EC1D24]">

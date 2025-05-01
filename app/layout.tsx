@@ -7,8 +7,10 @@ import { ThemeProvider } from '@/contexts/ThemeContext';
 import "./globals.css";
 import "@/styles/carousel.css";
 import "@/styles/home.css";
-import { Navbar, NavbarCenter } from "@/components/Navbar";
+import "@/styles/metal-gear.css";
+import MetalGearNavbar from "@/components/MetalGearNavbar";
 import NotificationBar from "@/components/NotificationBar";
+import { Navbar } from "@/components/Navbar";
 
 
 const roboto = Roboto({
@@ -62,8 +64,23 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+  const navLinks = [
+    { path: '/', label: 'HOME', code: 'HOM' },
+    { path: '/story', label: 'STORY', code: 'STY' },
+    { path: '/characters', label: 'CHARACTERS', code: 'CHR' },
+    { path: '/news', label: 'NEWS', code: 'NEW' },
+    { path: '/store', label: 'STORE', code: 'STR' },
+    { path: '/about', label: 'ABOUT', code: 'ABT' },
+  ];
+
   return (
     <html lang="en" className={`${roboto.variable} ${robotoCondensed.variable} ${robotoBold.variable}`}>
+      <head>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Roboto+Condensed:wght@700&display=swap"
+          rel="stylesheet"
+        />
+      </head>
       <body className="roboto bg-gradient-to-b from-gray-900 to-black text-white ">
         <ThemeProvider>
           <Navbar />

@@ -1,0 +1,140 @@
+/* Metal Gear Solid inspired styles */
+
+/* Custom font for the code-like text */
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+/* Glowing effect for active elements */
+.glow-effect {
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+  transition: box-shadow 0.3s ease;
+}
+
+.glow-effect:hover {
+  box-shadow: 0 0 15px rgba(0, 255, 0, 0.7);
+}
+
+/* Code-like text styling */
+.code-text {
+  font-family: 'Share Tech Mono', monospace;
+  letter-spacing: 1px;
+}
+
+/* Scanline effect for the background */
+.scanline {
+  position: relative;
+  overflow: hidden;
+}
+
+.scanline::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.03) 50%,
+    rgba(0, 0, 0, 0.03) 50%
+  );
+  background-size: 100% 4px;
+  pointer-events: none;
+  animation: scanline 10s linear infinite;
+}
+
+@keyframes scanline {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+/* Blinking cursor effect */
+.blink {
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Metal Gear Solid inspired button styles */
+.mgs-button {
+  background-color: #1a1a1a;
+  color: #00ff00;
+  border: 1px solid #00ff00;
+  padding: 0.5rem 1rem;
+  font-family: 'Share Tech Mono', monospace;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+}
+
+.mgs-button:hover {
+  background-color: #00ff00;
+  color: #000000;
+}
+
+/* Status indicator styles */
+.status-indicator {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.status-operational {
+  background-color: #00ff00;
+  box-shadow: 0 0 8px #00ff00;
+}
+
+.status-warning {
+  background-color: #ffff00;
+  box-shadow: 0 0 5px #ffff00;
+}
+
+.status-error {
+  background-color: #ff0000;
+  box-shadow: 0 0 5px #ff0000;
+}
+
+/* Metal Gear Solid inspired card styles */
+.mgs-card {
+  background-color: #1a1a1a;
+  border: 1px solid #00ff00;
+  border-radius: 4px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.mgs-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #00ff00;
+  animation: scanline 2s linear infinite;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .mgs-card {
+    padding: 0.75rem;
+  }
+  
+  .code-text {
+    font-size: 0.9rem;
+  }
+} 

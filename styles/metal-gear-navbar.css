@@ -1,0 +1,276 @@
+/* Metal Gear Solid Inspired Navbar Styles */
+.metal-gear-navbar {
+  font-family: 'Courier New', monospace;
+  color: #e0e0e0;
+  background-color: #000;
+  border-bottom: 1px solid rgba(255, 0, 0, 0.3);
+  position: relative;
+  z-index: 50;
+  width: 100%;
+}
+
+.metal-gear-navbar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 0, 0, 0.5), transparent);
+  animation: scanline 2s linear infinite;
+}
+
+.metal-gear-navbar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.1),
+    rgba(0, 0, 0, 0.1) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+.metal-gear-navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+/* Top Bar Styles */
+.metal-gear-navbar-top {
+  background-color: rgba(0, 0, 0, 0.8);
+  border-bottom: 1px solid rgba(255, 0, 0, 0.3);
+  padding: 0.5rem 0;
+}
+
+.metal-gear-navbar-status {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.metal-gear-navbar-status-item {
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+}
+
+.metal-gear-navbar-status-value {
+  color: #00ff00;
+  font-weight: bold;
+  text-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+}
+
+.metal-gear-navbar-logo {
+  position: relative;
+}
+
+.metal-gear-navbar-logo-text {
+  font-size: 1.25rem;
+  font-weight: bold;
+  letter-spacing: 0.2em;
+  color: #ff0000;
+  text-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
+  position: relative;
+}
+
+.metal-gear-navbar-logo-text::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border: 1px solid rgba(255, 0, 0, 0.3);
+  z-index: -1;
+}
+
+.metal-gear-navbar-clearance-text {
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  color: #ffcc00;
+}
+
+/* Bottom Bar Styles */
+.metal-gear-navbar-bottom {
+  background-color: rgba(0, 0, 0, 0.9);
+  padding: 0.5rem 0;
+}
+
+.metal-gear-navbar-links {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 1rem;
+}
+
+.metal-gear-navbar-item {
+  position: relative;
+}
+
+.metal-gear-navbar-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  color: #e0e0e0;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.metal-gear-navbar-link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.metal-gear-navbar-link:hover::before,
+.metal-gear-navbar-link-active::before {
+  border-color: rgba(255, 0, 0, 0.5);
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.2);
+}
+
+.metal-gear-navbar-link-text {
+  font-size: 0.875rem;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.metal-gear-navbar-link-code {
+  font-size: 0.625rem;
+  color: #888;
+  margin-top: 0.25rem;
+}
+
+.metal-gear-navbar-link-active {
+  color: #ff0000;
+  text-shadow: 0 0 5px rgba(255, 0, 0, 0.3);
+}
+
+.metal-gear-navbar-link-active::after {
+  content: '';
+  position: absolute;
+  bottom: -0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: #ff0000;
+  box-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
+}
+
+/* Menu Toggle Button */
+.metal-gear-navbar-menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  position: relative;
+  z-index: 10;
+}
+
+.metal-gear-navbar-menu-icon {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background-color: #ff0000;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.metal-gear-navbar-menu-icon::before,
+.metal-gear-navbar-menu-icon::after {
+  content: '';
+  position: absolute;
+  width: 24px;
+  height: 2px;
+  background-color: #ff0000;
+  transition: all 0.3s ease;
+}
+
+.metal-gear-navbar-menu-icon::before {
+  top: -8px;
+}
+
+.metal-gear-navbar-menu-icon::after {
+  bottom: -8px;
+}
+
+/* Animations */
+@keyframes scanline {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .metal-gear-navbar-menu-toggle {
+    display: block;
+  }
+  
+  .metal-gear-navbar-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.95);
+    flex-direction: column;
+    padding: 1rem 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    border-bottom: 1px solid rgba(255, 0, 0, 0.3);
+  }
+  
+  .metal-gear-navbar-links-open {
+    max-height: 500px;
+  }
+  
+  .metal-gear-navbar-item {
+    width: 100%;
+  }
+  
+  .metal-gear-navbar-link {
+    padding: 0.75rem 1rem;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  
+  .metal-gear-navbar-link-code {
+    margin-top: 0;
+  }
+  
+  .metal-gear-navbar-top {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .metal-gear-navbar-status {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+} 
