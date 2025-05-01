@@ -247,7 +247,7 @@ export default function CharactersPage() {
 
       {/* Store CTA Section */}
       <AvailableNowSection
-        imageSrc="/images/cybertech-logo.png"
+        imageSrc="/images/clan-bushido-campaign.png"
         title="Collect Your Favorite Characters"
         subtitle="EXCLUSIVE MERCHANDISE"
         description="Discover exclusive character merchandise, including limited edition action figures, apparel, and collectibles. Each piece is crafted with premium quality and attention to detail."
