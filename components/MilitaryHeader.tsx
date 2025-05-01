@@ -10,6 +10,8 @@ interface MilitaryHeaderProps {
   documentId?: string;
   date?: string;
   tailwindStyles?: string;
+  accessLevel?: string;
+  systemStatus?: string;
 }
 
 export default function MilitaryHeader({
@@ -20,7 +22,7 @@ export default function MilitaryHeader({
   documentId = 'PRODIGY: NEW AGE',
   date,
   tailwindStyles = '',
-  accessLevel = '7',
+  accessLevel,
   systemStatus = 'OPERATIONAL',
 }: MilitaryHeaderProps) {
   const [currentDateTime, setCurrentDateTime] = useState<string>('');
@@ -95,13 +97,13 @@ export default function MilitaryHeader({
       <div className="absolute bottom-0 left-0 right-0 bg-black/80 border-t border-red-500 p-1">
         <div className="container mx-auto flex justify-between items-center">
           <div className="terminal-text text-xs">
-            ACCESS LEVEL: <span className="glitch" data-text="7">7</span>
+            ACCESS LEVEL: <span className="glitch" data-text={accessLevel}>{accessLevel}</span>
           </div>
           <div className="terminal-text text-xs">
             PRODIGY: NEW AGE
           </div>
           <div className="terminal-text text-xs">
-            SYSTEM STATUS: <span className="text-green-500">OPERATIONAL</span>
+            SYSTEM STATUS: <span className="text-green-500">{systemStatus}</span>
           </div>
         </div>
       </div>

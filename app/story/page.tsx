@@ -434,6 +434,8 @@ MAJOR ORGANIZATIONS:
         classification="TOP SECRET"
         documentId="SITUATION REPORT"
         tailwindStyles="border-b border-red-900/50"
+        accessLevel="7"
+        systemStatus="OPERATIONAL"
       />
 
       {/* Military Navbar */}

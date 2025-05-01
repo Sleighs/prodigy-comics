@@ -18,6 +18,9 @@ interface AvailableNowSectionProps {
   };
   badge?: string;
   slantDirection?: "left" | "right";
+  className?: string;
+  contentClassName?: string;
+  imageClassName?: string;
 }
 
 export default function AvailableNowSection({
@@ -28,14 +31,19 @@ export default function AvailableNowSection({
   primaryButton,
   secondaryButton,
   badge,
-  slantDirection
+  slantDirection,
+  className = "",
+  contentClassName = "",
+  imageClassName = "",
+  // reverseLayout = false
 }: AvailableNowSectionProps) {
   return (
-    <section className="py-20 home--available-now-section relative">
+    <section className={`py-20 home--available-now-section relative ${className}`}>
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-900/30 via-blue-800/20 to-blue-900/30"></div>
       <div className="home--available-now-bg"></div>
       
       {/* Full-height image with diagonal edge */}
-      <div className="home--available-now-image">
+      <div className={`home--available-now-image ${imageClassName}`}>
         <div className="absolute inset-0 bg-blood opacity-0 group-hover:opacity-15 transition-opacity duration-300"></div>
         <Image
           src={imageSrc}
@@ -51,51 +59,49 @@ export default function AvailableNowSection({
       </div>
 
       {/* Content */}
-      <div className="home--available-now-content">
-        <div className="max-w-xl">
-          {badge && (
-            <span className="inline-block px-4 py-1 bg-blood text-white text-sm font-bold rounded-full mb-4">
-              {badge}
-            </span>
-          )}
-          <h2 className="text-4xl md:text-5xl font-bold roboto-condensed-bold mb-4">
-            {title}
-          </h2>
-          {subtitle && (
-            <p className="text-xl text-gold-highlight mb-4">
-              {subtitle}
-            </p>
-          )}
-          <p className="text-xl text-white mb-6">
-            {description}
+      <div className={`max-w-xl px-6 ${contentClassName}`}>
+        {badge && (
+          <span className="inline-block px-4 py-1 bg-blood text-white text-sm font-bold rounded-full mb-4">
+            {badge}
+          </span>
+        )}
+        <h2 className="text-4xl md:text-5xl font-bold roboto-condensed-bold mb-4">
+          {title}
+        </h2>
+        {subtitle && (
+          <p className="text-xl text-gold-highlight mb-4">
+            {subtitle}
           </p>
-          <div className="flex flex-col sm:flex-row gap-4">
-            {primaryButton.isExternal ? (
-              <a
-                href={primaryButton.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-8 py-3 bg-blood hover:bg-blood-dark text-white text-lg font-semibold transition-colors duration-300 text-center"
-              >
-                {primaryButton.text}
-              </a>
-            ) : (
-              <Link
-                href={primaryButton.link}
-                className="px-8 py-3 bg-blood hover:bg-blood-dark text-white text-lg font-semibold transition-colors duration-300 text-center"
-              >
-                {primaryButton.text}
-              </Link>
-            )}
-            {secondaryButton && (
-              <Link
-                href={secondaryButton.link}
-                className="px-8 py-3 bg-steel-dark hover:bg-steel text-white text-lg font-semibold transition-colors duration-300 text-center"
-              >
-                {secondaryButton.text}
-              </Link>
-            )}
-          </div>
+        )}
+        <p className="text-xl text-white mb-6">
+          {description}
+        </p>
+        <div className="flex flex-col sm:flex-row gap-4">
+          {primaryButton.isExternal ? (
+            <a
+              href={primaryButton.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-8 py-3 bg-blood hover:bg-blood-dark text-white text-lg font-semibold transition-colors duration-300 text-center"
+            >
+              {primaryButton.text}
+            </a>
+          ) : (
+            <Link
+              href={primaryButton.link}
+              className="px-8 py-3 bg-blood hover:bg-blood-dark text-white text-lg font-semibold transition-colors duration-300 text-center"
+            >
+              {primaryButton.text}
+            </Link>
+          )}
+          {secondaryButton && (
+            <Link
+              href={secondaryButton.link}
+              className="px-8 py-3 bg-steel-dark hover:bg-steel text-white text-lg font-semibold transition-colors duration-300 text-center"
+            >
+              {secondaryButton.text}
+            </Link>
+          )}
         </div>
       </div>
     </section>

@@ -9,6 +9,7 @@ import { characters } from '@/data/characters';
 import PageHeader from '@/components/PageHeader';
 import './characters.css';
 import MilitaryHeader from '@/components/MilitaryHeader';
+import AvailableNowSection from '@/components/AvailableNowSection';
 
 export default function CharactersPage() {
   const [sortBy, setSortBy] = useState<'name' | 'faction' | 'tbe' | 'popularity'>('name');
@@ -71,6 +72,8 @@ export default function CharactersPage() {
         subtitle="Meet the extraordinary individuals of the Prodigy universe"
         classification="CONFIDENTIAL"
         documentId="SUBJECT PROFILES"
+        accessLevel="6"
+        systemStatus="OPERATIONAL"
       />
 
       {/* Featured Characters */}
@@ -240,6 +243,30 @@ export default function CharactersPage() {
           </div>
         </div>
       </section>
+
+
+      {/* Store CTA Section */}
+      <AvailableNowSection
+        imageSrc="/images/cybertech-logo.png"
+        title="Collect Your Favorite Characters"
+        subtitle="EXCLUSIVE MERCHANDISE"
+        description="Discover exclusive character merchandise, including limited edition action figures, apparel, and collectibles. Each piece is crafted with premium quality and attention to detail."
+        primaryButton={{
+          text: "Shop Now",
+          link: "/store",
+          isExternal: false
+        }}
+        secondaryButton={{
+          text: "View Character Collection",
+          link: "/store/characters"
+        }}
+        badge="NEW RELEASES"
+        slantDirection="right"
+        className="bg-gradient-to-br from-blue-900/40 via-blue-800/30 to-black/40"
+        contentClassName="text-white"
+        imageClassName="opacity-90"
+        // reverseLayout={true}
+      />
     </main>
   );
 }
