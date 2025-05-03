@@ -2,7 +2,7 @@
 .home--available-now-section {
   position: relative;
   overflow: hidden;
-  min-height: 600px;
+  min-height: 500px;
 }
 
 .home--available-now-bg {
@@ -39,7 +39,7 @@
 /* Responsive styles */
 @media (max-width: 768px) {
   .home--available-now-section {
-    min-height: 500px;
+    /* min-height: 500px; */
   }
   
   .home--available-now-image {

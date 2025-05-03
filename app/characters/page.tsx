@@ -262,9 +262,10 @@ export default function CharactersPage() {
         }}
         badge="NEW RELEASES"
         slantDirection="right"
-        className="bg-gradient-to-br from-blue-900/40 via-blue-800/30 to-black/40"
+        className="bg-black "
         contentClassName="text-white"
-        imageClassName="opacity-90"
+        imageClassName=""
+        backgroundColor=""
         // reverseLayout={true}
       />
     </main>

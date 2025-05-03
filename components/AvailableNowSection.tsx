@@ -21,6 +21,7 @@ interface AvailableNowSectionProps {
   className?: string;
   contentClassName?: string;
   imageClassName?: string;
+  backgroundColor?: string;
 }
 
 export default function AvailableNowSection({
@@ -36,11 +37,12 @@ export default function AvailableNowSection({
   contentClassName = "",
   imageClassName = "",
   // reverseLayout = false
+  backgroundColor = ""
 }: AvailableNowSectionProps) {
   return (
     <section className={`py-20 home--available-now-section relative ${className}`}>
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-900/30 via-blue-800/20 to-blue-900/30"></div>
-      <div className="home--available-now-bg"></div>
+      {/* <div className="absolute inset-0 bg-gradient-to-br from-blue-900/30 via-blue-800/20 to-blue-900/30"></div> */}
+      <div className={`home--available-now-bg ` + backgroundColor}></div>
       
       {/* Full-height image with diagonal edge */}
       <div className={`home--available-now-image ${imageClassName}`}>

@@ -428,7 +428,7 @@ MAJOR ORGANIZATIONS:
     <main className="min-h-screen pt-16 bg-black text-gray-200">
       {/* Hero Section with Metal Gear Solid aesthetic */}
       <MilitaryHeader 
-        title="STORY"
+        title="EXPLORE THE UNIVERSE"
         backgroundImage="/images/prodigy-banner.png"
         subtitle="Power, evolution, and the rise of T.B.E.'s"
         classification="TOP SECRET"
