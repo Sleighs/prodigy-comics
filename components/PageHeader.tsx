@@ -11,7 +11,7 @@ export default function PageHeader({
   title, 
   backgroundImage, 
   subtitle, 
-  tailwindStyles 
+  tailwindStyles = "bg-gradient-to-b from-gray-900 to-black"
 }: PageHeaderProps) {
   return (
     <section className={tailwindStyles +  ` relative h-[50vh] flex items-center justify-center overflow-hidden`}>
