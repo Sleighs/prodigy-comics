@@ -3,6 +3,7 @@ import { Roboto } from 'next/font/google';
 import { Roboto_Condensed } from 'next/font/google';
 import { Poppins } from 'next/font/google';
 import { ThemeProvider } from '@/contexts/ThemeContext';
+import { defaultMetadata } from '@/config/metadata';
 
 import "./globals.css";
 import "@/styles/carousel.css";
@@ -54,10 +55,7 @@ const poppinsMedium = Poppins({
   variable: '--font-poppins-medium',
 });
 
-export const metadata: Metadata = {
-  title: "PRODIGY - Action Adventure Superhero Series",
-  description: "A world where humans are evolving into something more. The GODSTRAND has been discovered.",
-};
+export const metadata: Metadata = defaultMetadata;
 
 export default function RootLayout({
   children,
