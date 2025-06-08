@@ -27,7 +27,7 @@ export default function Footer() {
             <ul className="space-y-2">
               <li>
                 <a href="https://www.indiegogo.com/projects/prodigy-new-age-hell-on-earth-book-0" className="hover:text-white transition-colors" target="_blank" rel="noopener noreferrer">
-                  Book #0 Campaign
+                  IndieGoGo Campaign
                 </a>
               </li>
               <li>

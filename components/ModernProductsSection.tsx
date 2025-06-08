@@ -113,15 +113,25 @@ export default function ModernProductsSection({ onImageSelect }: ModernProductsS
                 {/* Price and Actions */}
                 <div className="flex items-center justify-between">
                   <span className="text-lg font-bold text-gray-900">{product.price}</span>
-                  <div className="flex space-x-2">
-                    <button className="text-sm font-medium text-gray-600 hover:text-gray-900">
-                      View Details
-                    </button>
-                    <button className="text-sm font-medium text-blue-600 hover:text-blue-800">
-                      Add to Cart
-                    </button>
-                  </div>
+                  <a 
+                    href="https://www.indiegogo.com/projects/prodigy-new-age-hell-on-earth-book-0"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title="Visit the IndieGoGo campaign page"
+                    className="text-sm font-medium text-gray-600 hover:text-gray-900"
+                  >
+                    View Details
+                  </a>
                 </div>
+                <button 
+                  className="hidden text-sm font-medium bg-red-light hover:bg-red-dark text-white px-4 py-2 rounded-[999px] relative group cursor-pointer" 
+                  disabled={true}
+                >
+                  Add to Cart
+                  <span className="absolute -top-6 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+                    Coming Soon
+                  </span>
+                </button>
               </div>
             </div>
           ))}

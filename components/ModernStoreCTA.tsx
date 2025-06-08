@@ -53,17 +53,35 @@ export default function ModernStoreCTA() {
                 </svg>
                 <span className="text-gray-700">Free shipping on orders over $50</span>
               </li>
+              <li className="flex items-center hidden">
+              <svg className="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span className="text-gray-700"></span>
+              </li>
             </ul>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <button className="w-full sm:w-auto bg-black text-white px-8 py-3 rounded-lg font-medium hover:bg-gray-800 transition-colors shadow-lg hover:shadow-xl">
-                Shop Now
-              </button>
-              <button className="w-full sm:w-auto bg-white text-black px-8 py-3 rounded-lg font-medium hover:bg-gray-50 transition-colors border border-gray-200 shadow-lg hover:shadow-xl">
+            <div className="flex items-center justify-between">
+              <span className="text-lg font-bold text-gray-900">Limited Time Offer</span>
+              <a 
+                href="https://www.indiegogo.com/projects/prodigy-new-age-hell-on-earth-book-0"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm font-medium text-gray-600 hover:text-gray-900"
+              >
                 Learn More
-              </button>
+              </a>
             </div>
+            <button 
+              className="hidden w-full sm:w-auto bg-red-light hover:bg-red-dark text-white px-8 py-3 rounded-[999px] font-medium transition-colors shadow-lg hover:shadow-xl relative group cursor-pointer"
+              disabled
+            >
+              Join Now
+              <span className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+                Coming Soon
+              </span>
+            </button>
 
             {/* Trust Badges */}
             <div className="flex items-center gap-6 pt-6">
