@@ -62,26 +62,22 @@ export default function ModernStoreCTA() {
             </ul>
 
             {/* CTA Buttons */}
-            <div className="flex items-center justify-between">
-              <span className="text-lg font-bold text-gray-900">Limited Time Offer</span>
+            <div className="flex flex-col sm:flex-row items-center gap-6">
+              <button 
+                className="w-full sm:w-auto bg-black hover:bg-gray-800 text-white px-10 py-4 rounded-[5px] text-lg font-semibold transition-colors shadow-lg hover:shadow-xl"
+                disabled
+              >
+                Join Now
+              </button>
               <a 
                 href="https://www.indiegogo.com/projects/prodigy-new-age-hell-on-earth-book-0"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm font-medium text-gray-600 hover:text-gray-900"
+                className="w-full sm:w-auto text-center bg-white border-2 border-gray-200 hover:border-gray-300 text-gray-700 hover:text-gray-900 px-10 py-4 rounded-[5px] text-lg font-semibold transition-colors shadow-lg hover:shadow-xl"
               >
                 Learn More
               </a>
             </div>
-            <button 
-              className="hidden w-full sm:w-auto bg-red-light hover:bg-red-dark text-white px-8 py-3 rounded-[999px] font-medium transition-colors shadow-lg hover:shadow-xl relative group cursor-pointer"
-              disabled
-            >
-              Join Now
-              <span className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
-                Coming Soon
-              </span>
-            </button>
 
             {/* Trust Badges */}
             <div className="flex items-center gap-6 pt-6">
