@@ -22,7 +22,7 @@ export default function NewsPage() {
       id: 2,
       title: "Meet the Creative Team Behind PRODIGY",
       date: "2024-03-15",
-      excerpt: "Get to know William and Ryan, the visionaries bringing this dark superhero universe to life.",
+      excerpt: "Get to know [writer] and [artist], the visionaries bringing this brutal superhero universe to life.",
       image: "/news/creative-team.jpg"
     }
   ];

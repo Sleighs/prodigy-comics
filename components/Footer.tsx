@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
+import { contactInfo } from '../config/contact';
 
 export default function Footer() {
   const [currentYear, setCurrentYear] = useState(2025);
@@ -26,7 +27,7 @@ export default function Footer() {
             <h4 className="text-lg font-semibold text-white mb-4">Explore</h4>
             <ul className="space-y-2">
               <li>
-                <a href="https://www.indiegogo.com/projects/prodigy-new-age-hell-on-earth-book-0" className="hover:text-white transition-colors" target="_blank" rel="noopener noreferrer">
+                <a href={contactInfo.campaignLink} className="hover:text-white transition-colors" target="_blank" rel="noopener noreferrer">
                   IndieGoGo Campaign
                 </a>
               </li>
@@ -57,18 +58,28 @@ export default function Footer() {
             <h4 className="text-lg font-semibold text-white mb-4">Connect</h4>
             <ul className="space-y-2">
               <li>
-                <a href="https://x.com/william37199107" className="hover:text-white transition-colors" target="_blank" rel="noopener noreferrer">
-                  X
+                <a href={contactInfo.social.twitter} className="hover:text-white transition-colors" target="_blank" rel="noopener noreferrer">
+                  X / Twitter
                 </a>
               </li>
               <li>
-                <a href="https://www.youtube.com/@popculturerocks" className="hover:text-white transition-colors" target="_blank" rel="noopener noreferrer">
-                  Youtube
+                <a href={contactInfo.social.instagram} className="hover:text-white transition-colors" target="_blank" rel="noopener noreferrer">
+                  Instagram
                 </a>
               </li>
               <li>
-                <a href="mailto:Hammerhandtmm@protonmail.com" className="hover:text-white transition-colors">
-                  Email
+                <a href={contactInfo.social.youtube} className="hover:text-white transition-colors" target="_blank" rel="noopener noreferrer">
+                  YouTube
+                </a>
+              </li>
+              <li style={{display: 'none'}}>
+                <a href={contactInfo.social.discord} className="hover:text-white transition-colors" target="_blank" rel="noopener noreferrer">
+                  Discord
+                </a>
+              </li>
+              <li>
+                <a href={`mailto:${contactInfo.email}`} className="hover:text-white transition-colors">
+                  Contact Us
                 </a>
               </li>
             </ul>

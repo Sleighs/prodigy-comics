@@ -202,6 +202,8 @@ ${Array(5).fill(0).map(() =>
       <div className="absolute inset-0 scanline"></div>
       
       <div className="tbesightings-intro-container">
+        <h2 className="text-4xl font-bold mb-6 roboto-condensed-bold text-center">SIGHTINGS REPORT</h2>
+
         <div className={`terminal-container transition-all duration-300 ${isMinimized ? 'h-16 overflow-hidden' : ''}`}>
           <div className="terminal-header flex items-center mb-4">
             <div className="terminal-title text-green-500 font-mono text-sm">
@@ -317,4 +319,4 @@ ${Array(5).fill(0).map(() =>
   );
 };
 
-export default TBESightingsIntro; 
+export default TBESightingsIntro;

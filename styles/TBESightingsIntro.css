@@ -9,6 +9,7 @@
   max-width: 4xl;
   margin: 0 auto;
   padding: 0 1rem;
+  padding-top: 2rem;
   position: relative;
   z-index: 10;
 }

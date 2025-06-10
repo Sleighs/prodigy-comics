@@ -6,8 +6,43 @@ interface ModernProductsSectionProps {
   onImageSelect: (image: { src: string; alt: string }) => void;
 }
 
+interface CartItem {
+  id: number;
+  name: string;
+  price: string;
+  quantity: number;
+}
+
 export default function ModernProductsSection({ onImageSelect }: ModernProductsSectionProps) {
   const [activeCategory, setActiveCategory] = useState('all');
+  const [cart, setCart] = useState<CartItem[]>([]);
+  const [showAddedMessage, setShowAddedMessage] = useState<number | null>(null);
+
+  const handleQuickAdd = (product: typeof products[0]) => {
+    // Check if item already exists in cart
+    const existingItem = cart.find(item => item.id === product.id);
+    
+    if (existingItem) {
+      // Update quantity if item exists
+      setCart(cart.map(item => 
+        item.id === product.id 
+          ? { ...item, quantity: item.quantity + 1 }
+          : item
+      ));
+    } else {
+      // Add new item to cart
+      setCart([...cart, { 
+        id: product.id, 
+        name: product.name, 
+        price: product.price,
+        quantity: 1 
+      }]);
+    }
+
+    // Show added message
+    setShowAddedMessage(product.id);
+    setTimeout(() => setShowAddedMessage(null), 2000);
+  };
 
   return (
     <section className="py-12 px-4 bg-white">
@@ -84,54 +119,63 @@ export default function ModernProductsSection({ onImageSelect }: ModernProductsS
                   fill
                   className="object-cover transition-transform group-hover:scale-105"
                 />
-                {/* Quick Add to Cart */}
-                <div className="absolute inset-0 flex items-center justify-center bg-black/0 group-hover:bg-black/20 transition-all duration-300">
-                  <button className="opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300 bg-white/90 backdrop-blur-sm text-black px-4 py-2 rounded-full text-sm font-medium shadow-lg hover:bg-white">
-                    Quick Add
-                  </button>
-                </div>
               </div>
 
               {/* Product Info */}
-              <div className="p-4">
-                <h3 className="text-lg font-medium text-gray-900 mb-1">{product.name}</h3>
-                <p className="text-sm text-gray-500 mb-2 line-clamp-2">{product.description}</p>
-                
-                {/* Included Items */}
-                <div className="mb-3">
-                  <h4 className="text-xs font-medium text-gray-900 mb-1">Includes:</h4>
-                  <ul className="text-xs text-gray-500 space-y-0.5">
-                    {product.included.slice(0, 2).map((item, index) => (
-                      <li key={index} className="truncate">• {item}</li>
+              <div className="p-4 flex flex-col h-[280px]">
+                {/* Title */}
+                <a 
+                  href="https://www.indiegogo.com/projects/prodigy-new-age-hell-on-earth-book-0"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block text-lg font-medium text-gray-900 hover:text-black line-clamp-2"
+                >
+                  {product.name}
+                </a>
+
+                {/* Rating */}
+                <div className="flex items-center mt-2">
+                  <div className="flex items-center">
+                    {[...Array(5)].map((_, i) => (
+                      <svg
+                        key={i}
+                        className={`w-4 h-4 ${i < 4 ? 'text-yellow-400' : 'text-gray-300'}`}
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                      >
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
                     ))}
-                    {product.included.length > 2 && (
-                      <li className="text-gray-400">+{product.included.length - 2} more items</li>
-                    )}
-                  </ul>
+                  </div>
+                  <span className="ml-2 text-sm text-gray-500">(24)</span>
                 </div>
 
-                {/* Price and Actions */}
-                <div className="flex items-center justify-between">
-                  <span className="text-lg font-bold text-gray-900">{product.price}</span>
-                  <a 
-                    href="https://www.indiegogo.com/projects/prodigy-new-age-hell-on-earth-book-0"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    title="Visit the IndieGoGo campaign page"
-                    className="text-sm font-medium text-gray-600 hover:text-gray-900"
-                  >
-                    View Details
-                  </a>
+                {/* Description */}
+                <p className="text-sm text-gray-500 line-clamp-2 mt-2">{product.description}</p>
+                
+                {/* Price and Shipping */}
+                <div className="space-y-1 mt-2">
+                  <div className="text-lg font-bold text-gray-900">{product.price}</div>
+                  <div className="text-sm text-gray-600">Included in campaign checkout</div>
                 </div>
+
+                {/* Add to Cart Button */}
                 <button 
-                  className="hidden text-sm font-medium bg-red-light hover:bg-red-dark text-white px-4 py-2 rounded-[999px] relative group cursor-pointer" 
-                  disabled={true}
+                  className="w-full py-2 px-4 rounded-[5px] text-sm font-medium bg-gray-100 text-gray-500 cursor-not-allowed mt-auto"
+                  disabled
                 >
-                  Add to Cart
-                  <span className="absolute -top-6 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
-                    Coming Soon
-                  </span>
+                  View on IndieGoGo
                 </button>
+
+                {/* Included Items - Collapsed by default */}
+                <details className="text-xs text-gray-500 mt-2">
+                  <summary className="cursor-pointer hover:text-gray-700">What's included</summary>
+                  <ul className="mt-2 space-y-1">
+                    {product.included.map((item, index) => (
+                      <li key={index} className="truncate">• {item}</li>
+                    ))}
+                  </ul>
+                </details>
               </div>
             </div>
           ))}
