@@ -196,7 +196,8 @@ export default function HeroCarousel() {
                     href={slide.link}
                     target={slide.link.startsWith('http') ? '_blank' : '_self'}
                     rel="noopener noreferrer"
-                    className="inline-block px-8 py-3 bg-red-600 hover:bg-red-700 text-lg font-bold tracking-wider uppercase transition-all duration-300 transform hover:scale-105"
+                    className="hero-cta-button"
+                    id={`hero-cta-button` + index}
                   >
                     {slide.price ? 'Get It Now' : 'Enter the Universe'}
                   </a>

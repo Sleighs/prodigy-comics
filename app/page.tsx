@@ -151,13 +151,13 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Link
               href="/store"
-              className="px-8 py-3 bg-blue-600 text-lg font-semibold transition-colors bg-blood"
+              className="px-8 py-3 bg-blue-600 text-lg font-semibold transition-all duration-300 bg-blood flex items-center justify-center hover:bg-red-800 hover:scale-105"
             >
               Shop Now
             </Link>
             <Link
               href="/characters"
-              className="px-8 py-5 pt-5 bg-gray-800 text-lg font-semibold transition-colors bg-steel"
+              className="px-8 py-3 bg-gray-800 text-lg font-semibold transition-all duration-300 bg-steel flex items-center justify-center hover:bg-gray-700 hover:scale-105"
             >
               Meet the Characters
             </Link>

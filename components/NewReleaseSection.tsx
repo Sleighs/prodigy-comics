@@ -115,7 +115,7 @@ export default function NewReleaseSection() {
               href="https://www.indiegogo.com/projects/prodigy-new-age-hell-on-earth-book-0#/"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-8 py-3 bg-blood hover:bg-blood-dark text-white text-lg roboto-bold transition-colors duration-300 text-center"
+              className="px-8 py-3 bg-blood text-lg font-bold transition-all duration-300 flex items-center justify-center hover:bg-red-800 hover:scale-105"
             >
               GET YOUR COPY
             </a>
@@ -164,4 +164,4 @@ export default function NewReleaseSection() {
       </div>
     </section>
   );
-} 
+}
