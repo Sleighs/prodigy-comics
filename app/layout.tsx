@@ -12,6 +12,7 @@ import "@/styles/metal-gear.css";
 import MetalGearNavbar from "@/components/MetalGearNavbar";
 import NotificationBar from "@/components/NotificationBar";
 import { Navbar } from "@/components/Navbar";
+import DemoAlert from "@/components/DemoAlert";
 
 
 const roboto = Roboto({
@@ -82,6 +83,7 @@ export default function RootLayout({
       <body className="roboto bg-gradient-to-b from-gray-900 to-black text-white ">
         <ThemeProvider>
           <Navbar />
+          <DemoAlert />
           {/* <NotificationBar 
             message="Pre-order PRODIGY: Hell on Earth Book #0 now and get exclusive rewards!" 
             link="https://www.indiegogo.com/projects/prodigy-new-age-hell-on-earth-book-0#/"

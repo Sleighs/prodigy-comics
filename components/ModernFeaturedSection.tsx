@@ -44,7 +44,10 @@ export default function ModernFeaturedSection({ onImageSelect }: ModernFeaturedS
                 <span className="text-sm text-gray-500">Save 20%</span>
               </div>
               <div className="flex flex-col space-y-3">
-                <button className="w-full bg-black text-white py-2 rounded-lg font-medium hover:bg-gray-800 transition-colors">
+                <button 
+                  disabled
+                  className="w-full bg-gray-300 text-gray-500 py-2 rounded-lg font-medium cursor-not-allowed"
+                >
                   Add to Cart
                 </button>
                 <a
@@ -87,7 +90,10 @@ export default function ModernFeaturedSection({ onImageSelect }: ModernFeaturedS
                 <span className="text-sm text-gray-500">Limited Stock</span>
               </div>
               <div className="flex flex-col space-y-3">
-                <button className="w-full bg-black text-white py-2 rounded-lg font-medium hover:bg-gray-800 transition-colors">
+                <button 
+                  disabled
+                  className="w-full bg-gray-300 text-gray-500 py-2 rounded-lg font-medium cursor-not-allowed"
+                >
                   Add to Cart
                 </button>
                 <a
@@ -130,7 +136,10 @@ export default function ModernFeaturedSection({ onImageSelect }: ModernFeaturedS
                 <span className="text-sm text-gray-500">Free Shipping</span>
               </div>
               <div className="flex flex-col space-y-3">
-                <button className="w-full bg-black text-white py-2 rounded-lg font-medium hover:bg-gray-800 transition-colors">
+                <button 
+                  disabled
+                  className="w-full bg-gray-300 text-gray-500 py-2 rounded-lg font-medium cursor-not-allowed"
+                >
                   Add to Cart
                 </button>
                 <a

@@ -7,7 +7,7 @@ function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="fixed w-full z-50 bg-black/75 backdrop-blur-sm roboto-condensed-bold z-100000"> 
+    <nav className="fixed w-full z-40 bg-black/75 backdrop-blur-sm roboto-condensed-bold"> 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex-shrink-0">
@@ -83,7 +83,7 @@ function Navbar() {
 
 function NavbarCenter() {
   return (
-    <div className="fixed w-full z-50 bg-black/75 backdrop-blur-sm roboto-condensed-bold">
+    <div className="fixed w-full z-40 bg-black/75 backdrop-blur-sm roboto-condensed-bold">
       <Link href="/" className="nav-title flex items-center justify-center text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-500">
               PRODIGY: NEW AGE{/* <img 
           src="/images/logo.png" 

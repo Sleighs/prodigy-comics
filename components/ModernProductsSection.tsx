@@ -161,21 +161,31 @@ export default function ModernProductsSection({ onImageSelect }: ModernProductsS
 
                 {/* Add to Cart Button */}
                 <button 
-                  className="w-full py-2 px-4 rounded-[5px] text-sm font-medium bg-gray-100 text-gray-500 cursor-not-allowed mt-auto"
-                  disabled
+                  className="w-full py-2 px-4 rounded-[5px] text-sm font-medium bg-gray-100 text-gray-500 mt-auto cursor-pointer hover:bg-gray-200 transition-colors duration-200"
                 >
                   View on IndieGoGo
                 </button>
 
-                {/* Included Items - Collapsed by default */}
-                <details className="text-xs text-gray-500 mt-2">
-                  <summary className="cursor-pointer hover:text-gray-700">What's included</summary>
-                  <ul className="mt-2 space-y-1">
-                    {product.included.map((item, index) => (
-                      <li key={index} className="truncate">• {item}</li>
-                    ))}
-                  </ul>
-                </details>
+                {/* Included Items - Floating tooltip on hover */}
+                <div className="relative group py-2">
+                  <button className="text-xs text-gray-500 hover:text-gray-700 cursor-pointer flex items-center gap-1">
+                    <svg 
+                      className="w-3 h-3 transition-transform group-hover:translate-x-0.5" 
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z" />
+                    </svg>
+                    What's included
+                  </button>
+                  <div className="absolute bottom-full left-0 mb-2 w-64 bg-white shadow-lg rounded-lg p-3 hidden group-hover:block z-50">
+                    <ul className="space-y-1">
+                      {product.included.map((item, index) => (
+                        <li key={index} className="text-xs text-gray-600">• {item}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
               </div>
             </div>
           ))}

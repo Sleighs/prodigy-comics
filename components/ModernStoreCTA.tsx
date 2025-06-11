@@ -51,7 +51,8 @@ export default function ModernStoreCTA() {
                 <svg className="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                 </svg>
-                <span className="text-gray-700">Free shipping on orders over $50</span>
+                {/* <span className="text-gray-700">Free shipping on orders over $50</span> */}
+                <span className="text-gray-700">Free bonuses on orders over $50</span>
               </li>
               <li className="flex items-center hidden">
               <svg className="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -64,8 +65,7 @@ export default function ModernStoreCTA() {
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row items-center gap-6">
               <button 
-                className="w-full sm:w-auto bg-black hover:bg-gray-800 text-white px-10 py-4 rounded-[5px] text-lg font-semibold transition-colors shadow-lg hover:shadow-xl"
-                disabled
+                className="w-full sm:w-auto bg-black hover:bg-gray-800 text-white px-10 py-4 rounded-[5px] text-lg font-semibold transition-colors shadow-lg hover:shadow-xl cursor-pointer"
               >
                 Join Now
               </button>
