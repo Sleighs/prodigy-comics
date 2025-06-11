@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24" height="36" viewBox="0 0 24 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Marker shadow -->
+    <ellipse cx="12" cy="32" rx="8" ry="2" fill="#00000033"/>
+    
+    <!-- Marker body -->
+    <path d="M12 0C5.373 0 0 5.373 0 12C0 18.627 12 36 12 36C12 36 24 18.627 24 12C24 5.373 18.627 0 12 0Z" fill="#374151"/>
+    
+    <!-- Star symbol -->
+    <path d="M12 8L13.5 12L17 12L14 14.5L15.5 18L12 16L8.5 18L10 14.5L7 12L10.5 12L12 8Z" fill="#9CA3AF"/>
+    
+    <!-- Border -->
+    <circle cx="12" cy="12" r="6" stroke="#9CA3AF" stroke-width="1" fill="none"/>
+</svg> 

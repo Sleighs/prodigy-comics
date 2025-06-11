@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24" height="36" viewBox="0 0 24 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Marker shadow -->
+    <ellipse cx="12" cy="32" rx="8" ry="2" fill="#00000033"/>
+    
+    <!-- Marker body -->
+    <path d="M12 0C5.373 0 0 5.373 0 12C0 18.627 12 36 12 36C12 36 24 18.627 24 12C24 5.373 18.627 0 12 0Z" fill="#312E81"/>
+    
+    <!-- DNA helix -->
+    <path d="M8 8C8 8 10 10 12 10C14 10 16 8 16 8M8 12C8 12 10 14 12 14C14 14 16 12 16 12M8 16C8 16 10 18 12 18C14 18 16 16 16 16" stroke="#818CF8" stroke-width="1.5" stroke-linecap="round"/>
+    
+    <!-- Information symbol -->
+    <circle cx="12" cy="12" r="2" fill="#818CF8"/>
+    <path d="M12 10V14" stroke="#818CF8" stroke-width="1.5" stroke-linecap="round"/>
+</svg> 

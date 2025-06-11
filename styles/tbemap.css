@@ -36,10 +36,13 @@
 
 .tbe-map-title {
   position: absolute;
-  margin-top: 0px;
+  margin-top: 6px;
   z-index: 1001;
   left: 50%;
   transform: translateX(-50%);
+}
+.tbe-map-title h1 {
+  font-size: 1.4rem;
 }
 .tbe-map-select-container {
   /* move down on top of map */

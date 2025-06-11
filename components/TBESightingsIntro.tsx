@@ -75,8 +75,8 @@ DETAILED SIDE EFFECTS:
    - Cause: The GODSTRAND's metabolic pathways operate at 300% human baseline.
 
 4. PSYCHOLOGICAL FRAGMENTATION
-   - Symptoms: Severe paranoia, loss of empathy, and homicidal impulses are reported in 91% of subjects.
-   - Cause: The GODSTRAND appears to encode ancestral or alien consciousness.
+   - Symptoms: Severe paranoia, loss of empathy, and homicidal impulses are reported in 71% of subjects.
+   - Cause: The GODSTRAND appears to encode ancient or ultraterrestrial consciousness.
 
 5. GENETIC CONTAGION RISK
    - Symptoms: In rare cases, subjects' altered DNA spreads to non-augmented individuals via blood or tissue contact.
@@ -84,7 +84,7 @@ DETAILED SIDE EFFECTS:
 
 6. EXISTENTIAL DISASSOCIATION
    - Symptoms: Subjects report feelings of "not belonging to this reality," accompanied by visions of alternate timelines.
-   - Cause: Hypothesized to stem from the GODSTRAND's potential origin as an extraterrestrial artifact.
+   - Cause: Hypothesized to stem from the GODSTRAND's potential origin as an ultraterrestrial artifact.
 `;
 
   // Generate a cyphered version of the text with random characters

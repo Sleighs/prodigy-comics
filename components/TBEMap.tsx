@@ -34,9 +34,9 @@ const createDefaultIcon = () => {
   if (typeof window !== 'undefined') {
     const L = require('leaflet');
     defaultIcon = L.icon({
-      iconUrl: '/images/marker-icon.png',
-      iconRetinaUrl: '/images/marker-icon-2x.png',
-      shadowUrl: '/images/marker-shadow.png',
+      iconUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon.png',
+      iconRetinaUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon-2x.png',
+      shadowUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-shadow.png',
       iconSize: [25, 41],
       iconAnchor: [12, 41],
       popupAnchor: [1, -34],
@@ -48,24 +48,51 @@ const createDefaultIcon = () => {
 
 // Custom icons for different factions
 const getFactionIcon = (factions: string[]) => {
-  // If multiple factions, use default icon
+  if (typeof window === 'undefined') return null;
+  
+  const L = require('leaflet');
+  
+  // If multiple factions, use generic icon
   if (factions.length > 1) {
-    return defaultIcon;
+    return L.icon({
+      iconUrl: '/images/markers/generic-marker.svg',
+      iconSize: [24, 36],
+      iconAnchor: [12, 36],
+      popupAnchor: [0, -36]
+    });
   }
   
   // For single faction, use custom icon
-  const faction = factions[0];
+  const faction = factions[0].toLowerCase();
+  let markerPath = '/images/markers/generic-marker.svg';
   
-  // Custom icon configuration based on faction
-  const iconConfig = {
-    iconSize: [30, 30],
-    iconAnchor: [15, 15],
-    popupAnchor: [0, -15],
-    shadowSize: [41, 41]
-  };
+  switch (faction) {
+    case 'cybertech':
+      markerPath = '/images/markers/cybertech-marker.svg';
+      break;
+    case 'wolfpak':
+      markerPath = '/images/markers/wolfpak-marker.svg';
+      break;
+    case 'the clan bushido':
+      markerPath = '/images/markers/clan-bushido-marker.svg';
+      break;
+    case 'd.o.a.':
+      markerPath = '/images/markers/doa-marker.svg';
+      break;
+    case 'proteus':
+      markerPath = '/images/markers/proteus-marker.svg';
+      break;
+    case 'free agents':
+      markerPath = '/images/markers/free-agents-marker.svg';
+      break;
+  }
   
-  // Return default icon for now (in a real app, you'd have custom icons for each faction)
-  return defaultIcon;
+  return L.icon({
+    iconUrl: markerPath,
+    iconSize: [24, 36],
+    iconAnchor: [12, 36],
+    popupAnchor: [0, -36]
+  });
 };
 
 // Define the location data with coordinates
@@ -83,7 +110,7 @@ const locationData = [
     name: 'Japan',
     description: 'Ancient homeland of the Clan Bushido, operating independently from modern governments',
     significance: 'Base of operations for Clan Bushido since the dawn of the samurai',
-    factions: ['CLAN BUSHIDO'],
+    factions: ['The Clan Bushido'],
     coordinates: [35.676, 139.650] as LatLngTuple // Tokyo coordinates
   },
   {
@@ -141,13 +168,17 @@ const TBEMap: React.FC<TBEMapProps> = ({ className = '' }) => {
   // Filter locations based on selected faction
   const filteredLocations = selectedFaction === 'All'
     ? locationData
-    : locationData.filter(location => location.factions.includes(selectedFaction));
+    : locationData.filter(location => 
+        location.factions.some(faction => 
+          faction.toLowerCase() === selectedFaction.toLowerCase()
+        )
+      );
 
   return (
     <div className={`tbe-map-container h-[500px] w-full ${className}`}>
       <LeafletCSS />
       <div className="tbe-map-title">
-        <h1>{`T.B.E. SIGHTINGS REPORT  ${new Date().toLocaleDateString()} - ${selectedFaction}`}</h1>
+        <h1>{`T.B.E. SIGHTINGS - ${new Date().toLocaleDateString()} - ${selectedFaction}`}</h1>
       </div>
       <MapContainer
         center={[40, 0]}

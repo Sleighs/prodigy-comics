@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24" height="36" viewBox="0 0 24 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Marker shadow -->
+    <ellipse cx="12" cy="32" rx="8" ry="2" fill="#00000033"/>
+    
+    <!-- Marker body -->
+    <path d="M12 0C5.373 0 0 5.373 0 12C0 18.627 12 36 12 36C12 36 24 18.627 24 12C24 5.373 18.627 0 12 0Z" fill="#9CA3AF"/>
+    
+    <!-- Marker highlight -->
+    <path d="M12 2C6.486 2 2 6.486 2 12C2 17.514 12 34 12 34C12 34 22 17.514 22 12C22 6.486 17.514 2 12 2Z" fill="#D1D5DB"/>
+    
+    <!-- Marker point -->
+    <circle cx="12" cy="12" r="4" fill="#6B7280"/>
+</svg> 

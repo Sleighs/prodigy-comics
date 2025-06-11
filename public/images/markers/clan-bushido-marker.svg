@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24" height="36" viewBox="0 0 24 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Marker shadow -->
+    <ellipse cx="12" cy="32" rx="8" ry="2" fill="#00000033"/>
+    
+    <!-- Marker body -->
+    <path d="M12 0C5.373 0 0 5.373 0 12C0 18.627 12 36 12 36C12 36 24 18.627 24 12C24 5.373 18.627 0 12 0Z" fill="#0F172A"/>
+    
+    <!-- Japanese circle (Enso) -->
+    <circle cx="12" cy="12" r="5" stroke="#F59E0B" stroke-width="1.5" fill="none"/>
+    
+    <!-- Katana symbol -->
+    <path d="M12 8L12 16" stroke="#F59E0B" stroke-width="1.5" stroke-linecap="round"/>
+    <path d="M10 10L14 10" stroke="#F59E0B" stroke-width="1.5" stroke-linecap="round"/>
+    
+    <!-- Decorative elements -->
+    <path d="M8 8L16 16M16 8L8 16" stroke="#F59E0B" stroke-width="0.5" stroke-opacity="0.5"/>
+    
+    <!-- Additional decorative elements -->
+    <circle cx="12" cy="12" r="2" stroke="#F59E0B" stroke-width="0.5" fill="none"/>
+    <path d="M12 10L12 14M10 12H14" stroke="#F59E0B" stroke-width="0.5"/>
+</svg> 
