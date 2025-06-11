@@ -170,7 +170,7 @@ export default function ModernProductsSection({ onImageSelect }: ModernProductsS
                 <div className="relative group py-2">
                   <button className="text-xs text-gray-500 hover:text-gray-700 cursor-pointer flex items-center gap-1">
                     <svg 
-                      className="w-3 h-3 transition-transform group-hover:translate-x-0.5" 
+                      className="w-4 h-4 transition-transform group-hover:translate-x-0.5" 
                       viewBox="0 0 24 24"
                       fill="currentColor"
                     >
@@ -178,7 +178,7 @@ export default function ModernProductsSection({ onImageSelect }: ModernProductsS
                     </svg>
                     What's included
                   </button>
-                  <div className="absolute bottom-full left-0 mb-2 w-64 bg-white shadow-lg rounded-lg p-3 hidden group-hover:block z-50">
+                  <div className="absolute bottom-full left-0 mb-8 w-64 bg-white shadow-lg rounded-lg p-3 hidden group-hover:block z-50">
                     <ul className="space-y-1">
                       {product.included.map((item, index) => (
                         <li key={index} className="text-xs text-gray-600">• {item}</li>
