@@ -80,7 +80,7 @@ export default function MilitaryHeader({
       </div>
 
       {/* Main Header Content */}
-      <div className="absolute inset-0 flex flex-col items-center justify-center p-2">
+      <div className="absolute inset-0 flex flex-col items-center justify-center">
         <div className="scan-line w-full">
           <h1 className="military-title roboto-condensed-bold text-3xl md:text-3xl font-bold text-white text-center mb-1">
             {title}
