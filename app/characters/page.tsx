@@ -66,10 +66,6 @@ export default function CharactersPage() {
         backgroundImage="/images/prodigy-banner.png"
         subtitle="Meet the extraordinary individuals of the Prodigy universe"
       />
-
-      {/* Scanline effect */}
-      <div className="absolute inset-0 scanline"></div>
-
       {/* <MilitaryHeader 
         title="Characters" 
         backgroundImage="/images/prodigy-banner.png"

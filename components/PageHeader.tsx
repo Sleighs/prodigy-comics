@@ -15,7 +15,10 @@ export default function PageHeader({
 }: PageHeaderProps) {
   return (
     <section className={tailwindStyles +  ` relative h-[50vh] flex items-center justify-center overflow-hidden`}>
-      <div className="absolute inset-0 z-0">
+      {/* Scanline effect */}
+      <div className="absolute inset-0 scanline z-11"></div>
+      
+      <div className="absolute inset-0 z-1">
         <div className="absolute inset-0 bg-black/80" />
         <Image
           src={backgroundImage}

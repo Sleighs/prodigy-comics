@@ -238,8 +238,6 @@ ${Array(5).fill(0).map(() =>
                 className="w-3 h-3 rounded-full bg-red-500 transition-colors"
                 aria-label="Close terminal"
               ></button>
-
-
             </div>
           </div>
           

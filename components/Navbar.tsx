@@ -62,16 +62,32 @@ function Navbar() {
       {isOpen && (
         <div className="lg:hidden">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            <Link href="/story" className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
+            <Link 
+              href="/story" 
+              className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+              onClick={() => setIsOpen(false)}
+            >
               The Story
             </Link>
-            <Link href="/characters" className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
+            <Link 
+              href="/characters" 
+              className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+              onClick={() => setIsOpen(false)}
+            >
               Characters
             </Link>
-            <Link href="/store" className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
+            <Link 
+              href="/store" 
+              className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+              onClick={() => setIsOpen(false)}
+            >
               Store
             </Link>
-            <Link href="/news" className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
+            <Link 
+              href="/news" 
+              className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+              onClick={() => setIsOpen(false)}
+            >
               News
             </Link>
           </div>
@@ -85,7 +101,8 @@ function NavbarCenter() {
   return (
     <div className="fixed w-full z-40 bg-black/75 backdrop-blur-sm roboto-condensed-bold">
       <Link href="/" className="nav-title flex items-center justify-center text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-500">
-              PRODIGY: NEW AGE{/* <img 
+          PRODIGY: NEW AGE
+          {/* <img 
           src="/images/logo.png" 
           alt="Prodigy: New Age Logo"
           className="h-16 w-auto"
