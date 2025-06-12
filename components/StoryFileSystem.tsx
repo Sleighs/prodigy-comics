@@ -33,12 +33,8 @@ const StoryFileSystem = ({
   const [showLogin, setShowLogin] = useState(false);
   const [morphText, setMorphText] = useState('');
 
-  const documentSelectorId = (typeOfDoc: string | undefined, length: number | undefined) => {
-    if (typeOfDoc === 'overview') {
-      return '';
-    }
-
-    
+  const documentSelectorId = (length: number | undefined) => {
+    // Generate a random number for the document ID
     const randomNumber = Math.floor(Math.random() * 1000);
 
     // Base text to morph from
@@ -151,7 +147,7 @@ ${Array(5).fill(0).map(() =>
   // Add this effect to trigger morphing updates
   useEffect(() => {
     const interval = setInterval(() => {
-      setMorphText(documentSelectorId(undefined, undefined));
+      setMorphText(documentSelectorId(undefined));
     }, 50); // Update every 50ms for smooth animation
     
     return () => clearInterval(interval);
@@ -176,10 +172,20 @@ ${Array(5).fill(0).map(() =>
 
   const handleSwitchDocument = (documentId: string) => {
     if (documentId !== activeDocument) {
-      setActiveDocument(documentId);
-      if (onDocumentChange) {
-        onDocumentChange(documentId);
-      }
+      // First clear the displayed text completely
+      setDisplayedText('');
+      setCurrentIndex(0);
+      
+      // Small delay before switching document to ensure text is cleared
+      setTimeout(() => {
+        setActiveDocument(documentId);
+        if (onDocumentChange) {
+          onDocumentChange(documentId);
+        }
+        // Reset loading state
+        setIsLoading(true);
+        setLoadingProgress(0);
+      }, 50);
     }
   };
 
@@ -207,8 +213,8 @@ ${Array(5).fill(0).map(() =>
       <div className="story-filesystem-container">
         <div className={`filesystem-container transition-all duration-300 ${isMinimized ? 'h-16 overflow-hidden' : ''}`}>
           <div className="filesystem-header flex items-center mb-4">
-            <div className="filesystem-title text-red-500 font-mono text-sm">
-              ./classified/story/{activeDocument}
+            <div className="filesystem-title font-mono">
+              /classified/story/{activeDocument}
               {showRedacted && <span className="ml-2 text-yellow-500">[REDACTED BROWSING ACTIVE]</span>}
             </div>
             <div className="filesystem-controls ml-auto flex space-x-2">
@@ -233,61 +239,63 @@ ${Array(5).fill(0).map(() =>
             </div>
           </div>
           
-          {/* Document Selector */}
-          {!isMinimized && (
-            <div className="document-selector">
-              {documents.map((doc) => {
-                const crypticId = documentSelectorId(doc.id, length);
-                const documentId = crypticId;
-                return (
-                <button 
-                  key={doc.id}
-                  onClick={() => handleSwitchDocument(doc.id)}
-                  className={`document-button ${activeDocument === doc.id ? 'active' : ''}`}
-                >
-                  <svg className="document-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M14 2H6C4.9 2 4 2.9 4 4V20C4 21.1 4.9 22 6 22H18C19.1 22 20 21.1 20 20V8L14 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    <path d="M14 2V8H20" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    <path d="M16 13H8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    <path d="M16 17H8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    <path d="M10 9H9H8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                  <div className="document-info">
-                    <div className="document-id">{documentId}</div>
-                    <div className="document-title">{doc.title}</div>
-                  </div>
-                </button>
-                )})}
-            </div>
-          )}
-          
-          {!isMinimized && (
-            <>
-              {/* Loading Bar */}
-              {isLoading && (
-                <div className="filesystem-loading mb-4">
-                  <div className="loading-text text-red-500 font-mono text-sm mb-2">
-                    LOADING DOCUMENT: {currentDocument.documentId}
-                  </div>
-                  <div className="loading-bar-container h-2 bg-gray-800 border border-red-900/50 rounded overflow-hidden">
-                    <div 
-                      className="loading-bar h-full bg-red-600 transition-all duration-100"
-                      style={{ width: `${loadingProgress}%` }}
-                    ></div>
-                  </div>
-                  <div className="loading-percentage text-red-500 font-mono text-xs mt-1 text-right">
-                    {loadingProgress}%
-                  </div>
-                </div>
-              )}
-              
-              {/* Document Content */}
-              <div className={`filesystem-content font-mono whitespace-pre-line ${showRedacted ? 'text-filesystemWhite' : 'text-filesystemYellow'}`}>
-                {displayedText}
-                {!isLoading && currentIndex < currentText.length && <span className="cursor-blink">_</span>}
+          <div className="filesystem-content-container relative">
+            {/* Document Selector */}
+            {!isMinimized && (
+                <div className="filesystem-document-selector">
+                  {documents.map((doc) => {
+                    const crypticId = documentSelectorId(length);
+                    const documentId = crypticId;
+                    return (
+                    <button 
+                      key={doc.id}
+                      onClick={() => handleSwitchDocument(doc.id)}
+                      className={`document-button ${activeDocument === doc.id ? 'active' : ''}`}
+                    >
+                      <svg className="document-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M14 2H6C4.9 2 4 2.9 4 4V20C4 21.1 4.9 22 6 22H18C19.1 22 20 21.1 20 20V8L14 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                        <path d="M14 2V8H20" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                        <path d="M16 13H8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                        <path d="M16 17H8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                        <path d="M10 9H9H8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                      <div className="document-info">
+                        <div className="document-id">{documentId}</div>
+                        <div className="document-title">{doc.title}</div>
+                      </div>
+                    </button>
+                  )})}
               </div>
-            </>
-          )}
+            )}
+            
+            {!isMinimized && (
+              <>
+                {/* Loading Bar */}
+                {isLoading && (
+                  <div className="filesystem-loading mb-4">
+                    <div className="loading-text text-red-500 font-mono text-sm mb-2">
+                      LOADING DOCUMENT: {currentDocument.documentId}
+                    </div>
+                    <div className="loading-bar-container h-2 border border-red-900/50 rounded overflow-hidden">
+                      <div 
+                        className="loading-bar h-full bg-red-600 transition-all duration-100"
+                        style={{ width: `${loadingProgress}%` }}
+                      ></div>
+                    </div>
+                    <div className="loading-percentage text-red-500 font-mono text-xs mt-1 text-right">
+                      {loadingProgress}%
+                    </div>
+                  </div>
+                )}
+                
+                {/* Document Content */}
+                <div className={`filesystem-content font-mono whitespace-pre-line ${showRedacted ? 'text-filesystemWhite' : 'text-filesystemYellow'}`}>
+                  {displayedText}
+                  {!isLoading && currentIndex < currentText.length && <span className="cursor-blink">_</span>}
+                </div>
+              </>
+            )}
+          </div>
         </div>
       </div>
 
