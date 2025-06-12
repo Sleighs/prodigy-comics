@@ -94,7 +94,7 @@ export default function MilitaryHeader({
       </div>
 
       {/* Bottom Status Bar */}
-      <div className="absolute bottom-0 left-0 right-0 bg-black/80 border-t border-red-500 p-1">
+      <div className="hidden absolute bottom-0 left-0 right-0 bg-black/80 border-t border-red-500 p-1">
         <div className="container mx-auto flex justify-between items-center px-2">
           <div className="terminal-text text-xs">
             DOCUMENT ID: {documentId}
