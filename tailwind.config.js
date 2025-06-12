@@ -1,3 +1,5 @@
+const { cursorTo } = require('readline');
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -15,8 +17,21 @@ module.exports = {
       },
       animation: {
         scan: 'scan 8s linear infinite'
+      },
+      textColor: {
+        'text-filesystemWhite': '#f0f0f0',
+        'text-filesystemYellow': '#1a1a1a',
+      },
+      textShadow: {
+        'custom': '2px 2px 4px rgba(0, 0, 0, 0.5)',
+        'redGlow': '0 0 5px rgba(255, 0, 0, 0.5), 0 0 20px rgba(255, 0, 0, 0.3)',
+        'blueGlow': '0 0 5px rgba(0, 0, 255, 0.5), 0 0 20px rgba(0, 0, 255, 0.3)',
+        'yellowGlow': '0 0 5px rgba(255, 255, 0, 0.5), 0 0 20px rgba(255, 255, 0, 0.3)',
+        'greenGlow': '0 0 5px rgba(0, 255, 0, 0.5), 0 0 20px rgba(0, 255, 0, 0.3)',
       }
     },
   },
-  plugins: [],
-} 
+  plugins: [
+    require('@tailwindcss/typography'),
+  ]
+}

@@ -31,7 +31,41 @@ const StoryFileSystem = ({
   const [displayedText, setDisplayedText] = useState('');
   const [currentIndex, setCurrentIndex] = useState(0);
   const [showLogin, setShowLogin] = useState(false);
-  
+  const [morphText, setMorphText] = useState('');
+
+  const documentSelectorId = (typeOfDoc: string | undefined, length: number | undefined) => {
+    if (typeOfDoc === 'overview') {
+      return '';
+    }
+
+    
+    const randomNumber = Math.floor(Math.random() * 1000);
+
+    // Base text to morph from
+    const baseText = `SEC_DATA_${randomNumber.toString().padStart(3, '0')}.bin`;
+    
+    // Characters to use for morphing
+    const crypticChars = '!@#$%^&*()____+-=[]\\;,./~АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯabcdefghijklmnopqrstuvwxyz0123456789';
+    
+    // Get current timestamp for animation
+    const now = Date.now();
+    
+    // Create morphed text by replacing characters based on time
+    return baseText
+      .split('')
+      .map((char, index) => {
+        // Each character position changes at a different rate
+        const charChangeRate = (now + index * 100) % 1000;
+        
+        // Determine if this character should change in this frame
+        if (charChangeRate < 200) {
+          return crypticChars.charAt(Math.floor(Math.random() * crypticChars.length));
+        }
+        return char;
+      })
+      .join('');
+  };
+
   // Get the current document
   const currentDocument = documents.find(doc => doc.id === activeDocument) || documents[0];
   
@@ -114,6 +148,15 @@ ${Array(5).fill(0).map(() =>
     setLoadingProgress(0);
   }, [activeDocument, showRedacted]);
 
+  // Add this effect to trigger morphing updates
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setMorphText(documentSelectorId(undefined, undefined));
+    }, 50); // Update every 50ms for smooth animation
+    
+    return () => clearInterval(interval);
+  }, []);
+
   const handleMinimize = () => {
     setIsMinimized(!isMinimized);
   };
@@ -165,33 +208,38 @@ ${Array(5).fill(0).map(() =>
         <div className={`filesystem-container transition-all duration-300 ${isMinimized ? 'h-16 overflow-hidden' : ''}`}>
           <div className="filesystem-header flex items-center mb-4">
             <div className="filesystem-title text-red-500 font-mono text-sm">
-              TERMINAL://classified/story/{activeDocument}
+              ./classified/story/{activeDocument}
               {showRedacted && <span className="ml-2 text-yellow-500">[REDACTED BROWSING ACTIVE]</span>}
             </div>
             <div className="filesystem-controls ml-auto flex space-x-2">
               <button 
-                onClick={handleClose}
-                className="w-3 h-3 rounded-full bg-red-500 hover:bg-red-600 transition-colors"
-                aria-label="Close terminal"
-              ></button>
-              <button 
-                onClick={handleMinimize}
-                className="w-3 h-3 rounded-full bg-yellow-500 hover:bg-yellow-600 transition-colors"
-                aria-label="Minimize terminal"
-              ></button>
-              <button 
                 onClick={handleToggleRedacted}
-                className={`w-3 h-3 rounded-full ${showRedacted ? 'bg-green-600' : ' bg-yellow-500'} hover:bg-white transition-colors`}
+                className={`w-3 h-3 rounded-full ${showRedacted ? 'bg-green-400' : ' bg-green-400'} transition-colors`}
                 aria-label="Toggle redacted content"
                 title={showRedacted ? "Show normal document" : "Show redacted document"}
               ></button>
+                            <button 
+              title='Minimize Terminal'
+                onClick={handleMinimize}
+                className="w-3 h-3 rounded-full bg-yellow-500  transition-colors"
+                aria-label="Minimize terminal"
+              ></button><button 
+                onClick={handleClose}
+                className="w-3 h-3 rounded-full bg-red-500 transition-colors"
+                aria-label="Close terminal"
+              ></button>
+
+
             </div>
           </div>
           
           {/* Document Selector */}
           {!isMinimized && (
             <div className="document-selector">
-              {documents.map((doc) => (
+              {documents.map((doc) => {
+                const crypticId = documentSelectorId(doc.id, length);
+                const documentId = crypticId;
+                return (
                 <button 
                   key={doc.id}
                   onClick={() => handleSwitchDocument(doc.id)}
@@ -205,11 +253,11 @@ ${Array(5).fill(0).map(() =>
                     <path d="M10 9H9H8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
                   <div className="document-info">
-                    <div className="document-id">{doc.documentId}</div>
+                    <div className="document-id">{documentId}</div>
                     <div className="document-title">{doc.title}</div>
                   </div>
                 </button>
-              ))}
+                )})}
             </div>
           )}
           
@@ -234,7 +282,7 @@ ${Array(5).fill(0).map(() =>
               )}
               
               {/* Document Content */}
-              <div className={`filesystem-content font-mono whitespace-pre-line ${showRedacted ? 'text-yellow-400' : 'text-red-400'}`}>
+              <div className={`filesystem-content font-mono whitespace-pre-line ${showRedacted ? 'text-filesystemWhite' : 'text-filesystemYellow'}`}>
                 {displayedText}
                 {!isLoading && currentIndex < currentText.length && <span className="cursor-blink">_</span>}
               </div>
@@ -246,9 +294,9 @@ ${Array(5).fill(0).map(() =>
       {/* Close Warning Modal */}
       {showCloseWarning && (
         <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50">
-          <div className="filesystem-warning p-6 border border-red-500 rounded-lg bg-black/90 shadow-lg shadow-red-500/20 max-w-md">
-            <h3 className="text-red-500 font-mono text-xl mb-4">WARNING: UNAUTHORIZED ACCESS DETECTED</h3>
-            <p className="text-red-400 font-mono mb-6">
+          <div className="filesystem-warning p-6 border border-red-500 rounded-sm bg-black/90 shadow-lg shadow-red-500/20 max-w-md">
+            <h3 className="text-red-500 font-mono text-xl mb-4">CLOSE TERMINAL</h3>
+            <p className="font-mono mb-6">
               Closing this terminal will result in immediate termination of your access credentials.
               All activity has been logged and reported to security personnel.
             </p>
@@ -273,4 +321,4 @@ ${Array(5).fill(0).map(() =>
   );
 };
 
-export default StoryFileSystem; 
+export default StoryFileSystem;
