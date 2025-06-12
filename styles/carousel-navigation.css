@@ -1,0 +1,62 @@
+.carousel-navigation {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 0.25rem;
+  z-index: 30;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+}
+
+.carousel-navigation-button {
+  position: relative;
+  height: 1.5px;
+  width: 30px;
+  background-color: rgb(75, 85, 99);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.carousel-navigation-button:hover {
+  background-color: rgb(107, 114, 128);
+}
+
+.carousel-navigation-button.active {
+  background-color: var(--color-red-light);
+}
+
+.carousel-navigation-button.active:hover {
+  background-color: var(--color-red-dark);
+}
+
+.carousel-navigation-progress {
+  position: absolute;
+  bottom: 30%;
+  left: 0;
+  height: 1.5px;
+  background-color: var(--color-red-light);
+  transition: width 100ms ease-linear;
+}
+
+@media (min-width: 601px) {
+  .carousel-navigation {
+    gap: 1rem;
+  }
+
+  .carousel-navigation-button {
+    width: 150px;
+  }
+}
+
+@media (hover: none) {
+  .carousel-navigation-button {
+    opacity: 0.7;
+  }
+
+  .carousel-navigation-button:active {
+    opacity: 1;
+  }
+} 

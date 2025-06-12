@@ -1,11 +1,75 @@
+/* Carousel Base Styles */
 .carousel-button {
-  opacity: 0.5;
+  opacity: 0.4;
+  transition: opacity 0.3s ease;
+}
+
+.carousel-button:hover {
+  opacity: .8;
+  cursor: pointer;
 }
 
 .carousel-progress {
   opacity: 0.5;
 }
 
+/* Slider Navigation Styles */
+.carousel-navigation {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  z-index: 30;
+}
+
+.carousel-navigation-button {
+  position: relative;
+  height: 5px;
+  background-color: rgb(75, 85, 99);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.carousel-navigation-button:hover {
+  background-color: rgb(107, 114, 128);
+  cursor: pointer;
+}
+
+.carousel-navigation-button.active {
+  background-color: var(--color-red-light);
+}
+
+.carousel-navigation-button.active:hover {
+  background-color: var(--color-red-dark);
+}
+
+
+.carousel-button-progress {
+  position: absolute;
+  bottom: 29%;
+  left: 0;
+  height: 5.5px;
+  background-color: var(--color-red-light);
+  transition: width 100ms ease-linear;
+  cursor: pointer;
+  z-index: 10;
+  opacity: .5;
+}
+
+@media (min-width: 601px) {
+  .carousel-navigation {
+    gap: .5rem;
+  }
+
+  .carousel-navigation-button {
+    width: 150px;
+  }
+}
+
+/* CTA Button Styles */
 .hero-cta-button {
   display: inline-flex;
   align-items: center;
@@ -17,16 +81,116 @@
   letter-spacing: 0.05em;
   background-color: var(--color-blood);
   color: white;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-/* .hero-cta-button:hover,
-#hero-cta-button0:hover,
-#hero-cta-button1:hover,
-#hero-cta-button2:hover,
-#hero-cta-button3:hover,
-#hero-cta-button4:hover,
-#hero-cta-button5:hover {
+.hero-cta-button:hover {
   background-color: var(--color-blood-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 600px) {
+  .carousel-container {
+    height: 100vh;
+    min-height: 600px;
+  }
+
+  .carousel-slide {
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .carousel-content {
+    padding: 2rem 1rem;
+    text-align: center;
+  }
+
+  .carousel-title {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .carousel-subtitle {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+  }
+
+  .carousel-description {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .carousel-image {
+    height: 40vh;
+    min-height: 250px;
+    margin-bottom: 1rem;
+  }
+
+  .carousel-navigation {
+    gap: 0.25rem;
+  }
+
+  .carousel-navigation-button {
+    width: 20px;
+  }
+
+  .carousel-navigation-progress {
+    height: 3px;
+  }
+
+  .hero-cta-button {
+    width: 100%;
+    padding: 0.875rem 1.5rem;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .carousel-overlay {
+    background: linear-gradient(to bottom, 
+      rgba(0, 0, 0, 0.7) 0%,
+      rgba(0, 0, 0, 0.5) 50%,
+      rgba(0, 0, 0, 0.7) 100%
+    );
+  }
+}
+
+/* Touch Device Optimizations */
+@media (hover: none) {
+  .carousel-navigation-button {
+    opacity: 0.7;
+  }
+
+  .carousel-navigation-button:active {
+    opacity: 1;
+  }
+
+  .hero-cta-button:active {
+    transform: scale(0.98);
+  }
+}
+
+/* Animation Classes */
+.carousel-slide-enter {
+  opacity: 0;
   transform: scale(1.05);
-} */
+}
+
+.carousel-slide-enter-active {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 500ms, transform 500ms;
+}
+
+.carousel-slide-exit {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.carousel-slide-exit-active {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 500ms, transform 500ms;
+}

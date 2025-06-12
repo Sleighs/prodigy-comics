@@ -88,10 +88,23 @@ export default function HeroCarousel() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [progress, setProgress] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
   const startTimeRef = useRef<number>(0);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   const SLIDE_DURATION = 5200; // Duration for each slide in milliseconds
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const startTimer = () => {
     if (timerRef.current) {
@@ -147,8 +160,21 @@ export default function HeroCarousel() {
     }
   };
 
+  const handleTouchStart = () => {
+    setIsPaused(true);
+  };
+
+  const handleTouchEnd = () => {
+    setIsPaused(false);
+  };
+
   return (
-    <div className="relative h-[90vh] w-full overflow-hidden">
+    <div 
+      ref={containerRef}
+      className="relative h-[90vh] w-full overflow-hidden"
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
+    >
       {slides.map((slide, index) => (
         <div
           key={slide.id}
@@ -164,23 +190,24 @@ export default function HeroCarousel() {
               alt={slide.title}
               fill
               style={{ 
-                left: slide.xOffset || '',
+                left: isMobile ? '0' : slide.xOffset || '',
               }}
               className={`
-                ${slide.objectTop ? 'object-top' : 'object-center'}
-                ${slide.imageContain ? 'object-contain' : 'object-cover'}
+                ${(slide.objectTop && isMobile === false) ? 'object-top' : 'object-center'}
+                ${(slide.imageContain && isMobile === false)  ? 'object-contain' : 'object-cover'}
               `}
               priority={index === 0}
+              sizes="(max-width: 768px) 100vw, 50vw"
             />
               <div className="absolute inset-0 bg-gradient-to-r from-black/80 to-transparent" />
           </div>
 
           {/* Content Container */}
           <div className="absolute inset-0 z-20 flex items-center roboto-condensed">
-            <div className="max-w-6xl mx-auto px-4 md:px-8 lg:px-12 w-full">
-              <div className="grid md:grid-cols-2 gap-10 items-center">
+            <div className="max-w-6xl mx-auto px-4 md:px-12 lg:px-12 w-full">
+              <div className={`grid ${isMobile ? 'grid-cols-1' : 'md:grid-cols-2'} gap-10 items-center`}>
                 {/* Text Content */}
-                <div className="space-y-6">
+                <div className="space-y-6 px-4">
                   <div className="space-y-2">
                     <h3 className="text-xl md:text-2xl font-bold text-red-600 tracking-wider uppercase">
                       {slide.subtitle}
@@ -197,25 +224,21 @@ export default function HeroCarousel() {
                     target={slide.link.startsWith('http') ? '_blank' : '_self'}
                     rel="noopener noreferrer"
                     className="hero-cta-button"
-                    id={`hero-cta-button` + index}
+                    id={`hero-cta-button${index}`}
                   >
                     {slide.price ? 'Get It Now' : 'Enter the Universe'}
                   </a>
                 </div>
 
-                {/* Optional Image Overlay */}
-                {(slide.overlay) && (
-                  <div className={`hidden md:block relative h-[500px] ${
-                    slide.objectTop ? 'md:-mt-20' : ''
-                  }`}>
+                {/* Comic Book Page Overlay - Only for slides with overlay property */}
+                {slide.overlay && !isMobile && (
+                  <div className="hidden md:block relative h-[500px]">
                     <div className="absolute inset-0 bg-gradient-to-r from-transparent to-black/50" />
                     <Image
                       src={slide.image}
                       alt={slide.title}
                       fill
-                      className={`object-contain ${
-                        slide.objectTop ? 'object-top' : 'object-center'
-                      }`}
+                      className="object-contain"
                     />
                   </div>
                 )}
@@ -226,24 +249,26 @@ export default function HeroCarousel() {
       ))}
       
       {/* Navigation Buttons */}
-      <div className="absolute bottom-8 left-0 right-0 flex justify-center space-x-4 z-30">
+      <div className="absolute bottom-0 left-0 right-0 flex justify-center gap-1 z-30 carousel-navigation">
         {slides.map((_, index) => (
           <div key={index} className="relative">
             <button
               onClick={() => handleSlideChange(index)}
-              className={`h-1.5 w-[150px] transition-all duration-300 carousel-button ` 
-              + (index === currentSlide && isPaused
-                ? ` bg-red-light hover:bg-red-dark`
-                : `bg-gray-600 hover:bg-gray-500`)
-              }
-              aria-label={`Go to slide ${index + 1}`}
-              style={{
-                cursor: 'pointer',
+              className={`h-1.5 transition-all duration-300 carousel-button ${
+                index === currentSlide && isPaused
+                  ? 'bg-red-light hover:bg-red-dark'
+                  : 'bg-gray-600 hover:bg-gray-500'
+              }`}
+              style={{ 
+                width: isMobile 
+                  ? `${(window.innerWidth - 40) / slides.length - 8}px` 
+                  : '120px' 
               }}
+              aria-label={`Go to slide ${index + 1}`}
             />
             {(index === currentSlide && !isPaused) && (
               <div 
-                className="absolute bottom-[30%] left-0 h-1.5 bg-red-light transition-all duration-100 ease-linear"
+                className="carousel-button-progress"
                 style={{ width: `${progress}%`}} 
                 onClick={() => handleSlideChange(index)}
               />
