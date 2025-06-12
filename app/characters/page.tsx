@@ -61,12 +61,16 @@ export default function CharactersPage() {
 
   return (
     <main className="min-h-screen bg-gradient-dark text-white pt-16">
-      {/* <PageHeader 
+      <PageHeader 
         title="Characters"
         backgroundImage="/images/prodigy-banner.png"
         subtitle="Meet the extraordinary individuals of the Prodigy universe"
-      /> */}
-      <MilitaryHeader 
+      />
+
+      {/* Scanline effect */}
+      <div className="absolute inset-0 scanline"></div>
+
+      {/* <MilitaryHeader 
         title="Characters" 
         backgroundImage="/images/prodigy-banner.png"
         subtitle="Meet the extraordinary individuals of the Prodigy universe"
@@ -74,7 +78,7 @@ export default function CharactersPage() {
         documentId="SUBJECT PROFILES"
         accessLevel="6"
         systemStatus="OPERATIONAL"
-      />
+      /> */}
 
       {/* Featured Characters */}
       <section className="py-20 featured-section">
@@ -99,13 +103,13 @@ export default function CharactersPage() {
                     <h3 className="text-2xl font-bold mb-2 roboto-bold">{character.name}</h3>
                     <p className="text-blood mb-2">{character.alias}</p>
                     <p className="text-muted mb-4">{character.description}</p>
-                    <div className="space-y-2">
+                    {/* <div className="space-y-2">
                       {character.abilities.map((ability, index) => (
                         <span key={index} className="inline-block bg-steel-dark rounded-full px-3 py-1 text-sm mr-2 mb-2 shadow-md shadow-blood/5">
                           {ability}
                         </span>
                       ))}
-                    </div>
+                    </div> */}
                   </div>
 
                   <div className="characters--featured-characters-card-button p-4 text-center">

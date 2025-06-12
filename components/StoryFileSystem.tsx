@@ -34,14 +34,18 @@ const StoryFileSystem = ({
   const [morphText, setMorphText] = useState('');
 
   const documentSelectorId = (length: number | undefined) => {
+    // Use length to determine how many characters to morph
+    const idLength = length || 9; 
+
     // Generate a random number for the document ID
     const randomNumber = Math.floor(Math.random() * 1000);
 
     // Base text to morph from
-    const baseText = `SEC_DATA_${randomNumber.toString().padStart(3, '0')}.bin`;
+    const baseText = `SEC_DATA_${randomNumber.toString().padStart(idLength, '0')}`;
+    // `SEC_DATA_${randomNumber.toString().padStart(3, '0')}.bin`;
     
     // Characters to use for morphing
-    const crypticChars = '!@#$%^&*()____+-=[]\\;,./~АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯabcdefghijklmnopqrstuvwxyz0123456789';
+    const crypticChars = '!@#$%^&*()____+-=[]\\;,./~АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯabcdefghijklmnopqrstuvwxyz0123456789АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯabcdefghijklmnopqrstuvwxyz01234567890123456789';
     
     // Get current timestamp for animation
     const now = Date.now();
@@ -244,7 +248,7 @@ ${Array(5).fill(0).map(() =>
             {!isMinimized && (
                 <div className="filesystem-document-selector">
                   {documents.map((doc) => {
-                    const crypticId = documentSelectorId(length);
+                    const crypticId = documentSelectorId(8);
                     const documentId = crypticId;
                     return (
                     <button 
