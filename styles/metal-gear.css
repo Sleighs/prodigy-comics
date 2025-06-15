@@ -20,12 +20,12 @@
 }
 
 /* Scanline effect for the background */
-.scanline {
+.scanline-green {
   position: relative;
   overflow: hidden;
 }
 
-.scanline::after {
+.scanline-green::after {
   content: "";
   position: absolute;
   top: 0;

@@ -1,9 +1,9 @@
 /* Characters CTA Section */
 .featured-characters-section {
   position: relative;
-  background: 
+  /* background: 
   linear-gradient(45deg, transparent 45%, rgba(187, 13, 0, 0.1) 50%, transparent 55%),
-  linear-gradient(-45deg, transparent 45%, rgba(187, 13, 0, 0.1) 50%, transparent 55%);
+  linear-gradient(-45deg, transparent 45%, rgba(187, 13, 0, 0.1) 50%, transparent 55%); */
   background-size: 14px 15px;
   padding: 5rem 0rem;
   overflow: hidden;

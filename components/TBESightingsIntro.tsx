@@ -199,7 +199,7 @@ ${Array(5).fill(0).map(() =>
       <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
       
       {/* Scanline effect */}
-      <div className="absolute inset-0 scanline"></div>
+      <div className="absolute inset-0 scanline-green"></div>
       
       <div className="tbesightings-intro-container">
         <h2 className="text-4xl font-bold mb-6 roboto-condensed-bold text-center">SIGHTINGS REPORT</h2>
@@ -232,49 +232,51 @@ ${Array(5).fill(0).map(() =>
           </div>
           
           {/* Report Selector */}
-          {!isMinimized && (
-            <div className="report-selector flex justify-center mb-4">
-              <button 
-                onClick={() => handleSwitchReport('tbe')}
-                className={`report-button ${activeReport === 'tbe' ? 'active' : ''}`}
-              >
-                <svg className="report-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M14 2H6C4.9 2 4 2.9 4 4V20C4 21.1 4.9 22 6 22H18C19.1 22 20 21.1 20 20V8L14 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M14 2V8H20" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M16 13H8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M16 17H8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M10 9H9H8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-                <div className="report-info">
-                  <div className="report-id">CGS-SEC-47201</div>
-                  <div className="report-title">TBE Sightings Report</div>
-                </div>
-              </button>
-              <button 
-                onClick={() => handleSwitchReport('side-effects')}
-                className={`report-button ${activeReport === 'side-effects' ? 'active' : ''}`}
-              >
-                <svg className="report-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M14 2H6C4.9 2 4 2.9 4 4V20C4 21.1 4.9 22 6 22H18C19.1 22 20 21.1 20 20V8L14 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M14 2V8H20" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M16 13H8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M16 17H8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M10 9H9H8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-                <div className="report-info">
-                  <div className="report-id"> GL-OOS-0187</div>
-                  <div className="report-title">GODSTRAND Side Effects</div>
-                </div>
-              </button>
-            </div>
-          )}
-          
-          {!isMinimized && (
-            <div className={`terminal-content font-mono whitespace-pre-line ${showRedacted ? 'text-yellow-400' : 'text-green-400'}`}>
-              {displayedText}
-              {isTyping && <span className="cursor-blink">_</span>}
-            </div>
-          )}
+          <div className={`terminal-content-wrapper ${isMinimized ? 'hidden' : ''}`}>
+            {!isMinimized && (
+              <div className="report-selector flex justify-center mb-4">
+                <button 
+                  onClick={() => handleSwitchReport('tbe')}
+                  className={`report-button ${activeReport === 'tbe' ? 'active' : ''}`}
+                >
+                  <svg className="report-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M14 2H6C4.9 2 4 2.9 4 4V20C4 21.1 4.9 22 6 22H18C19.1 22 20 21.1 20 20V8L14 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path d="M14 2V8H20" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path d="M16 13H8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path d="M16 17H8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path d="M10 9H9H8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                  <div className="report-info">
+                    <div className="report-id">CGS-SEC-47201</div>
+                    <div className="report-title">TBE Sightings Report</div>
+                  </div>
+                </button>
+                <button 
+                  onClick={() => handleSwitchReport('side-effects')}
+                  className={`report-button ${activeReport === 'side-effects' ? 'active' : ''}`}
+                >
+                  <svg className="report-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M14 2H6C4.9 2 4 2.9 4 4V20C4 21.1 4.9 22 6 22H18C19.1 22 20 21.1 20 20V8L14 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path d="M14 2V8H20" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path d="M16 13H8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path d="M16 17H8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path d="M10 9H9H8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                  <div className="report-info">
+                    <div className="report-id"> GL-OOS-0187</div>
+                    <div className="report-title">GODSTRAND Side Effects</div>
+                  </div>
+                </button>
+              </div>
+            )}
+            
+            {!isMinimized && (
+              <div className={`terminal-content font-mono whitespace-pre-line ${showRedacted ? 'text-yellow-400' : '0'}`}>
+                {displayedText}
+                {isTyping && <span className="cursor-blink">_</span>}
+              </div>
+            )}
+          </div>
           
           {!isMinimized && !isTyping && currentIndex >= currentText.length && !showRedacted && (
             <div className="mt-8 text-center">
