@@ -28,11 +28,11 @@ function Navbar() {
               <Link href="/store" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
                 STORE
               </Link>
-              <Link href="/news" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
-                NEWS
-              </Link>
               <Link href="/about" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
                 ABOUT
+              </Link>
+              <Link href="/news" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+                NEWS
               </Link>
             </div>
           </div>
