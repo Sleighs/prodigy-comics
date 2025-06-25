@@ -457,57 +457,137 @@ MAJOR ORGANIZATIONS:
         {/* Overview Tab */}
         {activeTab === 'overview' && (
           <div className="space-y-8">
-            <div className="bg-gray-900/50 p-6 rounded border border-red-900/30">
-              <h2 className="text-2xl font-bold mb-6 text-red-500 uppercase tracking-wider">The World of PRODIGY</h2>
-              <div className="prose prose-invert max-w-none space-y-6">
-                <p className="text-lg">
-                  In the wake of a groundbreaking discovery - the existence of T.B.E.&apos;s (Terrestrial Biological Entities) - the world&apos;s power structure has been forever altered. The revelation began with T.B.E. 16 on Russian soil, triggering an international crisis that would reshape global alliances and military strategies.
-                </p>
+            <div className="bg-black/90 p-8 rounded border border-red-900/50 relative overflow-hidden">
+              {/* Background grid effect */}
+              <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
+              
+              {/* Scanline effect */}
+              <div className="absolute inset-0 scanline"></div>
+              
+              <div className="relative z-10">
+                <div className="filesystem-header flex items-center mb-6 border-b border-red-900/50 pb-4">
+                  <div className="filesystem-title font-mono text-red-500 uppercase tracking-wider">
+                    PRODIGY STORY OVERVIEW
+                  </div>
+                  <div className="ml-auto flex space-x-2">
+                    <div className="w-3 h-3 rounded-full bg-green-400"></div>
+                    <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+                    <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                  </div>
+                </div>
                 
-                <p className="text-lg">
-                  Coalition governments, led by the United States, the Soviet Union, the British Empire, and Israel, launched secret programs to identify and develop their own enhanced individuals. Their mission: to counter the emerging T.B.E. threat with equally powerful forces.
-                </p>
+                <div className="filesystem-content font-mono text-filesystemYellow whitespace-pre-line text-sm leading-relaxed">
+                  <div className="mb-6">
+                    <span className="text-red-500 font-bold">EXECUTIVE SUMMARY:</span>
+                    <br />
+                    In the wake of a groundbreaking discovery - the existence of T.B.E.'s (Terrestrial Biological Entities) - the world's power structure has been forever altered. The revelation began with T.B.E. 16 on Russian soil, triggering an international crisis that would reshape global alliances and military strategies.
+                  </div>
+                  
+                  <div className="mb-6">
+                    Coalition governments, led by the United States, the Soviet Union, the British Empire, and Israel, launched secret programs to identify and develop their own enhanced individuals. Their mission: to counter the emerging T.B.E. threat with equally powerful forces.
+                  </div>
 
-                <p className="text-lg">
-                  At the heart of this new arms race lies the GODSTRAND - a mysterious genetic sequence that holds the key to extraordinary human potential. As different factions vie for control and understanding of this power, the line between human and superhuman becomes increasingly blurred.
-                </p>
+                  <div className="mb-6">
+                    At the heart of this new arms race lies the GODSTRAND - a mysterious genetic sequence that holds the key to extraordinary human potential. As different factions vie for control and understanding of this power, the line between human and superhuman becomes increasingly blurred.
+                  </div>
 
-                <div className="flex justify-center pt-6">
-                  <Link 
-                    href="https://www.youtube.com/watch?v=E7jsNUBGatQ"
-                    target="_blank"
-                    className="inline-flex items-center gap-2 px-6 py-3 bg-red-600 hover:bg-red-700 rounded text-lg font-semibold transition-colors"
-                  >
-                    Watch the Official Trailer
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
-                      <polygon points="5 3 19 12 5 21 5 3"/>
-                    </svg>
-                  </Link>
+                  <div className="flex justify-center pt-6">
+                    <Link 
+                      href="https://www.youtube.com/watch?v=E7jsNUBGatQ"
+                      target="_blank"
+                      className="inline-flex items-center gap-2 px-6 py-3 bg-red-900/50 hover:bg-red-800/50 rounded border border-red-700/50 text-red-400 hover:text-red-300 font-mono text-sm transition-colors"
+                    >
+                      WATCH OFFICIAL TRAILER
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
+                        <polygon points="5 3 19 12 5 21 5 3"/>
+                      </svg>
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>
 
             {/* Key Concepts Section */}
             <div className="grid md:grid-cols-3 gap-6">
-              <div className="bg-gray-900/50 p-6 rounded border border-red-900/30">
-                <h3 className="text-xl font-bold mb-4 text-red-500">The GODSTRAND</h3>
-                <p className="text-gray-300">
-                  A previously unknown piece of human DNA that enables extraordinary abilities. Its discovery has changed our understanding of human potential.
-                </p>
+              <div className="bg-black/90 p-6 rounded border border-red-900/50 relative overflow-hidden group hover:bg-black/95 transition-colors">
+                {/* Background grid effect */}
+                <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
+                
+                <div className="relative z-10">
+                  <div className="filesystem-header flex items-center mb-4 border-b border-red-900/30 pb-2">
+                    <div className="filesystem-title font-mono text-red-500 uppercase tracking-wider text-sm">
+                      THE GODSTRAND
+                    </div>
+                  </div>
+                  
+                  <div className="filesystem-content font-mono text-filesystemYellow text-xs leading-relaxed mb-4">
+                    A previously unknown piece of human DNA that enables extraordinary abilities. Its discovery has changed our understanding of human potential. Multiple factions are racing to understand and harness its power.
+                  </div>
+                  
+                  <Link 
+                    href="/story/wiki/godstrand"
+                    className="inline-flex items-center gap-2 text-red-400 hover:text-red-300 transition-colors text-xs font-mono"
+                  >
+                    LEARN MORE
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                  </Link>
+                </div>
               </div>
               
-              <div className="bg-gray-900/50 p-6 rounded border border-red-900/30">
-                <h3 className="text-xl font-bold mb-4 text-red-500">T.B.E.'s</h3>
-                <p className="text-gray-300">
-                  Terrestrial Biological Entities - humans who have evolved beyond normal capabilities through exposure to the GODSTRAND.
-                </p>
+              <div className="bg-black/90 p-6 rounded border border-red-900/50 relative overflow-hidden group hover:bg-black/95 transition-colors">
+                {/* Background grid effect */}
+                <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
+                
+                <div className="relative z-10">
+                  <div className="filesystem-header flex items-center mb-4 border-b border-red-900/30 pb-2">
+                    <div className="filesystem-title font-mono text-red-500 uppercase tracking-wider text-sm">
+                      T.B.E.'s
+                    </div>
+                  </div>
+                  
+                  <div className="filesystem-content font-mono text-filesystemYellow text-xs leading-relaxed mb-4">
+                    Terrestrial Biological Entities - humans who have evolved beyond normal capabilities through exposure to the GODSTRAND. Each T.B.E. manifests unique abilities based on their genetic profile.
+                  </div>
+                  
+                  <Link 
+                    href="/story/wiki/tbes"
+                    className="inline-flex items-center gap-2 text-red-400 hover:text-red-300 transition-colors text-xs font-mono"
+                  >
+                    LEARN MORE
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                  </Link>
+                </div>
               </div>
               
-              <div className="bg-gray-900/50 p-6 rounded border border-red-900/30">
-                <h3 className="text-xl font-bold mb-4 text-red-500">The World Council</h3>
-                <p className="text-gray-300">
-                  A coalition of nations working together to understand and manage the implications of human evolution and the GODSTRAND phenomenon.
-                </p>
+              <div className="bg-black/90 p-6 rounded border border-red-900/50 relative overflow-hidden group hover:bg-black/95 transition-colors">
+                {/* Background grid effect */}
+                <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
+                
+                <div className="relative z-10">
+                  <div className="filesystem-header flex items-center mb-4 border-b border-red-900/30 pb-2">
+                    <div className="filesystem-title font-mono text-red-500 uppercase tracking-wider text-sm">
+                      THE WORLD COUNCIL
+                    </div>
+                  </div>
+                  
+                  <div className="filesystem-content font-mono text-filesystemYellow text-xs leading-relaxed mb-4">
+                    A coalition of nations working together to understand and manage the implications of human evolution and the GODSTRAND phenomenon. Maintains a database of known T.B.E. sightings and abilities.
+                  </div>
+                  
+                  <Link 
+                    href="/story/wiki/world-council"
+                    className="inline-flex items-center gap-2 text-red-400 hover:text-red-300 transition-colors text-xs font-mono"
+                  >
+                    LEARN MORE
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
@@ -697,22 +777,25 @@ MAJOR ORGANIZATIONS:
       </div>
 
       {/* Call to Action */}
-      <section className="py-16 text-center bg-gray-900/50 border-t border-red-900/30">
-        <div className="max-w-4xl mx-auto px-4">
+      <section className="py-16 text-center bg-black/90 border-t border-red-900/50 relative overflow-hidden">
+        {/* Background grid effect */}
+        <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
+        
+        <div className="max-w-4xl mx-auto px-4 relative z-10">
           <h2 className="text-3xl font-bold mb-6 text-red-500 uppercase tracking-wider">Ready to Dive Deeper?</h2>
-          <p className="text-xl mb-8 text-gray-300">
+          <p className="text-xl mb-8 text-filesystemYellow">
             Explore the characters, their abilities, and the world they inhabit.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link 
               href="/characters"
-              className="px-8 py-3 bg-red-600 hover:bg-red-700 rounded text-lg font-semibold transition-colors"
+              className="px-8 py-3 bg-red-900/50 hover:bg-red-800/50 rounded border border-red-700/50 text-red-400 hover:text-red-300 text-lg font-semibold transition-colors"
             >
               Meet the Characters
             </Link>
             <Link 
               href="/world"
-              className="px-8 py-3 bg-gray-800 hover:bg-gray-700 rounded text-lg font-semibold transition-colors border border-red-900/30"
+              className="px-8 py-3 bg-black/50 hover:bg-gray-900/50 rounded border border-red-900/50 text-red-400 hover:text-red-300 text-lg font-semibold transition-colors"
             >
               Explore the World
             </Link>

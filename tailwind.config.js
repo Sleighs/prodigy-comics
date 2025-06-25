@@ -20,7 +20,7 @@ module.exports = {
       },
       textColor: {
         'text-filesystemWhite': '#f0f0f0',
-        'text-filesystemYellow': '#1a1a1a',
+        'text-filesystemYellow': '#00ff00',
       },
       textShadow: {
         'custom': '2px 2px 4px rgba(0, 0, 0, 0.5)',
