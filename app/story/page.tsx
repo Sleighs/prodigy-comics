@@ -14,6 +14,7 @@ import '@/styles/story.css';
 export default function StoryPage() {
   const [activeTab, setActiveTab] = useState('overview');
   const [systemStatus, setSystemStatus] = useState('OPERATIONAL');
+  const [isOverviewMinimized, setIsOverviewMinimized] = useState(false);
   // Define the documents for the StoryFileSystem
   const documents = [
     {
@@ -469,41 +470,45 @@ MAJOR ORGANIZATIONS:
                   <div className="filesystem-title font-mono text-red-500 uppercase tracking-wider">
                     PRODIGY STORY OVERVIEW
                   </div>
-                  <div className="ml-auto flex space-x-2">
-                    <div className="w-3 h-3 rounded-full bg-green-400"></div>
-                    <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-                    <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                  <div className="story-overview-buttons ml-auto flex space-x-2">
+                    <button 
+                      className="w-3 h-3 rounded-full bg-yellow-500 hover:bg-yellow-400 transition-colors cursor-pointer"
+                      title={isOverviewMinimized ? "Expand" : "Minimize"}
+                      onClick={() => setIsOverviewMinimized(!isOverviewMinimized)}
+                    ></button>
                   </div>
                 </div>
                 
-                <div className="filesystem-content font-mono text-filesystemYellow whitespace-pre-line text-sm leading-relaxed">
-                  <div className="mb-6">
-                    <span className="text-red-500 font-bold">EXECUTIVE SUMMARY:</span>
-                    <br />
-                    In the wake of a groundbreaking discovery - the existence of T.B.E.'s (Terrestrial Biological Entities) - the world's power structure has been forever altered. The revelation began with T.B.E. 16 on Russian soil, triggering an international crisis that would reshape global alliances and military strategies.
-                  </div>
-                  
-                  <div className="mb-6">
-                    Coalition governments, led by the United States, the Soviet Union, the British Empire, and Israel, launched secret programs to identify and develop their own enhanced individuals. Their mission: to counter the emerging T.B.E. threat with equally powerful forces.
-                  </div>
+                {!isOverviewMinimized && (
+                  <div className="filesystem-content font-mono text-filesystemYellow whitespace-pre-line text-sm leading-relaxed">
+                    <div className="mb-6">
+                      <span className="text-red-500 font-bold">EXECUTIVE SUMMARY:</span>
+                      <br />
+                      In the wake of a groundbreaking discovery - the existence of T.B.E.'s (Terrestrial Biological Entities) - the world's power structure has been forever altered. The revelation began with T.B.E. 16 on Russian soil, triggering an international crisis that would reshape global alliances and military strategies.
+                    </div>
+                    
+                    <div className="mb-6">
+                      Coalition governments, led by the United States, the Soviet Union, the British Empire, and Israel, launched secret programs to identify and develop their own enhanced individuals. Their mission: to counter the emerging T.B.E. threat with equally powerful forces.
+                    </div>
 
-                  <div className="mb-6">
-                    At the heart of this new arms race lies the GODSTRAND - a mysterious genetic sequence that holds the key to extraordinary human potential. As different factions vie for control and understanding of this power, the line between human and superhuman becomes increasingly blurred.
-                  </div>
+                    <div className="mb-6">
+                      At the heart of this new arms race lies the GODSTRAND - a mysterious genetic sequence that holds the key to extraordinary human potential. As different factions vie for control and understanding of this power, the line between human and superhuman becomes increasingly blurred.
+                    </div>
 
-                  <div className="flex justify-center pt-6">
-                    <Link 
-                      href="https://www.youtube.com/watch?v=E7jsNUBGatQ"
-                      target="_blank"
-                      className="inline-flex items-center gap-2 px-6 py-3 bg-red-900/50 hover:bg-red-800/50 rounded border border-red-700/50 text-red-400 hover:text-red-300 font-mono text-sm transition-colors"
-                    >
-                      WATCH OFFICIAL TRAILER
-                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
-                        <polygon points="5 3 19 12 5 21 5 3"/>
-                      </svg>
-                    </Link>
+                    <div className="flex justify-center pt-6">
+                      <Link 
+                        href="https://www.youtube.com/watch?v=E7jsNUBGatQ"
+                        target="_blank"
+                        className="inline-flex items-center gap-2 px-6 py-3 bg-red-900/50 hover:bg-red-800/50 rounded border border-red-700/50 text-red-400 hover:text-red-300 font-mono text-sm transition-colors"
+                      >
+                        WATCH OFFICIAL TRAILER
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
+                          <polygon points="5 3 19 12 5 21 5 3"/>
+                        </svg>
+                      </Link>
+                    </div>
                   </div>
-                </div>
+                )}
               </div>
             </div>
 
