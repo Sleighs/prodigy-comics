@@ -794,13 +794,13 @@ MAJOR ORGANIZATIONS:
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link 
               href="/characters"
-              className="px-8 py-3 bg-red-900/50 hover:bg-red-800/50 rounded border border-red-700/50 text-red-400 hover:text-red-300 text-lg font-semibold transition-colors"
+              className="px-8 py-3 bg-red-900/50 hover:bg-red-800/50 rounded border border-red-700/50 hover:text-red-300 text-lg font-semibold transition-colors"
             >
               Meet the Characters
             </Link>
             <Link 
               href="/world"
-              className="px-8 py-3 bg-black/50 hover:bg-gray-900/50 rounded border border-red-900/50 text-red-400 hover:text-red-300 text-lg font-semibold transition-colors"
+              className="px-8 py-3 bg-black/50 hover:bg-gray-900/50 rounded border border-red-900/50 text-white hover:text-red-300 text-lg font-semibold transition-colors"
             >
               Explore the World
             </Link>
