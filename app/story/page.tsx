@@ -798,10 +798,10 @@ MAJOR ORGANIZATIONS:
         
         <div className="max-w-4xl mx-auto px-4 relative z-10">
           <div className="mb-8">
-            <h2 className="text-4xl font-bold mb-4 text-red-500 uppercase tracking-wider animate-pulse">
+            <h2 className="text-4xl font-bold mb-4 uppercase ">
               Ready to Dive Deeper?
             </h2>
-            <div className="w-24 h-1 bg-red-500 mx-auto mb-6 animate-pulse"></div>
+            {/* <div className="w-24 h-1 bg-red-500 mx-auto mb-6 animate-pulse"></div> */}
             <p className="text-xl mb-8 text-filesystemYellow font-mono">
               Explore the characters, their abilities, and the world they inhabit.
             </p>
