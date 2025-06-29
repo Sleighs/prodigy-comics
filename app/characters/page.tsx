@@ -110,7 +110,7 @@ export default function CharactersPage() {
 
                   <div className="characters--featured-characters-card-button p-4 text-center">
                     <Link 
-                      href={`/characters/${character.alias}`} 
+                      href={`/characters/${character.name}`} 
                       className="inline-block w-full px-6 py-3 bg-red-600 hover:bg-red-700 text-white font-semibold transition-colors duration-300 shadow-lg"
                     >
                       View Profile
