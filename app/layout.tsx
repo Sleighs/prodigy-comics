@@ -92,6 +92,7 @@ export default function RootLayout({
             type="info"
           /> */}
           {children}
+          <Analytics />
         </ThemeProvider>
       </body>
     </html>
