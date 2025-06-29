@@ -85,7 +85,7 @@ export default function CharactersPage() {
             {characters.featured.map((character, index) => {
               if (index < 3) {
                 return (
-                <div key={character.id} className="characters--featured-characters-card backdrop-blur-sm overflow-hidden hover:transform transition-all duration-300 shadow-lg shadow-blood/10">
+                <div key={character.id} className="characters--featured-characters-card backdrop-blur-sm overflow-hidden hover:transform transition-all duration-300 shadow-lg shadow-blood/10 flex flex-col">
                   <div className= "characters--featured-characters-card-image-container relative h-64 group">
                     <div className="absolute inset-0 bg-blood opacity-0 group-hover:opacity-15 transition-opacity duration-300"></div>
                     <Image
@@ -95,7 +95,7 @@ export default function CharactersPage() {
                       className="characters--featured-characters-card-image object-cover"
                     />
                   </div>
-                  <div className="p-6">
+                  <div className="p-6 flex-1">
                     <h3 className="text-2xl font-bold mb-2 roboto-bold">{character.name}</h3>
                     <p className="text-blood mb-2">{character.alias}</p>
                     <p className="text-muted mb-4">{character.description}</p>
@@ -111,7 +111,7 @@ export default function CharactersPage() {
                   <div className="characters--featured-characters-card-button p-4 text-center">
                     <Link 
                       href={`/characters/${character.alias}`} 
-                      className="inline-block w-full px-6 py-3 bg-steel-dark hover:bg-blood text-white bg-red-light transition-colors duration-300 shadow-lg shadow-blood/30 roboto-condensed-bold"
+                      className="inline-block w-full px-6 py-3 bg-red-600 hover:bg-red-700 text-white font-semibold transition-colors duration-300 shadow-lg"
                     >
                       View Profile
                     </Link>
