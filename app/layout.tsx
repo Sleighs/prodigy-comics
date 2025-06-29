@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next"
 import { Roboto } from 'next/font/google';
 import { Roboto_Condensed } from 'next/font/google';
 import { Poppins } from 'next/font/google';
