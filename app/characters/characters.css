@@ -430,3 +430,79 @@
 .store-cta-section .relative:hover .bg-gradient-to-r {
   opacity: 0.7;
 }
+
+/* Enhanced Security Scanner Effects */
+.security-scanner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 30;
+}
+
+.security-scanline {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 0, 0, 0.8) 20%,
+    rgba(255, 255, 255, 1) 50%,
+    rgba(255, 0, 0, 0.8) 80%,
+    transparent 100%
+  );
+  box-shadow: 
+    0 0 10px rgba(255, 0, 0, 0.8),
+    0 0 20px rgba(255, 0, 0, 0.4),
+    0 0 30px rgba(255, 0, 0, 0.2);
+  animation: securityScan 7s linear forwards;
+}
+
+.security-status {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: rgba(255, 0, 0, 0.8);
+  font-family: 'Courier New', monospace;
+  font-size: 12px;
+  font-weight: bold;
+  text-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
+  animation: statusBlink 1s ease-in-out infinite;
+}
+
+.security-scanner.complete .security-scanline {
+  animation: none;
+  opacity: 0;
+}
+
+.security-scanner.complete .security-status {
+  animation: none;
+  opacity: 0;
+}
+
+@keyframes securityScan {
+  0% { 
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  10% { 
+    opacity: 1;
+  }
+  90% { 
+    opacity: 1;
+  }
+  100% { 
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}
+
+@keyframes statusBlink {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}

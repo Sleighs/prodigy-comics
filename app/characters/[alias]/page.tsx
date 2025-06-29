@@ -3,7 +3,9 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
+import { useState, useEffect } from 'react';
 import { characters } from '@/data/characters';
+import '../characters.css';
 
 // Helper function to normalize strings for comparison
 const normalizeString = (str: string) => {
@@ -17,10 +19,19 @@ const normalizeString = (str: string) => {
 
 export default function CharacterPage() {
   const params = useParams();
+  const [scanComplete, setScanComplete] = useState(false);
   const normalizedAlias = normalizeString(params.alias as string);
   const character = characters.list.find(char => 
     normalizeString(char.alias) === normalizedAlias
   );
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setScanComplete(true);
+    }, 7000);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   if (!character) {
     return (
@@ -39,9 +50,14 @@ export default function CharacterPage() {
   return (
     <main className="min-h-screen bg-gradient-to-b from-gray-900 to-black text-white pt-16">
       {/* Hero Section */}
-      <section className="relative h-[40vh] flex items-center justify-center overflow-hidden">
+      <section className="relative h-[40vh] flex items-center justify-center overflow-hidden bg-gradient-to-b from-gray-900 to-black">
+        {/* Enhanced Security Scanner Effect */}
+        <div className={`security-scanner ${scanComplete ? 'complete' : ''}`}>
+          <div className="security-scanline"></div>
+          <div className="security-status">SCANNING...</div>
+        </div>
+        
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-black/70" />
           <Image
             src={character.image}
             alt={character.alias}
@@ -49,10 +65,11 @@ export default function CharacterPage() {
             className="object-cover object-top"
             priority
           />
+          <div className="absolute inset-0 bg-black/80 z-10" />
         </div>
         
-        <div className="relative z-10 text-center px-4">
-          <h1 className="text-5xl md:text-7xl font-bold mb-4">{character.alias}</h1>
+        <div className="relative z-40 text-center px-4">
+          <h1 className="text-5xl md:text-7xl font-bold mb-4 page-title">{character.alias}</h1>
           <p className="text-2xl text-blue-400">{character.role}</p>
         </div>
       </section>
