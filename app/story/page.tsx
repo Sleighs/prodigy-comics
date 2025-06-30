@@ -600,55 +600,126 @@ MAJOR ORGANIZATIONS:
 
         {/* Factions Tab */}
         {activeTab === 'factions' && (
-          <div className="space-y-12">
-            <h2 className="text-2xl font-bold mb-8 text-red-500 uppercase tracking-wider">The Major Factions</h2>
-            
-            {lore.factions.map((faction, index) => (
-              <div key={faction.id} className={`grid md:grid-cols-2 gap-8 items-center ${index % 2 === 1 ? 'md:flex-row-reverse' : ''}`}>
-                <div className="relative h-64 md:h-80">
-                  <Image
-                    src={faction.logo}
-                    alt={faction.name}
-                    fill
-                    className="object-cover rounded border border-red-900/30"
-                  />
+          <div className="space-y-8">
+            <div className="bg-black/90 p-8 rounded border border-red-900/50 relative overflow-hidden">
+              {/* Background grid effect */}
+              <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
+              
+              {/* Scanline effect */}
+              <div className="absolute inset-0 scanline"></div>
+              
+              <div className="relative z-10">
+                <div className="filesystem-header flex items-center mb-6 border-b border-red-900/50 pb-4">
+                  <div className="filesystem-title font-mono text-red-500 uppercase tracking-wider">
+                    THE MAJOR FACTIONS
+                  </div>
                 </div>
-                <div className="bg-gray-900/50 p-6 rounded border border-red-900/30">
-                  <h3 className="text-2xl font-bold mb-2 text-red-500">{faction.name}</h3>
-                  {faction.subtitle && <p className="text-gray-400 mb-4">{faction.subtitle}</p>}
-                  <p className="text-lg mb-4">{faction.description}</p>
-                  {faction.quote && <p className="text-blue-400 italic mb-4">{faction.quote}</p>}
-                  {faction.trailer && (
-                    <Link 
-                      href={faction.trailer}
-                      target="_blank"
-                      className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors"
-                    >
-                      Watch Faction Trailer
-                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                        <polygon points="5 3 19 12 5 21 5 3"/>
-                      </svg>
-                    </Link>
-                  )}
+                
+                <div className="filesystem-content font-mono text-filesystemYellow text-sm leading-relaxed space-y-8">
+                  {lore.factions.map((faction, index) => (
+                    <div key={faction.id} className={`grid md:grid-cols-2 gap-8 items-center ${index % 2 === 1 ? 'md:flex-row-reverse' : ''}`}>
+                      <div className="relative h-64 md:h-80">
+                        <Image
+                          src={faction.logo}
+                          alt={faction.name}
+                          fill
+                          className="object-cover rounded border border-red-900/30"
+                        />
+                      </div>
+                      <div className="bg-black/90 p-6 rounded border border-red-900/50 relative overflow-hidden">
+                        {/* Background grid effect */}
+                        <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
+                        
+                        <div className="relative z-10">
+                          <div className="filesystem-header flex items-center mb-4 border-b border-red-900/30 pb-2">
+                            <div className="filesystem-title font-mono text-red-500 uppercase tracking-wider text-sm">
+                              {faction.name}
+                            </div>
+                          </div>
+                          
+                          <div className="filesystem-content font-mono text-filesystemYellow text-xs leading-relaxed mb-4">
+                            {faction.subtitle && <p className="text-gray-400 mb-2">{faction.subtitle}</p>}
+                            <p className="mb-4">{faction.description}</p>
+                            {faction.quote && <p className="text-blue-400 italic mb-4">{faction.quote}</p>}
+                          </div>
+                          
+                          {faction.trailer && (
+                            <Link 
+                              href={faction.trailer}
+                              target="_blank"
+                              className="inline-flex items-center gap-2 text-red-400 hover:text-red-300 transition-colors text-xs font-mono"
+                            >
+                              WATCH FACTION TRAILER
+                              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                <polygon points="5 3 19 12 5 21 5 3"/>
+                              </svg>
+                            </Link>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </div>
-            ))}
+            </div>
           </div>
         )}
 
         {/* Lore Tab */}
         {activeTab === 'lore' && (
           <div className="space-y-8">
-            <h2 className="text-2xl font-bold mb-8 text-red-500 uppercase tracking-wider">The Lore</h2>
-            
-            {/* TBE Sightings Intro Section */}
-            <div className="bg-gray-900/50 p-6 rounded border border-red-900/30">
-              <TBESightingsIntro />
-            </div>
+            <div className="bg-black/90 p-8 rounded border border-red-900/50 relative overflow-hidden">
+              {/* Background grid effect */}
+              <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
+              
+              {/* Scanline effect */}
+              <div className="absolute inset-0 scanline"></div>
+              
+              <div className="relative z-10">
+                <div className="filesystem-header flex items-center mb-6 border-b border-red-900/50 pb-4">
+                  <div className="filesystem-title font-mono text-red-500 uppercase tracking-wider">
+                    THE LORE
+                  </div>
+                </div>
+                
+                <div className="filesystem-content font-mono text-filesystemYellow text-sm leading-relaxed space-y-8">
+                  {/* TBE Sightings Intro Section */}
+                  <div className="bg-black/90 p-6 rounded border border-red-900/50 relative overflow-hidden">
+                    {/* Background grid effect */}
+                    <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
+                    
+                    <div className="relative z-10">
+                      <div className="filesystem-header flex items-center mb-4 border-b border-red-900/30 pb-2">
+                        <div className="filesystem-title font-mono text-red-500 uppercase tracking-wider text-sm">
+                          T.B.E. SIGHTINGS
+                        </div>
+                      </div>
+                      
+                      <div className="filesystem-content font-mono text-filesystemYellow text-xs leading-relaxed">
+                        <TBESightingsIntro />
+                      </div>
+                    </div>
+                  </div>
 
-            {/* TBE Map Section */}
-            <div className="bg-gray-900/50 p-6 rounded border border-red-900/30">
-              <TBEMap />
+                  {/* TBE Map Section */}
+                  <div className="bg-black/90 p-6 rounded border border-red-900/50 relative overflow-hidden">
+                    {/* Background grid effect */}
+                    <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
+                    
+                    <div className="relative z-10">
+                      <div className="filesystem-header flex items-center mb-4 border-b border-red-900/30 pb-2">
+                        <div className="filesystem-title font-mono text-red-500 uppercase tracking-wider text-sm">
+                          T.B.E. MAP
+                        </div>
+                      </div>
+                      
+                      <div className="filesystem-content font-mono text-filesystemYellow text-xs leading-relaxed">
+                        <TBEMap />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         )}
@@ -656,31 +727,61 @@ MAJOR ORGANIZATIONS:
         {/* Locations Tab */}
         {activeTab === 'locations' && (
           <div className="space-y-8">
-            <h2 className="text-2xl font-bold mb-8 text-red-500 uppercase tracking-wider">Key Locations</h2>
-            <div className="grid md:grid-cols-2 gap-6">
-              {lore.locations.map((location) => (
-                <div key={location.id} className="bg-gray-900/50 p-6 rounded border border-red-900/30 group hover:bg-gray-800/50 transition-colors">
-                  <h4 className="text-xl font-bold mb-3 text-red-500">{location.name}</h4>
-                  <p className="text-gray-300 mb-4">{location.description}</p>
-                  <p className="text-blue-400 text-sm mb-4">{location.significance}</p>
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {location.factions.map((faction) => (
-                      <span key={faction} className="text-sm bg-gray-800 px-3 py-1 rounded border border-red-900/30">
-                        {faction}
-                      </span>
+            <div className="bg-black/90 p-8 rounded border border-red-900/50 relative overflow-hidden">
+              {/* Background grid effect */}
+              <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
+              
+              {/* Scanline effect */}
+              <div className="absolute inset-0 scanline"></div>
+              
+              <div className="relative z-10">
+                <div className="filesystem-header flex items-center mb-6 border-b border-red-900/50 pb-4">
+                  <div className="filesystem-title font-mono text-red-500 uppercase tracking-wider">
+                    KEY LOCATIONS
+                  </div>
+                </div>
+                
+                <div className="filesystem-content font-mono text-filesystemYellow text-sm leading-relaxed">
+                  <div className="grid md:grid-cols-2 gap-6">
+                    {lore.locations.map((location) => (
+                      <div key={location.id} className="bg-black/90 p-6 rounded border border-red-900/50 relative overflow-hidden group hover:bg-black/95 transition-colors">
+                        {/* Background grid effect */}
+                        <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
+                        
+                        <div className="relative z-10">
+                          <div className="filesystem-header flex items-center mb-4 border-b border-red-900/30 pb-2">
+                            <div className="filesystem-title font-mono text-red-500 uppercase tracking-wider text-sm">
+                              {location.name}
+                            </div>
+                          </div>
+                          
+                          <div className="filesystem-content font-mono text-filesystemYellow text-xs leading-relaxed mb-4">
+                            <p className="mb-4">{location.description}</p>
+                            <p className="text-blue-400 text-xs mb-4">{location.significance}</p>
+                            <div className="flex flex-wrap gap-2 mb-4">
+                              {location.factions.map((faction) => (
+                                <span key={faction} className="text-xs bg-gray-800 px-3 py-1 rounded border border-red-900/30">
+                                  {faction}
+                                </span>
+                              ))}
+                            </div>
+                          </div>
+                          
+                          <Link 
+                            href={`/story/wiki/${location.id}`}
+                            className="inline-flex items-center gap-2 text-red-400 hover:text-red-300 transition-colors text-xs font-mono"
+                          >
+                            LEARN MORE
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                              <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                          </Link>
+                        </div>
+                      </div>
                     ))}
                   </div>
-                  <Link 
-                    href={`/story/wiki/${location.id}`}
-                    className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors"
-                  >
-                    Learn More
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M5 12h14M12 5l7 7-7 7"/>
-                    </svg>
-                  </Link>
                 </div>
-              ))}
+              </div>
             </div>
           </div>
         )}
@@ -688,33 +789,63 @@ MAJOR ORGANIZATIONS:
         {/* Events Tab */}
         {activeTab === 'events' && (
           <div className="space-y-8">
-            <h2 className="text-2xl font-bold mb-8 text-red-500 uppercase tracking-wider">Major Events</h2>
-            <div className="grid md:grid-cols-2 gap-6">
-              {lore.events.map((event) => (
-                <div key={event.id} className="bg-gray-900/50 p-6 rounded border border-red-900/30 group hover:bg-gray-800/50 transition-colors">
-                  <h4 className="text-xl font-bold mb-3 text-red-500">{event.name}</h4>
-                  <p className="text-gray-300 mb-4">{event.description}</p>
-                  {event.outcomes && (
-                    <div className="mb-4">
-                      <h5 className="text-lg font-semibold mb-2 text-blue-400">Outcomes:</h5>
-                      <ul className="list-disc list-inside text-gray-300">
-                        {event.outcomes.map((outcome, index) => (
-                          <li key={index}>{outcome}</li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
-                  <Link 
-                    href={`/story/wiki/${event.id}`}
-                    className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors"
-                  >
-                    Learn More
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M5 12h14M12 5l7 7-7 7"/>
-                    </svg>
-                  </Link>
+            <div className="bg-black/90 p-8 rounded border border-red-900/50 relative overflow-hidden">
+              {/* Background grid effect */}
+              <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
+              
+              {/* Scanline effect */}
+              <div className="absolute inset-0 scanline"></div>
+              
+              <div className="relative z-10">
+                <div className="filesystem-header flex items-center mb-6 border-b border-red-900/50 pb-4">
+                  <div className="filesystem-title font-mono text-red-500 uppercase tracking-wider">
+                    MAJOR EVENTS
+                  </div>
                 </div>
-              ))}
+                
+                <div className="filesystem-content font-mono text-filesystemYellow text-sm leading-relaxed">
+                  <div className="grid md:grid-cols-2 gap-6">
+                    {lore.events.map((event) => (
+                      <div key={event.id} className="bg-black/90 p-6 rounded border border-red-900/50 relative overflow-hidden group hover:bg-black/95 transition-colors">
+                        {/* Background grid effect */}
+                        <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
+                        
+                        <div className="relative z-10">
+                          <div className="filesystem-header flex items-center mb-4 border-b border-red-900/30 pb-2">
+                            <div className="filesystem-title font-mono text-red-500 uppercase tracking-wider text-sm">
+                              {event.name}
+                            </div>
+                          </div>
+                          
+                          <div className="filesystem-content font-mono text-filesystemYellow text-xs leading-relaxed mb-4">
+                            <p className="mb-4">{event.description}</p>
+                            {event.outcomes && (
+                              <div className="mb-4">
+                                <h5 className="text-blue-400 font-semibold mb-2 text-xs">OUTCOMES:</h5>
+                                <ul className="list-disc list-inside text-xs">
+                                  {event.outcomes.map((outcome, index) => (
+                                    <li key={index}>{outcome}</li>
+                                  ))}
+                                </ul>
+                              </div>
+                            )}
+                          </div>
+                          
+                          <Link 
+                            href={`/story/wiki/${event.id}`}
+                            className="inline-flex items-center gap-2 text-red-400 hover:text-red-300 transition-colors text-xs font-mono"
+                          >
+                            LEARN MORE
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                              <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                          </Link>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         )}
@@ -722,24 +853,54 @@ MAJOR ORGANIZATIONS:
         {/* Artifacts Tab */}
         {activeTab === 'artifacts' && (
           <div className="space-y-8">
-            <h2 className="text-2xl font-bold mb-8 text-red-500 uppercase tracking-wider">Artifacts</h2>
-            <div className="grid md:grid-cols-2 gap-6">
-              {lore.artifacts.map((artifact) => (
-                <div key={artifact.id} className="bg-gray-900/50 p-6 rounded border border-red-900/30 group hover:bg-gray-800/50 transition-colors">
-                  <h4 className="text-xl font-bold mb-3 text-red-500">{artifact.name}</h4>
-                  <p className="text-gray-300 mb-4">{artifact.description}</p>
-                  <p className="text-blue-400 text-sm mb-4">Controlled by: {artifact.controlledBy}</p>
-                  <Link 
-                    href={`/story/wiki/${artifact.id}`}
-                    className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors"
-                  >
-                    Learn More
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M5 12h14M12 5l7 7-7 7"/>
-                    </svg>
-                  </Link>
+            <div className="bg-black/90 p-8 rounded border border-red-900/50 relative overflow-hidden">
+              {/* Background grid effect */}
+              <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
+              
+              {/* Scanline effect */}
+              <div className="absolute inset-0 scanline"></div>
+              
+              <div className="relative z-10">
+                <div className="filesystem-header flex items-center mb-6 border-b border-red-900/50 pb-4">
+                  <div className="filesystem-title font-mono text-red-500 uppercase tracking-wider">
+                    ARTIFACTS
+                  </div>
                 </div>
-              ))}
+                
+                <div className="filesystem-content font-mono text-filesystemYellow text-sm leading-relaxed">
+                  <div className="grid md:grid-cols-2 gap-6">
+                    {lore.artifacts.map((artifact) => (
+                      <div key={artifact.id} className="bg-black/90 p-6 rounded border border-red-900/50 relative overflow-hidden group hover:bg-black/95 transition-colors">
+                        {/* Background grid effect */}
+                        <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
+                        
+                        <div className="relative z-10">
+                          <div className="filesystem-header flex items-center mb-4 border-b border-red-900/30 pb-2">
+                            <div className="filesystem-title font-mono text-red-500 uppercase tracking-wider text-sm">
+                              {artifact.name}
+                            </div>
+                          </div>
+                          
+                          <div className="filesystem-content font-mono text-filesystemYellow text-xs leading-relaxed mb-4">
+                            <p className="mb-4">{artifact.description}</p>
+                            <p className="text-blue-400 text-xs mb-4">Controlled by: {artifact.controlledBy}</p>
+                          </div>
+                          
+                          <Link 
+                            href={`/story/wiki/${artifact.id}`}
+                            className="inline-flex items-center gap-2 text-red-400 hover:text-red-300 transition-colors text-xs font-mono"
+                          >
+                            LEARN MORE
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                              <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                          </Link>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         )}
@@ -747,35 +908,65 @@ MAJOR ORGANIZATIONS:
         {/* Organizations Tab */}
         {activeTab === 'organizations' && (
           <div className="space-y-8">
-            <h2 className="text-2xl font-bold mb-8 text-red-500 uppercase tracking-wider">Organizations</h2>
-            <div className="grid md:grid-cols-2 gap-6">
-              {lore.organizations.map((org) => (
-                <div key={org.id} className="bg-gray-900/50 p-6 rounded border border-red-900/30 group hover:bg-gray-800/50 transition-colors">
-                  <h4 className="text-xl font-bold mb-3 text-red-500">{org.name}</h4>
-                  <p className="text-gray-300 mb-4">{org.description}</p>
-                  {org.members && (
-                    <div className="mb-4">
-                      <h5 className="text-lg font-semibold mb-2 text-blue-400">Members:</h5>
-                      <div className="flex flex-wrap gap-2">
-                        {org.members.map((member) => (
-                          <span key={member} className="text-sm bg-gray-800 px-3 py-1 rounded border border-red-900/30">
-                            {member}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-                  <Link 
-                    href={`/story/wiki/${org.id}`}
-                    className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors"
-                  >
-                    Learn More
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M5 12h14M12 5l7 7-7 7"/>
-                    </svg>
-                  </Link>
+            <div className="bg-black/90 p-8 rounded border border-red-900/50 relative overflow-hidden">
+              {/* Background grid effect */}
+              <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
+              
+              {/* Scanline effect */}
+              <div className="absolute inset-0 scanline"></div>
+              
+              <div className="relative z-10">
+                <div className="filesystem-header flex items-center mb-6 border-b border-red-900/50 pb-4">
+                  <div className="filesystem-title font-mono text-red-500 uppercase tracking-wider">
+                    ORGANIZATIONS
+                  </div>
                 </div>
-              ))}
+                
+                <div className="filesystem-content font-mono text-filesystemYellow text-sm leading-relaxed">
+                  <div className="grid md:grid-cols-2 gap-6">
+                    {lore.organizations.map((org) => (
+                      <div key={org.id} className="bg-black/90 p-6 rounded border border-red-900/50 relative overflow-hidden group hover:bg-black/95 transition-colors">
+                        {/* Background grid effect */}
+                        <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
+                        
+                        <div className="relative z-10">
+                          <div className="filesystem-header flex items-center mb-4 border-b border-red-900/30 pb-2">
+                            <div className="filesystem-title font-mono text-red-500 uppercase tracking-wider text-sm">
+                              {org.name}
+                            </div>
+                          </div>
+                          
+                          <div className="filesystem-content font-mono text-filesystemYellow text-xs leading-relaxed mb-4">
+                            <p className="mb-4">{org.description}</p>
+                            {org.members && (
+                              <div className="mb-4">
+                                <h5 className="text-blue-400 font-semibold mb-2 text-xs">MEMBERS:</h5>
+                                <div className="flex flex-wrap gap-2">
+                                  {org.members.map((member) => (
+                                    <span key={member} className="text-xs bg-gray-800 px-3 py-1 rounded border border-red-900/30">
+                                      {member}
+                                    </span>
+                                  ))}
+                                </div>
+                              </div>
+                            )}
+                          </div>
+                          
+                          <Link 
+                            href={`/story/wiki/${org.id}`}
+                            className="inline-flex items-center gap-2 text-red-400 hover:text-red-300 transition-colors text-xs font-mono"
+                          >
+                            LEARN MORE
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                              <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                          </Link>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         )}
