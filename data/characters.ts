@@ -248,7 +248,7 @@ export const characters = {
     {
       id: 3,
       name: 'Arrowhead',
-      alias: 'Arrowhead',
+      alias: 'Unknown',
       image: '/images/characters/arrowhead.png',
       description: 'A mysterious warrior with unparalleled archery skills and a connection to ancient forces.',
       abilities: [
@@ -265,7 +265,7 @@ export const characters = {
     {
       id: 4,
       name: 'Impulse',
-      alias: 'Impulse',
+      alias: 'Sister of Fire',
       image: '/images/characters/impulse.png',
       description: 'A speedster with the ability to manipulate time and space around her.',
       abilities: [
@@ -282,7 +282,7 @@ export const characters = {
     {
       id: 5,
       name: 'DeathKnell',
-      alias: 'DeathKnell',
+      alias: 'Europa Counter Terrorism',
       image: '/images/characters/deathknell.png',
       description: 'A formidable warrior specializing in European counter-terrorism operations.',
       abilities: [
