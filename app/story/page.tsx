@@ -105,8 +105,8 @@ MAJOR FACTIONS:
 `
     },
     {
-      id: 'lore',
-      title: 'Lore',
+      id: 'Timeline',
+      title: 'Timeline',
       documentId: 'PRODIGY-STORY-003',
       classification: 'TOP SECRET',
       content: `

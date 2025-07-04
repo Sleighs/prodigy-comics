@@ -2,26 +2,44 @@ import Image from "next/image";
 import Link from "next/link";
 import { Character } from "@/types/Character";
 
-export const CharacterCard = ({ character }: { character: Character }) => {
+interface CharacterCardProps {
+  character: Character;
+  className?: string;
+  showRole?: boolean;
+}
+
+export default function CharacterCard({ character, className = "", showRole = true }: CharacterCardProps) {
   return (
-    <div key={character.name} className="featured-character-card" onClick={() =>{
-      // Open the character's profile in a new tab
-      window.open(character.link, "_blank");
-    }}>
-      <div className="image-container">
+    <Link 
+      href={`/characters/${character.alias}`}
+      className={`character-card overflow-hidden ${className}`}
+    >
+      <div className="character-card--image-container relative h-48 w-full group">
+        <div className="absolute inset-0 bg-blood opacity-0 group-hover:opacity-15 transition-opacity duration-300"></div>
         <Image
           src={character.image}
-          alt={character.name}
+          alt={character.alias}
           fill
-          className="object-cover"
+          className="character-card--image object-cover"
         />
       </div>
-      <div className="content">
-        <div className="featured-character-card-header bg-red-dark top-0">
-          <h3 className="text-center roboto-bold uppercase">{character.name}</h3>
+      <div className="p-4 transition-colors duration-300 group-hover:bg-[#EC1D24]">
+        <div className="flex justify-between items-start">
+          <div>
+            <h3 className="text-xl font-bold roboto-semibold">{character.alias}</h3>
+            {showRole && <p className="text-blood group-hover:text-white transition-colors duration-300">{character.role || character.name}</p>}
+            <p className="text-sm group-hover:text-white transition-colors duration-300">{character.category}</p>
+          </div>
+          {character.TBENum && (
+            <div className="tbe-number">
+              <span className="tbe-label group-hover:text-white">TBE</span>
+              <span className="tbe-value group-hover:text-white">
+                {character.TBENum}
+              </span>
+            </div>
+          )}
         </div>
-        <p className="featured-character-card-description text-lg text-white mb-4">{character.description}</p>
       </div>
-    </div>
-  )
-};
+    </Link>
+  );
+}

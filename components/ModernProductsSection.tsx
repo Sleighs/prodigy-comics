@@ -106,7 +106,7 @@ export default function ModernProductsSection({ onImageSelect }: ModernProductsS
           {products.map((product) => (
             <div 
               key={product.id} 
-              className="group relative bg-white overflow-hidden shadow-sm hover:shadow-md transition-shadow"
+              className="product-group relative bg-white overflow-hidden shadow-sm hover:shadow-md transition-shadow"
             >
               {/* Product Image */}
               <div 
@@ -117,7 +117,7 @@ export default function ModernProductsSection({ onImageSelect }: ModernProductsS
                   src={product.image}
                   alt={product.name}
                   fill
-                  className="object-cover transition-transform group-hover:scale-105"
+                  className="object-cover transition-transform product-group-hover:scale-105"
                 />
               </div>
 
@@ -167,23 +167,25 @@ export default function ModernProductsSection({ onImageSelect }: ModernProductsS
                 </button>
 
                 {/* Included Items - Floating tooltip on hover */}
-                <div className="relative group py-2">
-                  <button className="text-xs text-gray-500 hover:text-gray-700 cursor-pointer flex items-center gap-1">
-                    <svg 
-                      className="w-4 h-4 transition-transform group-hover:translate-x-0.5" 
-                      viewBox="0 0 24 24"
-                      fill="currentColor"
-                    >
-                      <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z" />
-                    </svg>
-                    What's included
-                  </button>
-                  <div className="absolute bottom-full left-0 mb-8 w-64 bg-white shadow-lg rounded-lg p-3 hidden group-hover:block z-50">
-                    <ul className="space-y-1">
-                      {product.included.map((item, index) => (
-                        <li key={index} className="text-xs text-gray-600">• {item}</li>
-                      ))}
-                    </ul>
+                <div className="relative py-2">
+                  <div className="inline-block">
+                    <button className="text-xs text-gray-500 hover:text-gray-700 cursor-pointer flex items-center gap-1 hover:bg-gray-50 rounded px-1 py-1 transition-colors group">
+                      <svg 
+                        className="w-4 h-4 transition-transform group-hover:translate-x-0.5" 
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                      >
+                        <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z" />
+                      </svg>
+                      What's included
+                    </button>
+                    <div className="absolute bottom-full left-0 mb-8 w-64 bg-white shadow-lg rounded-lg p-3 hidden group-hover:block z-50">
+                      <ul className="space-y-1">
+                        {product.included.map((item, index) => (
+                          <li key={index} className="text-xs text-gray-600">• {item}</li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
                 </div>
               </div>

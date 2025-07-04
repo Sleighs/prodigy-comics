@@ -1,105 +1,128 @@
 import Image from "next/image";
 import Link from "next/link";
 import '@/styles/FeaturedCharactersSection.css';
-import { CharacterCard } from "./CharacterCard";
+import CharacterCard from "./CharacterCard";
 
 const characters = [
   {
+    id: 1,
     name: "Genesis",
+    alias: "Genesis",
     description: "Her arrival has had consequences for all who cross her path.",
     image: "/images/characters/genesis2.png",
-    link: "/characters/genesis"
+    category: "Unaffiliated"
   },
   {
+    id: 2,
     name: "VERDICT",
+    alias: "VERDICT",
     description: "NOTHING escapes the judgement of the red behemoth!!",
     image: "/images/verdict-poster.png",
-    link: "/characters/verdict"
+    category: "Unaffiliated"
   },
-  // {
-  //   name: "G.U.N. Sight",
-  //   description: "Commander of the CGS North American Division",
-  //   image: "/images/gunsight-poster.png",
-  //   link: "/characters/gun-sight"
-  // },
   {
+    id: 3,
     name: "Arrowhead",
+    alias: "Arrowhead",
     description: "A brutal warrior with self-proclaimed unlocked ancestral powers.",
     image: "/images/characters/arrowhead.png",
-    link: "/characters/arrowhead"
+    category: "Unaffiliated"
   },
-
   {
+    id: 4,
     name: "Black Jack",
+    alias: "Black Jack",
     description: "A ruthless executive managing most dangerous operatives.",
     image: "/images/characters/blackjack.png",
-    link: "/characters/black-jack"
+    category: "Unaffiliated"
   },
   {
+    id: 5,
     name: "Treagor",
+    alias: "Treagor",
     description: "A formidable warrior with enhanced physical abilities and combat expertise.",
     image: "/images/characters/treagor.png",
-    link: "/characters/treagor"
+    category: "Unaffiliated"
   },
   {
+    id: 6,
     name: "Impulse",
+    alias: "Impulse",
     description: "As Ember's gestalt, her fire abilities make her unpredictably dangerous.",
     image: "/images/characters/impulse.png",
-    link: "/characters/impulse"
+    category: "Unaffiliated"
   },
   {
+    id: 7,
     name: "Surge",
+    alias: "Surge",
     description: "A mysterious figure with the ability to manipulate electrical energy and technology.",
     image: "/images/characters/surge3.png",
-    link: "/characters/surge"
+    category: "Unaffiliated"
   },
   {
+    id: 8,
     name: "Allegra Black",
+    alias: "Allegra Black",
     description: "A skilled operative with a mysterious past and exceptional combat abilities.",
     image: "/images/characters/allegra-black.png",
-    link: "/characters/allegra-black"
+    category: "Unaffiliated"
   },
   {
+    id: 9,
     name: "Sight",
+    alias: "Sight",
     description: "A mysterious figure with enhanced perception and tactical abilities.",
     image: "/images/characters/sight.png",
-    link: "/characters/sight"
+    category: "Unaffiliated"
   },
   {
+    id: 10,
     name: "Nicodemus",
+    alias: "Nicodemus",
     description: "Master of Clan Bushido",
     image: "/images/characters/nicodemus.png",
-    link: "/characters/nicodemus"
+    category: "Clan Bushido"
   },
   {
+    id: 11,
     name: "The Great Wall",
+    alias: "The Great Wall",
     description: "A massive warrior with impenetrable defense and overwhelming strength.",
     image: "/images/characters/the-great-wall.png",
-    link: "/characters/the-great-wall"
+    category: "Unaffiliated"
   },
   {
+    id: 12,
     name: "Shimmer",
+    alias: "Shimmer",
     description: "A mysterious figure with the ability to manipulate light and create illusions.",
     image: "/images/characters/shimmer5.png",
-    link: "/characters/shimmer"
+    category: "Unaffiliated"
   },
   {
+    id: 13,
     name: "Evil Gunn",
+    alias: "Evil Gunn",
     description: "A feared bounty killer. His methods are as brutal as they are effective.",
     image: "/images/characters/evil-gunn.png",
-    link: "/characters/evil-gunn"
+    category: "Unaffiliated"
   },
   {
+    id: 14,
     name: "Lightning Rod",
+    alias: "Lightning Rod",
     description: "A powerful figure with the ability to manipulate electrical energy and weather.",
     image: "/images/characters/lightning-rod.png",
-    link: "/characters/lightning-rod"
+    category: "Unaffiliated"
   },
   {
+    id: 15,
     name: "Checkmate",
+    alias: "Checkmate",
     description: "A strategic mastermind with enhanced intelligence and tactical abilities.",
     image: "/images/characters/checkmate4.png",
-    link: "/characters/checkmate"
+    category: "Unaffiliated"
   }
 ];
 

@@ -10,16 +10,12 @@ import PageHeader from '@/components/PageHeader';
 import './characters.css';
 import MilitaryHeader from '@/components/MilitaryHeader';
 import AvailableNowSection from '@/components/AvailableNowSection';
+import CharacterSpotlight from '@/components/CharacterSpotlight';
+import CharacterCard from '@/components/CharacterCard';
 
 export default function CharactersPage() {
   const [sortBy, setSortBy] = useState<'name' | 'faction' | 'tbe' | 'popularity'>('name');
   const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('asc');
-  const [currentSpotlightIndex, setCurrentSpotlightIndex] = useState(Math.floor(Math.random() * characters.spotlightList.length));
-
-  // Rotate spotlight character every 10 seconds
-
-  // Get current spotlight character
-  const currentSpotlight = characters.spotlightList[currentSpotlightIndex];
 
   // Get unique factions
   // const factions = Array.from(new Set(characters.list.map(char => char.category)));
@@ -77,46 +73,18 @@ export default function CharactersPage() {
       /> */}
 
       {/* Featured Characters */}
-      <section className="py-20 featured-section">
-        <div className="featured-bg"></div>
-        <div className="max-w-6xl mx-auto px-4 relative z-10">
+      <section className="py-20">
+        <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-4xl font-bold mb-12 text-center section-title">Featured Characters</h2>
           <div className="grid md:grid-cols-3 gap-8">
             {characters.featured.map((character, index) => {
               if (index < 3) {
                 return (
-                <div key={character.id} className="characters--featured-characters-card backdrop-blur-sm overflow-hidden hover:transform transition-all duration-300 shadow-lg shadow-blood/10 flex flex-col">
-                  <div className= "characters--featured-characters-card-image-container relative h-64 group">
-                    <div className="absolute inset-0 bg-blood opacity-0 group-hover:opacity-15 transition-opacity duration-300"></div>
-                    <Image
-                      src={character.image}
-                      alt={character.name}
-                      fill
-                      className="characters--featured-characters-card-image object-cover"
-                    />
-                  </div>
-                  <div className="p-6 flex-1">
-                    <h3 className="text-2xl font-bold mb-2 roboto-bold">{character.name}</h3>
-                    <p className="text-blood mb-2">{character.alias}</p>
-                    <p className="text-muted mb-4">{character.description}</p>
-                    {/* <div className="space-y-2">
-                      {character.abilities.map((ability, index) => (
-                        <span key={index} className="inline-block bg-steel-dark rounded-full px-3 py-1 text-sm mr-2 mb-2 shadow-md shadow-blood/5">
-                          {ability}
-                        </span>
-                      ))}
-                    </div> */}
-                  </div>
-
-                  <div className="characters--featured-characters-card-button p-4 text-center">
-                    <Link 
-                      href={`/characters/${character.name}`} 
-                      className="inline-block w-full px-6 py-3 bg-red-600 hover:bg-red-700 text-white font-semibold transition-colors duration-300 shadow-lg"
-                    >
-                      View Profile
-                    </Link>
-                  </div>
-                </div>
+                  <CharacterCard 
+                    key={character.id}
+                    character={character}
+                    showRole={false}
+                  />
                 )
               } else {
                 return null;
@@ -128,47 +96,7 @@ export default function CharactersPage() {
 
 
       {/* Character Spotlight */}
-      <section className="py-20 spotlight-section">
-        <div className="spotlight-bg"></div>
-        <div className="spotlight-content">
-          <div className="spotlight-image-container">
-            <Image
-              src={currentSpotlight.image}
-              alt={currentSpotlight.name}
-              fill
-              className="spotlight-image object-cover"
-            />
-          </div>
-          <div className="spotlight-info">
-            <div className="spotlight-info-content">
-              <h3 className="text-4xl font-bold mb-2 roboto-condensed-bold">{currentSpotlight.name}</h3>
-              <p className="text-2xl text-gold-highlight mb-4">{currentSpotlight.alias}</p>
-              <div className="mb-6">
-                <h4 className="text-xl font-bold mb-3 roboto-condensed">Abilities</h4>
-                <div className="flex flex-wrap gap-2">
-                  {currentSpotlight.abilities.map((ability, index) => (
-                    <span key={index} className="bg-steel-dark rounded-full px-4 py-2 text-gold-highlight border border-ash/20">
-                      {ability}
-                    </span>
-                  ))}
-                </div>
-              </div>
-              <p className="text-lg text-muted">{currentSpotlight.story}</p>
-            </div>
-            <div className="mt-auto">
-              <Link 
-                href={`/characters/${currentSpotlight.alias}`} 
-                className="spotlight-button"
-              >
-                View Full Profile
-              </Link>
-              <p className="spotlight-description">
-                {currentSpotlight.description}
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <CharacterSpotlight characters={characters.spotlightList} />
 
 
       {/* Character List */}
@@ -204,41 +132,13 @@ export default function CharactersPage() {
             </div>
           </div>
 
-          {/* Character Grid */}
+          {/* Character Grid/List */}
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {sortedCharacters.map((character) => (
-              <Link 
+              <CharacterCard 
                 key={character.id}
-                href={`/characters/${character.alias}`}
-                className="character-card overflow-hidden"
-              >
-                <div className="character-card--image-container relative h-48 w-full group">
-                  <div className="absolute inset-0 bg-blood opacity-0 group-hover:opacity-15 transition-opacity duration-300"></div>
-                  <Image
-                    src={character.image}
-                    alt={character.alias}
-                    fill
-                    className="character-card--image object-cover"
-                  />
-                </div>
-                <div className="p-4 transition-colors duration-300 group-hover:bg-[#EC1D24]">
-                  <div className="flex justify-between items-start">
-                    <div>
-                      <h3 className="text-xl font-bold roboto-semibold">{character.alias}</h3>
-                      <p className="text-blood group-hover:text-white transition-colors duration-300">{character.role}</p>
-                      <p className="text-sm group-hover:text-white transition-colors duration-300">{character.category}</p>
-                    </div>
-                    {character.TBENum && (
-                      <div className="tbe-number">
-                        <span className="tbe-label group-hover:text-white">TBE</span>
-                        <span className="tbe-value group-hover:text-white ">
-                          {character.TBENum}
-                        </span>
-                      </div>
-                    )}
-                  </div>
-                </div>
-              </Link>
+                character={character}
+              />
             ))}
           </div>
         </div>

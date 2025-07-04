@@ -335,3 +335,164 @@ body {
   color: rgba(255, 255, 255, 0.8);
   user-select: none;
 }
+
+/* View Profile Button */
+.view-profile-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--theme-accent-color);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 0.5rem 0;
+  border-bottom: 2px dotted var(--theme-accent-color);
+  transition: all 0.3s ease;
+  margin-top: auto;
+  width: fit-content;
+}
+
+.view-profile-button:hover {
+  color: var(--theme-accent-color-dark);
+  border-bottom-color: var(--theme-accent-color-dark);
+  transform: translateX(4px);
+}
+
+.view-profile-button::after {
+  content: ' →';
+  font-size: 1.1rem;
+  font-weight: bold;
+  transition: transform 0.3s ease;
+}
+
+.view-profile-button:hover::after {
+  transform: translateX(4px);
+}
+
+/* Featured Characters Section */
+.featured-section {
+  position: relative;
+  overflow: hidden;
+  padding: 2rem 0 1.5rem 0;
+  background: linear-gradient(135deg, 
+    rgba(35, 36, 35, 0.95) 0%, 
+    rgba(20, 20, 20, 0.98) 50%, 
+    rgba(35, 36, 35, 0.95) 100%);
+}
+
+.featured-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* background: 
+    radial-gradient(circle at 20% 80%, var(--theme-accent-color) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, var(--theme-accent-color) 0%, transparent 50%),
+    linear-gradient(45deg, transparent 30%, var(--theme-accent-color) 50%, transparent 70%); */
+  opacity: 0.08;
+  z-index: 1;
+}
+
+.featured-bg {
+  position: absolute;
+  inset: 0;
+  background: 
+    linear-gradient(45deg, var(--theme-accent-color) 0%, transparent 50%, var(--theme-accent-color) 100%),
+    repeating-linear-gradient(45deg, transparent 0, transparent 2px, var(--theme-accent-color) 2px, var(--theme-accent-color) 4px);
+  opacity: 0.03;
+  z-index: 0;
+}
+
+.characters--featured-characters-card {
+  min-height: 260px;
+  max-width: 320px;
+  margin: 0 auto;
+  padding: 0;
+  background: rgba(25, 25, 25, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: box-shadow 0.2s, border-color 0.2s, transform 0.2s;
+  border: 1px solid var(--theme-accent-color);
+  position: relative;
+}
+
+.characters--featured-characters-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--theme-accent-color), transparent);
+  border-radius: 8px 8px 0 0;
+  z-index: 2;
+}
+
+.characters--featured-characters-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--theme-accent-color), transparent);
+  border-radius: 0 0 8px 8px;
+  z-index: 2;
+}
+
+.characters--featured-characters-card:hover, .characters--featured-characters-card:focus {
+  border-color: var(--theme-accent-color-dark);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+  z-index: 2;
+  outline: none;
+  text-decoration: none;
+}
+
+.characters--featured-characters-card .p-6 {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 1rem 0.7rem 1rem !important;
+}
+
+.characters--featured-characters-card .text-2xl {
+  font-size: 1.18rem;
+  margin-bottom: 0.2rem;
+}
+
+.characters--featured-characters-card .text-muted {
+  font-size: 1rem;
+  color: var(--color-text-muted) !important;
+  margin-bottom: 0.2rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  min-height: 2.2em;
+  max-height: 2.4em;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  white-space: normal;
+}
+
+.characters--featured-characters-card .bg-steel-dark {
+  border: 1px solid var(--theme-accent-color);
+}
+
+.characters--featured-characters-card-image-container {
+  position: relative;
+  height: 180px;
+  overflow: hidden;
+}
+
+.characters--featured-characters-card-image {
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}

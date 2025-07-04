@@ -33,5 +33,8 @@ module.exports = {
   },
   plugins: [
     require('@tailwindcss/typography'),
+    function({ addVariant }) {
+      addVariant('product-group-hover', '.product-group:hover &');
+    }
   ]
 }

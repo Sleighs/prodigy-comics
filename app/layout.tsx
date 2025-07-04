@@ -10,6 +10,7 @@ import "./globals.css";
 import "@/styles/carousel.css";
 import "@/styles/home.css";
 import "@/styles/metal-gear.css";
+import "@/styles/page-header.css";
 import MetalGearNavbar from "@/components/MetalGearNavbar";
 import NotificationBar from "@/components/NotificationBar";
 import { Navbar } from "@/components/Navbar";

@@ -3,7 +3,8 @@ export const characters = {
     {
       id: 1,
       name: 'G.U.N. Sight',
-      alias: 'Commander',
+      alias: 'G.U.N. Sight',
+      role: 'Commander',
       image: '/images/gunsight-poster.png',
       description: 'Commander of the N.A. Division at CYBERTECH Global Security Solutions.',
       abilities: ['Tactical Leadership', 'Strategic Planning', 'Combat Expertise'],
@@ -14,7 +15,8 @@ export const characters = {
     {
       id: 2,
       name: 'Genesis',
-      alias: 'The First Awakened',
+      alias: 'Genesis',
+      role: 'The First Awakened',
       image: '/images/characters/genesis.png',
       description: 'A powerful unaffiliated meta-human whose origins remain mysterious.',
       abilities: ['Energy Manipulation', 'Enhanced Strength', 'Regeneration'],
@@ -26,6 +28,7 @@ export const characters = {
       id: 3,
       name: 'Arrowhead',
       alias: 'Arrowhead',
+      role: 'Hunter',
       image: '/images/characters/arrowhead.png',
       description: 'A mysterious warrior with unparalleled archery skills and a connection to ancient forces.',
       abilities: [
@@ -43,6 +46,7 @@ export const characters = {
       id: 4,
       name: 'Surge',
       alias: 'Surge',
+      role: 'Tech Manipulator',
       image: '/images/characters/surge.png',
       description: 'A mysterious figure with the ability to manipulate electrical energy and technology.',
       abilities: [
@@ -248,7 +252,7 @@ export const characters = {
     {
       id: 3,
       name: 'Arrowhead',
-      alias: 'Unknown',
+      alias: 'Hunter',
       image: '/images/characters/arrowhead.png',
       description: 'A mysterious warrior with unparalleled archery skills and a connection to ancient forces.',
       abilities: [
