@@ -6,9 +6,11 @@ interface CharacterCardProps {
   character: Character;
   className?: string;
   showRole?: boolean;
+  showFaction?: boolean;
+  showDescription?: boolean;
 }
 
-export default function CharacterCard({ character, className = "", showRole = true }: CharacterCardProps) {
+export default function CharacterCard({ character, className = "", showRole, showFaction, showDescription }: CharacterCardProps) {
   return (
     <Link 
       href={`/characters/${character.alias}`}
@@ -28,7 +30,10 @@ export default function CharacterCard({ character, className = "", showRole = tr
           <div>
             <h3 className="text-xl font-bold roboto-semibold">{character.alias}</h3>
             {showRole && <p className="text-blood group-hover:text-white transition-colors duration-300">{character.role || character.name}</p>}
-            <p className="text-sm group-hover:text-white transition-colors duration-300">{character.category}</p>
+            {showFaction && <p className="text-sm group-hover:text-white transition-colors duration-300">{character.category}</p>}
+            {showDescription && (
+              <p className="text-sm text-gray-300 mt-2 group-hover:text-white transition-colors duration-300">{character.description}</p>
+            )}
           </div>
           {character.TBENum && (
             <div className="tbe-number">

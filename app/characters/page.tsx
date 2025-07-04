@@ -83,7 +83,9 @@ export default function CharactersPage() {
                   <CharacterCard 
                     key={character.id}
                     character={character}
-                    showRole={false}
+                    showRole={true}
+                    // showFaction={true}
+                    showDescription={true}
                   />
                 )
               } else {
@@ -138,6 +140,9 @@ export default function CharactersPage() {
               <CharacterCard 
                 key={character.id}
                 character={character}
+                showRole={true}
+                showFaction={true}
+                showDescription={false}
               />
             ))}
           </div>
