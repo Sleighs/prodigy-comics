@@ -5,17 +5,25 @@ import '@/styles/TBESightingsIntro.css';
 import TerminalLogin from './TerminalLogin';
 
 const TBESightingsIntro = () => {
-  const [displayedText, setDisplayedText] = useState('');
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentReportIndex, setCurrentReportIndex] = useState(0);
   const [isMinimized, setIsMinimized] = useState(false);
   const [showCloseWarning, setShowCloseWarning] = useState(false);
   const [showRedacted, setShowRedacted] = useState(false);
-  const [isTyping, setIsTyping] = useState(true);
-  const [activeReport, setActiveReport] = useState('tbe'); // 'tbe' or 'side-effects'
   const [showLogin, setShowLogin] = useState(false);
+  const [isAutoCycling, setIsAutoCycling] = useState(true);
+  const [displayedText, setDisplayedText] = useState('');
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isTyping, setIsTyping] = useState(true);
+  const [typingSpeed, setTypingSpeed] = useState(1); // milliseconds per character
+  const [showSpeedOptions, setShowSpeedOptions] = useState(false);
   
-  const fullText = `
-CYBERTECH GLOBAL SECURITY SOLUTIONS
+  // 5 unique reports for the carousel - much shorter content
+  const reports = [
+    {
+      id: 'tbe-sightings',
+      title: 'TBE Sightings Report',
+      documentId: 'CGS-SEC-47201',
+      content: `CYBERTECH GLOBAL SECURITY SOLUTIONS
 T.B.E. SIGHTINGS REPORT
 DOCUMENT ID: CGS-SEC-47201   
 DATE: 2025-04-25
@@ -27,26 +35,13 @@ Following the 1908 Tunguska Event, operatives recovered anomalous genetic materi
 T.B.E.s demonstrate a range of nonstandard biological capabilities, posing elevated threats to public safety and environmental stability and global security. Surveillance, suppresion and containment protocols remain active.
 
 WARNING: 
-Unauthorized dissemination of this document constitutes a breach of national and international security protocols and is punishable by imprisonment under Articles 17, 22, and 41 of the International Covert Security Accord (ICSA), 2031 revision.
-
-T.B.E. SIGHTING #1: Location: Siberia, Russia
-Date: 1947-03-15
-Description: Subject displayed regenerative capabilities at the cost of surrounding life and possible enhanced strength.
-Status: Contained
-
-T.B.E. SIGHTING #2: Location: Nevada, USA
-Date: 1952-08-22
-Description: Subject demonstrated telekinetic abilities. Investigators lost perception of reality.
-Status: At large
-
-T.B.E. SIGHTING #3: Location: Amazon Rainforest
-Date: 1967-11-30
-Description: Subject showed signs of environmental adaptation and high radiation levels.
-Status: Unknown
-`;
-
-  const sideEffectsText = `
-GOLDSTONE LABORATORIES
+Unauthorized dissemination of this document constitutes a breach of national and international security protocols and is punishable by imprisonment under Articles 17, 22, and 41 of the International Covert Security Accord (ICSA), 2031 revision.`
+    },
+    {
+      id: 'godstrand-side-effects',
+      title: 'GODSTRAND Side Effects',
+      documentId: 'GL-OOS-0187',
+      content: `GOLDSTONE LABORATORIES
 GODSTRAND AUGMENTATION: SIDE EFFECTS ANALYSIS
 DOCUMENT ID: GL-OOS-0187
 DATE: 1999-03-11
@@ -55,58 +50,71 @@ DISTRIBUTION: Authorized Personnel (Level 6 Clearance and Above)
 EXECUTIVE SUMMARY:
 The GODSTRAND is a complex genetic structure encompassing approximately 2 million base pairs. Partial sequencing and experimental integrations under Project WOLFPAK and auxiliary programs have yielded augmentations beyond known human capabilities. However, side effects associated with GODSTRAND integration are catastrophic in nature, with morbidity rates exceeding 83% within five years post-augmentation.
 
-Continued research into stabilization protocols is considered Priority One under Operation [REDACTED].
+Continued research into stabilization protocols is considered Priority One under Operation [REDACTED]. The GODSTRAND's hyper-complex neural encoding overwhelms human brain architecture, leading to synaptic overload and dissociative identity disorders.`
+    },
+    {
+      id: 'containment-protocols',
+      title: 'Containment Protocols',
+      documentId: 'CGS-CON-88934',
+      content: `CYBERTECH GLOBAL SECURITY SOLUTIONS
+T.B.E. CONTAINMENT PROTOCOLS
+DOCUMENT ID: CGS-CON-88934
+DATE: 2025-01-15
+DISTRIBUTION: Authorized Personnel (Level 8 Clearance and Above)
 
-WARNING:
-This document is classified under the Global Human Enhancement Oversight Act (GHEOA) 1987. Unauthorized access, reproduction, or dissemination is punishable by immediate detainment and indefinite incarceration.
+EXECUTIVE SUMMARY:
+Standard containment protocols have proven ineffective against T.B.E.s. New protocols developed under Project SHADOW require immediate implementation across all active containment zones. The containment system utilizes reinforced titanium alloy chambers with electromagnetic field generators and continuous monitoring systems.
 
-DETAILED SIDE EFFECTS:
+Neutralization procedures include high-frequency sonic disruptors and genetic inhibitors, with quantum field stabilizers as backup systems. Global satellite monitoring and AI-powered threat assessment provide real-time response capabilities.`
+    },
+    {
+      id: 'research-findings',
+      title: 'Research Findings',
+      documentId: 'GL-RES-44567',
+      content: `GOLDSTONE LABORATORIES
+GODSTRAND RESEARCH FINDINGS
+DOCUMENT ID: GL-RES-44567
+DATE: 2024-11-08
+DISTRIBUTION: Authorized Personnel (Level 7 Clearance and Above)
 
-1. NEUROLOGICAL DEGRADATION
-   - Symptoms: Subjects experience synaptic overload, manifesting as seizures, hallucinations, and dissociative identity disorders.
-   - Cause: The GODSTRAND's hyper-complex neural encoding overwhelms human brain architecture.
+EXECUTIVE SUMMARY:
+Recent breakthroughs in GODSTRAND research have revealed unprecedented genetic complexity. The structure appears to contain ancient genetic code predating human evolution by millions of years. GODSTRAND may represent the next stage of human evolution, with integration triggering rapid genetic mutation and abilities similar to ancient mythological beings.
 
-2. PHYSIOLOGICAL INSTABILITY
-   - Symptoms: Uncontrolled cellular replication leads to tumorous growths, organ failure, and skeletal deformities.
-   - Cause: The GODSTRAND's rapid transcription rate destabilizes human DNA repair mechanisms.
+Experimental gene therapy shows 23% success rate, with quantum entanglement inhibitors under development. Neural interface technology is currently in testing phase, though ethical considerations regarding human rights violations remain unresolved.`
+    },
+    {
+      id: 'incident-reports',
+      title: 'Incident Reports',
+      documentId: 'CGS-INC-11223',
+      content: `CYBERTECH GLOBAL SECURITY SOLUTIONS
+CLASSIFIED INCIDENT REPORTS
+DOCUMENT ID: CGS-INC-11223
+DATE: 2025-03-20
+DISTRIBUTION: Authorized Personnel (Level 9 Clearance and Above)
 
-3. METABOLIC COLLAPSE
-   - Symptoms: Subjects require caloric intakes exceeding 20,000 kcal/day to sustain augmented physiology.
-   - Cause: The GODSTRAND's metabolic pathways operate at 300% human baseline.
+EXECUTIVE SUMMARY:
+Multiple containment breaches and security incidents have occurred across all active facilities. Casualty reports indicate 47% mortality rate among security personnel. The most recent breach at Nevada Containment Facility resulted in 12 security personnel casualties and one T.B.E. escape with demonstrated telepathic abilities.
 
-4. PSYCHOLOGICAL FRAGMENTATION
-   - Symptoms: Severe paranoia, loss of empathy, and homicidal impulses are reported in 71% of subjects.
-   - Cause: The GODSTRAND appears to encode ancient or ultraterrestrial consciousness.
+Siberian Research Facility experienced complete destruction with 8 security personnel casualties, though the T.B.E. was successfully contained. Amazon Rainforest Zone reported multiple T.B.E.s working in coordinated groups, resulting in 15 security personnel casualties.`
+    }
+  ];
 
-5. GENETIC CONTAGION RISK
-   - Symptoms: In rare cases, subjects' altered DNA spreads to non-augmented individuals via blood or tissue contact.
-   - Cause: The GODSTRAND's self-replicating sequences mimic viral behavior.
-
-6. EXISTENTIAL DISASSOCIATION
-   - Symptoms: Subjects report feelings of "not belonging to this reality," accompanied by visions of alternate timelines.
-   - Cause: Hypothesized to stem from the GODSTRAND's potential origin as an ultraterrestrial artifact.
-`;
+  const currentReport = reports[currentReportIndex];
 
   // Generate a cyphered version of the text with random characters
   const generateCypheredText = (text: string) => {
-    // Characters to use for cyphering
     const cypherChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_abcdefghijklmnopqrstuvwxyz__';
-    // const cypherChars2 = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+-=[]{}|;:,.<>?';
-
-    // Keep the first part of the text (non-redacted)
+    
     const firstPart = text.split('\n\n').slice(0, 3).join('\n\n');
     
-    // Replace sensitive terms with [REDACTED]
     const redactedFirstPart = firstPart
       .replace(/GODSTRAND/g, '[REDACTED]')
       .replace(/Project WOLFPAK/g, '[REDACTED]')
       .replace(/T\.B\.E\.'s/g, '[REDACTED]')
       .replace(/Terrestrial Biological Entities/g, '[REDACTED]')
-      .replace(/T\.B\.E\.'s/g, '[REDACTED]')
       .replace(/AUGMENTATION/g, '[REDACTED]')
       .replace(/FATAL/g, '[REDACTED]');
     
-    // Generate random characters for the redacted part
     const redactedPart = `
 
 [REDACTED] CLASSIFIED INFORMATION [REDACTED]
@@ -122,26 +130,57 @@ ${Array(5).fill(0).map(() =>
     return redactedFirstPart + redactedPart;
   };
 
-  // Determine which text to use based on the current mode and active report
-  const getCurrentText = () => {
-    const baseText = activeReport === 'tbe' ? fullText : sideEffectsText;
-    return showRedacted ? generateCypheredText(baseText) : baseText;
-  };
+  const currentText = showRedacted ? generateCypheredText(currentReport.content) : currentReport.content;
 
-  const currentText = getCurrentText();
-
+  // Typing effect
   useEffect(() => {
     if (currentIndex < currentText.length && isTyping) {
       const timer = setTimeout(() => {
         setDisplayedText(prev => prev + currentText[currentIndex]);
         setCurrentIndex(prev => prev + 1);
-      }, 10); // Reduced from 30ms to 15ms for faster typing
+      }, typingSpeed);
       
       return () => clearTimeout(timer);
     } else if (currentIndex >= currentText.length) {
       setIsTyping(false);
     }
-  }, [currentIndex, currentText, isTyping]);
+  }, [currentIndex, currentText, isTyping, typingSpeed]);
+
+  // Auto-cycle through reports
+  useEffect(() => {
+    if (!isAutoCycling || showRedacted || isTyping) return;
+    
+    const interval = setInterval(() => {
+      setCurrentReportIndex((prev) => (prev + 1) % reports.length);
+    }, 5000); // Change every 5 seconds
+    
+    return () => clearInterval(interval);
+  }, [isAutoCycling, showRedacted, isTyping, reports.length]);
+
+  // Close speed options when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as Element;
+      if (showSpeedOptions && !target.closest('.speed-options-container') && !target.closest('.speed-button')) {
+        setShowSpeedOptions(false);
+      }
+    };
+
+    if (showSpeedOptions) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [showSpeedOptions]);
+
+  // Pause auto-cycling when user interacts
+  const handleUserInteraction = () => {
+    setIsAutoCycling(false);
+    // Resume auto-cycling after 10 seconds of inactivity
+    setTimeout(() => setIsAutoCycling(true), 10000);
+  };
 
   const handleMinimize = () => {
     setIsMinimized(!isMinimized);
@@ -157,35 +196,42 @@ ${Array(5).fill(0).map(() =>
   };
 
   const handleToggleRedacted = () => {
-    // Toggle the redacted mode
     setShowRedacted(!showRedacted);
-    
-    // Reset the typing state
     setDisplayedText('');
     setCurrentIndex(0);
     setIsTyping(true);
-    
-    // Use a timeout to simulate the terminal "processing" the request
-    setTimeout(() => {
-      // The useEffect will handle the typing with the new currentText
-    }, 1000);
   };
 
-  const handleSwitchReport = (report: string) => {
-    if (report !== activeReport) {
-      setActiveReport(report);
+  const handleSwitchReport = (reportIndex: number) => {
+    if (reportIndex !== currentReportIndex) {
+      setCurrentReportIndex(reportIndex);
+      setShowRedacted(false);
       setDisplayedText('');
       setCurrentIndex(0);
       setIsTyping(true);
-      setShowRedacted(false);
+      handleUserInteraction(); // Pause auto-cycling when user manually switches
     }
+  };
+
+  const handleSpeedChange = (speed: number) => {
+    setTypingSpeed(speed);
+    setShowSpeedOptions(false);
+  };
+
+  const handleSliderChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const value = parseFloat(event.target.value);
+    setTypingSpeed(value);
+  };
+
+  const formatSpeed = (speed: number) => {
+    if (speed === 0) return "0ms";
+    if (speed < 1) return `${speed.toFixed(3)}ms`;
+    if (speed < 10) return `${speed.toFixed(2)}ms`;
+    return `${speed.toFixed(1)}ms`;
   };
 
   const handleLoginSuccess = () => {
     setShowLogin(false);
-    setDisplayedText('');
-    setCurrentIndex(0);
-    setIsTyping(true);
   };
 
   // If login screen is shown, render the login component
@@ -207,7 +253,7 @@ ${Array(5).fill(0).map(() =>
         <div className={`terminal-container transition-all duration-300 ${isMinimized ? 'h-16 overflow-hidden' : ''}`}>
           <div className="terminal-header flex items-center mb-4">
             <div className="terminal-title text-green-500 font-mono text-sm">
-              TERMINAL://classified/{activeReport === 'tbe' ? 'tbe-sightings' : 'godstrand-side-effects'}
+              TERMINAL://classified/{currentReport.id}
               {showRedacted && <span className="ml-2 text-yellow-500">[REDACTED BROWSING ACTIVE]</span>}
             </div>
             <div className="terminal-controls ml-auto flex space-x-2">
@@ -223,6 +269,12 @@ ${Array(5).fill(0).map(() =>
                 disabled={true}
               ></button>
               <button 
+                onClick={() => setShowSpeedOptions(!showSpeedOptions)}
+                className="w-3 h-3 rounded-full bg-blue-500 hover:bg-blue-600 transition-colors speed-button"
+                aria-label="Typing speed options"
+                title="Typing speed"
+              ></button>
+              <button 
                 onClick={handleToggleRedacted}
                 className={`w-3 h-3 rounded-full ${showRedacted ? 'bg-green-600' : ' bg-yellow-500'} hover:bg-white transition-colors`}
                 aria-label="Toggle redacted content"
@@ -231,54 +283,62 @@ ${Array(5).fill(0).map(() =>
             </div>
           </div>
           
+          {/* Speed Options Dropdown */}
+          {showSpeedOptions && (
+            <div className="absolute top-12 right-0 z-20 bg-black/90 border border-green-500 rounded p-2 min-w-[150px] speed-options-container">
+              <div className="text-green-400 text-xs mb-2 font-mono">TYPING SPEED:</div>
+              <div className="text-green-300 text-xs mb-2 font-mono text-center">{formatSpeed(typingSpeed)}</div>
+              <input
+                type="range"
+                min="0"
+                max="100"
+                step="0.001"
+                value={typingSpeed}
+                onChange={handleSliderChange}
+                className="w-full h-2 bg-green-600 rounded-lg appearance-none cursor-pointer mb-2"
+              />
+              <div className="flex justify-between text-xs text-green-400 mb-2">
+                <span>0ms</span>
+                <span>100ms</span>
+              </div>
+            </div>
+          )}
+          
           {/* Report Selector */}
           <div className={`terminal-content-wrapper ${isMinimized ? 'hidden' : ''}`}>
             {!isMinimized && (
               <div className="report-selector flex justify-center mb-4">
-                <button 
-                  onClick={() => handleSwitchReport('tbe')}
-                  className={`report-button ${activeReport === 'tbe' ? 'active' : ''}`}
-                >
-                  <svg className="report-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M14 2H6C4.9 2 4 2.9 4 4V20C4 21.1 4.9 22 6 22H18C19.1 22 20 21.1 20 20V8L14 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    <path d="M14 2V8H20" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    <path d="M16 13H8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    <path d="M16 17H8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    <path d="M10 9H9H8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                  <div className="report-info">
-                    <div className="report-id">CGS-SEC-47201</div>
-                    <div className="report-title">TBE Sightings Report</div>
-                  </div>
-                </button>
-                <button 
-                  onClick={() => handleSwitchReport('side-effects')}
-                  className={`report-button ${activeReport === 'side-effects' ? 'active' : ''}`}
-                >
-                  <svg className="report-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M14 2H6C4.9 2 4 2.9 4 4V20C4 21.1 4.9 22 6 22H18C19.1 22 20 21.1 20 20V8L14 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    <path d="M14 2V8H20" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    <path d="M16 13H8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    <path d="M16 17H8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    <path d="M10 9H9H8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                  <div className="report-info">
-                    <div className="report-id"> GL-OOS-0187</div>
-                    <div className="report-title">GODSTRAND Side Effects</div>
-                  </div>
-                </button>
+                {reports.map((report, index) => (
+                  <button 
+                    key={report.id}
+                    onClick={() => handleSwitchReport(index)}
+                    className={`report-button ${currentReportIndex === index ? 'active' : ''}`}
+                  >
+                    <svg className="report-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M14 2H6C4.9 2 4 2.9 4 4V20C4 21.1 4.9 22 6 22H18C19.1 22 20 21.1 20 20V8L14 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      <path d="M14 2V8H20" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      <path d="M16 13H8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      <path d="M16 17H8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      <path d="M10 9H9H8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                    <div className="report-info">
+                      <div className="report-id">{report.documentId}</div>
+                      <div className="report-title">{report.title}</div>
+                    </div>
+                  </button>
+                ))}
               </div>
             )}
             
             {!isMinimized && (
-              <div className={`terminal-content font-mono whitespace-pre-line ${showRedacted ? 'text-yellow-400' : '0'}`}>
+              <div className={`terminal-content font-mono whitespace-pre-line ${showRedacted ? 'text-yellow-400' : 'text-white terminal-text-shadow'}`}>
                 {displayedText}
                 {isTyping && <span className="cursor-blink">_</span>}
               </div>
             )}
           </div>
           
-          {!isMinimized && !isTyping && currentIndex >= currentText.length && !showRedacted && (
+          {!isMinimized && (
             <div className="mt-8 text-center">
               <Link
                 href="/story"

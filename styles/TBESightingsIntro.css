@@ -64,11 +64,19 @@
   font-size: 14px;
   letter-spacing: 0.5px;
   text-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
-  /* border-left: 1px solid green; */
   scrollbar-color: rgba(0, 255, 0, 0.05) rgba(0, 0, 0, 0.3);
   border-radius: 4px;
   border: 2px inset rgba(0, 255, 0, 0.15);
   background: rgba(0, 0, 0, 0.4);
+}
+
+/* White text with green shadow */
+.terminal-text-shadow {
+  color: rgba(255, 255, 255, 0.95);
+  text-shadow: 
+    0 0 5px rgba(0, 255, 0, 0.3),
+    0 0 10px rgba(0, 255, 0, 0.2),
+    0 0 15px rgba(0, 255, 0, 0.1);
 }
 
 /* Cursor blink animation */
@@ -239,13 +247,68 @@
   left: 100%;
 } 
 
+/* Custom slider styling */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+  height: 8px;
+}
+
+input[type="range"]::-webkit-slider-track {
+  background: rgba(0, 255, 0, 0.3);
+  height: 8px;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 255, 0, 0.5);
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  background: rgba(0, 255, 0, 0.9);
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  border: 2px solid rgba(0, 255, 0, 0.7);
+  box-shadow: 0 0 8px rgba(0, 255, 0, 0.4);
+  margin-top: -4px;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  background: rgba(0, 255, 0, 1);
+  box-shadow: 0 0 12px rgba(0, 255, 0, 0.6);
+  transform: scale(1.1);
+}
+
+input[type="range"]::-moz-range-track {
+  background: rgba(0, 255, 0, 0.3);
+  height: 8px;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 255, 0, 0.5);
+}
+
+input[type="range"]::-moz-range-thumb {
+  background: rgba(0, 255, 0, 0.9);
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  border: 2px solid rgba(0, 255, 0, 0.7);
+  box-shadow: 0 0 8px rgba(0, 255, 0, 0.4);
+  cursor: pointer;
+}
+
+input[type="range"]::-moz-range-thumb:hover {
+  background: rgba(0, 255, 0, 1);
+  box-shadow: 0 0 12px rgba(0, 255, 0, 0.6);
+  transform: scale(1.1);
+}
 
 @media (max-width: 1024px) {
   .terminal-container {
     padding: 1.5rem 2rem;
   }
 }
-
 
 @media (max-width: 768px) {
   .terminal-container {
