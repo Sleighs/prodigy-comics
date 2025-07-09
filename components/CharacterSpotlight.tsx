@@ -111,14 +111,44 @@ export default function CharacterSpotlight({
           className="spotlight-nav-arrow prev"
           aria-label="Previous character"
         >
-          ‹
+          <svg 
+            width="24" 
+            height="24" 
+            viewBox="0 0 24 24" 
+            fill="none" 
+            xmlns="http://www.w3.org/2000/svg"
+            className="arrow-icon"
+          >
+            <path 
+              d="M15 18L9 12L15 6" 
+              stroke="currentColor" 
+              strokeWidth="2" 
+              strokeLinecap="round" 
+              strokeLinejoin="round"
+            />
+          </svg>
         </button>
         <button 
           onClick={goToNext}
           className="spotlight-nav-arrow next"
           aria-label="Next character"
         >
-          ›
+          <svg 
+            width="24" 
+            height="24" 
+            viewBox="0 0 24 24" 
+            fill="none" 
+            xmlns="http://www.w3.org/2000/svg"
+            className="arrow-icon"
+          >
+            <path 
+              d="M9 18L15 12L9 6" 
+              stroke="currentColor" 
+              strokeWidth="2" 
+              strokeLinecap="round" 
+              strokeLinejoin="round"
+            />
+          </svg>
         </button>
 
         {/* Carousel Slides */}
@@ -154,7 +184,6 @@ export default function CharacterSpotlight({
                     <div className="spotlight-info-content">
                       <h3 className="text-4xl font-bold mb-2 roboto-condensed-bold">{character.alias}</h3>
                       <p className="text-2xl text-gold-highlight mb-4">{character.name}</p>
-                      <p className="text-sm text-gray-400">Debug: name="{character.name}", alias="{character.alias}"</p>
                       <div className="mb-6">
                         <h4 className="text-xl font-bold mb-3 roboto-condensed">Abilities</h4>
                         <div className="flex flex-wrap gap-2">
