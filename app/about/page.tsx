@@ -4,6 +4,7 @@ import GetInTouch from '../../components/GetInTouch';
 import MilitaryGetInTouch from '@/components/MilitaryGetInTouch';
 import MilitaryCreativeTeam from '@/components/MilitaryCreativeTeam';
 import WhoWeAre from '@/components/WhoWeAre';
+import SciFiContactForm from '@/components/SciFiContactForm';
 
 export default function AboutPage() {
   return (
@@ -20,6 +21,9 @@ export default function AboutPage() {
 
       {/* Creative Team Section */}
       <MilitaryCreativeTeam />
+
+      {/* Contact Form Section */}
+      <SciFiContactForm />
 
       {/* Contact Section */}
       <MilitaryGetInTouch />

@@ -7,7 +7,7 @@ import NewReleaseSection from '@/components/NewReleaseSection'
 import AvailableNowSection from '@/components/AvailableNowSection'
 import MembersTierSection from '@/components/MembersTierSection'
 import { useEffect } from "react";
-import FeaturedCharactersSection from "@/components/FeaturedCharactersSection";
+import PortableFeaturedCharactersSection from "@/components/PortableFeaturedCharactersSection";
 import TBEMap from "@/components/TBEMap";
 import TBESightingsIntro from "@/components/TBESightingsIntro";
 
@@ -68,7 +68,7 @@ export default function Home() {
       <NewReleaseSection />
 
       {/* Featured Characters Section */}
-      <FeaturedCharactersSection />
+      <PortableFeaturedCharactersSection />
 
       {/* Stuffed Box Section */}
       <AvailableNowSection 

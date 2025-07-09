@@ -35,7 +35,7 @@ export default function CharacterPage() {
 
   if (!character) {
     return (
-      <main className="min-h-screen bg-gradient-to-b from-gray-900 to-black text-white pt-16">
+      <main className="min-h-screen bg-gradient-to-b from-gray-900 to-black text-white pt-16 character-blue-theme">
         <div className="max-w-6xl mx-auto px-4 py-20">
           <h1 className="text-4xl font-bold mb-8">Character Not Found</h1>
           <p className="text-lg mb-4">We couldn&apos;t find a character matching: {decodeURIComponent(params.alias as string)}</p>
@@ -48,12 +48,12 @@ export default function CharacterPage() {
   }
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-gray-900 to-black text-white pt-16">
+    <main className="min-h-screen bg-gradient-to-b from-gray-900 to-black text-white pt-16 character-blue-theme">
       {/* Hero Section */}
-      <section className="relative h-[40vh] flex items-center justify-center overflow-hidden bg-gradient-to-b from-gray-900 to-black">
+      <section className="character-page-header relative h-[40vh] flex items-center justify-center overflow-hidden bg-gradient-to-b from-gray-900 to-black bg-grid-pattern-blue">
         {/* Enhanced Security Scanner Effect */}
-        <div className={`security-scanner ${scanComplete ? 'complete' : ''}`}>
-          <div className="security-scanline"></div>
+        <div className={`security-scanner security-scanner-blue ${scanComplete ? 'complete' : ''}`}>
+          <div className="security-scanline scanline-blue"></div>
           <div className="security-status">SCANNING...</div>
         </div>
         
@@ -67,50 +67,47 @@ export default function CharacterPage() {
           />
           <div className="absolute inset-0 bg-black/80 z-10" />
         </div>
-        
+        {/* Blue scanline overlay */}
+        <div className="absolute inset-0 scanline-blue pointer-events-none z-20" />
         <div className="relative z-40 text-center px-4">
-          <h1 className="text-5xl md:text-7xl font-bold mb-4 page-title">{character.alias}</h1>
+          <h1 className="text-5xl md:text-7xl font-bold mb-4 page-title text-blue-400">{character.alias}</h1>
           <p className="text-2xl text-blue-400">{character.role}</p>
         </div>
       </section>
 
       {/* Character Details */}
       <section className="py-20 px-4">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-6xl mx-auto blue-military-section">
           <div className="grid md:grid-cols-2 gap-12">
             <div>
-              <h2 className="text-3xl font-bold mb-6">About</h2>
+              <h2 className="text-3xl font-bold mb-6 blue-military-title">About</h2>
               {character.description && (
-                <p className="text-lg mb-8">{character.description}</p>
+                <p className="text-lg mb-8 blue-military-description">{character.description}</p>
               )}
-              
               <div className="mb-8">
-                <h3 className="text-xl font-bold mb-4">Faction</h3>
-                <p className="text-lg text-blue-400">{character.category}</p>
+                <h3 className="text-xl font-bold mb-4 blue-military-section-title">Faction</h3>
+                <p className="text-lg blue-military-terminal-text">{character.category}</p>
               </div>
-
               {character.abilities && character.abilities.length > 0 && (
                 <div className="mb-8">
-                  <h3 className="text-xl font-bold mb-4">Abilities</h3>
+                  <h3 className="text-xl font-bold mb-4 blue-military-section-title">Abilities</h3>
                   <div className="flex flex-wrap gap-2">
                     {character.abilities.map((ability, index) => (
-                      <span key={index} className="bg-gray-800 rounded-full px-4 py-2">
+                      <span key={index} className="blue-military-card rounded-full px-4 py-2 blue-military-terminal-text">
                         {ability}
                       </span>
                     ))}
                   </div>
                 </div>
               )}
-
               {character.TBENum && (
                 <div>
-                  <h3 className="text-xl font-bold mb-4">T.B.E. Number</h3>
-                  <p className="text-lg">{character.TBENum}</p>
+                  <h3 className="text-xl font-bold mb-4 blue-military-section-title">T.B.E. Number</h3>
+                  <p className="text-lg blue-military-terminal-text">{character.TBENum}</p>
                 </div>
               )}
             </div>
-
-            <div className="relative h-[500px] rounded-lg overflow-hidden">
+            <div className="relative h-[500px] overflow-hidden blue-military-card">
               <Image
                 src={character.image}
                 alt={character.alias}
@@ -119,11 +116,10 @@ export default function CharacterPage() {
               />
             </div>
           </div>
-
           <div className="mt-12">
             <Link 
               href="/characters" 
-              className="inline-flex items-center text-blue-400 hover:text-blue-300"
+              className="inline-flex items-center blue-military-button"
             >
               ← Back to Characters
             </Link>

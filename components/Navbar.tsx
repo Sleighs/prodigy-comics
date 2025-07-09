@@ -34,6 +34,9 @@ function Navbar() {
               <Link href="/news" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
                 NEWS
               </Link>
+              <Link href="/contact" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+                CONTACT
+              </Link>
             </div>
           </div>
 
@@ -90,6 +93,13 @@ function Navbar() {
             >
               News
             </Link>
+            <Link 
+              href="/contact" 
+              className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+              onClick={() => setIsOpen(false)}
+            >
+              Contact
+            </Link>
           </div>
         </div>
       )}
@@ -123,6 +133,9 @@ function NavbarCenter() {
         </Link>
         <Link href="/about" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
           ABOUT
+        </Link>
+        <Link href="/contact" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+          CONTACT
         </Link>
       </div>
     </div>
