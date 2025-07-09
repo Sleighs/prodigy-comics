@@ -41,6 +41,8 @@ export default function AvailableNowSection({
 }: AvailableNowSectionProps) {
   return (
     <section className={`py-20 home--available-now-section relative ${className}`}>
+      {/* Gradient Background (subtle, no pattern) */}
+      <div className="absolute inset-0 z-0" style={{ background: 'linear-gradient(to bottom right, #111827 0%, #000000 60%, #000000 80%, rgba(220,38,38,0.2) 100%)' }} />
       {/* <div className="absolute inset-0 bg-gradient-to-br from-blue-900/30 via-blue-800/20 to-blue-900/30"></div> */}
       <div className={`home--available-now-bg ` + backgroundColor}></div>
       
