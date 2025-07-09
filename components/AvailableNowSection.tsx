@@ -22,6 +22,10 @@ interface AvailableNowSectionProps {
   contentClassName?: string;
   imageClassName?: string;
   backgroundColor?: string;
+  /**
+   * Optional Tailwind class for a background (e.g. gradient) behind the content area only (not the image).
+   */
+  contentBackground?: string;
 }
 
 export default function AvailableNowSection({
@@ -36,15 +40,13 @@ export default function AvailableNowSection({
   className = "",
   contentClassName = "",
   imageClassName = "",
-  // reverseLayout = false
-  backgroundColor = ""
+  backgroundColor = "",
+  contentBackground = "",
 }: AvailableNowSectionProps) {
   return (
     <section className={`py-20 home--available-now-section relative ${className}`}>
-      {/* Gradient Background (subtle, no pattern) */}
-      <div className="absolute inset-0 z-0" style={{ background: 'linear-gradient(to bottom right, #111827 0%, #000000 60%, #000000 80%, rgba(220,38,38,0.2) 100%)' }} />
       {/* <div className="absolute inset-0 bg-gradient-to-br from-blue-900/30 via-blue-800/20 to-blue-900/30"></div> */}
-      <div className={`home--available-now-bg ` + backgroundColor}></div>
+      <div className={`home--available-now-bg ${backgroundColor}`}></div>
       
       {/* Full-height image with diagonal edge */}
       <div className={`home--available-now-image ${imageClassName}`}>
@@ -64,6 +66,9 @@ export default function AvailableNowSection({
 
       {/* Content */}
       <div className={`max-w-xl px-6 relative z-10 ${contentClassName}`}>
+        {contentBackground && (
+          <div className={`absolute inset-0 ${contentBackground} pointer-events-none rounded-lg`} style={{zIndex: 0}} />
+        )}
         {badge && (
           <span className="inline-block px-4 py-1 bg-blood text-white text-sm font-bold rounded-full mb-4">
             {badge}
