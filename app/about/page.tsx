@@ -63,13 +63,13 @@ export default function AboutPage() {
               </h2>
               <div className="space-y-6 text-white/80 font-roboto tracking-wide leading-relaxed">
                 <p>
-                  Prodigy Comics was born from a simple belief: that great storytelling transcends the boundaries of traditional comics. Founded by a small group of passionate creators, we set out to challenge the status quo and push the medium into uncharted territory.
+                  Prodigy Comics was born from a simple belief: that great storytelling transcends the boundaries of traditional comics. Founded by Will, a passionate creator with a vision for something different, Prodigy set out to challenge the status quo and push the medium into uncharted territory.
                 </p>
                 <p>
-                  What started as late-night conversations about the future of comics has evolved into a bold new vision for the industry. We believe in the power of collaboration, the importance of diverse voices, and the endless possibilities of the comic medium.
+                  What started as late-night writing sessions and countless hours of world-building has evolved into a bold new vision for the industry. Will's dedication to creating authentic, complex narratives has been the driving force behind Prodigy's development.
                 </p>
                 <p>
-                  Our journey began with a single question: "What if we could create something that doesn't just tell a story, but creates an entire universe?" That question led us to develop the world of Prodigy—a brutal, complex, and deeply human narrative that challenges everything you think you know about superheroes.
+                  The journey began with a single question: "What if I could create something that doesn't just tell a story, but creates an entire universe?" That question led to the development of the world of Prodigy—a brutal, complex, and deeply human narrative that challenges everything you think you know about superheroes.
                 </p>
               </div>
             </div>
