@@ -47,9 +47,9 @@ export default function AboutPage() {
       </div>
       <div className="relative z-10">
         <PageHeader
-          title="About Prodigy Comics"
+          title="About"
           backgroundImage="/images/prodigy-banner.png"
-          subtitle="A small team of creators with big ambitions"
+          subtitle=""//"A small team of creators with big ambitions"
           tailwindStyles="bg-gradient-to-b from-gray-900 to-black"
         />
         
