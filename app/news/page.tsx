@@ -95,7 +95,7 @@ export default function NewsPage() {
             {latestNews.map((news) => (
               <article 
                 key={news.id}
-                className="news-card bg-zinc-800 rounded-lg overflow-hidden"
+                className="news-card bg-zinc-800 overflow-hidden"
               >
                 <div className="relative h-48">
                   <div className="absolute inset-0 bg-red-600/20 z-10" />
@@ -118,9 +118,9 @@ export default function NewsPage() {
           <h2 className="section-header text-3xl roboto-condensed-bold mb-8 border-l-4 border-red-600 pl-4">
             SPOTLIGHT
           </h2>
-          <div className="character-spotlight bg-gradient-to-r from-zinc-800 to-zinc-900 rounded-lg p-8">
+          <div className="character-spotlight bg-gradient-to-r from-zinc-800 to-zinc-900 p-8">
             <div className="grid md:grid-cols-2 gap-8 items-center">
-              <div className="relative h-[400px] bg-black/50 rounded-lg">
+              <div className="relative h-[400px] bg-black/50">
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
               </div>
               <div>
@@ -144,7 +144,7 @@ export default function NewsPage() {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {videos.map((video) => (
-              <div key={video.id} className="video-card bg-zinc-800 rounded-lg overflow-hidden">
+              <div key={video.id} className="video-card bg-zinc-800 overflow-hidden">
                 {activeVideo === video.id ? (
                   <div className="relative aspect-video"
                        dangerouslySetInnerHTML={{ __html: video.embed }} 
@@ -182,7 +182,7 @@ export default function NewsPage() {
           <h2 className="section-header text-3xl roboto-condensed-bold mb-8 border-l-4 border-red-600 pl-4">
             FEATURED PROMO
           </h2>
-          <div className="product-spotlight bg-gradient-to-br from-zinc-800 via-zinc-900 to-black rounded-lg p-8">
+          <div className="product-spotlight bg-gradient-to-br from-zinc-800 via-zinc-900 to-black p-8">
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div className="relative h-[300px] bg-black/50 rounded-lg">
                 <div className="absolute inset-0 bg-gradient-to-r from-red-900/20 to-transparent" />
