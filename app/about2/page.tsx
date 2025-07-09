@@ -32,7 +32,7 @@ const teamMembers: TeamMember[] = [
   }
 ];
 
-export default function AboutPage() {
+export default function About2Page() {
   return (
     <div className="min-h-screen bg-black text-white relative overflow-hidden">
       {/* Background */}
