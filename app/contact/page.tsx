@@ -27,12 +27,14 @@ export default function ContactPage() {
       {/* Content */}
       <div className="relative z-10">
         {/* Page Header */}
-        <PageHeader 
-          title="Contact Us"
-          backgroundImage="/images/prodigy-banner.png"
-          subtitle= "Get in touch with the Prodigy Team for questions, comments and support"
-          tailwindStyles="bg-gradient-to-b from-gray-900 to-black"
-        />
+        <div style={{ marginTop: '64px' }}>
+          <PageHeader 
+            title="Contact Us"
+            backgroundImage="/images/prodigy-banner.png"
+            subtitle= "Get in touch with the Prodigy Team for questions, comments and support"
+            tailwindStyles="bg-gradient-to-b from-gray-900 to-black"
+          />
+        </div>
 
         {/* Contact Form Section */}
         <SciFiContactForm sectionTitle={false} title={''}/>

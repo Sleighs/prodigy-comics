@@ -46,12 +46,14 @@ export default function AboutPage() {
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-red-500/2 to-transparent animate-pulse"></div>
       </div>
       <div className="relative z-10">
-        <PageHeader
-          title="About"
-          backgroundImage="/images/prodigy-banner.png"
-          subtitle=""//"A small team of creators with big ambitions"
-          tailwindStyles="bg-gradient-to-b from-gray-900 to-black"
-        />
+        <div style={{ marginTop: '64px' }}>
+          <PageHeader
+            title="About"
+            backgroundImage="/images/prodigy-banner.png"
+            subtitle="Learn about the team behind Prodigy Comics"
+            tailwindStyles="bg-gradient-to-b from-gray-900 to-black"
+          />
+        </div>
         
         {/* Our Story */}
         <section className="py-16 px-4 md:px-8 max-w-6xl mx-auto">
