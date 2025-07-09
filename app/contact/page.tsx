@@ -46,7 +46,7 @@ export default function ContactPage() {
               <div className="absolute inset-0 bg-[linear-gradient(rgba(255,0,0,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,0,0,0.02)_1px,transparent_1px)] bg-[size:20px_20px]"></div>
               
               <div className="relative">
-                <h2 className="text-3xl roboto-condensed mb-6 text-transparent bg-clip-text bg-gradient-to-r from-white to-red-500 tracking-wider">
+                <h2 className="text-3xl roboto-condensed mb-6 text-transparent bg-clip-text bg-gradient-to-r from-white to-white-500 tracking-wider">
                   GET IN TOUCH
                 </h2>
                 
@@ -82,7 +82,7 @@ export default function ContactPage() {
               <div className="absolute inset-0 bg-[linear-gradient(rgba(255,0,0,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,0,0,0.02)_1px,transparent_1px)] bg-[size:20px_20px]"></div>
               
               <div className="relative">
-                <h2 className="text-3xl roboto-condensed mb-6 text-transparent bg-clip-text bg-gradient-to-r from-white to-red-500  tracking-wider">
+                <h2 className="text-3xl roboto-condensed mb-6 text-transparent bg-clip-text bg-gradient-to-r from-white to-white-500  tracking-wider">
                    WHAT TO EXPECT 
                 </h2>
                 
@@ -132,7 +132,7 @@ export default function ContactPage() {
             {/* Brutal Grid Overlay */}
             <div className="absolute inset-0 bg-[linear-gradient(rgba(255,0,0,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,0,0,0.02)_1px,transparent_1px)] bg-[size:20px_20px]"></div>
             <div className="relative">
-              <h2 className="text-3xl roboto-condensed mb-6 text-transparent bg-clip-text bg-gradient-to-r from-white to-red-500 tracking-wider">
+              <h2 className="text-3xl roboto-condensed mb-6 text-transparent bg-clip-text bg-gradient-to-r from-white to-white-400 tracking-wider">
                 SUPPORT THE PROJECT
               </h2>
               <div className="space-y-6 text-white/80 font-roboto tracking-wide leading-relaxed">
