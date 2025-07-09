@@ -2,17 +2,18 @@
 
 import React from 'react';
 import SciFiContactForm from '../../components/SciFiContactForm';
+import PageHeader from '../../components/PageHeader';
 import { contactInfo } from '../../config/contact';
 
 export default function ContactPage() {
   return (
     <div className="min-h-screen bg-black text-white relative overflow-hidden">
       {/* Brutal Abstract Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-black to-red-900/20">
+      <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom right, #111827 0%, #000000 60%, #000000 80%, rgba(220, 38, 38, 0.2) 100%)' }}>
         {/* Geometric Brutal Patterns */}
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 left-0 w-96 h-96 bg-red-500/5 transform rotate-45 -translate-x-1/2 -translate-y-1/2"></div>
-          <div className="absolute top-1/4 right-0 w-64 h-64 bg-red-600/5 transform -rotate-12 translate-x-1/2"></div>
+          <div className="absolute top-1/3 left-0 w-96 h-96 bg-red-500/5 transform rotate-45 -translate-x-1/2 -translate-y-1/2"></div>
+          <div className="absolute top-1/2 right-0 w-64 h-64 bg-red-600/5 transform -rotate-12 translate-x-1/2"></div>
           <div className="absolute bottom-0 left-1/3 w-80 h-80 bg-red-700/5 transform rotate-90 translate-y-1/2"></div>
         </div>
         
@@ -25,21 +26,16 @@ export default function ContactPage() {
 
       {/* Content */}
       <div className="relative z-10">
-        {/* Hero Section */}
-        <section className="py-20 px-4 md:px-8">
-          <div className="max-w-6xl mx-auto text-center">
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 font-roboto-condensed tracking-wider">
-              <span className="text-red-500">[</span> CONTACT PROTOCOL <span className="text-red-500">]</span>
-            </h1>
-            <p className="text-xl md:text-2xl text-white/80 font-mono tracking-wide max-w-3xl mx-auto leading-relaxed">
-              ESTABLISH DIRECT COMMUNICATION WITH THE PRODIGY NETWORK. 
-              TRANSMISSION CHANNELS OPEN FOR ALL INQUIRIES, ALLIANCES, AND FEEDBACK.
-            </p>
-          </div>
-        </section>
+        {/* Page Header */}
+        <PageHeader 
+          title="Contact Us"
+          backgroundImage="/images/prodigy-banner.png"
+          subtitle= "Get in touch with the Prodigy Team for questions, comments and support"
+          tailwindStyles="bg-gradient-to-b from-gray-900 to-black"
+        />
 
         {/* Contact Form Section */}
-        <SciFiContactForm />
+        <SciFiContactForm sectionTitle={false} title={''}/>
 
         {/* Additional Information Section */}
         <section className="py-16 px-4 md:px-8 max-w-6xl mx-auto">
@@ -50,15 +46,14 @@ export default function ContactPage() {
               <div className="absolute inset-0 bg-[linear-gradient(rgba(255,0,0,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,0,0,0.02)_1px,transparent_1px)] bg-[size:20px_20px]"></div>
               
               <div className="relative">
-                <h2 className="text-3xl font-roboto-condensed mb-6 text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-red-500 tracking-wider">
-                  <span className="text-red-500">[</span> COMMUNICATION PROTOCOLS <span className="text-red-500">]</span>
+                <h2 className="text-3xl roboto-condensed mb-6 text-transparent bg-clip-text bg-gradient-to-r from-white to-red-500 tracking-wider">
+                  GET IN TOUCH
                 </h2>
                 
                 <div className="space-y-6 text-white/80 font-mono tracking-wide leading-relaxed">
                   <p>
-                    THE PRODIGY NETWORK MAINTAINS MULTIPLE TRANSMISSION CHANNELS FOR 
-                    EFFICIENT COMMUNICATION. EACH CHANNEL IS OPTIMIZED FOR SPECIFIC 
-                    INQUIRY TYPES AND RESPONSE TIMEFRAMES.
+                    We maintain multiple communication channels for efficient contact. 
+                    Each channel is optimized for specific inquiry types and response timeframes.
                   </p>
                   
                   <div className="space-y-4">
@@ -87,8 +82,8 @@ export default function ContactPage() {
               <div className="absolute inset-0 bg-[linear-gradient(rgba(255,0,0,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,0,0,0.02)_1px,transparent_1px)] bg-[size:20px_20px]"></div>
               
               <div className="relative">
-                <h2 className="text-3xl font-roboto-condensed mb-6 text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-red-500 tracking-wider">
-                  <span className="text-red-500">[</span> RESPONSE PROTOCOLS <span className="text-red-500">]</span>
+                <h2 className="text-3xl roboto-condensed mb-6 text-transparent bg-clip-text bg-gradient-to-r from-white to-red-500  tracking-wider">
+                   WHAT TO EXPECT 
                 </h2>
                 
                 <div className="space-y-6 text-white/80 font-mono tracking-wide">
@@ -133,28 +128,40 @@ export default function ContactPage() {
 
         {/* Campaign Section */}
         <section className="py-16 px-4 md:px-8 max-w-6xl mx-auto">
-          <div className="relative overflow-hidden rounded-lg bg-gradient-to-r from-red-900/20 to-red-800/20 backdrop-blur-sm p-8">
-            {/* Brutal Grid Overlay */}
-            <div className="absolute inset-0 bg-[linear-gradient(rgba(255,0,0,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,0,0,0.03)_1px,transparent_1px)] bg-[size:30px_30px]"></div>
+          <div className="relative overflow-hidden rounded-lg bg-black/95 border-t border-red-900/50 backdrop-blur-sm p-8">
+            {/* Background grid effect */}
+            <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
+            
+            {/* Animated scanline effect */}
+            <div className="absolute inset-0 scanline"></div>
+            
+            {/* Modern gradient border effect */}
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-red-500/10 to-transparent"></div>
+            <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-red-500/50 to-transparent"></div>
+            <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-red-500/50 to-transparent"></div>
+            <div className="absolute top-0 bottom-0 left-0 w-px bg-gradient-to-b from-transparent via-red-500/30 to-transparent"></div>
+            <div className="absolute top-0 bottom-0 right-0 w-px bg-gradient-to-b from-transparent via-red-500/30 to-transparent"></div>
             
             <div className="relative text-center">
-              <h2 className="text-3xl md:text-4xl font-roboto-condensed mb-6 text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-red-500 tracking-wider">
-                <span className="text-red-500">[</span> SUPPORT THE MISSION <span className="text-red-500">]</span>
+              <h2 className="text-3xl md:text-4xl text-white roboto-condensed mb-6 text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-red-500 tracking-wider">
+                SUPPORT THE PROJECT
               </h2>
               
-              <p className="text-lg text-white/80 font-mono tracking-wide mb-8 max-w-2xl mx-auto leading-relaxed">
-                JOIN THE PRODIGY NETWORK'S CAMPAIGN TO BRING THIS BRUTAL NEW AGE 
-                TO LIFE. YOUR SUPPORT POWERS THE CREATION OF HELL ON EARTH.
+              <p className="text-lg text-filesystemYellow font-mono tracking-wide mb-8 max-w-2xl mx-auto leading-relaxed">
+                Join our campaign to bring this brutal new age to life. 
+                Your support powers the creation of Hell on Earth.
               </p>
               
               <a 
                 href={contactInfo.campaignLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block bg-gradient-to-r from-red-600 to-red-700 hover:from-red-500 hover:to-red-600 text-white font-roboto-condensed tracking-wider py-4 px-8 transition-all duration-300 transform hover:scale-105 border border-red-500/30"
+                className="group relative px-8 py-4 bg-red-900/50 hover:bg-red-800/50 rounded border border-red-700/50 hover:text-red-300 text-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-red-500/25"
               >
-                ACCESS CAMPAIGN CHANNEL
+                <span className="relative z-10">ACCESS CAMPAIGN CHANNEL</span>
+                <div className="absolute inset-0 bg-gradient-to-r from-red-900/20 to-red-800/20 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </a>
+              
             </div>
           </div>
         </section>
