@@ -11,6 +11,8 @@ export interface ContactInfo {
     instagram: string;
     youtube: string;
     discord: string;
+    rumble: string;
+    locals: string;
   };
 }
 
@@ -27,5 +29,7 @@ export const contactInfo: ContactInfo = {
     instagram: "https://instagram.com/prodigynewagecomics",
     youtube: "https://youtube.com/@popculturerocks",
     discord: "https://discord.gg/prodigynewagecomics",
+    rumble: "https://rumble.com/prodigynewagecomics",
+    locals: "https://locals.com/prodigynewagecomics",
   }
 }; 

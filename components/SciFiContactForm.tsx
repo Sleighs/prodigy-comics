@@ -267,6 +267,22 @@ export default function SciFiContactForm({ className = '', sectionTitle, title }
                   </div>
                   <span className="text-white/70 group-hover:text-red-400 font-roboto text-xs tracking-wide">Discord</span>
                 </a>
+                <a href={contactInfo.social.rumble} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 group">
+                  <div className="w-6 h-6 rounded-full bg-gradient-to-br from-red-500/20 to-red-600/20 flex items-center justify-center">
+                    <svg className="w-3 h-3 text-red-400" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 2c5.514 0 10 4.486 10 10s-4.486 10-10 10S2 17.514 2 12 6.486 2 12 2zm-2 6v8h4v-8h-4zm6 0v8h4v-8h-4z"/>
+                    </svg>
+                  </div>
+                  <span className="text-white/70 group-hover:text-red-400 font-roboto text-xs tracking-wide">Rumble</span>
+                </a>
+                <a href={contactInfo.social.locals} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 group">
+                  <div className="w-6 h-6 rounded-full bg-gradient-to-br from-red-500/20 to-red-600/20 flex items-center justify-center">
+                    <svg className="w-3 h-3 text-red-400" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                    </svg>
+                  </div>
+                  <span className="text-white/70 group-hover:text-red-400 font-roboto text-xs tracking-wide">Locals</span>
+                </a>
               </div>
             </div>
           </div>
