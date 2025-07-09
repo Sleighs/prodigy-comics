@@ -18,7 +18,7 @@ function Navbar() {
           
           {/* Desktop Navigation */}
           <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-8 roboto-condensed-bold">
+            <div className="ml-10 flex items-baseline space-x-4 roboto-condensed-bold">
               <Link href="/story" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
                 STORY
               </Link>
@@ -63,42 +63,49 @@ function Navbar() {
 
       {/* Mobile Navigation */}
       {isOpen && (
-        <div className="lg:hidden">
+        <div className="md:hidden bg-black/95 backdrop-blur-sm border-t border-gray-700">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             <Link 
               href="/story" 
-              className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+              className="text-gray-300 hover:text-white block px-3 py-3 rounded-md text-base font-medium transition-colors"
               onClick={() => setIsOpen(false)}
             >
-              The Story
+              STORY
             </Link>
             <Link 
               href="/characters" 
-              className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+              className="text-gray-300 hover:text-white block px-3 py-3 rounded-md text-base font-medium transition-colors"
               onClick={() => setIsOpen(false)}
             >
-              Characters
+              CHARACTERS
             </Link>
             <Link 
               href="/store" 
-              className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+              className="text-gray-300 hover:text-white block px-3 py-3 rounded-md text-base font-medium transition-colors"
               onClick={() => setIsOpen(false)}
             >
-              Store
+              STORE
+            </Link>
+            <Link 
+              href="/about" 
+              className="text-gray-300 hover:text-white block px-3 py-3 rounded-md text-base font-medium transition-colors"
+              onClick={() => setIsOpen(false)}
+            >
+              ABOUT
             </Link>
             <Link 
               href="/news" 
-              className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+              className="text-gray-300 hover:text-white block px-3 py-3 rounded-md text-base font-medium transition-colors"
               onClick={() => setIsOpen(false)}
             >
-              News
+              NEWS
             </Link>
             <Link 
               href="/contact" 
-              className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+              className="text-gray-300 hover:text-white block px-3 py-3 rounded-md text-base font-medium transition-colors"
               onClick={() => setIsOpen(false)}
             >
-              Contact
+              CONTACT
             </Link>
           </div>
         </div>
