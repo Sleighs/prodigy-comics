@@ -197,7 +197,7 @@ export default function SciFiContactForm({ className = '', sectionTitle, title }
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-red-500/5 to-transparent animate-scan"></div>
           
           <div className="relative space-y-6">
-            <h3 className="text-2xl roboto-condensed mb-6 text-transparent bg-clip-text bg-gradient-to-r from-white to-red-500 tracking-wider">
+            <h3 className="text-2xl roboto-condensed mb-6 text-transparent bg-clip-text bg-gradient-to-r from-white to-white-500 tracking-wider">
               Email Us
             </h3>
             
