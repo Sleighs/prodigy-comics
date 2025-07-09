@@ -61,7 +61,7 @@ export default function AvailableNowSection({
       </div>
 
       {/* Content */}
-      <div className={`max-w-xl px-6 ${contentClassName}`}>
+      <div className={`max-w-xl px-6 relative z-10 ${contentClassName}`}>
         {badge && (
           <span className="inline-block px-4 py-1 bg-blood text-white text-sm font-bold rounded-full mb-4">
             {badge}
@@ -84,14 +84,14 @@ export default function AvailableNowSection({
               href={primaryButton.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-8 py-3 bg-blood hover:bg-blood-dark text-white text-lg font-semibold transition-colors duration-300 text-center"
+              className="px-8 py-3 bg-blood hover:bg-blood-dark text-white text-lg font-semibold transition-colors duration-300 text-center transform transition-transform hover:scale-105 hover:shadow-lg"
             >
               {primaryButton.text}
             </a>
           ) : (
             <Link
               href={primaryButton.link}
-              className="px-8 py-3 bg-blood hover:bg-blood-dark text-white text-lg font-semibold transition-colors duration-300 text-center"
+              className="px-8 py-3 bg-blood hover:bg-blood-dark text-white text-lg font-semibold transition-colors duration-300 text-center transform transition-transform hover:scale-105 hover:shadow-lg"
             >
               {primaryButton.text}
             </Link>
@@ -99,7 +99,7 @@ export default function AvailableNowSection({
           {secondaryButton && (
             <Link
               href={secondaryButton.link}
-              className="px-8 py-3 bg-steel-dark hover:bg-steel text-white text-lg font-semibold transition-colors duration-300 text-center"
+              className="px-8 py-3 bg-steel-dark hover:bg-steel text-white text-lg font-semibold transition-colors duration-300 text-center transform transition-transform hover:scale-105 hover:shadow-lg"
             >
               {secondaryButton.text}
             </Link>

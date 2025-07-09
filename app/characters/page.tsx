@@ -16,12 +16,22 @@ import CharacterCard from '@/components/CharacterCard';
 export default function CharactersPage() {
   const [sortBy, setSortBy] = useState<'name' | 'faction' | 'tbe' | 'popularity'>('name');
   const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('asc');
+  const [nameFilter, setNameFilter] = useState('');
+  const [factionFilter, setFactionFilter] = useState('All');
 
-  // Get unique factions
-  // const factions = Array.from(new Set(characters.list.map(char => char.category)));
+  // Get unique factions for filter dropdown
+  const factions = Array.from(new Set(characters.list.map(char => char.category).filter(Boolean)));
+  factions.sort();
+
+  // Filter characters by name and faction before sorting
+  const filteredCharacters = characters.list.filter((char) => {
+    const matchesName = char.alias.toLowerCase().includes(nameFilter.toLowerCase());
+    const matchesFaction = factionFilter === 'All' || char.category === factionFilter;
+    return matchesName && matchesFaction;
+  });
 
   // Sort characters based on current sort settings
-  const sortedCharacters = [...characters.list].sort((a, b) => {
+  const sortedCharacters = [...filteredCharacters].sort((a, b) => {
     switch (sortBy) {
       case 'name':
         return sortOrder === 'asc' 
@@ -107,14 +117,43 @@ export default function CharactersPage() {
         <div className="max-w-6xl mx-auto px-4 relative z-10">
           <h2 className="text-4xl font-bold mb-12 text-center section-title">Character List</h2>
           
-          {/* Sort Controls */}
-          <div className="sort-controls roboto">
-            <div className="flex items-center gap-4">
+          {/* Sort & Filter Controls */}
+          <div className="sort-controls roboto flex flex-col sm:flex-row flex-wrap gap-4 items-center justify-center mb-8">
+            {/* Name Filter */}
+            <div className="flex items-center gap-2">
+              <label htmlFor="nameFilter" className="text-lg">Name:</label>
+              <input
+                id="nameFilter"
+                type="text"
+                value={nameFilter}
+                onChange={e => setNameFilter(e.target.value)}
+                placeholder="Search by name..."
+                className="bg-steel-dark text-white px-4 py-2 shadow-lg shadow-blood/10 focus:outline-none focus:ring-2 focus:ring-blood rounded"
+                style={{ minWidth: 180 }}
+              />
+            </div>
+            {/* Faction Filter */}
+            <div className="flex items-center gap-2">
+              <label htmlFor="factionFilter" className="text-lg">Faction:</label>
+              <select
+                id="factionFilter"
+                value={factionFilter}
+                onChange={e => setFactionFilter(e.target.value)}
+                className="bg-steel-dark text-white px-4 py-2 shadow-lg shadow-blood/10 focus:outline-none focus:ring-2 focus:ring-blood rounded"
+              >
+                <option value="All">All</option>
+                {factions.map(faction => (
+                  <option key={faction} value={faction}>{faction}</option>
+                ))}
+              </select>
+            </div>
+            {/* Sort Controls */}
+            <div className="flex items-center gap-2">
               <label className="text-lg ">Sort by:</label>
               <select
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value as 'name' | 'faction' | 'tbe' | 'popularity')}
-                className="bg-steel-dark text-white px-4 py-2 shadow-lg shadow-blood/10 focus:outline-none focus:ring-2 focus:ring-blood"
+                className="bg-steel-dark text-white px-4 py-2 shadow-lg shadow-blood/10 focus:outline-none focus:ring-2 focus:ring-blood rounded"
               >
                 <option value="name">Name</option>
                 <option value="faction">Faction</option>
@@ -122,8 +161,7 @@ export default function CharactersPage() {
                 <option value="popularity" disabled={true}>Popularity</option>
               </select>
             </div>
-            
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-2">
               <button
                 onClick={() => setSortOrder(prev => prev === 'asc' ? 'desc' : 'asc')}
                 className="sort-button"
