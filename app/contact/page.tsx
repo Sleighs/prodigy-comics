@@ -128,40 +128,29 @@ export default function ContactPage() {
 
         {/* Campaign Section */}
         <section className="py-16 px-4 md:px-8 max-w-6xl mx-auto">
-          <div className="relative overflow-hidden rounded-lg bg-black/95 border-t border-red-900/50 backdrop-blur-sm p-8">
-            {/* Background grid effect */}
-            <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
-            
-            {/* Animated scanline effect */}
-            <div className="absolute inset-0 scanline"></div>
-            
-            {/* Modern gradient border effect */}
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-red-500/10 to-transparent"></div>
-            <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-red-500/50 to-transparent"></div>
-            <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-red-500/50 to-transparent"></div>
-            <div className="absolute top-0 bottom-0 left-0 w-px bg-gradient-to-b from-transparent via-red-500/30 to-transparent"></div>
-            <div className="absolute top-0 bottom-0 right-0 w-px bg-gradient-to-b from-transparent via-red-500/30 to-transparent"></div>
-            
-            <div className="relative text-center">
-              <h2 className="text-3xl md:text-4xl text-white roboto-condensed mb-6 text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-red-500 tracking-wider">
+          <div className="relative overflow-hidden rounded-lg bg-black/20 backdrop-blur-sm p-8">
+            {/* Brutal Grid Overlay */}
+            <div className="absolute inset-0 bg-[linear-gradient(rgba(255,0,0,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,0,0,0.02)_1px,transparent_1px)] bg-[size:20px_20px]"></div>
+            <div className="relative">
+              <h2 className="text-3xl roboto-condensed mb-6 text-transparent bg-clip-text bg-gradient-to-r from-white to-red-500 tracking-wider">
                 SUPPORT THE PROJECT
               </h2>
-              
-              <p className="text-lg text-filesystemYellow font-mono tracking-wide mb-8 max-w-2xl mx-auto leading-relaxed">
-                Join our campaign to bring this brutal new age to life. 
-                Your support powers the creation of Hell on Earth.
-              </p>
-              
-              <a 
-                href={contactInfo.campaignLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group relative px-8 py-4 bg-red-900/50 hover:bg-red-800/50 rounded border border-red-700/50 hover:text-red-300 text-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-red-500/25"
-              >
-                <span className="relative z-10">ACCESS CAMPAIGN CHANNEL</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-red-900/20 to-red-800/20 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              </a>
-              
+              <div className="space-y-6 text-white/80 font-roboto tracking-wide leading-relaxed">
+                <p>
+                  Join our campaign to bring this brutal new age to life. 
+                  Your support powers the creation of Hell on Earth.
+                </p>
+                <div className="text-center">
+                  <a 
+                    href={contactInfo.campaignLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block bg-red-700 hover:bg-red-600 text-white roboto-condensed tracking-wider py-4 px-8 rounded border border-red-500/30 transition-all duration-300 font-semibold"
+                  >
+                    ACCESS CAMPAIGN CHANNEL
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </section>
