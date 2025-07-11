@@ -74,13 +74,25 @@ const TerminalLogin = ({ onLoginSuccess }: TerminalLoginProps) => {
       username: 'knakamura',
       password: 'mizuhara'
     },
+    {
+      username: 'gunship',
+      password: '556solutions'
+    }
 
   ];
 
-  useEffect(() => {
+  const showLogin = (type: string) => {
     const accessCount = sessionStorage.getItem('accessCount') || '1';
     sessionStorage.setItem('accessCount', (parseInt(accessCount) + 1).toString());
-    console.log(`SESSION_ACCESS_0${accessCount}`, accessLogins[Math.floor(Math.random() * accessLogins.length)])
+    if (type === 'random') {
+      console.log(`SESSION_ACCESS_0${accessCount}`, accessLogins[Math.floor(Math.random() * accessLogins.length)]);
+    } else if (type === 'all') {
+      console.log(`SESSION_ACCESS_0${accessCount}`, accessLogins);
+    }
+  }
+
+  useEffect(() => {
+    showLogin('random');
   }, [])
 
   // Save attempts to localStorage whenever they change
@@ -249,7 +261,9 @@ const TerminalLogin = ({ onLoginSuccess }: TerminalLoginProps) => {
         
         <div className="terminal-login-footer">
           <div className="terminal-login-warning">WARNING: Unauthorized access attempts will be logged and reported.</div>
-          <div className="terminal-login-hint" style={{ fontStyle: 'italic', fontSize: '0.95em', color: '#7fffd4', marginTop: '0.5em' }}>
+          <div className="terminal-login-hint" style={{ cursor: 'pointer', fontStyle: 'italic', fontSize: '0.95em', color: '#7fffd4', marginTop: '0.5em' }} 
+            onClick={() => showLogin('random')}
+          >
             // Note to self: If you forget the login, just <b>press F12</b>.<br/>
             &nbsp;&nbsp;&nbsp;&nbsp;- Dr. K. Nakamura
           </div>
