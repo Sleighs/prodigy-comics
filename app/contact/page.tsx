@@ -79,7 +79,7 @@ export default function ContactPage() {
             </div>
 
             {/* Response Information */}
-            <div className="relative overflow-hidden rounded-lg bg-black/20 backdrop-blur-sm p-8">
+            <div className=" relative overflow-hidden rounded-lg bg-black/20 backdrop-blur-sm p-8">
               {/* Brutal Grid Overlay */}
               <div className="absolute inset-0 bg-[linear-gradient(rgba(255,0,0,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,0,0,0.02)_1px,transparent_1px)] bg-[size:20px_20px]"></div>
               
@@ -147,9 +147,9 @@ export default function ContactPage() {
                     href={contactInfo.campaignLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-block bg-red-700 hover:bg-red-600 text-white roboto-condensed tracking-wider py-4 px-8 rounded border border-red-500/30 transition-all duration-300 font-semibold"
+                    className="inline-block bg-red-700 hover:bg-red-600 text-white roboto-condensed tracking-wider py-4 px-8  border border-red-500/30 transition-all duration-300 font-semibold"
                   >
-                    ACCESS CAMPAIGN CHANNEL
+                    ACCESS CAMPAIGN
                   </a>
                 </div>
               </div>
