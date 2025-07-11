@@ -182,8 +182,8 @@ export default function CharacterSpotlight({
                 <div className="spotlight-content-half">
                   <div className="spotlight-info">
                     <div className="spotlight-info-content">
-                      <h3 className="text-4xl font-bold mb-2 roboto-condensed-bold">{character.alias}</h3>
-                      <p className="text-2xl text-gold-highlight mb-4">{character.name}</p>
+                      <h3 className="font-bold mb-2 roboto-condensed-bold" style={{ fontSize: '1.8rem', paddingBottom: '0rem' }}>{character.name}</h3>
+                      <p className="text-2xl text-gold-highlight mb-4" style={{ fontSize: '1.1rem', fontFamily: 'Roboto Condensed' }}>{character.alias}</p>
                       <div className="mb-6">
                         <h4 className="text-xl font-bold mb-3 roboto-condensed">Abilities</h4>
                         <div className="flex flex-wrap gap-2">
