@@ -80,7 +80,7 @@ const TerminalLogin = ({ onLoginSuccess }: TerminalLoginProps) => {
   useEffect(() => {
     const accessCount = sessionStorage.getItem('accessCount') || '1';
     sessionStorage.setItem('accessCount', (parseInt(accessCount) + 1).toString());
-    console.log('SESSION ACCESS' + accessCount, accessLogins[Math.floor(Math.random() * accessLogins.length)])
+    console.log(`SESSION_ACCESS_0${accessCount}`, accessLogins[Math.floor(Math.random() * accessLogins.length)])
   }, [])
 
   // Save attempts to localStorage whenever they change
