@@ -10,6 +10,7 @@ import ModernStoreCTA from '@/components/ModernStoreCTA';
 import '../../styles/military-theme.css';
 import ModernProductsSection from '@/components/ModernProductsSection';
 import ModernFeaturedSection from '@/components/ModernFeaturedSection';
+// import WooShop from '@/components/WooShop';
 
 export default function StorePage() {
   const [selectedImage, setSelectedImage] = useState<{ src: string; alt: string } | null>(null);
@@ -29,6 +30,9 @@ export default function StorePage() {
 
       {/* All Products Section */}
       <ModernProductsSection onImageSelect={setSelectedImage} />
+
+      {/* WooCommerce Shop Section */}
+      {/* <WooShop /> */}
 
       {/* Store CTA Section */}
       <ModernStoreCTA />

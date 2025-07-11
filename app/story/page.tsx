@@ -468,7 +468,7 @@ MAJOR ORGANIZATIONS:
               
               <div className="relative z-10">
                 <div className="filesystem-header flex items-center mb-6 border-b border-red-900/50 pb-4">
-                  <div className="filesystem-title font-mono text-red-500 uppercase tracking-wider">
+                  <div className="filesystem-header-title font-mono text-red-500 uppercase tracking-wider">
                     PRODIGY STORY OVERVIEW
                   </div>
                   <div className="story-overview-buttons ml-auto flex space-x-2">
@@ -521,7 +521,7 @@ MAJOR ORGANIZATIONS:
                 
                 <div className="relative z-10">
                   <div className="filesystem-header flex items-center mb-4 border-b border-red-900/30 pb-2">
-                    <div className="filesystem-title font-mono text-red-500 uppercase tracking-wider text-sm">
+                    <div className="filesystem-title2 font-mono text-red-500 uppercase tracking-wider text-sm">
                       THE GODSTRAND
                     </div>
                   </div>
@@ -548,7 +548,7 @@ MAJOR ORGANIZATIONS:
                 
                 <div className="relative z-10">
                   <div className="filesystem-header flex items-center mb-4 border-b border-red-900/30 pb-2">
-                    <div className="filesystem-title font-mono text-red-500 uppercase tracking-wider text-sm">
+                    <div className="filesystem-title2 font-mono text-red-500 uppercase tracking-wider text-sm">
                       T.B.E.'s
                     </div>
                   </div>
@@ -575,7 +575,7 @@ MAJOR ORGANIZATIONS:
                 
                 <div className="relative z-10">
                   <div className="filesystem-header flex items-center mb-4 border-b border-red-900/30 pb-2">
-                    <div className="filesystem-title font-mono text-red-500 uppercase tracking-wider text-sm">
+                    <div className="filesystem-title2 font-mono text-red-500 uppercase tracking-wider text-sm">
                       THE WORLD COUNCIL
                     </div>
                   </div>

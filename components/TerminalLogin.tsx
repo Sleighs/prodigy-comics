@@ -11,20 +11,14 @@ interface LoginCredential {
   password: string;
 }
 
+const MAX_ATTEMPTS = 10;
+const LOCKOUT_DURATION = 60; // 1 minute in seconds
+
 const TerminalLogin = ({ onLoginSuccess }: TerminalLoginProps) => {
-  // Initialize state from localStorage if available
+  // Initialize state from localStorage if available, but only if lockout is active
   const [userId, setUserId] = useState('');
   const [password, setPassword] = useState('');
-  const [attempts, setAttempts] = useState(() => {
-    // Try to get attempts from localStorage
-    if (typeof window !== 'undefined') {
-      const stored = localStorage.getItem('loginAttempts');
-      return stored ? parseInt(stored, 10) : 0;
-    }
-    return 0;
-  });
   const [showTimer, setShowTimer] = useState(() => {
-    // Check if we're in a lockout period
     if (typeof window !== 'undefined') {
       const lockoutEnd = localStorage.getItem('lockoutEnd');
       if (lockoutEnd) {
@@ -33,7 +27,6 @@ const TerminalLogin = ({ onLoginSuccess }: TerminalLoginProps) => {
         if (now < endTime) {
           return true;
         } else {
-          // Lockout period has ended, clear the storage
           localStorage.removeItem('lockoutEnd');
           localStorage.removeItem('loginAttempts');
           return false;
@@ -41,6 +34,17 @@ const TerminalLogin = ({ onLoginSuccess }: TerminalLoginProps) => {
       }
     }
     return false;
+  });
+  const [attempts, setAttempts] = useState(() => {
+    if (typeof window !== 'undefined') {
+      const lockoutEnd = localStorage.getItem('lockoutEnd');
+      const now = Date.now();
+      if (lockoutEnd && now < parseInt(lockoutEnd, 10)) {
+        const stored = localStorage.getItem('loginAttempts');
+        return stored ? parseInt(stored, 10) : 0;
+      }
+    }
+    return 0;
   });
   const [timeLeft, setTimeLeft] = useState(() => {
     // Calculate remaining time if in lockout
@@ -50,35 +54,53 @@ const TerminalLogin = ({ onLoginSuccess }: TerminalLoginProps) => {
         const endTime = parseInt(lockoutEnd, 10);
         const now = Date.now();
         const remaining = Math.ceil((endTime - now) / 1000);
-        return remaining > 0 ? remaining : 300;
+        return remaining > 0 ? remaining : LOCKOUT_DURATION;
       }
     }
-    return 300; // 5 minutes in seconds
+    return LOCKOUT_DURATION; // 1 minute in seconds
   });
   const [errorMessage, setErrorMessage] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const accessLogins = [
     {
       username: 'hammerhand',
-      password: 'nostrags'
-    }
+      password: 'nostraggs'
+    },
+    {
+      username: 'blackjackwashere',
+      password: 'nobrokeboys'
+    },
+    {
+      username: 'knakamura',
+      password: 'mizuhara'
+    },
+
   ];
 
   useEffect(() => {
-    console.log('SESSION ACCESS', accessLogins[Math.floor(Math.random() * accessLogins.length)])
+    const accessCount = sessionStorage.getItem('accessCount') || '1';
+    sessionStorage.setItem('accessCount', (parseInt(accessCount) + 1).toString());
+    console.log('SESSION ACCESS' + accessCount, accessLogins[Math.floor(Math.random() * accessLogins.length)])
   }, [])
 
   // Save attempts to localStorage whenever they change
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      localStorage.setItem('loginAttempts', attempts.toString());
+      // Only persist attempts if lockout is active
+      const lockoutEnd = localStorage.getItem('lockoutEnd');
+      const now = Date.now();
+      if (lockoutEnd && now < parseInt(lockoutEnd, 10)) {
+        localStorage.setItem('loginAttempts', attempts.toString());
+      } else {
+        localStorage.removeItem('loginAttempts');
+      }
     }
   }, [attempts]);
 
   // Save lockout end time when timer is activated
   useEffect(() => {
     if (showTimer && typeof window !== 'undefined') {
-      const endTime = Date.now() + (timeLeft * 1000);
+      const endTime = Date.now() + (LOCKOUT_DURATION * 1000);
       localStorage.setItem('lockoutEnd', endTime.toString());
     }
   }, [showTimer, timeLeft]);
@@ -94,12 +116,14 @@ const TerminalLogin = ({ onLoginSuccess }: TerminalLoginProps) => {
     } else if (timeLeft === 0) {
       setShowTimer(false);
       setAttempts(0);
-      setTimeLeft(300);
-      
+      if (typeof window !== 'undefined') {
+        localStorage.setItem('loginAttempts', '0');
+      }
+      setTimeLeft(LOCKOUT_DURATION);
+      setErrorMessage('');
       // Clear localStorage when lockout ends
       if (typeof window !== 'undefined') {
         localStorage.removeItem('lockoutEnd');
-        localStorage.removeItem('loginAttempts');
       }
     }
     
@@ -125,7 +149,7 @@ const TerminalLogin = ({ onLoginSuccess }: TerminalLoginProps) => {
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (attempts >= 100) {
+    if (attempts >= MAX_ATTEMPTS) {
       setShowTimer(true);
       return;
     }
@@ -138,15 +162,18 @@ const TerminalLogin = ({ onLoginSuccess }: TerminalLoginProps) => {
         // Clear attempts on successful login
         setAttempts(0);
         if (typeof window !== 'undefined') {
-          localStorage.removeItem('loginAttempts');
+          localStorage.setItem('loginAttempts', '0');
           localStorage.removeItem('lockoutEnd');
         }
+        setErrorMessage('');
+        setShowTimer(false);
+        setTimeLeft(LOCKOUT_DURATION);
         onLoginSuccess();
       } else {
         setAttempts(prev => prev + 1);
         setErrorMessage('Invalid credentials. Access denied.');
         
-        if (attempts + 1 >= 100) {
+        if (attempts + 1 >= MAX_ATTEMPTS) {
           setShowTimer(true);
         }
       }
@@ -174,7 +201,7 @@ const TerminalLogin = ({ onLoginSuccess }: TerminalLoginProps) => {
             ) : (
               <div className="terminal-login-attempts">
                 <div className="terminal-login-attempts-label">REMAINING ATTEMPTS</div>
-                <div className="terminal-login-attempts-value">{100 - attempts}</div>
+                <div className="terminal-login-attempts-value">{MAX_ATTEMPTS - attempts}</div>
               </div>
             )}
           </div>
@@ -222,6 +249,10 @@ const TerminalLogin = ({ onLoginSuccess }: TerminalLoginProps) => {
         
         <div className="terminal-login-footer">
           <div className="terminal-login-warning">WARNING: Unauthorized access attempts will be logged and reported.</div>
+          <div className="terminal-login-hint" style={{ fontStyle: 'italic', fontSize: '0.95em', color: '#7fffd4', marginTop: '0.5em' }}>
+            // Note to self: If you forget the login, just <b>press F12</b>.<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;- Dr. K. Nakamura
+          </div>
           <div className="terminal-login-version">v1.0.0</div>
         </div>
       </div>
