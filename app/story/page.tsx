@@ -469,7 +469,7 @@ MAJOR ORGANIZATIONS:
               <div className="relative z-10">
                 <div className="filesystem-header flex items-center mb-6 border-b border-red-900/50 pb-4">
                   <div className="filesystem-header-title font-mono text-red-500 uppercase tracking-wider">
-                    PRODIGY STORY OVERVIEW
+                    WELCOME TO THE NEW AGE
                   </div>
                   <div className="story-overview-buttons ml-auto flex space-x-2">
                     <button 
@@ -494,6 +494,10 @@ MAJOR ORGANIZATIONS:
 
                     <div className="mb-6">
                       At the heart of this new arms race lies the GODSTRAND - a mysterious genetic sequence that holds the key to extraordinary human potential. As different factions vie for control and understanding of this power, the line between human and superhuman becomes increasingly blurred.
+                    </div>
+
+                    <div className="mb-6">
+                      Welcome to the new age.
                     </div>
 
                     <div className="flex justify-center pt-6">
