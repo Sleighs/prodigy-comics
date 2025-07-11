@@ -500,7 +500,7 @@ MAJOR ORGANIZATIONS:
                       <Link 
                         href="https://www.youtube.com/watch?v=E7jsNUBGatQ"
                         target="_blank"
-                        className="inline-flex items-center gap-2 px-6 py-3 bg-red-900/50 hover:bg-red-800/50 rounded border border-red-700/50 text-red-400 hover:text-red-300 font-mono text-sm transition-colors"
+                        className="inline-flex items-center gap-2 px-6 py-3 bg-red-900/50 hover:bg-red-800/50 rounded border border-red-700/50 hover:text-red-300 font-mono text-sm transition-colors"
                       >
                         WATCH OFFICIAL TRAILER
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
