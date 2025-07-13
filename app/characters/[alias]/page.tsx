@@ -119,7 +119,7 @@ export default function CharacterPage() {
                     <span className="text-blue-200 font-mono">{character.role || 'CLASSIFIED'}</span>
                   </div>
                   <div className="flex justify-between items-center py-2">
-                    <span className="text-sm text-gray-400 font-mono">AFFILIATION</span>
+                    <span className="text-sm text-gray-400 font-mono">FACTION</span>
                     <span className="text-blue-200 font-mono">{character.category || 'UNKNOWN'}</span>
                   </div>
                   {character.TBENum && (
@@ -131,10 +131,6 @@ export default function CharacterPage() {
                 </div>
               </div>
               
-              <div className="mb-8">
-                <h3 className="text-xl font-bold mb-4 blue-military-section-title">Faction</h3>
-                <p className="text-lg blue-military-terminal-text">{character.category}</p>
-              </div>
               {character.abilities && character.abilities.length > 0 && (
                 <div className="mb-8">
                   <h3 className="text-xl font-bold mb-4 blue-military-section-title">Abilities</h3>
