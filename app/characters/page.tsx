@@ -85,7 +85,7 @@ export default function CharactersPage() {
       {/* Featured Characters */}
       <section className="py-20">
         <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-4xl font-bold mb-12 text-center section-title">Featured Characters</h2>
+          <h2 className="text-3xl font-bold mb-12 text-center section-title">Featured Characters</h2>
           <div className="grid md:grid-cols-3 gap-8">
             {characters.featured.map((character, index) => {
               if (index < 3) {

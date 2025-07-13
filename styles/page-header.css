@@ -1,6 +1,28 @@
 
 .character-page-header {
-    /* Slant bottom to right */
-    /* clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%); */
-    /* font-weight: bold; */
+    position: relative;
+    height: 48vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: linear-gradient(to bottom, #000, #111);
+}
+
+.character-page-header h1 {
+    font-size: 2.4rem;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    text-align: center;
+        text-shadow: 0 0 1px rgba(255, 0, 0, .5);
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.character-page-header p {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.9);
+    text-align: center;
 }

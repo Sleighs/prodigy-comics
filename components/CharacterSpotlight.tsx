@@ -59,7 +59,7 @@ export default function CharacterSpotlight({
   autoRotateInterval = 8000,
   transitionDuration = 600 
 }: CharacterSpotlightProps) {
-  //console.log('CharacterSpotlight characters:', characters);
+  // console.log('CharacterSpotlight characters:', characters);
   const [currentSpotlightIndex, setCurrentSpotlightIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
 

@@ -31,7 +31,7 @@ export default [
     },
     {
         id: 4,
-        name: 'Arrowhead / T.B.E.73',
+        name: 'Arrowhead / T.B.E.73 Poster',
         price: '$25.00',
         image: '/images/arrowhead-promo.png',
         category: 'merchandise',
@@ -41,7 +41,7 @@ export default [
     },
     {
         id: 5,
-        name: 'Ember / Sister of fire',
+        name: 'Sisters of Fire Poster',
         price: '$25.00',
         image: '/images/ember-campaign.png',
         category: 'merchandise',

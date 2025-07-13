@@ -14,9 +14,9 @@ export default function PageHeader({
   tailwindStyles = "bg-gradient-to-b from-gray-900 to-black"
 }: PageHeaderProps) {
   return (
-    <section className={tailwindStyles +  ` relative h-[50vh] flex items-center justify-center overflow-hidden`}>
+    <section className={tailwindStyles +  ` character-page-header relative h-[50vh] flex items-center justify-center overflow-hidden`}>
       {/* Scanline effect */}
-      <div className="absolute inset-0 scanline z-11"></div>
+      {/* <div className="absolute inset-0 scanline z-11"></div> */}
       
       <div className="absolute inset-0 z-1">
         <div className="absolute inset-0 bg-black/80" />
@@ -29,11 +29,11 @@ export default function PageHeader({
         />
       </div>
       <div className="relative z-10 text-center px-4">
-        <h1 className="text-5xl md:text-6xl font-bold mb-6 page-title">
+        <h1 className="text-4xl md:text-4xl font-bold mb-6 page-title roboto-condensed-bold">
           {title}
         </h1>
         {subtitle && (
-          <p className="text-xl md:text-2xl max-w-2xl mx-auto text-muted">
+          <p className="text-xl md:text-1xl max-w-1xl mx-auto text-muted">
             {subtitle}
           </p>
         )}
