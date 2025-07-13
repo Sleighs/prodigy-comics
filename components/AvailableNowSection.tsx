@@ -74,7 +74,7 @@ export default function AvailableNowSection({
             {badge}
           </span>
         )}
-        <h2 className="text-4xl md:text-5xl font-bold roboto-condensed-bold mb-4">
+        <h2 className="text-4xl md:text-5xl font-bold roboto-condensed-bold mb-4 uppercase">
           {title}
         </h2>
         {subtitle && (
@@ -82,7 +82,7 @@ export default function AvailableNowSection({
             {subtitle}
           </p>
         )}
-        <p className="text-xl text-white mb-6">
+        <p className="text-lg text-white mb-6">
           {description}
         </p>
         <div className="flex flex-col sm:flex-row gap-4">

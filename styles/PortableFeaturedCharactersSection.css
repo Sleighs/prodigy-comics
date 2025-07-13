@@ -156,21 +156,25 @@
   width: 110%;
   height: 40px;
   margin: 0 auto;
+
 }
 
 .portable-featured-character-card-header h3 {
   width: 100%;
-  font-size: 16pt;
+  font-size: 15pt;
+  text-shadow: 0 0 2px rgba(255, 255, 255, 0.5);
+
 }
 
 .portable-featured-character-card-description {
-  font-size: 12pt;
+  font-size: 11pt;
   line-height: 1.3;
   padding: 0 1rem;
   margin: 0.5rem auto;
   color: var(--color-text);
   width: 100%;
   height: 100px;
+  text-shadow: 0 0 1px rgba(255, 0, 0, .5);
 }
 
 .portable-featured-character-card:hover .portable-featured-character-card-description {

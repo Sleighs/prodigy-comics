@@ -20,17 +20,27 @@ const normalizeString = (str: string) => {
 export default function CharacterPage() {
   const params = useParams();
   const [scanComplete, setScanComplete] = useState(false);
+  const [showEncrypted, setShowEncrypted] = useState(false);
   const normalizedAlias = normalizeString(params.alias as string);
   const character = characters.list.find(char => 
     normalizeString(char.alias) === normalizedAlias
   );
 
   useEffect(() => {
-    const timer = setTimeout(() => {
+    // Scan completes after 2.5 seconds
+    const scanTimer = setTimeout(() => {
       setScanComplete(true);
-    }, 7000);
+    }, 2500);
 
-    return () => clearTimeout(timer);
+    // Show encrypted message after scan completes
+    const encryptedTimer = setTimeout(() => {
+      setShowEncrypted(true);
+    }, 3000);
+
+    return () => {
+      clearTimeout(scanTimer);
+      clearTimeout(encryptedTimer);
+    };
   }, []);
 
   if (!character) {
@@ -56,6 +66,14 @@ export default function CharacterPage() {
           <div className="security-scanline scanline-blue"></div>
           <div className="security-status">SCANNING...</div>
         </div>
+        
+        {/* Encrypted Message */}
+        {showEncrypted && (
+          <div className="encrypted-message">
+            <span className="encrypted-text">ENCRYPTED</span>
+            <span className="encrypted-subtitle">In this world we always pay a price</span>
+          </div>
+        )}
         
         <div className="absolute inset-0 z-0">
           <Image

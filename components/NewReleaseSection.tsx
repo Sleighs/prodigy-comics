@@ -106,7 +106,7 @@ export default function NewReleaseSection() {
             <h2 className="text-4xl text-[40px] font-bold roboto-condensed-bold mb-4">
               PRODIGY: Hell On Earth Issue #0
             </h2>
-            <p className="text-xl text-white mb-6">
+            <p className="text-lg text-white mb-6">
               The beginning of an epic saga where human evolution meets the rise of T.B.E.'s.
             </p>
           </div>

@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import { Character } from "@/types/Character";
 
 export const PortableCharacterCard = ({ character }: { character: Character }) => {

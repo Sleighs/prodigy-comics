@@ -14,7 +14,7 @@
     font-weight: bold;
     color: rgb(255, 255, 255);
     text-align: center;
-        text-shadow: 0 0 1px rgba(255, 0, 0, .5);
+    text-shadow: 0 0 1px rgba(255, 0, 0, .5);
     letter-spacing: 1px;
     margin-bottom: 0.5rem;
     text-transform: uppercase;

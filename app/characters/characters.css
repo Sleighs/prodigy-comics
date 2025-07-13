@@ -1045,42 +1045,46 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 3px;
+  height: 4px;
   background: linear-gradient(
     90deg,
     transparent 0%,
-    rgba(255, 0, 0, 0.8) 20%,
+    rgba(37, 99, 235, 0.3) 10%,
+    rgba(96, 165, 250, 0.8) 30%,
     rgba(255, 255, 255, 1) 50%,
-    rgba(255, 0, 0, 0.8) 80%,
+    rgba(96, 165, 250, 0.8) 70%,
+    rgba(37, 99, 235, 0.3) 90%,
     transparent 100%
   );
   box-shadow: 
-    0 0 10px rgba(255, 0, 0, 0.8),
-    0 0 20px rgba(255, 0, 0, 0.4),
-    0 0 30px rgba(255, 0, 0, 0.2);
-  animation: securityScan 7s linear forwards;
+    0 0 15px rgba(37, 99, 235, 0.6),
+    0 0 30px rgba(37, 99, 235, 0.3),
+    0 0 45px rgba(37, 99, 235, 0.1);
+  animation: securityScan 2.5s linear forwards;
 }
 
 .security-status {
   position: absolute;
   top: 20px;
   right: 20px;
-  color: rgba(255, 0, 0, 0.8);
+  color: rgba(37, 99, 235, 0.9);
   font-family: 'Courier New', monospace;
   font-size: 12px;
   font-weight: bold;
-  text-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
-  animation: statusBlink 1s ease-in-out infinite;
+  text-shadow: 0 0 8px rgba(37, 99, 235, 0.7);
+  animation: statusBlink 0.8s ease-in-out infinite;
 }
 
 .security-scanner.complete .security-scanline {
   animation: none;
   opacity: 0;
+  transition: opacity 0.5s ease;
 }
 
 .security-scanner.complete .security-status {
   animation: none;
   opacity: 0;
+  transition: opacity 0.5s ease;
 }
 
 @keyframes securityScan {
@@ -1088,10 +1092,10 @@
     transform: translateY(-100%);
     opacity: 0;
   }
-  10% { 
+  5% { 
     opacity: 1;
   }
-  90% { 
+  95% { 
     opacity: 1;
   }
   100% { 
@@ -1101,8 +1105,49 @@
 }
 
 @keyframes statusBlink {
-  0%, 100% { opacity: 0.6; }
+  0%, 100% { opacity: 0.7; }
   50% { opacity: 1; }
+}
+
+/* Encrypted Message Styles */
+.encrypted-message {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 50;
+  animation: encryptedFadeIn 0.8s ease-out forwards;
+}
+
+.encrypted-text {
+  display: block;
+  color: #60a5fa;
+  font-family: 'Courier New', monospace;
+  font-size: 14px;
+  font-weight: bold;
+  text-shadow: 0 0 10px rgba(37, 99, 235, 0.8);
+  letter-spacing: 2px;
+  margin-bottom: 4px;
+}
+
+.encrypted-subtitle {
+  display: block;
+  color: rgba(96, 165, 250, 0.7);
+  font-family: 'Courier New', monospace;
+  font-size: 10px;
+  text-shadow: 0 0 5px rgba(37, 99, 235, 0.5);
+  letter-spacing: 1px;
+  font-style: italic;
+}
+
+@keyframes encryptedFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* --- Blue Story Theme for Character Subpage --- */
@@ -1176,22 +1221,43 @@
 /* Blue security scanner */
 .security-scanner-blue .security-scanline {
   background: linear-gradient(
-    to bottom,
-    rgba(37, 99, 235, 0.15) 0%,
-    rgba(96, 165, 250, 0.25) 50%,
-    rgba(37, 99, 235, 0.15) 100%
+    90deg,
+    transparent 0%,
+    rgba(37, 99, 235, 0.3) 10%,
+    rgba(96, 165, 250, 0.8) 30%,
+    rgba(255, 255, 255, 1) 50%,
+    rgba(96, 165, 250, 0.8) 70%,
+    rgba(37, 99, 235, 0.3) 90%,
+    transparent 100%
   );
-  animation: securityScanBlue 2s linear infinite;
+  box-shadow: 
+    0 0 15px rgba(37, 99, 235, 0.6),
+    0 0 30px rgba(37, 99, 235, 0.3),
+    0 0 45px rgba(37, 99, 235, 0.1);
+  animation: securityScanBlue 2.5s linear forwards;
 }
 
 @keyframes securityScanBlue {
-  0% { top: 0; }
-  100% { top: 100%; }
+  0% { 
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  5% { 
+    opacity: 1;
+  }
+  95% { 
+    opacity: 1;
+  }
+  100% { 
+    transform: translateY(100vh);
+    opacity: 0;
+  }
 }
 
 .security-scanner-blue .security-status {
   color: #60a5fa;
   text-shadow: 0 0 8px #2563eb;
+  animation: statusBlink 0.8s ease-in-out infinite;
 }
 
 /* Blue highlight for abilities, faction, etc. */

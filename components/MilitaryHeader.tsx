@@ -51,7 +51,7 @@ export default function MilitaryHeader({
   }, []);
 
   return (
-    <div className={`relative w-full h-[200px] ${tailwindStyles}`}>
+    <div className={`relative w-full h-[275px] ${tailwindStyles}`}>
       {/* Background Image with Overlay */}
       <div className="hidden inset-0">
         <Image
