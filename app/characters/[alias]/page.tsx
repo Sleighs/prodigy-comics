@@ -144,7 +144,7 @@ export default function CharacterPage() {
                 </div>
               )}
             </div>
-            <div className="relative h-[500px] overflow-hidden blue-military-card">
+            <div className="relative h-[500px] overflow-hidden">
               <Image
                 src={character.image}
                 alt={character.alias}

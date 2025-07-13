@@ -22,11 +22,124 @@ export default function CharacterHistory({ character }: CharacterHistoryProps) {
     { id: 'intel', label: 'INTEL', icon: '🔍' }
   ];
 
+  const renderFactionRelationship = () => {
+    switch (character.category) {
+      case 'CYBERTECH':
+        return (
+          <div className="space-y-3">
+            <p className="text-blue-200 leading-relaxed">
+              Subject is a confirmed operative of CYBERTECH Global Security Solutions. 
+              Enhanced through classified augmentation protocols using partial GODSTRAND mapping.
+            </p>
+            <div className="flex items-center gap-3 text-sm">
+              <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
+              <span className="text-blue-200">Operates under coalition government authority</span>
+            </div>
+            <div className="flex items-center gap-3 text-sm">
+              <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
+              <span className="text-blue-200">Enhanced through Silicon Valley tech protocols</span>
+            </div>
+            <div className="flex items-center gap-3 text-sm">
+              <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
+              <span className="text-blue-200">Subject to classified containment protocols</span>
+            </div>
+          </div>
+        );
+      
+      case 'WOLFPAK':
+        return (
+          <div className="space-y-3">
+            <p className="text-blue-200 leading-relaxed">
+              Subject is affiliated with WOLFPAK, a specialized T.B.E. countermeasures unit. 
+              Formed in response to increasing T.B.E. incidents, particularly T.B.E. 16 in Stalingrad.
+            </p>
+            <div className="flex items-center gap-3 text-sm">
+              <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
+              <span className="text-blue-200">Operates independently of traditional military structures</span>
+            </div>
+            <div className="flex items-center gap-3 text-sm">
+              <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
+              <span className="text-blue-200">Specialized in T.B.E. neutralization and containment</span>
+            </div>
+            <div className="flex items-center gap-3 text-sm">
+              <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
+              <span className="text-blue-200">Maintains loose alliance with coalition forces</span>
+            </div>
+          </div>
+        );
+      
+      case 'CLAN BUSHIDO':
+        return (
+          <div className="space-y-3">
+            <p className="text-blue-200 leading-relaxed">
+              Subject is a member of Clan Bushido, an ancient warrior organization operating 
+              independently from modern governments. Masters of traditional and enhanced combat techniques.
+            </p>
+            <div className="flex items-center gap-3 text-sm">
+              <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
+              <span className="text-blue-200">Ancient lineage dating back to samurai traditions</span>
+            </div>
+            <div className="flex items-center gap-3 text-sm">
+              <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
+              <span className="text-blue-200">Combines traditional martial arts with enhanced abilities</span>
+            </div>
+            <div className="flex items-center gap-3 text-sm">
+              <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
+              <span className="text-blue-200">Operates under their own code of honor and discipline</span>
+            </div>
+          </div>
+        );
+      
+      case 'D.O.A.':
+        return (
+          <div className="space-y-3">
+            <p className="text-blue-200 leading-relaxed">
+              Subject is affiliated with D.O.A. (Dead On Arrival), a mercenary organization 
+              specializing in high-risk operations and bounty hunting. Known for ruthless efficiency.
+            </p>
+            <div className="flex items-center gap-3 text-sm">
+              <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
+              <span className="text-blue-200">Operates on a contract basis for highest bidder</span>
+            </div>
+            <div className="flex items-center gap-3 text-sm">
+              <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
+              <span className="text-blue-200">No permanent alliances - strictly business relationships</span>
+            </div>
+            <div className="flex items-center gap-3 text-sm">
+              <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
+              <span className="text-blue-200">Known for completing missions regardless of collateral damage</span>
+            </div>
+          </div>
+        );
+      
+      default:
+        return (
+          <div className="space-y-3">
+            <p className="text-blue-200 leading-relaxed">
+              Subject's faction affiliation remains unknown or unconfirmed. 
+              Operates independently with unclear motives and allegiances.
+            </p>
+            <div className="flex items-center gap-3 text-sm">
+              <div className="w-2 h-2 bg-red-400 rounded-full"></div>
+              <span className="text-red-300">Faction allegiance: UNKNOWN</span>
+            </div>
+            <div className="flex items-center gap-3 text-sm">
+              <div className="w-2 h-2 bg-yellow-400 rounded-full"></div>
+              <span className="text-yellow-300">Motives and objectives: CLASSIFIED</span>
+            </div>
+            <div className="flex items-center gap-3 text-sm">
+              <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
+              <span className="text-blue-200">Enhanced abilities confirmed through field reports</span>
+            </div>
+          </div>
+        );
+    }
+  };
+
   return (
     <div className="mb-8">
       <h3 className="text-xl font-bold mb-6 blue-military-section-title">Character History</h3>
       
-      {/* Tab Navigation */}
       <div className="flex border-b border-blue-500/30 mb-6">
         {tabs.map((tab) => (
           <button
@@ -44,23 +157,27 @@ export default function CharacterHistory({ character }: CharacterHistoryProps) {
         ))}
       </div>
 
-      {/* Tab Content */}
       <div className="min-h-[300px]">
         {activeTab === 'background' && (
           <div className="space-y-6">
-            {/* Description */}
             {character.description && (
               <div className="bg-gradient-to-r from-gray-800/50 to-gray-700/50 p-6">
                 <h4 className="text-lg font-bold text-blue-300 mb-4 font-mono">BRIEFING NOTES</h4>
                 <p className="text-blue-200 leading-relaxed">{character.description}</p>
               </div>
             )}
+            
+            <div className="bg-gradient-to-r from-gray-800/50 to-gray-700/50 p-6">
+              <h4 className="text-lg font-bold text-blue-300 mb-4 font-mono">FACTION RELATIONSHIP</h4>
+              <div className="space-y-4">
+                {renderFactionRelationship()}
+              </div>
+            </div>
           </div>
         )}
 
         {activeTab === 'dossier' && (
           <div className="space-y-6">
-            {/* Story/Background */}
             {character.story ? (
               <div className="bg-gradient-to-r from-gray-800/50 to-gray-700/50 p-6">
                 <h4 className="text-lg font-bold text-blue-300 mb-4 font-mono">CLASSIFIED DOSSIER</h4>
@@ -78,7 +195,6 @@ export default function CharacterHistory({ character }: CharacterHistoryProps) {
               </div>
             )}
 
-            {/* Threat Assessment */}
             <div className="bg-gradient-to-r from-gray-800/50 to-gray-700/50 p-6">
               <h4 className="text-lg font-bold text-blue-300 mb-4 font-mono">THREAT ASSESSMENT</h4>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -110,7 +226,6 @@ export default function CharacterHistory({ character }: CharacterHistoryProps) {
 
         {activeTab === 'intel' && (
           <div className="space-y-6">
-            {/* Intelligence Report */}
             <div className="bg-gradient-to-r from-gray-800/50 to-gray-700/50 p-6">
               <h4 className="text-lg font-bold text-blue-300 mb-4 font-mono">INTELLIGENCE REPORT</h4>
               <div className="space-y-4">
@@ -133,7 +248,6 @@ export default function CharacterHistory({ character }: CharacterHistoryProps) {
               </div>
             </div>
 
-            {/* Recent Activity */}
             <div className="bg-gradient-to-r from-gray-800/50 to-gray-700/50 p-6">
               <h4 className="text-lg font-bold text-blue-300 mb-4 font-mono">RECENT ACTIVITY</h4>
               <div className="space-y-3">

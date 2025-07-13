@@ -27,7 +27,7 @@ export default function CharacterGallery({ images, characterName }: CharacterGal
         {images.map((image, index) => (
           <div 
             key={index}
-            className="relative aspect-square cursor-zoom-in blue-military-card overflow-hidden hover:scale-105 transition-transform duration-200"
+            className="relative aspect-square cursor-zoom-in overflow-hidden transition-transform duration-200"
             onClick={() => handleImageClick(image)}
           >
             <Image
@@ -36,7 +36,7 @@ export default function CharacterGallery({ images, characterName }: CharacterGal
               fill
               className="object-cover"
             />
-            <div className="absolute inset-0 bg-black/0 hover:bg-black/20 transition-colors duration-200" />
+            <div className="absolute inset-0 bg-black/0 transition-colors duration-200" />
           </div>
         ))}
       </div>
