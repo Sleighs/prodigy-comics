@@ -110,7 +110,6 @@ export default function CharactersPage() {
       {/* Character Spotlight */}
       <CharacterSpotlight characters={characters.spotlightList} />
 
-
       {/* Character List */}
       <section className="character-list py-20 relative overflow-hidden">
         <div className="character-list-bg"></div>

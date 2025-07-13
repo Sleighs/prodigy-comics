@@ -1,0 +1,36 @@
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="cyberShopGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0099cc;stop-opacity:1" />
+    </linearGradient>
+    <filter id="cyberShopGlow">
+      <feGaussianBlur stdDeviation="1" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Cyber shop building -->
+  <rect x="4" y="8" width="16" height="12" rx="1" fill="url(#cyberShopGradient)" filter="url(#cyberShopGlow)"/>
+  
+  <!-- Digital roof -->
+  <path d="M4 8l8-4 8 4" stroke="url(#cyberShopGradient)" stroke-width="2" fill="none"/>
+  
+  <!-- Digital door -->
+  <rect x="10" y="14" width="4" height="6" rx="0.5" fill="url(#cyberShopGradient)" opacity="0.8"/>
+  
+  <!-- Digital windows -->
+  <rect x="6" y="10" width="3" height="3" rx="0.3" fill="url(#cyberShopGradient)" opacity="0.6"/>
+  <rect x="15" y="10" width="3" height="3" rx="0.3" fill="url(#cyberShopGradient)" opacity="0.6"/>
+  
+  <!-- Circuit elements -->
+  <path d="M4 6h16" stroke="url(#cyberShopGradient)" stroke-width="0.5" opacity="0.5"/>
+  <path d="M4 22h16" stroke="url(#cyberShopGradient)" stroke-width="0.5" opacity="0.5"/>
+  
+  <!-- Digital sign -->
+  <rect x="9" y="6" width="6" height="2" rx="0.5" fill="url(#cyberShopGradient)" opacity="0.7"/>
+  <rect x="11" y="6.5" width="2" height="1" fill="#ffffff" opacity="0.8"/>
+</svg> 

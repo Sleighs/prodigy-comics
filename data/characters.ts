@@ -40,7 +40,11 @@ export const characters = {
       ],
       story: 'Emerging from the shadows of history, Arrowhead wields ancient power with modern precision. His origins remain a mystery, but his impact on the world is undeniable.',
       TBENum: '73',
-      popularity: 4
+      popularity: 4,
+      gallery: [
+        '/images/characters/arrowhead.png',
+        '/images/characters/arrowhead2.png'
+      ]
     },
     {
       id: 4,
@@ -58,7 +62,12 @@ export const characters = {
       ],
       story: 'Surge represents the fusion of human potential and technological advancement. His abilities make him a formidable opponent in both physical and digital realms.',
       TBENum: '68',
-      popularity: 4
+      popularity: 4,
+      gallery: [
+        '/images/characters/surge.png',
+        '/images/characters/surge2.png',
+        '/images/characters/surge3.png'
+      ]
     },
     {
       id: 5,
@@ -75,7 +84,11 @@ export const characters = {
       ],
       story: 'Allegra Black operates in the shadows, her true allegiance known only to herself. Her skills and determination make her one of the most dangerous individuals in the world.',
       TBENum: '72',
-      popularity: 4
+      popularity: 4,
+      gallery: [
+        '/images/characters/allegra-black.png',
+        '/images/characters/allegra-black3.png'
+      ]
     },
     {
       id: 6,
@@ -92,7 +105,14 @@ export const characters = {
       ],
       story: 'Shimmer exists between light and shadow, using her abilities to confuse and disorient opponents. Her true identity remains a mystery to all but a select few.',
       TBENum: '65',
-      popularity: 3
+      popularity: 3,
+      gallery: [
+        '/images/characters/shimmer.png',
+        '/images/characters/shimmer2.png',
+        '/images/characters/shimmer3.png',
+        '/images/characters/shimmer4.png',
+        '/images/characters/shimmer5.png'
+      ]
     },
     {
       id: 7,
@@ -316,6 +336,10 @@ export const characters = {
       description: '',
       TBENum: '77',
       class: '',
+      gallery: [
+        '/images/characters/gun-sight.png',
+        '/images/characters/gunsight-poster.png'
+      ],
     },
     { 
       id: 2, 
@@ -396,6 +420,9 @@ export const characters = {
       description: '',
       TBENum: '',
       class: '',
+      gallery: [
+        '/images/characters/rune.png'
+      ],
     },
     { 
       id: 8, 
@@ -567,6 +594,10 @@ export const characters = {
       description: '',
       TBENum: '',
       class: '',
+      gallery: [
+        '/images/characters/the-great-wall.png',
+        '/images/characters/the-great-wall2.png'
+      ],
     },
 
     // D.O.A.
@@ -582,6 +613,11 @@ export const characters = {
       description: '',
       TBENum: '87',
       class: '',
+      gallery: [
+        '/images/characters/evil-gunn.png',
+        '/images/characters/evil-gunn2.png',
+        '/images/characters/evil-gunn3.png'
+      ],
     },
     { 
       id: 22, 
@@ -595,6 +631,11 @@ export const characters = {
       description: '',
       TBENum: '86',
       class: '',
+      gallery: [
+        '/images/characters/lightning-rod.png',
+        '/images/characters/lightning-rod2.png',
+        '/images/characters/lightning-rod3.png'
+      ],
     },
     { 
       id: 23, 
@@ -608,6 +649,12 @@ export const characters = {
       description: '',
       TBENum: '',
       class: '',
+      gallery: [
+        '/images/characters/treagor.png',
+        '/images/characters/treagor3.png',
+        '/images/characters/treagor4.png',
+        '/images/characters/treagor5.png'
+      ],
     },
     { 
       id: 24, 
@@ -621,6 +668,12 @@ export const characters = {
       description: '',
       TBENum: '',
       class: '',
+      gallery: [
+        '/images/characters/nuke.png',
+        '/images/characters/nuke2.png',
+        '/images/characters/nuke3.png',
+        '/images/characters/nuke4.png'
+      ],
     },
     { 
       id: 25, 
@@ -634,6 +687,11 @@ export const characters = {
       description: '',
       TBENum: '90',
       class: '',
+      gallery: [
+        '/images/characters/bloodlust.png',
+        '/images/characters/bloodlust2.png',
+        '/images/characters/bloodlust3.png'
+      ],
     },
     { 
       id: 26, 
@@ -647,6 +705,11 @@ export const characters = {
       description: 'Gestalt to Lightning Rod',
       TBENum: '',
       class: '',
+      gallery: [
+        '/images/characters/thunderrod.png',
+        '/images/characters/thunderrod2.png',
+        '/images/characters/thunderrod3.png'
+      ],
     },
     { 
       id: 27, 
@@ -660,6 +723,11 @@ export const characters = {
       description: '',
       TBENum: '71',
       class: '',
+      gallery: [
+        '/images/characters/gauge.png',
+        '/images/characters/gauge2.png',
+        '/images/characters/gauge3.png'
+      ],
     },
     { 
       id: 28, 
@@ -673,6 +741,12 @@ export const characters = {
       description: '',
       TBENum: '82',
       class: '',
+      gallery: [
+        '/images/characters/blackjack.png',
+        '/images/characters/blackjack2.png',
+        '/images/characters/blackjack3.png',
+        '/images/characters/blackjack4.png'
+      ],
     },
 
     // UNAFFILIATED/UNKNOWN
@@ -688,7 +762,11 @@ export const characters = {
       description: '',
       TBENum: '01',
       class: 'promethean',
-      popularity: 5
+      popularity: 5,
+      gallery: [
+        '/images/characters/genesis.png',
+        '/images/characters/genesis2.png'
+      ]
     },
     { 
       id: 30, 
@@ -715,6 +793,10 @@ export const characters = {
       description: '',
       TBEnum: '73',
       class: '',
+      gallery: [
+        '/images/characters/arrowhead.png',
+        '/images/characters/arrowhead2.png'
+      ],
     },
     { 
       id: 32, 
@@ -754,6 +836,10 @@ export const characters = {
       description: '',
       TBENum: '',
       class: '',
+      gallery: [
+        '/images/characters/allegra-black.png',
+        '/images/characters/allegra-black3.png'
+      ],
     },
     { 
       id: 35, 
@@ -780,6 +866,11 @@ export const characters = {
       description: '',
       TBENum: '',
       class: '',
+      gallery: [
+        '/images/characters/surge.png',
+        '/images/characters/surge2.png',
+        '/images/characters/surge3.png'
+      ],
     },
     { 
       id: 37, 
@@ -793,6 +884,10 @@ export const characters = {
       description: '',
       TBENum: '',
       class: '',
+      gallery: [
+        '/images/characters/verdict.png',
+        '/images/characters/verdict5.png'
+      ],
     },
     { 
       id: 38, 
@@ -806,6 +901,12 @@ export const characters = {
       description: '',
       TBENum: '',
       class: '',
+      gallery: [
+        '/images/characters/chaos.png',
+        '/images/characters/chaos2.png',
+        '/images/characters/chaos3.png',
+        '/images/characters/chaos4.png'
+      ],
     },
     {
       id: 39,
@@ -819,6 +920,12 @@ export const characters = {
       description: '',
       TBENum: '17',
       class: '',
+      gallery: [
+        '/images/characters/checkmate.png',
+        '/images/characters/checkmate2.png',
+        '/images/characters/checkmate3.png',
+        '/images/characters/checkmate4.png'
+      ],
     },
     {
       id: 40,
@@ -845,6 +952,11 @@ export const characters = {
       description: '',
       TBENum: '',
       class: '',
+      gallery: [
+        '/images/characters/shannon-aster.png',
+        '/images/characters/shannon-aster2.png',
+        '/images/characters/shannon-aster3.png'
+      ],
     },
     {
       id: 42,
@@ -858,9 +970,13 @@ export const characters = {
       description: '',
       TBENum: '',
       class: '',
+      gallery: [
+        '/images/characters/ringo.png',
+        '/images/characters/ringo2.png'
+      ],
     },
-    {
-      id: 43,
+        { 
+      id: 43, 
       name: 'Impulse',
       alias: 'Impulse',
       role: 'Unknown',
@@ -870,7 +986,13 @@ export const characters = {
       abilities: ['Fire manipulation'],
       description: 'Gestalt to Ember',
       TBENum: '',
-      class: '', 
+      class: '',
+      gallery: [
+        '/images/characters/impulse.png',
+        '/images/characters/impulse2.png',
+        '/images/characters/impulse3.png',
+        '/images/characters/impulse4.png'
+      ],
     },
     
     { 
@@ -885,6 +1007,13 @@ export const characters = {
       description: '',
       TBENum: '',
       class: '',
+      gallery: [
+        '/images/characters/shimmer.png',
+        '/images/characters/shimmer2.png',
+        '/images/characters/shimmer3.png',
+        '/images/characters/shimmer4.png',
+        '/images/characters/shimmer5.png'
+      ],
     },
     { 
       id: 45, 
@@ -911,6 +1040,12 @@ export const characters = {
       description: '',
       TBENum: '',
       class: '',
+      gallery: [
+        '/images/characters/sight.png',
+        '/images/characters/sight2.png',
+        '/images/characters/sight3.png',
+        '/images/characters/sight4.png'
+      ],
     },
     { 
       id: 47, 
@@ -937,6 +1072,10 @@ export const characters = {
       description: '',
       TBENum: '',
       class: '',
+      gallery: [
+        '/images/characters/shrike.png',
+        '/images/characters/shrike2.png'
+      ],
     }
   ]
 };

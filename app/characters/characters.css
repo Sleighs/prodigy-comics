@@ -1273,30 +1273,32 @@
 
 .blue-military-section {
   background: #0a0f1a; /* much darker navy/black */
-  border: 1.5px solid #2563eb;
+  /* border: 1.5px solid #2563eb; */
   padding: 20px;
   margin: 20px 0;
-  border-radius: 6px;
   box-shadow: 0 4px 24px 0 rgba(37, 99, 235, 0.10);
 }
 
 .blue-military-card {
   background: #101624; /* very dark blue/black */
-  border: 1.5px solid #2563eb;
-  border-radius: 4px;
+  /* border: 1.5px solid #2563eb; */
   box-shadow: 0 4px 12px rgba(37, 99, 235, 0.10);
   color: #fff;
   transition: transform 0.3s, box-shadow 0.3s;
+
 }
 .blue-military-card:hover {
-  transform: translateY(-5px);
+  /* transform: translateY(-5px); */
   box-shadow: 0 6px 18px rgba(37, 99, 235, 0.18);
   border-color: #60a5fa;
 }
 
 .blue-military-title {
   text-shadow: 0 0 12px #2563eb, 0 0 2px #fff;
-  letter-spacing: 0.15em;
+  font-family: Roboto Condensed, sans-serif;
+  letter-spacing: 1px;
+  font-size: 2rem;
+  text-transform: uppercase;
   position: relative;
   color: #fff;
 }
@@ -1315,6 +1317,8 @@
 .blue-military-section-title {
   color: #fff;
   text-transform: uppercase;
+  font-family: Roboto Condensed, sans-serif;
+
   letter-spacing: 2px;
   border-bottom: 2px solid #2563eb44;
   padding-bottom: 8px;
@@ -1333,23 +1337,24 @@
 }
 
 .blue-military-button {
-  background: linear-gradient(to bottom, #2563eb, #0a0f1a);
-  border: 1.5px solid #60a5fa;
+  /* background: linear-gradient(to bottom, #2563eb, #0a0f1a); */
+  /* border: 1.5px solid #60a5fa; */
+  background: #101624;
   color: #fff;
   padding: 8px 16px;
-  border-radius: 4px;
   cursor: pointer;
   transition: all 0.3s;
   text-transform: uppercase;
   letter-spacing: 1px;
-  font-size: 0.9rem;
-  box-shadow: 0 0 8px #2563eb44;
+  font-size: 0.85rem;
+  box-shadow: 0 0 3px #2563eb44;
 }
 .blue-military-button:hover {
-  background: linear-gradient(to bottom, #60a5fa, #101624);
+  /* background: linear-gradient(to bottom, #60a5fa, #101624); */
+  background: #60a5fa;
   border-color: #2563eb;
   color: #fff;
-  box-shadow: 0 0 16px #60a5fa44;
+  box-shadow: 0 0 9px #60a5fa44;
 }
 
 /* Keep blue highlights for glows, borders, and scanlines, but use white for most text */
@@ -1378,4 +1383,190 @@
 
 .characters--featured-characters-card-image-container .absolute.inset-0.bg-blood {
   display: none !important;
+}
+
+/* Character Abilities Six-Shooter Styles */
+.character-abilities-cylinder {
+  filter: drop-shadow(0 0 20px rgba(59, 130, 246, 0.3));
+}
+
+.character-abilities-chamber {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.character-abilities-chamber:hover {
+  filter: drop-shadow(0 0 10px rgba(59, 130, 246, 0.5));
+  transform: scale(1.05);
+}
+
+.character-abilities-spin-button {
+  background: linear-gradient(135deg, #1e40af 0%, #1d4ed8 50%, #2563eb 100%);
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+}
+
+.character-abilities-spin-button:hover {
+  background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 50%, #3b82f6 100%);
+  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+  transform: translateY(-2px);
+}
+
+/* Character History Tab Styles */
+.character-history-tab {
+  position: relative;
+  overflow: hidden;
+}
+
+.character-history-tab::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.character-history-tab:hover::before {
+  left: 100%;
+}
+
+.character-history-tab.active {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(59, 130, 246, 0.05) 100%);
+}
+
+/* Threat Assessment Indicators */
+.threat-indicator {
+  animation: pulse 2s infinite;
+}
+
+.threat-indicator.red {
+  box-shadow: 0 0 20px rgba(239, 68, 68, 0.3);
+}
+
+.threat-indicator.yellow {
+  box-shadow: 0 0 20px rgba(245, 158, 11, 0.3);
+}
+
+.threat-indicator.blue {
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+}
+
+/* Intelligence Report Styles */
+.intel-report-item {
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.intel-report-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: currentColor;
+  animation: pulse 2s infinite;
+}
+
+/* Dossier Status Animation */
+.dossier-status {
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 5px rgba(239, 68, 68, 0.5);
+  }
+  to {
+    box-shadow: 0 0 20px rgba(239, 68, 68, 0.8);
+  }
+}
+
+/* Enhanced Blue Military Theme */
+.blue-military-section-title {
+  background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 2px 4px rgba(59, 130, 246, 0.3);
+}
+
+.blue-military-terminal-text {
+  font-family: 'Courier New', monospace;
+  text-shadow: 0 0 10px rgba(59, 130, 246, 0.3);
+}
+
+/* Responsive adjustments for abilities component */
+@media (max-width: 768px) {
+  .character-abilities-cylinder {
+    width: 280px !important;
+    height: 280px !important;
+  }
+  
+  .character-abilities-chamber {
+    width: 48px !important;
+    height: 48px !important;
+  }
+  
+  .character-history-tabs {
+    flex-direction: column;
+  }
+  
+  .character-history-tab {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* Enhanced hover effects for gallery */
+.character-gallery-item {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.character-gallery-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+}
+
+/* Loading states for abilities */
+.abilities-loading {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Enhanced button styles */
+.blue-military-button {
+  background: linear-gradient(135deg, #1e40af 0%, #1d4ed8 100%);
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.blue-military-button:hover {
+  background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 100%);
+  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+  transform: translateY(-2px);
+}
+
+/* Card enhancements */
+.blue-military-card {
+  background: linear-gradient(135deg, rgba(31, 41, 55, 0.8) 0%, rgba(17, 24, 39, 0.9) 100%);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.blue-military-card:hover {
+  box-shadow: 0 12px 35px rgba(59, 130, 246, 0.2);
+  transform: translateY(-2px);
 }

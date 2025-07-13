@@ -10,4 +10,5 @@ export type Character = {
   popularity?: number;
   story?: string;
   role?: string;
+  gallery?: string[];
 }

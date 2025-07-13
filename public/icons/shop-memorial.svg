@@ -1,0 +1,36 @@
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="memorialShopGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#dc2626;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#7c2d12;stop-opacity:0.9" />
+    </linearGradient>
+    <filter id="memorialShopGlow">
+      <feGaussianBlur stdDeviation="1.5" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Memorial shop building -->
+  <rect x="4" y="8" width="16" height="12" rx="2" fill="url(#memorialShopGradient)" filter="url(#memorialShopGlow)"/>
+  
+  <!-- Memorial roof -->
+  <path d="M4 8l8-4 8 4" stroke="url(#memorialShopGradient)" stroke-width="2" fill="none"/>
+  
+  <!-- Memorial door -->
+  <rect x="10" y="14" width="4" height="6" rx="1" fill="url(#memorialShopGradient)" opacity="0.8"/>
+  
+  <!-- Memorial windows -->
+  <rect x="6" y="10" width="3" height="3" rx="0.5" fill="url(#memorialShopGradient)" opacity="0.6"/>
+  <rect x="15" y="10" width="3" height="3" rx="0.5" fill="url(#memorialShopGradient)" opacity="0.6"/>
+  
+  <!-- Remembrance elements -->
+  <circle cx="12" cy="7" r="0.8" fill="#ffffff" opacity="0.3"/>
+  <path d="M11 6.5c0 0.3 0.4 0.5 1 0.5s1-0.2 1-0.5" stroke="#ffffff" stroke-width="0.3" fill="none" opacity="0.5"/>
+  
+  <!-- Subtle tear elements -->
+  <circle cx="10.5" cy="11.5" r="0.2" fill="#ffffff" opacity="0.4"/>
+  <circle cx="13.5" cy="11.5" r="0.2" fill="#ffffff" opacity="0.4"/>
+</svg> 

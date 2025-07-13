@@ -5,6 +5,9 @@ import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import { useState, useEffect } from 'react';
 import { characters } from '@/data/characters';
+import CharacterGallery from '@/components/CharacterGallery';
+import CharacterAbilities from '@/components/CharacterAbilities';
+import CharacterHistory from '@/components/CharacterHistory';
 import '../characters.css';
 
 // Helper function to normalize strings for comparison
@@ -71,7 +74,7 @@ export default function CharacterPage() {
         {showEncrypted && (
           <div className="encrypted-message">
             <span className="encrypted-text">ENCRYPTED</span>
-            <span className="encrypted-subtitle">In this world we always pay a price</span>
+            {/* <span className="encrypted-subtitle">Always a price to pay</span> */}
           </div>
         )}
         
@@ -88,8 +91,8 @@ export default function CharacterPage() {
         {/* Blue scanline overlay */}
         <div className="absolute inset-0 scanline-blue pointer-events-none z-20" />
         <div className="relative z-40 text-center px-4">
-          <h1 className="text-5xl md:text-7xl font-bold mb-4 page-title text-blue-400">{character.alias}</h1>
-          <p className="text-2xl text-blue-400">{character.role}</p>
+          <h1 className="text-5xl md:text-7xl font-bold mb-4 page-title text-white roboto-condensed">{character.alias}</h1>
+          <p className="text-2xl text-white">{character.role}</p>
         </div>
       </section>
 
@@ -98,10 +101,36 @@ export default function CharacterPage() {
         <div className="max-w-6xl mx-auto blue-military-section">
           <div className="grid md:grid-cols-2 gap-12">
             <div>
-              <h2 className="text-3xl font-bold mb-6 blue-military-title">About</h2>
+              <h2 className="font-bold mb-6 blue-military-title">About</h2>
               {character.description && (
                 <p className="text-lg mb-8 blue-military-description">{character.description}</p>
               )}
+              
+              {/* Subject Overview */}
+              <div className="mb-8">
+                <h3 className="text-xl font-bold mb-4 blue-military-section-title">Subject Overview</h3>
+                <div className="grid grid-cols-1 gap-4">
+                  <div className="flex justify-between items-center py-2">
+                    <span className="text-sm text-gray-400 font-mono">CODENAME</span>
+                    <span className="text-blue-200 font-mono">{character.alias}</span>
+                  </div>
+                  <div className="flex justify-between items-center py-2">
+                    <span className="text-sm text-gray-400 font-mono">ROLE</span>
+                    <span className="text-blue-200 font-mono">{character.role || 'CLASSIFIED'}</span>
+                  </div>
+                  <div className="flex justify-between items-center py-2">
+                    <span className="text-sm text-gray-400 font-mono">AFFILIATION</span>
+                    <span className="text-blue-200 font-mono">{character.category || 'UNKNOWN'}</span>
+                  </div>
+                  {character.TBENum && (
+                    <div className="flex justify-between items-center py-2">
+                      <span className="text-sm text-gray-400 font-mono">T.B.E. NUMBER</span>
+                      <span className="text-blue-200 font-mono">{character.TBENum}</span>
+                    </div>
+                  )}
+                </div>
+              </div>
+              
               <div className="mb-8">
                 <h3 className="text-xl font-bold mb-4 blue-military-section-title">Faction</h3>
                 <p className="text-lg blue-military-terminal-text">{character.category}</p>
@@ -118,12 +147,6 @@ export default function CharacterPage() {
                   </div>
                 </div>
               )}
-              {character.TBENum && (
-                <div>
-                  <h3 className="text-xl font-bold mb-4 blue-military-section-title">T.B.E. Number</h3>
-                  <p className="text-lg blue-military-terminal-text">{character.TBENum}</p>
-                </div>
-              )}
             </div>
             <div className="relative h-[500px] overflow-hidden blue-military-card">
               <Image
@@ -134,6 +157,26 @@ export default function CharacterPage() {
               />
             </div>
           </div>
+          
+          {/* Character Abilities */}
+          {character.abilities && character.abilities.length > 0 && (
+            <CharacterAbilities 
+              abilities={character.abilities} 
+              characterName={character.alias}
+            />
+          )}
+          
+          {/* Character History */}
+          <CharacterHistory character={character} />
+          
+          {/* Character Gallery */}
+          {character.gallery && character.gallery.length > 0 && (
+            <CharacterGallery 
+              images={character.gallery} 
+              characterName={character.alias}
+            />
+          )}
+          
           <div className="mt-12">
             <Link 
               href="/characters" 

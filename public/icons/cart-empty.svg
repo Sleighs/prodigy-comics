@@ -1,0 +1,26 @@
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="emptyCartGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6b7280;stop-opacity:0.6" />
+      <stop offset="100%" style="stop-color:#4b5563;stop-opacity:0.8" />
+    </linearGradient>
+    <filter id="emptyGlow">
+      <feGaussianBlur stdDeviation="1" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Empty cart outline -->
+  <path d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.3 5c-.3.6.2 1.2.9 1.2h12.8c.7 0 1.2-.6.9-1.2L17 13H7z" 
+        stroke="url(#emptyCartGradient)" stroke-width="2" fill="none" filter="url(#emptyGlow)" opacity="0.7"/>
+  
+  <!-- Empty wheels -->
+  <circle cx="9" cy="20" r="1.5" stroke="url(#emptyCartGradient)" stroke-width="1" fill="none" opacity="0.5"/>
+  <circle cx="15" cy="20" r="1.5" stroke="url(#emptyCartGradient)" stroke-width="1" fill="none" opacity="0.5"/>
+  
+  <!-- Absence indicator -->
+  <path d="M8 8l8 8M16 8l-8 8" stroke="url(#emptyCartGradient)" stroke-width="1" opacity="0.4"/>
+</svg> 
