@@ -51,7 +51,7 @@ export default function MilitaryHeader({
   }, []);
 
   return (
-    <div className={`relative w-full h-[200px] ${tailwindStyles}`}>
+    <div className={`relative w-full h-[30vh] ${tailwindStyles}`}>
       {/* Background Image with Overlay */}
       <div className="hidden inset-0">
         <Image
@@ -64,24 +64,9 @@ export default function MilitaryHeader({
         <div className="absolute inset-0 bg-black/70" />
       </div>
 
-      {/* Top Status Bar */}
-      <div className="hidden top-0 left-0 right-0 bg-black/80 border-b border-red-500 p-1">
-        <div className="container mx-auto flex justify-between items-center">
-          <div className="terminal-text text-xs">
-            CLASSIFICATION: <span className="glitch" data-text={classification}>{classification}</span>
-          </div>
-          <div className="terminal-text text-xs">
-            
-          </div>
-          <div className="terminal-text text-xs">
-            {date || currentDateTime}
-          </div>
-        </div>
-      </div>
-
       {/* Main Header Content */}
       <div className="absolute inset-0 flex flex-col items-center justify-center">
-        <div className="scan-line w-full">
+        <div className="w-full">
           <h1 className="military-title roboto-condensed-bold text-3xl md:text-3xl font-bold text-white text-center mb-1">
             {title}
           </h1>
@@ -93,20 +78,6 @@ export default function MilitaryHeader({
         </div>
       </div>
 
-      {/* Bottom Status Bar */}
-      <div className="hidden absolute bottom-0 left-0 right-0 bg-black/80 border-t border-red-500 p-1">
-        <div className="container mx-auto flex justify-between items-center px-2">
-          <div className="terminal-text text-xs">
-            DOCUMENT ID: {documentId}
-          </div>
-          <div className="terminal-text text-xs">
-            ACCESS LEVEL: <span className="glitch" data-text={accessLevel}>{accessLevel}</span>
-          </div>
-          <div className="terminal-text text-xs">
-            SYSTEM STATUS: <span className="text-green-500">{systemStatus}</span>
-          </div>
-        </div>
-      </div>
     </div>
   );
 } 

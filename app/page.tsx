@@ -1,6 +1,7 @@
 'use client';
 import Image from "next/image";
 import Link from "next/link";
+
 import Footer from '@/components/Footer'
 import HeroCarousel from '@/components/HeroCarousel'
 import NewReleaseSection from '@/components/NewReleaseSection'
@@ -11,52 +12,19 @@ import PortableFeaturedCharactersSection from "@/components/PortableFeaturedChar
 import TBEMap from "@/components/TBEMap";
 import TBESightingsIntro from "@/components/TBESightingsIntro";
 
-const featuredProducts = [
-  {
-    id: 1,
-    name: "PRODIGY: Hell on Earth Book #0",
-    price: "$28.00",
-    image: "/images/book0-preview1.png",
-    link: "https://www.indiegogo.com/projects/prodigy-new-age-hell-on-earth-book-0#/"
-  },
-  {
-    id: 2,
-    name: "PRODIGY New Age STUFFED box",
-    price: "$250.00",
-    image: "/images/stuffed-box1.png",
-    link: "https://www.indiegogo.com/projects/prodigy-new-age-hell-on-earth-book-0#/"
-  },
-  {
-    id: 3,
-    name: "Ember & Impulse / Sisters of Fire Poster",
-    price: "$25.00",
-    image: "/images/ember-promo.png",
-    link: "https://www.indiegogo.com/projects/prodigy-new-age-hell-on-earth-book-0#/"
-  }
-];
-
-const characters = [
-  {
-    name: "Genesis",
-    description: "NO ONE understands who or WHAT Genesis is. Her arrival will have consequences for all who cross her path.",
-    image: "/images/genesis-campaign.png",
-    link: "/characters/genesis"
-  },
-  {
-    name: "VERDICT",
-    description: "VERDCT COMETH!! NOTHING escapes the judgement of the red behemoth!!",
-    image: "/images/verdict-poster.png",
-    link: "/characters/verdict"
-  },
-  {
-    name: "G.U.N. Sight",
-    description: "Commander of the North American Division, G.U.N.Sight is a proven leader and a charter member of The World Coalition against T.B.E.'s.",
-    image: "/images/gunsight-poster.png",
-    link: "/characters/gun-sight"
-  }
-];
-
 export default function Home() {
+  useEffect(() => {
+    // Log the environment variables to verify they are loaded correctly
+    console.log('');
+    console.log('Environment Variables:');
+    console.log('Key:', process.env.NEXT_PUBLIC_WC_CONSUMER_KEY);
+    console.log('Secret:', process.env.NEXT_PUBLIC_WC_CONSUMER_SECRET);
+    console.log('Store URL:', process.env.NEXT_PUBLIC_WC_STORE_URL);
+    console.log("TEST_VAR: ", process.env.NEXT_PUBLIC_TEST_VAR, process.env.TEST_VAR);
+
+    console.log('');
+  }, []);
+
   return (
     <main className="home-page min-h-screen pt-16 roboto">
       {/* Hero Carousel */}
