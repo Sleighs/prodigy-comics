@@ -13,7 +13,7 @@
   grid-template-columns: repeat(5, 1fr);
   flex-direction: row;
   flex-wrap: wrap;
-  overflow: auto;
+  overflow: hidden;
   gap: 0rem;
   padding: 1rem 1rem;
   scrollbar-width: thin;
